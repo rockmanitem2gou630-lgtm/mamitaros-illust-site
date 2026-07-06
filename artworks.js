@@ -266,7 +266,34 @@ const artworks = [
     thumb: "images/thumbnails/2023/04/20230421_hololive_pekora_th.webp",
     image: "images/originals/2023/04/20230421_hololive_pekora.webp",
     tags: ["ホロライブ", "一枚絵"],
-    comment: "ぺこーらがドラクエ4やってた時",
+    comment: "ぺこーらがドラクエ4やってた時の",
+    draft: false
+  },
+  {
+    title: "ぷよテト大会ぺこーらすいちゃん",
+    date: "2023-04-11",
+    thumb: "images/thumbnails/2023/04/20230411_hololive_pekorasuichan_th.webp",
+    image: "images/originals/2023/04/20230411_hololive_pekorasuichan.webp",
+    tags: ["ホロライブ", "一枚絵", "ぷよぷよ"],
+    comment: "ぷよもホロも好き",
+    draft: false
+  },
+  {
+    title: "みこちとさかな王子",
+    date: "2023-04-16",
+    thumb: "images/thumbnails/2023/04/20230416_hololive_mikoti_th.webp",
+    image: "images/originals/2023/04/20230416_hololive_mikoti.webp",
+    tags: ["ホロライブ", "一枚絵", "ぷよぷよ"],
+    comment: "みこちと王子合いすぎだよな",
+    draft: false
+  },
+  {
+    title: "船長とあや様",
+    date: "2023-04-18",
+    thumb: "images/thumbnails/2023/04/20230418_hololive_marine_th.webp",
+    image: "images/originals/2023/04/20230418_hololive_marine.webp",
+    tags: ["ホロライブ", "一枚絵", "ぷよぷよ"],
+    comment: "推しが推しを使って優勝したんや",
     draft: false
   }
 ];

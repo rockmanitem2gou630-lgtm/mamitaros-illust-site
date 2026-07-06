@@ -708,5 +708,14 @@ const artworks = [
     tags: ["ドラクエ", "漫画"],
     comment: "こ、こら～！！",
     draft: false
+  },
+  {
+    title: "ばたんきゅ～みこち",
+    date: "2023-04-18",
+    thumb: "images/thumbnails/2023/04/20230418_hololive_mikoti_th.webp",
+    image: "images/originals/2023/04/20230418_hololive_mikoti.gif",
+    tags: ["ホロライブ", "GIF", "ぷよぷよ"],
+    comment: "負けちゃったにぇ",
+    draft: false
   }
 ];

@@ -302,7 +302,7 @@ const artworks = [
     thumb: "images/thumbnails/2023/04/20230715_puyopuyo_sig_th.webp",
     image: "images/originals/2023/04/20230715_puyopuyo_sig.webp",
     tags: ["ぷよぷよ", "一枚絵"],
-    comment: "シグアンソロに参加した時の",
+    comment: "シグアンソロに参加した時のもの",
     draft: false
   },
   {
@@ -311,7 +311,7 @@ const artworks = [
     thumb: "images/thumbnails/2023/04/20230721_puyopuyo_sig_th.webp",
     image: "images/originals/2023/04/20230721_puyopuyo_sig.webp",
     tags: ["ぷよぷよ", "一枚絵"],
-    comment: "シグアンソロに参加した時の",
+    comment: "シグアンソロに参加した時のもの",
     draft: false
   }
 ];

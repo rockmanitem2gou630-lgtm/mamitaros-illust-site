@@ -349,5 +349,41 @@ const artworks = [
     tags: ["SB69", "一枚絵"],
     comment: "いとけんの誕生日に",
     draft: false
+  },
+  {
+    title: "素晴らしき魔王の嫁の髪型",
+    date: "2024-05-14",
+    thumb: "images/thumbnails/2024/05/20240514_dorakue_maouchan_th.webp",
+    image: "images/originals/2024/05/20240514_dorakue_maouchan.webp",
+    tags: ["ドラクエ", "イメレス"],
+    comment: "ユシュカしか言ってない",
+    draft: false
+  },
+  {
+    title: "ファラザード大魔王ちゃん",
+    date: "2024-09-22",
+    thumb: "images/thumbnails/2024/09/20240922_dorakue_maouchan_th.webp",
+    image: "images/originals/2024/09/20240922_dorakue_maouchan.webp",
+    tags: ["ドラクエ", "一枚絵"],
+    comment: "さり気ないユシュ主",
+    draft: false
+  },
+  {
+    title: "大魔王ちゃんのお成り",
+    date: "2024-09-13",
+    thumb: "images/thumbnails/2024/09/20240913_dorakue_maouchan_th.webp",
+    image: "images/originals/2024/09/20240913_dorakue_maouchan.webp",
+    tags: ["ドラクエ", "一枚絵"],
+    comment: "一応ベルヴァインの森",
+    draft: false
+  },
+  {
+    title: "タクト実装大魔王ちゃん",
+    date: "2024-09-29",
+    thumb: "images/thumbnails/2024/09/20240929_dorakue_maouchan_th.webp",
+    image: "images/originals/2024/09/20240929_dorakue_maouchan.webp",
+    tags: ["ドラクエ", "その他"],
+    comment: "描くしかないだろ！",
+    draft: false
   }
 ];

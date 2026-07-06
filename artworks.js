@@ -457,5 +457,50 @@ const artworks = [
     tags: ["刀剣乱舞", "一枚絵"],
     comment: "メイドの日のもの",
     draft: false
+  },
+  {
+    title: "魔法少女☆則宗",
+    date: "2026-04-13",
+    thumb: "images/thumbnails/2026/04/20260413_touken_norimune_th.webp",
+    image: "images/originals/2026/04/20260413_touken_norimune.webp",
+    tags: ["刀剣乱舞", "一枚絵"],
+    comment: "公式がなんか魔法少女のグッズ出したので",
+    draft: false
+  },
+  {
+    title: "魔法少女☆則宗三面図",
+    date: "2026-04-16",
+    thumb: "images/thumbnails/2026/04/20260416_touken_norimune_th.webp",
+    image: "images/originals/2026/04/20260416_touken_norimune.webp",
+    tags: ["刀剣乱舞", "その他"],
+    comment: "せっかくだから俺はデザイン詳細を描くぜ",
+    draft: false
+  },
+  {
+    title: "魔法少女☆則宗詳細",
+    date: "2026-04-17",
+    thumb: "images/thumbnails/2026/04/20260417_touken_norimune_th.webp",
+    image: "images/originals/2026/04/20260417_touken_norimune.webp",
+    tags: ["刀剣乱舞", "その他"],
+    comment: "声優ネタで遊び始める",
+    draft: false
+  },
+  {
+    title: "則さにらくがき",
+    date: "2026-05-03",
+    thumb: "images/thumbnails/2026/05/20260503_touken_norimune_th.webp",
+    image: "images/originals/2026/05/20260503_touken_norimune.webp",
+    tags: ["刀剣乱舞", "セリフ付き"],
+    comment: "撫でられても尚色気が出てしまう",
+    draft: false
+  },
+  {
+    title: "則宗一騎打ち",
+    date: "2026-05-06",
+    thumb: "images/thumbnails/2026/05/20260506_touken_norimune_th.webp",
+    image: "images/originals/2026/05/20260506_touken_norimune.webp",
+    tags: ["刀剣乱舞", "セリフ付き"],
+    comment: "何人の審神者がお守りに気づくのか",
+    draft: false
   }
 ];

@@ -502,5 +502,32 @@ const artworks = [
     tags: ["刀剣乱舞", "セリフ付き"],
     comment: "何人の審神者がお守りに気づくだろう",
     draft: false
+  },
+  {
+    title: "サリエリ",
+    date: "2026-03-30",
+    thumb: "images/thumbnails/2026/03/20260330_fate_salieri_th.webp",
+    image: "images/originals/2026/03/20260330_fate_salieri.webp",
+    tags: ["Fate", "一枚絵"],
+    comment: "本物の楽譜使ってる拘り",
+    draft: false
+  },
+  {
+    title: "天塚先輩",
+    date: "2026-03-30",
+    thumb: "images/thumbnails/2026/03/20260329_fate_amatuka_th.webp",
+    image: "images/originals/2026/03/20260329_fate_amatuka.webp",
+    tags: ["Fate", "一枚絵"],
+    comment: "イドミリしらで描いたってマ！？",
+    draft: false
+  },
+  {
+    title: "サリエリ先生実装周年絵",
+    date: "2026-04-11",
+    thumb: "images/thumbnails/2026/04/20260411_fate_salieri_th.webp",
+    image: "images/originals/2026/04/20260411_fate_salieri.webp",
+    tags: ["Fate", "一枚絵"],
+    comment: "最推し……！いつもありがとうございます",
+    draft: false
   }
 ];

@@ -43,5 +43,14 @@ const artworks = [
     tags: ["刀剣乱舞", "一枚絵"],
     comment: "企画に参加した時の乱ちゃん",
     draft: false
+  },
+  {
+    title: "「いいよね」",
+    date: "2026-07-05",
+    thumb: "images/thumbnails/2026/07/20260705_deno_ryuta_th.webp",
+    image: "images/originals/2026/07/20260705_deno_ryuta.webp",
+    tags: ["電王", "一枚絵"],
+    comment: "答えは聞いてない！",
+    draft: false
   }
 ];

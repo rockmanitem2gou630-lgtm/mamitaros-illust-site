@@ -618,5 +618,14 @@ const artworks = [
   comment: "これくらいでもR判定らしい",
   dream: true,
   draft: false
+  },
+  {
+    title: "関俊彦さん誕生日絵",
+    date: "2026-06-11",
+    thumb: "images/thumbnails/2026/06/20260611_touken_sekitoshi_th.webp",
+    image: "images/originals/2026/06/20260611_touken_sekitoshi.webp",
+    tags: ["刀剣乱舞", "Fate", "忍たま", "Epic7", "一枚絵"],
+    comment: "四大推しとちょっとの声優ネタ",
+    draft: false
   }
 ];

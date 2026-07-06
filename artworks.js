@@ -18,12 +18,12 @@ const artworks = [
     draft: false
   },
   {
-    title: "サンプル作品 3",
-    date: "2026-05-10",
-    thumb: "https://placehold.co/400x400?text=Thumb+3",
-    image: "https://placehold.co/900x1100?text=Art+3",
-    tags: ["一次創作", "カラー"],
-    comment: "",
+    title: "「邪魔するよ」",
+    date: "2026-06-22",
+    thumb: "images/originals/2026/06/20260622_touken_norimune.webp",
+    image: "images/originals/2026/06/20260622_touken_norimune.webp",
+    tags: ["刀剣乱舞", "一枚絵"],
+    comment: "己の作業環境",
     draft: false
   }
 ];

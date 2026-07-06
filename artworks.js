@@ -7,7 +7,7 @@ const artworks = [
   tags: ["刀剣乱舞", "一枚絵"],
   comment: "なんとなくネップリもしたやつ",
   draft: false
-},
+  },
   {
     title: "サンプル作品 2",
     date: "2026-06-28",

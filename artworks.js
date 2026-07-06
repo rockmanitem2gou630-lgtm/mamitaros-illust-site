@@ -627,5 +627,41 @@ const artworks = [
     tags: ["刀剣乱舞", "Fate", "忍たま", "Epic7", "一枚絵"],
     comment: "四大推しと声優ネタ",
     draft: false
+  },
+  {
+    title: "ハッチン",
+    date: "2021-10-14",
+    thumb: "images/thumbnails/2021/10/20211014_sb69_hati_th.webp",
+    image: "images/originals/2021/10/20211014_sb69_hati.webp",
+    tags: ["SB69", "一枚絵"],
+    comment: "キャラソンイメージ",
+    draft: false
+  },
+  {
+    title: "眼力強めでいこうぜ",
+    date: "2021-10-18",
+    thumb: "images/thumbnails/2021/10/20211018_sb69_dokonjo_th.webp",
+    image: "images/originals/2021/10/20211018_sb69_dokonjo.webp",
+    tags: ["SB69", "一枚絵"],
+    comment: "治安悪い",
+    draft: false
+  },
+  {
+    title: "ファッピーハロウィン",
+    date: "2021-10-27",
+    thumb: "images/thumbnails/2021/10/20211027_sb69_hati_th.webp",
+    image: "images/originals/2021/10/20211027_sb69_hati.webp",
+    tags: ["SB69", "一枚絵"],
+    comment: "ハロウィン公式衣装組み合わせだったような",
+    draft: false
+  },
+  {
+    title: "クロウ",
+    date: "2021-10-28",
+    thumb: "images/thumbnails/2021/10/20211028_sb69_crow_th.webp",
+    image: "images/originals/2021/10/20211028_sb69_crow.webp",
+    tags: ["SB69", "一枚絵"],
+    comment: "なんやかんや女児",
+    draft: false
   }
 ];

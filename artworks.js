@@ -223,5 +223,50 @@ const artworks = [
     tags: ["ドラクエ", "一枚絵"],
     comment: "学園繋がり",
     draft: false
+  },
+  {
+    title: "白銀ノエル",
+    date: "2023-03-23",
+    thumb: "images/thumbnails/2023/03/20230323_hololive_noel_th.webp",
+    image: "images/originals/2023/03/20230323_hololive_noel.webp",
+    tags: ["ホロライブ", "一枚絵"],
+    comment: "ゆるふわ女子好き推し",
+    draft: false
+  },
+  {
+    title: "戌神ころね",
+    date: "2023-03-30",
+    thumb: "images/thumbnails/2023/03/20230330_hololive_korone_th.webp",
+    image: "images/originals/2023/03/20230330_hololive_korone.webp",
+    tags: ["ホロライブ", "一枚絵"],
+    comment: "おあよ",
+    draft: false
+  },
+  {
+    title: "さくらみこ",
+    date: "2023-04-07",
+    thumb: "images/thumbnails/2023/04/20230407_hololive_mikoti_th.webp",
+    image: "images/originals/2023/04/20230407_hololive_mikoti.webp",
+    tags: ["ホロライブ", "一枚絵"],
+    comment: "ハートオンラインが出た時の",
+    draft: false
+  },
+  {
+    title: "雪花ラミィ",
+    date: "2023-04-13",
+    thumb: "images/thumbnails/2023/04/20230413_hololive_lamy_th.webp",
+    image: "images/originals/2023/04/20230413_hololive_lamy.webp",
+    tags: ["ホロライブ", "一枚絵"],
+    comment: "やめなー",
+    draft: false
+  },
+  {
+    title: "勇者ぺこーら",
+    date: "2023-04-21",
+    thumb: "images/thumbnails/2023/04/20230421_hololive_pekora_th.webp",
+    image: "images/originals/2023/04/20230421_hololive_pekora.webp",
+    tags: ["ホロライブ", "一枚絵"],
+    comment: "ぺこーらがドラクエ4やってた時の",
+    draft: false
   }
 ];

@@ -34,5 +34,5 @@ const artworks = [
     tags: ["刀剣乱舞", "一枚絵"],
     comment: "ひょっこり清光かわいいね",
     draft: false
-  },
+  }
 ];

@@ -625,7 +625,7 @@ const artworks = [
     thumb: "images/thumbnails/2026/06/20260611_touken_sekitoshi_th.webp",
     image: "images/originals/2026/06/20260611_touken_sekitoshi.webp",
     tags: ["刀剣乱舞", "Fate", "忍たま", "Epic7", "一枚絵"],
-    comment: "四大推しとちょっとの声優ネタ",
+    comment: "四大推しと声優ネタ",
     draft: false
   }
 ];

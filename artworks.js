@@ -735,5 +735,104 @@ const artworks = [
     tags: ["ドラクエ", "GIF"],
     comment: "うちのプクドレア集",
     draft: false
+  },
+  {
+    title: "メスラ",
+    date: "2024-08-19",
+    thumb: "images/thumbnails/2024/08/20240819_FF14_mesura_th.webp",
+    image: "images/originals/2024/08/20240819_FF14_mesura.webp",
+    tags: ["FF14", "一枚絵"],
+    comment: "お気に入りミラプリ",
+    draft: false
+  },
+  {
+    title: "クルル",
+    date: "2024-08-21",
+    thumb: "images/thumbnails/2024/08/20240821_FF14_kururu_th.webp",
+    image: "images/originals/2024/08/20240821_FF14_kururu.webp",
+    tags: ["FF14", "一枚絵"],
+    comment: "新生祭の時のもの",
+    draft: false
+  },
+  {
+    title: "ララヴァルシャン",
+    date: "2024-08-25",
+    thumb: "images/thumbnails/2024/08/20240825_FF14_Varshahn_th.webp",
+    image: "images/originals/2024/08/20240825_FF14_Varshahn.webp",
+    tags: ["FF14", "漫画"],
+    comment: "こういうのもできそう",
+    draft: false
+  },
+  {
+    title: "アリゼーとゼロ",
+    date: "2024-08-30",
+    thumb: "images/thumbnails/2024/08/20240830_FF14_arizero_th.webp",
+    image: "images/originals/2024/08/20240830_FF14_arizero.webp",
+    tags: ["FF14", "一枚絵"],
+    comment: "コスタデルソルだよ",
+    draft: false
+  },
+  {
+    title: "ハニーB限界オタク",
+    date: "2024-08-30",
+    thumb: "images/thumbnails/2024/08/20240830_FF14_honeyb_th.webp",
+    image: "images/originals/2024/08/20240830_FF14_honeyb.webp",
+    tags: ["FF14", "漫画"],
+    comment: "黄金のいいところ",
+    draft: false
+  },
+  {
+    title: "アルフィノは腹筋割れてません",
+    date: "2024-08-31",
+    thumb: "images/thumbnails/2024/08/20240831_FF14_Alphinaud_th.webp",
+    image: "images/originals/2024/08/20240831_FF14_Alphinaud.webp",
+    tags: ["FF14", "らくがき"],
+    comment: "そうであれ！そうであれ！！",
+    draft: false
+  },
+  {
+    title: "アリゼーは腹筋割れてます",
+    date: "2024-08-31",
+    thumb: "images/thumbnails/2024/08/20240831_FF14_arize_th.webp",
+    image: "images/originals/2024/08/20240831_FF14_arize.webp",
+    tags: ["FF14", "漫画"],
+    comment: "そうであれ！そうであれ！！",
+    draft: false
+  },
+  {
+    title: "リーンとアリゼー",
+    date: "2024-09-02",
+    thumb: "images/thumbnails/2024/09/20240902_FF14_rinarize_th.webp",
+    image: "images/originals/2024/09/20240902_FF14_rinarize.webp",
+    tags: ["FF14", "一枚絵"],
+    comment: "ユールモアのキャバレー",
+    draft: false
+  },
+  {
+    title: "カフェインにハマった水晶公",
+    date: "2024-09-02",
+    thumb: "images/thumbnails/2024/09/20240902_FF14_suishoukou_th.webp",
+    image: "images/originals/2024/09/20240902_FF14_suishoukou.webp",
+    tags: ["FF14", "セリフ付き"],
+    comment: "どうしてこうなった",
+    draft: false
+  },
+  {
+    title: "ピクトマンサーの業",
+    date: "2024-09-09",
+    thumb: "images/thumbnails/2024/09/20240909_FF14_shota_th.webp",
+    image: "images/originals/2024/09/20240909_FF14_shota.webp",
+    tags: ["FF14", "漫画"],
+    comment: "へへへ……",
+    draft: false
+  },
+  {
+    title: "ファダニエル",
+    date: "2024-09-09",
+    thumb: "images/thumbnails/2024/09/20240910_FF14_Fandaniel_th.webp",
+    image: "images/originals/2024/09/20240910_FF14_Fandaniel.webp",
+    tags: ["FF14", "一枚絵"],
+    comment: "とても推し",
+    draft: false
   }
 ];

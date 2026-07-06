@@ -579,5 +579,14 @@ const artworks = [
   comment: "幸福",
   dream: true,
   draft: false
+  },
+  {
+    title: "にっかり四面相",
+    date: "2026-05-08",
+    thumb: "images/thumbnails/2026/05/20260508_touken_nikkari_th.webp",
+    image: "images/originals/2026/05/20260508_touken_nikkari.webp",
+    tags: ["刀剣乱舞", "らくがき"],
+    comment: "何やってんだお前えええええ！！！",
+    draft: false
   }
 ];

@@ -5,7 +5,7 @@ const artworks = [
     thumb: "images/thumbnails/2026/06/20260625_touken_norimune.webp",
     image: "images/originals/2026/06/20260625_touken_norimune.webp",
     tags: ["刀剣乱舞", "一枚絵"],
-    comment: "なんとなくネップリもしたやつ",
+    comment: "なんとなくネップリしたやつ",
     draft: false
   },
   {

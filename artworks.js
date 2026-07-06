@@ -169,14 +169,5 @@ const artworks = [
     tags: ["ドラクエ", "らくがき"],
     comment: "かわいいねぇ",
     draft: false
-  },
-  {
-    title: "素晴らしき天空の花嫁の髪型",
-    date: "2021-12-28",
-    thumb: "images/thumbnails/2021/12/20211228_dorakue_henry_th.webp",
-    image: "images/originals/2021/12/20211228_dorakue_henry.webp",
-    tags: ["ドラクエ", "イメレス"],
-    comment: "結婚してる(断定)",
-    draft: false
   }
 ];

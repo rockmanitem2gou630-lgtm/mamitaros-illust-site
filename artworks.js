@@ -9,12 +9,12 @@ const artworks = [
     draft: false
   },
   {
-    title: "サンプル作品 2",
-    date: "2026-06-28",
-    thumb: "https://placehold.co/400x400?text=Thumb+2",
-    image: "https://placehold.co/900x900?text=Art+2",
-    tags: ["刀剣乱舞", "SD"],
-    comment: "",
+    title: "大和守安定",
+    date: "2026-06-26",
+    thumb: "images/thumbnails/2026/06/20260626_touken_yasusada.webp",
+    image: "images/originals/2026/06/20260626_touken_yasusada.webp",
+    tags: ["刀剣乱舞", "一枚絵"],
+    comment: "梅雨と紫陽花と安定は合う",
     draft: false
   },
   {

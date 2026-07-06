@@ -563,8 +563,8 @@ const artworks = [
   {
   title: "普通じゃない彼氏",
   date: "2026-03-22",
-  thumb: "images/thumbnails/2025/10/20260322_epic7_reishu_th.webp",
-  image: "images/originals/2025/10/20260322_epic7_reishu.webp",
+  thumb: "images/thumbnails/2026/03/20260322_epic7_reishu_th.webp",
+  image: "images/originals/2026/03/20260322_epic7_reishu.webp",
   tags: ["Epic7", "漫画"],
   comment: "そういうとこやぞ！",
   dream: true,

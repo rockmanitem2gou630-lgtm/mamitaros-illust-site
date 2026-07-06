@@ -2,7 +2,7 @@ const artworks = [
   {
     title: "一文字則宗",
     date: "2026-06-25",
-    thumb: "images/thumbnails/2026/06/20260625_touken_norimune.webp",
+    thumb: "images/thumbnails/2026/06/20260625_touken_norimune_th.webp",
     image: "images/originals/2026/06/20260625_touken_norimune.webp",
     tags: ["刀剣乱舞", "一枚絵"],
     comment: "なんとなくネップリしたやつ",
@@ -11,7 +11,7 @@ const artworks = [
   {
     title: "大和守安定",
     date: "2026-06-26",
-    thumb: "images/thumbnails/2026/06/20260626_touken_yasusada.webp",
+    thumb: "images/thumbnails/2026/06/20260626_touken_yasusada_th.webp",
     image: "images/originals/2026/06/20260626_touken_yasusada.webp",
     tags: ["刀剣乱舞", "一枚絵"],
     comment: "梅雨と紫陽花と安定は合う",
@@ -20,7 +20,7 @@ const artworks = [
   {
     title: "「邪魔するよ」",
     date: "2026-06-22",
-    thumb: "images/originals/2026/06/20260622_touken_norimune.webp",
+    thumb: "images/originals/2026/06/20260622_touken_norimune_th.webp",
     image: "images/originals/2026/06/20260622_touken_norimune.webp",
     tags: ["刀剣乱舞", "一枚絵"],
     comment: "己の作業環境",

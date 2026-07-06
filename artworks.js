@@ -115,5 +115,14 @@ const artworks = [
     tags: ["ドラクエ", "一枚絵"],
     comment: "まれいたその誕生日に",
     draft: false
+  },
+  {
+    title: "ヘンリー",
+    date: "2021-11-25",
+    thumb: "images/thumbnails/2021/11/20211125_dorakue_henry_th.webp",
+    image: "images/originals/2021/11/20211125_dorakue_henry.webp",
+    tags: ["ドラクエ", "一枚絵"],
+    comment: "ヘンリーきゅんきゅんきゅい！",
+    draft: false
   }
 ];

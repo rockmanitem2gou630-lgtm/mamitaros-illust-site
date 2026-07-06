@@ -717,5 +717,23 @@ const artworks = [
     tags: ["ホロライブ", "GIF", "ぷよぷよ"],
     comment: "負けちゃったにぇ",
     draft: false
+  },
+  {
+    title: "ホイミを唱えた！",
+    date: "2024-09-19",
+    thumb: "images/thumbnails/2024/09/20240919_dorakue_hoimi_th.webp",
+    image: "images/originals/2024/09/20240919_dorakue_hoimi.gif",
+    tags: ["ドラクエ", "GIF"],
+    comment: "ホイミスライムかわいいね",
+    draft: false
+  },
+  {
+    title: "プクリポの日",
+    date: "2025-03-17",
+    thumb: "images/thumbnails/2025/03/20250317_dorakue_puku_th.webp",
+    image: "images/originals/2025/03/20250317_dorakue_puku.gif",
+    tags: ["ドラクエ", "GIF"],
+    comment: "うちのプクドレア集",
+    draft: false
   }
 ];

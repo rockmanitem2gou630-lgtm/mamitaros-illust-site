@@ -77,7 +77,7 @@ function renderGallery() {
       <div class="art-grid">
         ${groups[month].map((art, index) => `
           <article class="art-card" data-month="${month}" data-index="${index}">
-            <img src="${art.image}" alt="${art.title}">
+            <img src="${art.thumb}" alt="${art.title}">
             <div class="art-info">
               <div class="art-title">${art.title}</div>
               <div class="art-date">${art.date}</div>

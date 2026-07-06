@@ -1,6 +1,12 @@
 const gallery = document.getElementById("gallery");
 const tagArea = document.getElementById("tagArea");
-
+const modal = document.getElementById("modal");
+const modalClose = document.getElementById("modalClose");
+const modalImage = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const modalDate = document.getElementById("modalDate");
+const modalTags = document.getElementById("modalTags");
+const modalComment = document.getElementById("modalComment");
 let currentTag = "all";
 
 function formatMonth(dateString) {

@@ -391,7 +391,7 @@ const artworks = [
     date: "2022-06-24",
     thumb: "images/thumbnails/2022/06/20220624_epic7_aither_th.webp",
     image: "images/originals/2022/06/20220624_epic7_aither.webp",
-    tags: ["Epic", "その他"],
+    tags: ["Epic7", "その他"],
     comment: "マジで実装して",
     draft: false
   }

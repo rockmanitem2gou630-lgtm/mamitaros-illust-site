@@ -1,5 +1,6 @@
 const gallery = document.getElementById("gallery");
 const tagArea = document.getElementById("tagArea");
+const dreamNotice = document.getElementById("dreamNotice");
 
 const modal = document.getElementById("modal");
 const modalClose = document.getElementById("modalClose");
@@ -57,6 +58,7 @@ function renderTagButtons() {
 
 function renderGallery() {
   gallery.innerHTML = "";
+  dreamNotice.style.display = viewMode === "dream" ? "block" : "none";
 
   const published = getPublishedArtworks();
 

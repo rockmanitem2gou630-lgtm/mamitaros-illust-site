@@ -409,7 +409,7 @@ const artworks = [
     date: "2025-04-03",
     thumb: "images/thumbnails/2025/04/20250403_dorakue_sido_th.webp",
     image: "images/originals/2025/04/20250403_dorakue_sido.webp",
-    tags: ["ドラクエ", "一枚絵"],
+    tags: ["ドラクエ", "セリフ付き"],
     comment: "10でシドー様が指導されてたので",
     draft: false
   },

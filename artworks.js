@@ -35,7 +35,7 @@ const artworks = [
     comment: "ひょっこり清光かわいいね",
     draft: false
   },
-    {
+  {
     title: "「ボクと乱れちゃう？」",
     date: "2026-06-28",
     thumb: "images/thumbnails/2026/06/20260628_touken_midare_th.webp",

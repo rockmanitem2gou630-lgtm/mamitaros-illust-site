@@ -1,5 +1,5 @@
 const artworks = [
-{
+  {
   title: "一文字則宗",
   date: "2026-06-25",
   thumb: "images/thumbnails/2026/07/20260625_touken_norimune.webp",

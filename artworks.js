@@ -620,7 +620,7 @@ const artworks = [
   draft: false
   },
   {
-    title: "関俊彦さん誕生日絵",
+    title: "関俊彦さんの誕生日絵",
     date: "2026-06-11",
     thumb: "images/thumbnails/2026/06/20260611_touken_sekitoshi_th.webp",
     image: "images/originals/2026/06/20260611_touken_sekitoshi.webp",

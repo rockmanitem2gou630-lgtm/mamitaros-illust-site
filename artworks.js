@@ -193,7 +193,7 @@ const artworks = [
     date: "2022-06-22",
     thumb: "images/thumbnails/2022/06/20220622_e7_haste_th.webp",
     image: "images/originals/2022/06/20220622_e7_haste.webp",
-    tags: ["E7", "一枚絵"],
+    tags: ["Epic7", "一枚絵"],
     comment: "闇も火も好き",
     draft: false
   },
@@ -202,7 +202,7 @@ const artworks = [
     date: "2022-06-17",
     thumb: "images/thumbnails/2022/06/20220617_e7_glen_th.webp",
     image: "images/originals/2022/06/20220617_e7_glen.webp",
-    tags: ["E7", "一枚絵"],
+    tags: ["Epic7", "一枚絵"],
     comment: "今でもうちじゃ戦闘力1位",
     draft: false
   },
@@ -312,6 +312,42 @@ const artworks = [
     image: "images/originals/2023/04/20230721_puyopuyo_sig.webp",
     tags: ["ぷよぷよ", "一枚絵"],
     comment: "シグアンソロに参加した時のもの",
+    draft: false
+  },
+  {
+    title: "大魔王ちゃんのぱふぱふ",
+    date: "2025-04-03",
+    thumb: "images/thumbnails/2025/04/20250403_dorakue_maouchan_th.webp",
+    image: "images/originals/2025/04/20250403_dorakue_maouchan.webp",
+    tags: ["ドラクエ", "セリフ付き"],
+    comment: "うちの子は大きい",
+    draft: false
+  },
+  {
+    title: "最強アイドルルルカ様",
+    date: "2023-11-09",
+    thumb: "images/thumbnails/2023/11/20231109_epic7_ruruka_th.webp",
+    image: "images/originals/2023/11/20231109_epic7_ruruka.webp",
+    tags: ["Epic7", "一枚絵"],
+    comment: "声優繋がり",
+    draft: false
+  },
+  {
+    title: "ユシュカ",
+    date: "2023-10-18",
+    thumb: "images/thumbnails/2023/10/20231018_dorakue_yushuka_th.webp",
+    image: "images/originals/2023/10/20231018_dorakue_yushuka.webp",
+    tags: ["ドラクエ", "一枚絵"],
+    comment: "いとけんの誕生日に",
+    draft: false
+  },
+  {
+    title: "ヤス",
+    date: "2023-10-18",
+    thumb: "images/thumbnails/2023/10/20231018_sb69_yasu_th.webp",
+    image: "images/originals/2023/10/20231018_sb69_yasu.webp",
+    tags: ["SB69", "一枚絵"],
+    comment: "いとけんの誕生日に",
     draft: false
   }
 ];

@@ -74,7 +74,7 @@ function renderGallery() {
       <h2 class="month-title">${month}</h2>
       <div class="art-grid">
         ${groups[month].map(art => `
-          <article class="art-card">
+          <article class="art-card" data-title="${art.title}">
             <img src="${art.image}" alt="${art.title}">
             <div class="art-info">
               <div class="art-title">${art.title}</div>
@@ -90,8 +90,35 @@ function renderGallery() {
     `;
 
     gallery.appendChild(section);
+        section.querySelectorAll(".art-card").forEach(card => {
+      card.addEventListener("click", () => {
+        const art = filtered.find(item => item.title === card.dataset.title);
+        openModal(art);
+      });
+    });
   });
 }
+function openModal(art) {
+  modalImage.src = art.image;
+  modalImage.alt = art.title;
+  modalTitle.textContent = art.title;
+  modalDate.textContent = art.date;
+  modalTags.innerHTML = art.tags.map(tag => `<span>${tag}</span>`).join("");
+  modalComment.textContent = art.comment || "";
 
+  modal.classList.add("show");
+}
+
+function closeModal() {
+  modal.classList.remove("show");
+}
+
+modalClose.addEventListener("click", closeModal);
+
+modal.addEventListener("click", event => {
+  if (event.target === modal) {
+    closeModal();
+  }
+});
 renderTagButtons();
 renderGallery();

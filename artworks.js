@@ -52,5 +52,14 @@ const artworks = [
     tags: ["電王", "一枚絵"],
     comment: "答えは聞いてない！",
     draft: false
+  },
+  {
+    title: "「いいよね」",
+    date: "2026-07-05",
+    thumb: "images/thumbnails/2026/06/20260615_touken_kiyomitu_th.webp",
+    image: "images/originals/2026/06/20260615_touken_kiyomitu.webp",
+    tags: ["刀剣乱舞", "セリフ付き"],
+    comment: "朝の夢女子用",
+    draft: false
   }
 ];

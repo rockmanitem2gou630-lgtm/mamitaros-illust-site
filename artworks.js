@@ -79,5 +79,32 @@ const artworks = [
     tags: ["刀剣乱舞", "一枚絵"],
     comment: "コンテスト勢とバトル勢",
     draft: false
+  },
+  {
+    title: "ワンドロ則宗",
+    date: "2026-05-30",
+    thumb: "images/thumbnails/2026/05/20260530_touken_norimune_th.webp",
+    image: "images/originals/2026/05/20260530_touken_norimune.webp",
+    tags: ["刀剣乱舞", "らくがき"],
+    comment: "自撮りからせっせと描いた",
+    draft: false
+  },
+  {
+    title: "らくがき則宗",
+    date: "2026-05-26",
+    thumb: "images/thumbnails/2026/05/20260526_touken_norimune_th.webp",
+    image: "images/originals/2026/05/20260526_touken_norimune.webp",
+    tags: ["刀剣乱舞", "らくがき"],
+    comment: "あんま考えず描いた",
+    draft: false
+  },
+  {
+    title: "どうしてこんなことに……",
+    date: "2026-05-14",
+    thumb: "images/thumbnails/2026/05/20260514_touken_hatisukaurasima_th.webp",
+    image: "images/originals/2026/05/20260514_touken_hatisukaurasima.webp",
+    tags: ["刀剣乱舞", "らくがき"],
+    comment: "狂った刀剣男士スロットの悲惨な結果",
+    draft: false
   }
 ];

@@ -834,5 +834,25 @@ const artworks = [
     tags: ["FF14", "一枚絵"],
     comment: "とても推し",
     draft: false
+  },
+  {
+  title: "先生ぬいたすかるらくがき",
+  date: "2026-03-26",
+  thumb: "images/thumbnails/2026/03/20260326_fate_salishu_th.webp",
+  image: "images/originals/2026/03/20260326_fate_salishu.webp",
+  tags: ["Fate", "らくがき"],
+  comment: "小さいいのち",
+  dream: true,
+  draft: false
+  },
+  {
+  title: "うちのマスターについて",
+  date: "2026-04-12",
+  thumb: "images/thumbnails/2026/04/20260412_fate_salishu_th.webp",
+  image: "images/originals/2026/04/20260412_fate_salishu.webp",
+  tags: ["Fate", "らくがき"],
+  comment: "夢主は可愛い",
+  dream: true,
+  draft: false
   }
 ];

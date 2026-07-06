@@ -1,17 +1,56 @@
 const gallery = document.getElementById("gallery");
-const buttons = document.querySelectorAll(".tag-button");
+const tagArea = document.getElementById("tagArea");
+
+let currentTag = "all";
 
 function formatMonth(dateString) {
   const date = new Date(dateString);
   return `${date.getFullYear()}年${date.getMonth() + 1}月`;
 }
 
-function renderGallery(filterTag = "all") {
+function getPublishedArtworks() {
+  return artworks
+    .filter(art => !art.draft)
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+}
+
+function getAllTags() {
+  const tagSet = new Set();
+
+  getPublishedArtworks().forEach(art => {
+    art.tags.forEach(tag => tagSet.add(tag));
+  });
+
+  return ["all", ...Array.from(tagSet)];
+}
+
+function renderTagButtons() {
+  const tags = getAllTags();
+
+  tagArea.innerHTML = tags.map(tag => {
+    const label = tag === "all" ? "全部" : tag;
+    const activeClass = tag === currentTag ? "active" : "";
+
+    return `<button class="tag-button ${activeClass}" data-tag="${tag}">${label}</button>`;
+  }).join("");
+
+  document.querySelectorAll(".tag-button").forEach(button => {
+    button.addEventListener("click", () => {
+      currentTag = button.dataset.tag;
+      renderTagButtons();
+      renderGallery();
+    });
+  });
+}
+
+function renderGallery() {
   gallery.innerHTML = "";
 
-  const filtered = filterTag === "all"
-    ? artworks
-    : artworks.filter(art => art.tags.includes(filterTag));
+  const published = getPublishedArtworks();
+
+  const filtered = currentTag === "all"
+    ? published
+    : published.filter(art => art.tags.includes(currentTag));
 
   const groups = {};
 
@@ -37,6 +76,7 @@ function renderGallery(filterTag = "all") {
               <div class="art-tags">
                 ${art.tags.map(tag => `<span>${tag}</span>`).join("")}
               </div>
+              ${art.comment ? `<p class="art-comment">${art.comment}</p>` : ""}
             </div>
           </article>
         `).join("")}
@@ -47,12 +87,5 @@ function renderGallery(filterTag = "all") {
   });
 }
 
-buttons.forEach(button => {
-  button.addEventListener("click", () => {
-    buttons.forEach(btn => btn.classList.remove("active"));
-    button.classList.add("active");
-    renderGallery(button.dataset.tag);
-  });
-});
-
+renderTagButtons();
 renderGallery();

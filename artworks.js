@@ -588,5 +588,35 @@ const artworks = [
     tags: ["刀剣乱舞", "らくがき"],
     comment: "何やってんだお前えええええ！！！",
     draft: false
+  },
+  {
+  title: "魔力供給",
+  date: "2026-03-24",
+  thumb: "images/thumbnails/2026/03/20260324_fate_salishu_th.webp",
+  image: "images/originals/2026/03/20260324_fate_salishu.webp",
+  tags: ["Fate", "漫画"],
+  comment: "アヴェンジャー幸せになって",
+  dream: true,
+  draft: false
+  },
+  {
+  title: "は組のよいこたち",
+  date: "2026-03-26",
+  thumb: "images/thumbnails/2026/03/20260326_nintama_doishu_th.webp",
+  image: "images/originals/2026/03/20260326_nintama_doishu.webp",
+  tags: ["忍たま", "漫画"],
+  comment: "こういうのでいいんだよ",
+  dream: true,
+  draft: false
+  },
+  {
+  title: "則さに微18",
+  date: "2026-03-28",
+  thumb: "images/thumbnails/2026/03/20260328_touken_norisani_th.webp",
+  image: "images/originals/2026/03/20260328_touken_norisani.webp",
+  tags: ["刀剣乱舞", "漫画"],
+  comment: "これくらいでもR判定らしい",
+  dream: true,
+  draft: false
   }
 ];

@@ -67,7 +67,7 @@ const artworks = [
     date: "2026-06-18",
     thumb: "images/thumbnails/2026/06/20260618_touken_norimune_th.webp",
     image: "images/originals/2026/06/20260618_touken_norimune.webp",
-    tags: ["刀剣乱舞", "セリフ付き"],
+    tags: ["刀剣乱舞", "一枚絵"],
     comment: "勝てる気はしない",
     draft: false
   }

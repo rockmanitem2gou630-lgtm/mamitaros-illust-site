@@ -1,18 +1,32 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>マミタロス Art Archive</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マミタロス Art Archive</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <header class="site-header">
+    <h1>マミタロス Art Archive</h1>
+    <p>イラストを時系列でまとめた保管庫です。</p>
+  </header>
 
-<h1>マミタロス Art Archive</h1>
+  <main>
+    <section class="tag-area">
+      <button class="tag-button active" data-tag="all">全部</button>
+      <button class="tag-button" data-tag="一次創作">一次創作</button>
+      <button class="tag-button" data-tag="刀剣乱舞">刀剣乱舞</button>
+      <button class="tag-button" data-tag="電王">電王</button>
+      <button class="tag-button" data-tag="Epic Seven">Epic Seven</button>
+      <button class="tag-button" data-tag="忍たま">忍たま</button>
+      <button class="tag-button" data-tag="FGO">FGO</button>
+    </section>
 
-<p>ここはイラスト保管庫です。</p>
+    <section id="gallery" class="gallery"></section>
+  </main>
 
-<p>まだ工事中🚧</p>
-
+  <script src="script.js"></script>
 </body>
 </html>

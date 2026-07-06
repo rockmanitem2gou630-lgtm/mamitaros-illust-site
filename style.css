@@ -104,3 +104,70 @@ main {
   border-radius: 999px;
   padding: 4px 8px;
 }
+.art-card {
+  cursor: pointer;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  padding: 24px;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.modal.show {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  position: relative;
+  width: min(960px, 100%);
+  background: #fffaf5;
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.modal-content img {
+  width: 100%;
+  max-height: 75vh;
+  object-fit: contain;
+  display: block;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  border: none;
+  background: #2b2522;
+  color: #fff;
+  width: 36px;
+  height: 36px;
+  border-radius: 999px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-info {
+  padding: 14px 4px 0;
+}
+
+.modal-info h2 {
+  margin: 0 0 6px;
+}
+
+#modalDate {
+  color: #7a6d66;
+  margin: 0 0 10px;
+}
+
+#modalComment {
+  line-height: 1.7;
+}

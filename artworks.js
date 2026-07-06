@@ -214,14 +214,5 @@ const artworks = [
     tags: ["ドラクエ", "一枚絵"],
     comment: "シドーきゅんしゅき",
     draft: false
-  },
-  {
-    title: "エルシオンラピス",
-    date: "2023-03-17",
-    thumb: "images/thumbnails/2023/03/20230317_dorakue_rapisu_th.webp",
-    image: "images/originals/2023/03/20230317_dorakue_rapisu.webp",
-    tags: ["ドラクエ", "一枚絵"],
-    comment: "学園繋がり",
-    draft: false
   }
 ];

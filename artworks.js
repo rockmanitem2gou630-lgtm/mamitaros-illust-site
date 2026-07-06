@@ -663,5 +663,50 @@ const artworks = [
     tags: ["SB69", "一枚絵"],
     comment: "なんやかんや女児",
     draft: false
+  },
+  {
+    title: "サンシーカーについて",
+    date: "2024-05-25",
+    thumb: "images/thumbnails/2024/05/20240525_FF14_rahahika_th.webp",
+    image: "images/originals/2024/05/20240525_FF14_rahahika.webp",
+    tags: ["FF14", "漫画"],
+    comment: "あくまでも考察",
+    draft: false
+  },
+  {
+    title: "ミラプリを見せよう",
+    date: "2024-05-30",
+    thumb: "images/thumbnails/2024/05/20240530_FF14_kouhika_th.webp",
+    image: "images/originals/2024/05/20240530_FF14_kouhika.webp",
+    tags: ["FF14", "漫画"],
+    comment: "公はおくゆかしい",
+    draft: false
+  },
+  {
+    title: "パパ活(本物)",
+    date: "2021-11-19",
+    thumb: "images/thumbnails/2021/11/20211119_dorakue_maouchan_th.webp",
+    image: "images/originals/2021/11/20211119_dorakue_maouchan.webp",
+    tags: ["ドラクエ", "漫画"],
+    comment: "誤解されてもしゃーなし",
+    draft: false
+  },
+  {
+    title: "奴隷時代にありがちなこと",
+    date: "2021-11-27",
+    thumb: "images/thumbnails/2021/11/20211127_dorakue_shuhen_th.webp",
+    image: "images/originals/2021/11/20211127_dorakue_shuhen.webp",
+    tags: ["ドラクエ", "漫画"],
+    comment: "考察だが",
+    draft: false
+  },
+  {
+    title: "バギを唱えた！",
+    date: "2021-12-18",
+    thumb: "images/thumbnails/2021/12/20211218_dorakue_shuhen_th.webp",
+    image: "images/originals/2021/12/20211218_dorakue_shuhen.webp",
+    tags: ["ドラクエ", "漫画"],
+    comment: "こ、こら～！！",
+    draft: false
   }
 ];

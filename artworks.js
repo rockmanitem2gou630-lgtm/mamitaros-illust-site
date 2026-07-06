@@ -148,7 +148,7 @@ const artworks = [
     date: "2021-11-29",
     thumb: "images/thumbnails/2021/11/20211129_dorakue_rapisu_th.webp",
     image: "images/originals/2021/11/20211129_dorakue_rapisu.webp",
-    tags: ["ドラクエ", "一枚絵"],
+    tags: ["ドラクエ", "らくがき"],
     comment: "とりあえずサクッと描きたかった",
     draft: false
   },

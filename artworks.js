@@ -20,7 +20,7 @@ const artworks = [
   {
     title: "「邪魔するよ」",
     date: "2026-06-22",
-    thumb: "images/originals/2026/06/20260622_touken_norimune_th.webp",
+    thumb: "images/thumbnails/2026/06/20260622_touken_norimune_th.webp",
     image: "images/originals/2026/06/20260622_touken_norimune.webp",
     tags: ["刀剣乱舞", "一枚絵"],
     comment: "己の作業環境",

@@ -133,5 +133,32 @@ const artworks = [
     tags: ["ドラクエ", "一枚絵"],
     comment: "ユシュカの女……！",
     draft: false
+  },
+    {
+    title: "デスマス大魔王ちゃん",
+    date: "2021-12-27",
+    thumb: "images/thumbnails/2021/12/20211227_dorakue_maouchan_th.webp",
+    image: "images/originals/2021/12/20211227_dorakue_maouchan.webp",
+    tags: ["ドラクエ", "一枚絵"],
+    comment: "お気に入りドレアだった",
+    draft: false
+  },
+  {
+    title: "ラピス",
+    date: "2021-11-29",
+    thumb: "images/thumbnails/2021/11/20211129_dorakue_rapisu_th.webp",
+    image: "images/originals/2021/11/20211129_dorakue_rapisu.webp",
+    tags: ["ドラクエ", "一枚絵"],
+    comment: "とりあえずサクッと描きたかった",
+    draft: false
+  },
+  {
+    title: "アイドルヘンリーきゅん",
+    date: "2021-11-21",
+    thumb: "images/thumbnails/2021/12/20211202_dorakue_henry_th.webp",
+    image: "images/originals/2021/12/20211202_dorakue_henry.webp",
+    tags: ["ドラクエ", "一枚絵"],
+    comment: "ああそうさ主ヘンだよ！",
+    draft: false
   }
 ];

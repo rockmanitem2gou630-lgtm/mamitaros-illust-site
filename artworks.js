@@ -124,5 +124,14 @@ const artworks = [
     tags: ["ドラクエ", "一枚絵"],
     comment: "ヘンリーきゅんきゅんきゅい！",
     draft: false
+  },
+  {
+    title: "ユシュカの正装、女子が着たらヤバいんじゃないか説",
+    date: "2021-11-21",
+    thumb: "images/thumbnails/2021/11/20211121_dorakue_maouchan_th.webp",
+    image: "images/originals/2021/11/20211121_dorakue_maouchan.webp",
+    tags: ["ドラクエ", "一枚絵"],
+    comment: "ユシュカの女……！",
+    draft: false
   }
 ];

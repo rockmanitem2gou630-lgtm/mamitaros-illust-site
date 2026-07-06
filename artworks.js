@@ -401,7 +401,7 @@ const artworks = [
     thumb: "images/thumbnails/2024/10/20241017_dorakue_rapisurinberi_th.webp",
     image: "images/originals/2024/10/20241017_dorakue_rapisurinberi.webp",
     tags: ["ドラクエ", "一枚絵"],
-    comment: "己が持ってる服と小物着せたやで",
+    comment: "己が持ってる服と小物着せた",
     draft: false
   },
   {

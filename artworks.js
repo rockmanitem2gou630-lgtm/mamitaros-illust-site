@@ -25,5 +25,14 @@ const artworks = [
     tags: ["刀剣乱舞", "一枚絵"],
     comment: "己の作業環境",
     draft: false
-  }
+  },
+  {
+    title: "「そろそろ俺の時間、ちょうだい？」",
+    date: "2026-07-04",
+    thumb: "images/thumbnails/2026/07/20260704_touken_kiyomitu_th.webp",
+    image: "images/originals/2026/07/20260704_touken_kiyomitu.webp",
+    tags: ["刀剣乱舞", "一枚絵"],
+    comment: "ひょっこり清光",
+    draft: false
+  },
 ];

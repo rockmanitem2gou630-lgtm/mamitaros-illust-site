@@ -10,6 +10,7 @@ const modalTags = document.getElementById("modalTags");
 const modalComment = document.getElementById("modalComment");
 
 let currentTag = "all";
+let viewMode = "normal";
 
 function formatMonth(dateString) {
   const date = new Date(dateString);
@@ -25,18 +26,20 @@ function getPublishedArtworks() {
 function getAllTags() {
   const tagSet = new Set();
 
-  getPublishedArtworks().forEach(art => {
-    art.tags.forEach(tag => tagSet.add(tag));
-  });
+  getPublishedArtworks()
+    .filter(art => art.dream !== true)
+    .forEach(art => {
+      art.tags.forEach(tag => tagSet.add(tag));
+    });
 
-  return ["all", ...Array.from(tagSet)];
+  return ["all", ...Array.from(tagSet), "dream"];
 }
 
 function renderTagButtons() {
   const tags = getAllTags();
 
   tagArea.innerHTML = tags.map(tag => {
-    const label = tag === "all" ? "全部" : tag;
+    const label = tag === "all" ? "全部" : tag === "dream" ? "夢絵" : tag;
     const activeClass = tag === currentTag ? "active" : "";
 
     return `<button class="tag-button ${activeClass}" data-tag="${tag}">${label}</button>`;
@@ -45,6 +48,7 @@ function renderTagButtons() {
   document.querySelectorAll(".tag-button").forEach(button => {
     button.addEventListener("click", () => {
       currentTag = button.dataset.tag;
+      viewMode = currentTag === "dream" ? "dream" : "normal";
       renderTagButtons();
       renderGallery();
     });
@@ -56,9 +60,15 @@ function renderGallery() {
 
   const published = getPublishedArtworks();
 
-  const filtered = currentTag === "all"
-    ? published
-    : published.filter(art => art.tags.includes(currentTag));
+  let filtered;
+
+if (viewMode === "dream") {
+  filtered = published.filter(art => art.dream === true);
+} else if (currentTag === "all") {
+  filtered = published.filter(art => art.dream !== true);
+} else {
+  filtered = published.filter(art => art.dream !== true && art.tags.includes(currentTag));
+}
 
   const groups = {};
 

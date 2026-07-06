@@ -167,7 +167,7 @@ const artworks = [
     thumb: "images/thumbnails/2021/12/20211231_dorakue_henry_th.webp",
     image: "images/originals/2021/12/20211231_dorakue_henry.webp",
     tags: ["ドラクエ", "らくがき"],
-    comment: "かわいいね",
+    comment: "かわいいねぇ",
     draft: false
   },
   {

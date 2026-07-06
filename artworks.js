@@ -63,7 +63,7 @@ const artworks = [
     draft: false
   },
   {
-    title: "チャンピオンの　いちもんじのりむねが　しょうぶを　しかけてきた！",
+    title: "チャンピオンの　一文字則宗が　勝負を　しかけてきた！",
     date: "2026-06-18",
     thumb: "images/thumbnails/2026/06/20260618_touken_norimune_th.webp",
     image: "images/originals/2026/06/20260618_touken_norimune.webp",

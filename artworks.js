@@ -34,5 +34,14 @@ const artworks = [
     tags: ["刀剣乱舞", "一枚絵"],
     comment: "ひょっこり清光かわいいね",
     draft: false
+  },
+    {
+    title: "「ボクと乱れちゃう？」",
+    date: "2026-06-28",
+    thumb: "images/thumbnails/2026/06/20260628_touken_midare_th.webp",
+    image: "images/originals/2026/06/20260628_touken_midare.webp",
+    tags: ["刀剣乱舞", "一枚絵"],
+    comment: "企画に参加した時の乱ちゃん",
+    draft: false
   }
 ];

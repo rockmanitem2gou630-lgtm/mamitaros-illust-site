@@ -70,5 +70,14 @@ const artworks = [
     tags: ["刀剣乱舞", "一枚絵"],
     comment: "勝てる気はしない",
     draft: false
+  },
+  {
+    title: "清光と　安定が　勝負を　しかけてきた！",
+    date: "2026-06-20",
+    thumb: "images/thumbnails/2026/06/20260620_touken_kiyomituyasusada_th.webp",
+    image: "images/originals/2026/06/20260620_touken_kiyomituyasusada.webp",
+    tags: ["刀剣乱舞", "一枚絵"],
+    comment: "コンテスト勢とバトル勢",
+    draft: false
   }
 ];

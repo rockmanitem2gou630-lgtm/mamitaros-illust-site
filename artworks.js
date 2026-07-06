@@ -529,5 +529,15 @@ const artworks = [
     tags: ["Fate", "一枚絵"],
     comment: "最推し……！いつもありがとうございます",
     draft: false
-  }
+  },
+  {
+  title: "則さに",
+  date: "2026-04-08",
+  thumb: "images/thumbnails/2026/04/20260408_touken_norisani_th.webp",
+  image: "images/originals/2026/04/20260408_touken_norisani.webp",
+  tags: ["刀剣乱舞", "一枚絵"],
+  comment: "春が似合う",
+  dream: true,
+  draft: false
+}
 ];

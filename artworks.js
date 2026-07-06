@@ -32,7 +32,7 @@ const artworks = [
     thumb: "images/thumbnails/2026/07/20260704_touken_kiyomitu_th.webp",
     image: "images/originals/2026/07/20260704_touken_kiyomitu.webp",
     tags: ["刀剣乱舞", "一枚絵"],
-    comment: "ひょっこり清光",
+    comment: "ひょっこり清光かわいいね",
     draft: false
   },
 ];

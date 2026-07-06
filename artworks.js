@@ -266,7 +266,7 @@ const artworks = [
     thumb: "images/thumbnails/2023/04/20230421_hololive_pekora_th.webp",
     image: "images/originals/2023/04/20230421_hololive_pekora.webp",
     tags: ["ホロライブ", "一枚絵"],
-    comment: "ぺこーらがドラクエ4やってた時の",
+    comment: "ぺこーらがドラクエ4やってた時",
     draft: false
   },
   {

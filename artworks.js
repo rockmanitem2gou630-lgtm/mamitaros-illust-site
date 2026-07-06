@@ -61,5 +61,14 @@ const artworks = [
     tags: ["刀剣乱舞", "セリフ付き"],
     comment: "朝の夢女子用",
     draft: false
+  },
+  {
+    title: "チャンピオンの　いちもんじのりむねが　しょうぶを　しかけてきた！",
+    date: "2026-06-18",
+    thumb: "images/thumbnails/2026/06/20260618_touken_norimune_th.webp",
+    image: "images/originals/2026/06/20260618_touken_norimune.webp",
+    tags: ["刀剣乱舞", "セリフ付き"],
+    comment: "勝てる気はしない",
+    draft: false
   }
 ];

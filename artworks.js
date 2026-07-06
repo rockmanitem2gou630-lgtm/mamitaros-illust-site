@@ -55,7 +55,7 @@ const artworks = [
   },
   {
     title: "おはよう、清光",
-    date: "2026-07-05",
+    date: "2026-06-15",
     thumb: "images/thumbnails/2026/06/20260615_touken_kiyomitu_th.webp",
     image: "images/originals/2026/06/20260615_touken_kiyomitu.webp",
     tags: ["刀剣乱舞", "セリフ付き"],

@@ -106,5 +106,32 @@ const artworks = [
     tags: ["刀剣乱舞", "らくがき"],
     comment: "狂った刀剣男士スロットの悲惨な結果",
     draft: false
+  },
+  {
+    title: "ベロニカ",
+    date: "2021-12-27",
+    thumb: "images/thumbnails/2021/12/20211227_dorakue_beronika_th.webp",
+    image: "images/originals/2021/12/20211227_dorakue_beronika.webp",
+    tags: ["ドラクエ", "一枚絵"],
+    comment: "まれいたその誕生日に",
+    draft: false
+  },
+  {
+    title: "ヘンリー",
+    date: "2021-11-25",
+    thumb: "images/thumbnails/2021/11/20211125_dorakue_henry_th.webp",
+    image: "images/originals/2021/11/20211125_dorakue_henry.webp",
+    tags: ["ドラクエ", "一枚絵"],
+    comment: "ヘンリーきゅんきゅんきゅい！",
+    draft: false
+  },
+  {
+    title: "ユシュカの正装、女子が着たらヤバいんじゃないか説",
+    date: "2021-11-21",
+    thumb: "images/thumbnails/2021/11/20211121_dorakue_maouchan_th.webp",
+    image: "images/originals/2021/11/20211121_dorakue_maouchan.webp",
+    tags: ["ドラクエ", "一枚絵"],
+    comment: "ユシュカの女……！",
+    draft: false
   }
 ];

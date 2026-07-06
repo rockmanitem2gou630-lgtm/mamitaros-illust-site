@@ -160,5 +160,50 @@ const artworks = [
     tags: ["ドラクエ", "一枚絵"],
     comment: "ああそうさ主ヘンだよ！",
     draft: false
+  },
+  {
+    title: "ルイズ構文ヘンリー",
+    date: "2021-12-31",
+    thumb: "images/thumbnails/2021/12/20211231_dorakue_henry_th.webp",
+    image: "images/originals/2021/12/20211231_dorakue_henry.webp",
+    tags: ["ドラクエ", "らくがき"],
+    comment: "かわいいねぇ……",
+    draft: false
+  },
+  {
+    title: "素晴らしき天空の花嫁の髪型",
+    date: "2021-12-28",
+    thumb: "images/thumbnails/2021/12/20211228_dorakue_henry_th.webp",
+    image: "images/originals/2021/12/20211228_dorakue_henry.webp",
+    tags: ["ドラクエ", "イメレス"],
+    comment: "結婚してる(断定)",
+    draft: false
+  },
+  {
+    title: "シンジ",
+    date: "2022-06-04",
+    thumb: "images/thumbnails/2022/06/20220604_pokemon_sinji_th.webp",
+    image: "images/originals/2022/06/20220604_pokemon_sinji.webp",
+    tags: ["ポケモン", "らくがき"],
+    comment: "再登場嬉しかったんや",
+    draft: false
+  },
+  {
+    title: "ヘイスト",
+    date: "2022-06-22",
+    thumb: "images/thumbnails/2022/06/20220622_e7_haste_th.webp",
+    image: "images/originals/2022/06/20220622_e7_haste.webp",
+    tags: ["E7", "一枚絵"],
+    comment: "闇も火も好き",
+    draft: false
+  },
+  {
+    title: "グレン",
+    date: "2022-06-17",
+    thumb: "images/thumbnails/2022/06/20220617_e7_glen_th.webp",
+    image: "images/originals/2022/06/20220617_e7_glen.webp",
+    tags: ["E7", "一枚絵"],
+    comment: "今でもうちじゃ戦闘力1位",
+    draft: false
   }
 ];

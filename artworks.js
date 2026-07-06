@@ -539,5 +539,45 @@ const artworks = [
   comment: "春が似合う",
   dream: true,
   draft: false
-}
+  },
+  {
+  title: "手入れ",
+  date: "2025-11-06",
+  thumb: "images/thumbnails/2025/11/20251106_touken_norisani_th.webp",
+  image: "images/originals/2025/11/20251106_touken_norisani.webp",
+  tags: ["刀剣乱舞", "漫画"],
+  comment: "審神者をからかうのが趣味",
+  dream: true,
+  draft: false
+  },
+  {
+  title: "防衛連勝した時の話",
+  date: "2025-10-29",
+  thumb: "images/thumbnails/2025/10/20251029_epic7_reishu_th.webp",
+  image: "images/originals/2025/10/20251029_epic7_reishu.webp",
+  tags: ["Epic7", "漫画"],
+  comment: "やばい薬じゃねーか",
+  dream: true,
+  draft: false
+  },
+  {
+  title: "普通じゃない彼氏",
+  date: "2026-03-22",
+  thumb: "images/thumbnails/2025/10/20260322_epic7_reishu_th.webp",
+  image: "images/originals/2025/10/20260322_epic7_reishu.webp",
+  tags: ["Epic7", "漫画"],
+  comment: "そういうとこやぞ！",
+  dream: true,
+  draft: false
+  },
+  {
+  title: "則さにキスの日",
+  date: "2026-05-22",
+  thumb: "images/thumbnails/2026/05/20260522_touken_norisani_th.webp",
+  image: "images/originals/2026/05/20260522_touken_norisani.webp",
+  tags: ["刀剣乱舞", "一枚絵"],
+  comment: "幸福",
+  dream: true,
+  draft: false
+  }
 ];

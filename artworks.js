@@ -394,5 +394,68 @@ const artworks = [
     tags: ["Epic7", "その他"],
     comment: "マジで実装して",
     draft: false
+  },
+  {
+    title: "地雷系ラピス、リンベリィ",
+    date: "2024-10-17",
+    thumb: "images/thumbnails/2024/10/20241017_dorakue_rapisurinberi_th.webp",
+    image: "images/originals/2024/10/20241017_dorakue_rapisurinberi.webp",
+    tags: ["ドラクエ", "一枚絵"],
+    comment: "己が持ってる服と小物着せたやで",
+    draft: false
+  },
+  {
+    title: "熱血シドーくん",
+    date: "2025-04-03",
+    thumb: "images/thumbnails/2025/04/20250403_dorakue_sido_th.webp",
+    image: "images/originals/2025/04/20250403_dorakue_sido.webp",
+    tags: ["ドラクエ", "一枚絵"],
+    comment: "10でシドー様が指導されてたので",
+    draft: false
+  },
+  {
+    title: "ぷよ風大魔王ちゃん",
+    date: "2025-04-07",
+    thumb: "images/thumbnails/2025/04/20250407_dorakue_maouchan_th.webp",
+    image: "images/originals/2025/04/20250407_dorakue_maouchan.webp",
+    tags: ["ドラクエ", "一枚絵", "ぷよぷよ"],
+    comment: "ぷよ風はいつだって得意",
+    draft: false
+  },
+  {
+    title: "うちの本丸関係性",
+    date: "2026-03-28",
+    thumb: "images/thumbnails/2026/03/20260328_touken_okitagumi_th.webp",
+    image: "images/originals/2026/03/20260328_touken_okitagumi.webp",
+    tags: ["刀剣乱舞", "その他"],
+    comment: "孫のようなもの",
+    draft: false
+  },
+  {
+    title: "一文字則宗",
+    date: "2026-04-02",
+    thumb: "images/thumbnails/2026/04/20260402_touken_norimune_th.webp",
+    image: "images/originals/2026/04/20260402_touken_norimune.webp",
+    tags: ["刀剣乱舞", "一枚絵"],
+    comment: "最推し",
+    draft: false
+  },
+  {
+    title: "則宗さん照れ顔イメレス",
+    date: "2026-05-08",
+    thumb: "images/thumbnails/2026/05/20260508_touken_norimune_th.webp",
+    image: "images/originals/2026/05/20260508_touken_norimune.webp",
+    tags: ["刀剣乱舞", "イメレス"],
+    comment: "うちの国宝がここまで崩れるのは稀",
+    draft: false
+  },
+  {
+    title: "メイド則宗",
+    date: "2026-05-10",
+    thumb: "images/thumbnails/2026/05/20260510_touken_norimune_th.webp",
+    image: "images/originals/2026/05/20260510_touken_norimune.webp",
+    tags: ["刀剣乱舞", "一枚絵"],
+    comment: "メイドの日のもの",
+    draft: false
   }
 ];

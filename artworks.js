@@ -1,13 +1,13 @@
 const artworks = [
-  {
-    title: "サンプル作品 1",
-    date: "2026-07-06",
-    thumb: "https://placehold.co/400x400?text=Thumb+1",
-    image: "https://placehold.co/900x1200?text=Art+1",
-    tags: ["電王", "イラスト"],
-    comment: "制作メモをここに書けます。",
-    draft: false
-  },
+{
+  title: "一文字則宗",
+  date: "2026-06-25",
+  thumb: "images/thumbnails/2026/07/20260625_touken_norimune.webp",
+  image: "images/originals/2026/07/20260625_touken_norimune.webp",
+  tags: ["刀剣乱舞", "一枚絵"],
+  comment: "なんとなくネップリもしたやつ",
+  draft: false
+},
   {
     title: "サンプル作品 2",
     date: "2026-06-28",

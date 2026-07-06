@@ -1,5 +1,6 @@
 const gallery = document.getElementById("gallery");
 const tagArea = document.getElementById("tagArea");
+
 const modal = document.getElementById("modal");
 const modalClose = document.getElementById("modalClose");
 const modalImage = document.getElementById("modalImage");
@@ -7,6 +8,7 @@ const modalTitle = document.getElementById("modalTitle");
 const modalDate = document.getElementById("modalDate");
 const modalTags = document.getElementById("modalTags");
 const modalComment = document.getElementById("modalComment");
+
 let currentTag = "all";
 
 function formatMonth(dateString) {
@@ -73,8 +75,8 @@ function renderGallery() {
     section.innerHTML = `
       <h2 class="month-title">${month}</h2>
       <div class="art-grid">
-        ${groups[month].map(art => `
-          <article class="art-card" data-title="${art.title}">
+        ${groups[month].map((art, index) => `
+          <article class="art-card" data-month="${month}" data-index="${index}">
             <img src="${art.image}" alt="${art.title}">
             <div class="art-info">
               <div class="art-title">${art.title}</div>
@@ -90,14 +92,19 @@ function renderGallery() {
     `;
 
     gallery.appendChild(section);
-        section.querySelectorAll(".art-card").forEach(card => {
+
+    section.querySelectorAll(".art-card").forEach(card => {
       card.addEventListener("click", () => {
-        const art = filtered.find(item => item.title === card.dataset.title);
+        const monthName = card.dataset.month;
+        const artIndex = Number(card.dataset.index);
+        const art = groups[monthName][artIndex];
+
         openModal(art);
       });
     });
   });
 }
+
 function openModal(art) {
   modalImage.src = art.image;
   modalImage.alt = art.title;
@@ -120,5 +127,6 @@ modal.addEventListener("click", event => {
     closeModal();
   }
 });
+
 renderTagButtons();
 renderGallery();

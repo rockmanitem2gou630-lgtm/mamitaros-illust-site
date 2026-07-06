@@ -500,7 +500,7 @@ const artworks = [
     thumb: "images/thumbnails/2026/05/20260506_touken_norimune_th.webp",
     image: "images/originals/2026/05/20260506_touken_norimune.webp",
     tags: ["刀剣乱舞", "セリフ付き"],
-    comment: "何人の審神者がお守りに気づくのか",
+    comment: "何人の審神者がお守りに気づくだろう",
     draft: false
   }
 ];

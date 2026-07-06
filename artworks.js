@@ -295,5 +295,23 @@ const artworks = [
     tags: ["ホロライブ", "一枚絵", "ぷよぷよ"],
     comment: "推しが推しを使って優勝したんや",
     draft: false
+  },
+  {
+    title: "蒸気都市のシグ",
+    date: "2023-07-15",
+    thumb: "images/thumbnails/2023/04/20230715_puyopuyo_sig_th.webp",
+    image: "images/originals/2023/04/20230715_puyopuyo_sig.webp",
+    tags: ["ぷよぷよ", "一枚絵"],
+    comment: "シグアンソロに参加した時の",
+    draft: false
+  },
+  {
+    title: "キティシグ",
+    date: "2023-07-21",
+    thumb: "images/thumbnails/2023/04/20230721_puyopuyo_sig_th.webp",
+    image: "images/originals/2023/04/20230721_puyopuyo_sig.webp",
+    tags: ["ぷよぷよ", "一枚絵"],
+    comment: "シグアンソロに参加した時の",
+    draft: false
   }
 ];

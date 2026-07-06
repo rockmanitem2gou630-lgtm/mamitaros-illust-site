@@ -220,7 +220,7 @@ const artworks = [
     date: "2023-03-17",
     thumb: "images/thumbnails/2023/03/20230317_dorakue_rapisu_th.webp",
     image: "images/originals/2023/03/20230317_dorakue_rapisu.webp",
-    tags: ["E7", "一枚絵"],
+    tags: ["ドラクエ", "一枚絵"],
     comment: "学園繋がり",
     draft: false
   }

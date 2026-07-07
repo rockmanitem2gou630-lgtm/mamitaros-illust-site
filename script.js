@@ -1,3 +1,10 @@
+const mangaModal = document.getElementById("mangaModal");
+const mangaModalClose = document.getElementById("mangaModalClose");
+const mangaModalTitle = document.getElementById("mangaModalTitle");
+const mangaModalDate = document.getElementById("mangaModalDate");
+const mangaModalTags = document.getElementById("mangaModalTags");
+const mangaModalComment = document.getElementById("mangaModalComment");
+const mangaPages = document.getElementById("mangaPages");
 const gallery = document.getElementById("gallery");
 const tagArea = document.getElementById("tagArea");
 const dreamNotice = document.getElementById("dreamNotice");
@@ -113,7 +120,35 @@ ${art.type === "manga" && art.pages ? `<div class="art-page-count">📖 ${art.pa
         const artIndex = Number(card.dataset.index);
         const art = groups[monthName][artIndex];
 
-        openModal(art);
+        if (art.type === "manga") {
+  openMangaModal(art);
+} else {
+  openModal(art);
+}
+function openMangaModal(art) {
+  mangaModalTitle.textContent = art.title;
+  mangaModalDate.textContent = art.date;
+  mangaModalTags.innerHTML = art.tags.map(tag => `<span>${tag}</span>`).join("");
+  mangaModalComment.textContent = art.comment || "";
+
+  mangaPages.innerHTML = art.pages.map(page => `
+    <img src="${page}" alt="${art.title}">
+  `).join("");
+
+  mangaModal.classList.add("show");
+}
+
+function closeMangaModal() {
+  mangaModal.classList.remove("show");
+}
+
+mangaModalClose.addEventListener("click", closeMangaModal);
+
+mangaModal.addEventListener("click", event => {
+  if (event.target === mangaModal) {
+    closeMangaModal();
+  }
+});
       });
     });
   });

@@ -166,12 +166,12 @@ function renderMangaPages() {
 
   const pages = currentManga.pages;
   const leftPage = pages[currentPageIndex + 1];
-const rightPage = pages[currentPageIndex];
+  const rightPage = pages[currentPageIndex];
 
-mangaPages.innerHTML = `
-  ${leftPage ? `<img src="${leftPage}" alt="${currentManga.title}">` : ""}
-  ${rightPage ? `<img src="${rightPage}" alt="${currentManga.title}">` : ""}
-`;
+  mangaPages.innerHTML = `
+    ${leftPage ? `<img src="${leftPage}" alt="${currentManga.title}">` : ""}
+    ${rightPage ? `<img src="${rightPage}" alt="${currentManga.title}">` : ""}
+  `;
 
   mangaPageInfo.textContent = `${currentPageIndex + 1}-${Math.min(currentPageIndex + 2, pages.length)} / ${pages.length}P`;
 

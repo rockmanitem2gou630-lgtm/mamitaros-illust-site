@@ -875,4 +875,13 @@ const artworks = [
   dream: true,
   draft: false
   },
+  {
+    title: "タチの悪いジジィ",
+    date: "2026-05-12",
+    thumb: "images/thumbnails/2026/05/20260512_touken_norimune_th.webp",
+    image: "images/originals/2026/05/20260512_touken_norimune.webp",
+    tags: ["刀剣乱舞", "漫画"],
+    comment: "太刀だけに",
+    draft: false
+  },
 ];

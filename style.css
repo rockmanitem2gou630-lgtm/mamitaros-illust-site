@@ -234,3 +234,26 @@ main {
   font-size: 13px;
   color: #7a6d66;
 }
+.manga-modal-content {
+  width: min(1100px, 100%);
+}
+
+.manga-pages {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.manga-pages img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  background: #fff;
+}
+
+@media (max-width: 700px) {
+  .manga-pages {
+    grid-template-columns: 1fr;
+  }
+}

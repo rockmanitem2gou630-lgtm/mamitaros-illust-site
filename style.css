@@ -356,12 +356,12 @@ main {
   }
 }
 .manga-pages img {
-  width: min(44vw, 680px);
+  width: min(43vw, 650px);
 }
 
 @media (max-width: 700px) {
   .manga-pages {
-    row-gap: 44px;
+    row-gap: 60px;
   }
 
   .manga-pages img {

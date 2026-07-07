@@ -257,3 +257,15 @@ main {
     grid-template-columns: 1fr;
   }
 }
+.modal.show {
+  align-items: flex-start;
+}
+
+.modal {
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.manga-modal-content {
+  margin: 0 auto;
+}

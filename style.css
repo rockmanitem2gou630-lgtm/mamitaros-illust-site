@@ -464,3 +464,25 @@ main {
     max-width: 100%;
   }
 }
+@media (max-width: 700px) {
+  .manga-viewer {
+    display: block;
+  }
+
+  .manga-nav,
+  .manga-page-info {
+    display: none;
+  }
+
+  .manga-pages {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 60px;
+    direction: ltr !important;
+  }
+
+  .manga-pages img {
+    width: 100%;
+    max-width: 100%;
+  }
+}

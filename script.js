@@ -1,3 +1,10 @@
+const mangaModal = document.getElementById("mangaModal");
+const mangaModalClose = document.getElementById("mangaModalClose");
+const mangaModalTitle = document.getElementById("mangaModalTitle");
+const mangaModalDate = document.getElementById("mangaModalDate");
+const mangaModalTags = document.getElementById("mangaModalTags");
+const mangaModalComment = document.getElementById("mangaModalComment");
+const mangaPages = document.getElementById("mangaPages");
 const gallery = document.getElementById("gallery");
 const tagArea = document.getElementById("tagArea");
 const dreamNotice = document.getElementById("dreamNotice");
@@ -9,14 +16,6 @@ const modalTitle = document.getElementById("modalTitle");
 const modalDate = document.getElementById("modalDate");
 const modalTags = document.getElementById("modalTags");
 const modalComment = document.getElementById("modalComment");
-
-const mangaModal = document.getElementById("mangaModal");
-const mangaModalClose = document.getElementById("mangaModalClose");
-const mangaModalTitle = document.getElementById("mangaModalTitle");
-const mangaModalDate = document.getElementById("mangaModalDate");
-const mangaModalTags = document.getElementById("mangaModalTags");
-const mangaModalComment = document.getElementById("mangaModalComment");
-const mangaPages = document.getElementById("mangaPages");
 
 let currentTag = "all";
 let viewMode = "normal";
@@ -72,13 +71,13 @@ function renderGallery() {
 
   let filtered;
 
-  if (viewMode === "dream") {
-    filtered = published.filter(art => art.dream === true);
-  } else if (currentTag === "all") {
-    filtered = published.filter(art => art.dream !== true);
-  } else {
-    filtered = published.filter(art => art.dream !== true && art.tags.includes(currentTag));
-  }
+if (viewMode === "dream") {
+  filtered = published.filter(art => art.dream === true);
+} else if (currentTag === "all") {
+  filtered = published.filter(art => art.dream !== true);
+} else {
+  filtered = published.filter(art => art.dream !== true && art.tags.includes(currentTag));
+}
 
   const groups = {};
 
@@ -97,12 +96,12 @@ function renderGallery() {
       <div class="art-grid">
         ${groups[month].map((art, index) => `
           <article class="art-card" data-month="${month}" data-index="${index}">
-            ${art.type === "manga" ? `<div class="manga-badge">📖</div>` : ""}
-            <img src="${art.thumb}" alt="${art.title}">
+  ${art.type === "manga" ? `<div class="manga-badge">📖</div>` : ""}
+  <img src="${art.thumb}" alt="${art.title}">
             <div class="art-info">
               <div class="art-title">${art.title}</div>
               <div class="art-date">${art.date}</div>
-              ${art.type === "manga" && art.pages ? `<div class="art-page-count">📖 ${art.pages.length}P</div>` : ""}
+${art.type === "manga" && art.pages ? `<div class="art-page-count">📖 ${art.pages.length}P</div>` : ""}
               <div class="art-tags">
                 ${art.tags.map(tag => `<span>${tag}</span>`).join("")}
               </div>
@@ -122,10 +121,34 @@ function renderGallery() {
         const art = groups[monthName][artIndex];
 
         if (art.type === "manga") {
-          openMangaModal(art);
-        } else {
-          openModal(art);
-        }
+  openMangaModal(art);
+} else {
+  openModal(art);
+}
+function openMangaModal(art) {
+  mangaModalTitle.textContent = art.title;
+  mangaModalDate.textContent = art.date;
+  mangaModalTags.innerHTML = art.tags.map(tag => `<span>${tag}</span>`).join("");
+  mangaModalComment.textContent = art.comment || "";
+
+  mangaPages.innerHTML = art.pages.map(page => `
+    <img src="${page}" alt="${art.title}">
+  `).join("");
+
+  mangaModal.classList.add("show");
+}
+
+function closeMangaModal() {
+  mangaModal.classList.remove("show");
+}
+
+mangaModalClose.addEventListener("click", closeMangaModal);
+
+mangaModal.addEventListener("click", event => {
+  if (event.target === mangaModal) {
+    closeMangaModal();
+  }
+});
       });
     });
   });
@@ -146,36 +169,11 @@ function closeModal() {
   modal.classList.remove("show");
 }
 
-function openMangaModal(art) {
-  mangaModalTitle.textContent = art.title;
-  mangaModalDate.textContent = art.date;
-  mangaModalTags.innerHTML = art.tags.map(tag => `<span>${tag}</span>`).join("");
-  mangaModalComment.textContent = art.comment || "";
-
-  mangaPages.innerHTML = art.pages.map((page, index) => `
-    <img src="${page}" alt="${art.title} ${index + 1}ページ">
-  `).join("");
-
-  mangaModal.classList.add("show");
-}
-
-function closeMangaModal() {
-  mangaModal.classList.remove("show");
-}
-
 modalClose.addEventListener("click", closeModal);
 
 modal.addEventListener("click", event => {
   if (event.target === modal) {
     closeModal();
-  }
-});
-
-mangaModalClose.addEventListener("click", closeMangaModal);
-
-mangaModal.addEventListener("click", event => {
-  if (event.target === mangaModal) {
-    closeMangaModal();
   }
 });
 

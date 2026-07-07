@@ -172,8 +172,8 @@ function renderMangaPages() {
 
   mangaPageInfo.textContent = `${currentPageIndex + 1}-${Math.min(currentPageIndex + 2, pages.length)} / ${pages.length}P`;
 
-  mangaPrev.disabled = currentPageIndex <= 0;
-  mangaNext.disabled = currentPageIndex + 2 >= pages.length;
+  mangaPrev.disabled = currentPageIndex + 2 >= pages.length;
+  mangaNext.disabled = currentPageIndex <= 0;
 }
 
 function nextMangaPages() {

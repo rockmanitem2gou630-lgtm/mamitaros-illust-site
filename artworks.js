@@ -856,10 +856,10 @@ const artworks = [
   draft: false
   },
   {
-  title: "関係が進展する則さにの話",
+  title: "関係が進展した則さにの話",
   type: "manga",
-  date: "2026-07-07",
-  thumb: "images/thumbnails/2026/06/20260612_touken_norisani_th.webp"
+  date: "2026-06-12",
+  thumb: "images/thumbnails/2026/06/20260612_touken_norisani_th.webp",
   pages: [
     "images/manga/2026/06/20260612_touken_norisani_01.webp",
     "images/manga/2026/06/20260612_touken_norisani_02.webp",
@@ -870,9 +870,9 @@ const artworks = [
     "images/manga/2026/06/20260612_touken_norisani_07.webp",
     "images/manga/2026/06/20260612_touken_norisani_08.webp"
   ],
-  tags: ["刀剣乱舞", "一枚絵"],
-  comment: "初同人誌であった",
+  tags: ["刀剣乱舞", "漫画"],
+  comment: "初同人誌だった……",
   dream: true,
   draft: false
-},
+  },
 ];

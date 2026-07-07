@@ -173,7 +173,11 @@ function renderMangaPages() {
     ${rightPage ? `<img src="${rightPage}" alt="${currentManga.title}">` : ""}
   `;
 
-  mangaPageInfo.textContent = `${currentPageIndex + 1}-${Math.min(currentPageIndex + 2, pages.length)} / ${pages.length}P`;
+  const rightNumber = currentPageIndex + 1;
+  const leftNumber = Math.min(currentPageIndex + 2, pages.length);
+
+  mangaPageInfo.textContent =
+  `${leftNumber}-${rightNumber} / ${pages.length}P`;
 
   mangaPrev.disabled = currentPageIndex + 2 >= pages.length;
   mangaNext.disabled = currentPageIndex <= 0;

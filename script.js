@@ -157,6 +157,7 @@ function openMangaModal(art) {
 
   renderMangaPages();
   mangaModal.classList.add("show");
+  
 }
 function renderMangaPages() {
   if (!currentManga) return;
@@ -174,6 +175,7 @@ function renderMangaPages() {
 
   mangaPrev.disabled = currentPageIndex + 2 >= pages.length;
   mangaNext.disabled = currentPageIndex <= 0;
+  mangaPages.scrollIntoView({ block: "center", behavior: "smooth" });
 }
 
 function nextMangaPages() {

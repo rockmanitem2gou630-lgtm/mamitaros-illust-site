@@ -416,3 +416,22 @@ main {
 .manga-pages {
   direction: ltr !important;
 }
+.manga-modal-content {
+  padding-top: 8px;
+}
+
+.manga-modal-content .modal-info {
+  margin-top: 12px;
+}
+
+.manga-viewer {
+  margin-top: 0;
+}
+
+.manga-pages {
+  margin-top: 0;
+}
+
+.manga-page-info {
+  margin-top: 6px;
+}

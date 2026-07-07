@@ -162,6 +162,8 @@ function openMangaModal(art) {
 function renderMangaPages() {
   if (!currentManga) return;
 
+  const keepScrollTop = mangaModal.scrollTop;
+
   const pages = currentManga.pages;
   const leftPage = pages[currentPageIndex + 1];
   const rightPage = pages[currentPageIndex];
@@ -175,7 +177,8 @@ function renderMangaPages() {
 
   mangaPrev.disabled = currentPageIndex + 2 >= pages.length;
   mangaNext.disabled = currentPageIndex <= 0;
-  mangaPages.scrollIntoView({ block: "center" });
+
+  mangaModal.scrollTop = keepScrollTop;
 }
 
 function nextMangaPages() {

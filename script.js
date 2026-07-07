@@ -1,10 +1,3 @@
-const mangaModal = document.getElementById("mangaModal");
-const mangaModalClose = document.getElementById("mangaModalClose");
-const mangaModalTitle = document.getElementById("mangaModalTitle");
-const mangaModalDate = document.getElementById("mangaModalDate");
-const mangaModalTags = document.getElementById("mangaModalTags");
-const mangaModalComment = document.getElementById("mangaModalComment");
-const mangaPages = document.getElementById("mangaPages");
 const gallery = document.getElementById("gallery");
 const tagArea = document.getElementById("tagArea");
 const dreamNotice = document.getElementById("dreamNotice");
@@ -16,6 +9,14 @@ const modalTitle = document.getElementById("modalTitle");
 const modalDate = document.getElementById("modalDate");
 const modalTags = document.getElementById("modalTags");
 const modalComment = document.getElementById("modalComment");
+
+const mangaModal = document.getElementById("mangaModal");
+const mangaModalClose = document.getElementById("mangaModalClose");
+const mangaModalTitle = document.getElementById("mangaModalTitle");
+const mangaModalDate = document.getElementById("mangaModalDate");
+const mangaModalTags = document.getElementById("mangaModalTags");
+const mangaModalComment = document.getElementById("mangaModalComment");
+const mangaPages = document.getElementById("mangaPages");
 
 let currentTag = "all";
 let viewMode = "normal";

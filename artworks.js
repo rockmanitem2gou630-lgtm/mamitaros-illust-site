@@ -854,5 +854,20 @@ const artworks = [
   comment: "夢主は可愛い",
   dream: true,
   draft: false
-  }
+  },
+  {
+  title: "漫画サンプル",
+  type: "manga",
+  date: "2026-07-07",
+  thumb: "https://placehold.co/400x400?text=Manga",
+  pages: [
+    "https://placehold.co/900x1200?text=Page+1",
+    "https://placehold.co/900x1200?text=Page+2",
+    "https://placehold.co/900x1200?text=Page+3",
+    "https://placehold.co/900x1200?text=Page+4"
+  ],
+  tags: ["漫画"],
+  comment: "漫画表示テスト",
+  draft: false
+},
 ];

@@ -125,6 +125,21 @@ ${art.type === "manga" && art.pages ? `<div class="art-page-count">📖 ${art.pa
 } else {
   openModal(art);
 }
+      });
+    });
+  });
+}
+
+function openModal(art) {
+  modalImage.src = art.image;
+  modalImage.alt = art.title;
+  modalTitle.textContent = art.title;
+  modalDate.textContent = art.date;
+  modalTags.innerHTML = art.tags.map(tag => `<span>${tag}</span>`).join("");
+  modalComment.textContent = art.comment || "";
+
+  modal.classList.add("show");
+}
 function openMangaModal(art) {
   mangaModalTitle.textContent = art.title;
   mangaModalDate.textContent = art.date;
@@ -149,22 +164,6 @@ mangaModal.addEventListener("click", event => {
     closeMangaModal();
   }
 });
-      });
-    });
-  });
-}
-
-function openModal(art) {
-  modalImage.src = art.image;
-  modalImage.alt = art.title;
-  modalTitle.textContent = art.title;
-  modalDate.textContent = art.date;
-  modalTags.innerHTML = art.tags.map(tag => `<span>${tag}</span>`).join("");
-  modalComment.textContent = art.comment || "";
-
-  modal.classList.add("show");
-}
-
 function closeModal() {
   modal.classList.remove("show");
 }

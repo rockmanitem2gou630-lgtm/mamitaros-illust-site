@@ -17,8 +17,13 @@ const mangaModalDate = document.getElementById("mangaModalDate");
 const mangaModalTags = document.getElementById("mangaModalTags");
 const mangaModalComment = document.getElementById("mangaModalComment");
 const mangaPages = document.getElementById("mangaPages");
+const mangaPrev = document.getElementById("mangaPrev");
+const mangaNext = document.getElementById("mangaNext");
+const mangaPageInfo = document.getElementById("mangaPageInfo");
 
 let currentTag = "all";
+let currentManga = null;
+let currentPageIndex = 0;
 let viewMode = "normal";
 
 function formatMonth(dateString) {
@@ -142,16 +147,49 @@ function openModal(art) {
   modal.classList.add("show");
 }
 function openMangaModal(art) {
+  currentManga = art;
+  currentPageIndex = 0;
+
   mangaModalTitle.textContent = art.title;
   mangaModalDate.textContent = art.date;
   mangaModalTags.innerHTML = art.tags.map(tag => `<span>${tag}</span>`).join("");
   mangaModalComment.textContent = art.comment || "";
 
-  mangaPages.innerHTML = art.pages.map(page => `
-    <img src="${page}" alt="${art.title}">
-  `).join("");
-
+  renderMangaPages();
   mangaModal.classList.add("show");
+}
+function renderMangaPages() {
+  if (!currentManga) return;
+
+  const pages = currentManga.pages;
+  const leftPage = pages[currentPageIndex + 1];
+  const rightPage = pages[currentPageIndex];
+
+  mangaPages.innerHTML = `
+    ${leftPage ? `<img src="${leftPage}" alt="${currentManga.title}">` : ""}
+    ${rightPage ? `<img src="${rightPage}" alt="${currentManga.title}">` : ""}
+  `;
+
+  mangaPageInfo.textContent = `${currentPageIndex + 1}-${Math.min(currentPageIndex + 2, pages.length)} / ${pages.length}P`;
+
+  mangaPrev.disabled = currentPageIndex <= 0;
+  mangaNext.disabled = currentPageIndex + 2 >= pages.length;
+}
+
+function nextMangaPages() {
+  if (!currentManga) return;
+  if (currentPageIndex + 2 < currentManga.pages.length) {
+    currentPageIndex += 2;
+    renderMangaPages();
+  }
+}
+
+function prevMangaPages() {
+  if (!currentManga) return;
+  if (currentPageIndex - 2 >= 0) {
+    currentPageIndex -= 2;
+    renderMangaPages();
+  }
 }
 
 function closeMangaModal() {
@@ -159,6 +197,8 @@ function closeMangaModal() {
 }
 
 mangaModalClose.addEventListener("click", closeMangaModal);
+mangaNext.addEventListener("click", nextMangaPages);
+mangaPrev.addEventListener("click", prevMangaPages);
 
 mangaModal.addEventListener("click", event => {
   if (event.target === mangaModal) {

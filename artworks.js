@@ -856,18 +856,23 @@ const artworks = [
   draft: false
   },
   {
-  title: "漫画サンプル",
+  title: "関係が進展する則さにの話",
   type: "manga",
   date: "2026-07-07",
-  thumb: "https://placehold.co/400x400?text=Manga",
+  thumb: "images/manga/2026/06/20260612_touken_norisani_th.webp"
   pages: [
-    "https://placehold.co/900x1200?text=Page+1",
-    "https://placehold.co/900x1200?text=Page+2",
-    "https://placehold.co/900x1200?text=Page+3",
-    "https://placehold.co/900x1200?text=Page+4"
+    "images/manga/2026/06/20260612_touken_norisani_01.webp",
+    "images/manga/2026/06/20260612_touken_norisani_02.webp",
+    "images/manga/2026/06/20260612_touken_norisani_03.webp",
+    "images/manga/2026/06/20260612_touken_norisani_04.webp",
+    "images/manga/2026/06/20260612_touken_norisani_05.webp",
+    "images/manga/2026/06/20260612_touken_norisani_06.webp",
+    "images/manga/2026/06/20260612_touken_norisani_07.webp",
+    "images/manga/2026/06/20260612_touken_norisani_08.webp",
   ],
-  tags: ["漫画"],
-  comment: "漫画表示テスト",
+  tags: ["刀剣乱舞", "一枚絵"],
+  comment: "初同人誌であった",
+  dream: true,
   draft: false
 },
 ];

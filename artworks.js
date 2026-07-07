@@ -929,4 +929,94 @@ const artworks = [
     comment: "イラストコンペのもの。入賞○",
     draft: false
   },
+  {
+    title: "あやしいクルーク",
+    date: "2021-07-05",
+    thumb: "images/thumbnails/2021/07/20210705_puyopuyo_ayasama_th.webp",
+    image: "images/originals/2021/07/20210705_puyopuyo_ayasama.webp",
+    tags: ["ぷよぷよ", "一枚絵"],
+    comment: "ぷよクエであや様揃った記念",
+    draft: false
+  },
+  {
+    title: "銀魂パロ1",
+    date: "2021-06-21",
+    thumb: "images/thumbnails/2021/06/20210621_puyopuyo_paro1_th.webp",
+    image: "images/originals/2021/06/20210621_puyopuyo_paro1.webp",
+    tags: ["ぷよぷよ", "一枚絵"],
+    comment: "人気投票があったので",
+    draft: false
+  },
+  {
+    title: "銀魂パロ2",
+    date: "2021-06-21",
+    thumb: "images/thumbnails/2021/06/20210621_puyopuyo_paro2_th.webp",
+    image: "images/originals/2021/06/20210621_puyopuyo_paro2.webp",
+    tags: ["ぷよぷよ", "一枚絵"],
+    comment: "人気投票があったので",
+    draft: false
+  },
+  {
+    title: "銀魂パロ3",
+    date: "2021-06-21",
+    thumb: "images/thumbnails/2021/06/20210621_puyopuyo_paro3_th.webp",
+    image: "images/originals/2021/06/20210621_puyopuyo_paro3.webp",
+    tags: ["ぷよぷよ", "一枚絵"],
+    comment: "人気投票があったので",
+    draft: false
+  },
+  {
+    title: "銀魂パロ4",
+    date: "2021-06-21",
+    thumb: "images/thumbnails/2021/06/20210621_puyopuyo_paro4_th.webp",
+    image: "images/originals/2021/06/20210621_puyopuyo_paro4.webp",
+    tags: ["ぷよぷよ", "一枚絵"],
+    comment: "人気投票があったので",
+    draft: false
+  },
+  {
+    title: "あや様誕生日",
+    date: "2021-06-16",
+    thumb: "images/thumbnails/2021/06/20210616_puyopuyo_ayasama_th.webp",
+    image: "images/originals/2021/06/20210616_puyopuyo_ayasama.webp",
+    tags: ["ぷよぷよ", "一枚絵"],
+    comment: "最推しは気合入るで",
+    draft: false
+  },
+  {
+    title: "シグ誕生日",
+    date: "2021-06-16",
+    thumb: "images/thumbnails/2021/06/20210616_puyopuyo_sig_th.webp",
+    image: "images/originals/2021/06/20210616_puyopuyo_sig.webp",
+    tags: ["ぷよぷよ", "一枚絵"],
+    comment: "シグも好きやで",
+    draft: false
+  },
+  {
+    title: "あんどうりんご",
+    date: "2021-06-14",
+    thumb: "images/thumbnails/2021/06/20210614_puyopuyo_ringo_th.webp",
+    image: "images/originals/2021/06/20210614_puyopuyo_ringo.webp",
+    tags: ["ぷよぷよ", "一枚絵"],
+    comment: "カンペキです",
+    draft: false
+  },
+  {
+    title: "うたプリパロ",
+    date: "2021-06-08",
+    thumb: "images/thumbnails/2021/06/20210608_puyopuyo_utapuyo_th.webp",
+    image: "images/originals/2021/06/20210608_puyopuyo_utapuyo.webp",
+    tags: ["ぷよぷよ", "一枚絵"],
+    comment: "今宵はほら二人で1000%LOVE",
+    draft: false
+  },
+  {
+    title: "ムシの日",
+    date: "2021-06-04",
+    thumb: "images/thumbnails/2021/06/20210604_puyopuyo_sig_th.webp",
+    image: "images/originals/2021/06/20210604_puyopuyo_sig.webp",
+    tags: ["ぷよぷよ", "一枚絵"],
+    comment: "シグといえば",
+    draft: false
+  },
 ];

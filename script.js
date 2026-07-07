@@ -175,7 +175,7 @@ function renderMangaPages() {
 
   mangaPrev.disabled = currentPageIndex + 2 >= pages.length;
   mangaNext.disabled = currentPageIndex <= 0;
-  mangaPages.scrollIntoView({ block: "center", behavior: "smooth" });
+  mangaPages.scrollIntoView({ block: "center" });
 }
 
 function nextMangaPages() {

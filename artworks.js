@@ -884,4 +884,49 @@ const artworks = [
     comment: "太刀だけに",
     draft: false
   },
+  {
+    title: "リリベット",
+    date: "2022-05-20",
+    thumb: "images/originals/2022/05/20220513_epic7_riri.webp",
+    image: "images/originals/2022/05/20220513_epic7_riri.webp",
+    tags: ["Epic7", "その他"],
+    comment: "イラストコンペのもの。入賞○",
+    draft: false
+  },
+  {
+    title: "闇アンジェリカ",
+    date: "2022-10-09",
+    thumb: "images/originals/2022/10/20221009_epic7_anjerika.webp",
+    image: "images/originals/2022/10/20221009_epic7_anjerika.webp",
+    tags: ["Epic7", "その他"],
+    comment: "イラストコンペのもの。入賞○",
+    draft: false
+  },
+  {
+    title: "アルキィ",
+    date: "2022-10-09",
+    thumb: "images/originals/2022/10/20221009_epic7_aru.webp",
+    image: "images/originals/2022/10/20221009_epic7_aru.webp",
+    tags: ["Epic7", "その他"],
+    comment: "イラストコンペのもの。入賞○",
+    draft: false
+  },
+  {
+    title: "闇ヘイスト",
+    date: "2022-10-09",
+    thumb: "images/originals/2022/10/20221009_epic7_haste.webp",
+    image: "images/originals/2022/10/20221009_epic7_haste.webp",
+    tags: ["Epic7", "その他"],
+    comment: "イラストコンペのもの。入賞○",
+    draft: false
+  },
+  {
+    title: "闇クラリッサ",
+    date: "2022-10-09",
+    thumb: "images/originals/2022/10/20221009_epic7_kura.webp",
+    image: "images/originals/2022/10/20221009_epic7_kura.webp",
+    tags: ["Epic7", "その他"],
+    comment: "イラストコンペのもの。入賞○",
+    draft: false
+  },
 ];

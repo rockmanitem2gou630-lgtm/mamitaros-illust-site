@@ -196,9 +196,9 @@ function closeMangaModal() {
   mangaModal.classList.remove("show");
 }
 
-mangaModalClose.addEventListener("click", closeMangaModal);
 mangaNext.addEventListener("click", nextMangaPages);
 mangaPrev.addEventListener("click", prevMangaPages);
+mangaModalClose.addEventListener("click", closeMangaModal);
 
 mangaModal.addEventListener("click", event => {
   if (event.target === mangaModal) {

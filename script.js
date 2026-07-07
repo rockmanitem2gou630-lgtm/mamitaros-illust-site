@@ -163,18 +163,27 @@ function renderMangaPages() {
   if (!currentManga) return;
 
   const keepScrollTop = mangaModal.scrollTop;
-
   const pages = currentManga.pages;
-  if (window.innerWidth <= 700) {
-  mangaPages.innerHTML = pages.map(page => `
-    <img src="${page}" alt="${currentManga.title}">
-  `).join("");
+  const isMobile = window.matchMedia("(max-width: 700px)").matches;
 
-  mangaPageInfo.textContent = "";
-  mangaPrev.disabled = true;
-  mangaNext.disabled = true;
-  return;
-}
+  // スマホ：全ページを1Pずつ縦スクロール
+  if (isMobile) {
+    mangaPages.innerHTML = pages.map(page => `
+      <img src="${page}" alt="${currentManga.title}">
+    `).join("");
+
+    mangaPageInfo.textContent = "";
+    mangaPrev.disabled = true;
+    mangaNext.disabled = true;
+
+    requestAnimationFrame(() => {
+      mangaModal.scrollTop = keepScrollTop;
+    });
+
+    return;
+  }
+
+  // PC：日本式見開き
   const leftPage = pages[currentPageIndex + 1];
   const rightPage = pages[currentPageIndex];
 
@@ -186,15 +195,14 @@ function renderMangaPages() {
   const rightNumber = currentPageIndex + 1;
   const leftNumber = Math.min(currentPageIndex + 2, pages.length);
 
-  mangaPageInfo.textContent =
-  `${leftNumber}-${rightNumber} / ${pages.length}P`;
+  mangaPageInfo.textContent = `${leftNumber}-${rightNumber} / ${pages.length}P`;
 
   mangaPrev.disabled = currentPageIndex + 2 >= pages.length;
   mangaNext.disabled = currentPageIndex <= 0;
 
   requestAnimationFrame(() => {
-  mangaModal.scrollTop = keepScrollTop;
-});
+    mangaModal.scrollTop = keepScrollTop;
+  });
 }
 
 function nextMangaPages() {

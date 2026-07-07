@@ -355,3 +355,16 @@ main {
     width: 100%;
   }
 }
+.manga-pages img {
+  width: min(44vw, 680px);
+}
+
+@media (max-width: 700px) {
+  .manga-pages {
+    row-gap: 44px;
+  }
+
+  .manga-pages img {
+    width: 100%;
+  }
+}

@@ -328,3 +328,30 @@ main {
     gap: 18px;
   }
 }
+.manga-pages {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: center;
+  column-gap: 0;
+  row-gap: 56px;
+  direction: rtl;
+}
+
+.manga-pages img {
+  width: min(46vw, 720px);
+  max-height: none;
+  object-fit: initial;
+  border-radius: 0;
+  background: transparent;
+}
+@media (max-width: 700px) {
+  .manga-pages {
+    grid-template-columns: 1fr;
+    row-gap: 32px;
+    direction: ltr;
+  }
+
+  .manga-pages img {
+    width: 100%;
+  }
+}

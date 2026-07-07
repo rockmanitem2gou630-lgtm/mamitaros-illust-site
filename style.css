@@ -368,3 +368,43 @@ main {
     width: 100%;
   }
 }
+.manga-viewer {
+  display: grid;
+  grid-template-columns: 48px 1fr 48px;
+  align-items: center;
+  gap: 12px;
+}
+
+.manga-nav {
+  border: none;
+  background: #2b2522;
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 22px;
+}
+
+.manga-nav:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.manga-page-info {
+  text-align: center;
+  margin-top: 12px;
+  color: #7a6d66;
+  font-size: 14px;
+}
+
+@media (max-width: 700px) {
+  .manga-viewer {
+    grid-template-columns: 1fr;
+  }
+
+  .manga-nav {
+    width: 100%;
+    border-radius: 12px;
+  }
+}

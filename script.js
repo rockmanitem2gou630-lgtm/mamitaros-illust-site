@@ -165,6 +165,16 @@ function renderMangaPages() {
   const keepScrollTop = mangaModal.scrollTop;
 
   const pages = currentManga.pages;
+  if (window.innerWidth <= 700) {
+  mangaPages.innerHTML = pages.map(page => `
+    <img src="${page}" alt="${currentManga.title}">
+  `).join("");
+
+  mangaPageInfo.textContent = "";
+  mangaPrev.disabled = true;
+  mangaNext.disabled = true;
+  return;
+}
   const leftPage = pages[currentPageIndex + 1];
   const rightPage = pages[currentPageIndex];
 

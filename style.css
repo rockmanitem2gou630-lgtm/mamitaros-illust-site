@@ -276,7 +276,8 @@ main {
 }
 
 .manga-pages {
-  gap: 10px;
+    column-gap: 4px;
+    row-gap: 28px;
 }
 
 .manga-pages img {

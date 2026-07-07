@@ -435,3 +435,10 @@ main {
 .manga-page-info {
   margin-top: 6px;
 }
+.modal.show {
+  align-items: flex-start;
+}
+
+.modal {
+  padding-top: 16px;
+}

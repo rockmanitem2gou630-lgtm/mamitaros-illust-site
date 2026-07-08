@@ -339,9 +339,17 @@ function openMangaModal(art) {
   mangaModalTags.innerHTML = art.tags.map(tag => `<span>${tag}</span>`).join("");
   mangaModalComment.textContent = art.comment || "";
 
+  preloadMangaAllPages(art);
   renderMangaPages();
   mangaModal.classList.add("show");
   
+  function preloadMangaAllPages(art) {
+  if (!art || !Array.isArray(art.pages)) return;
+
+  art.pages.forEach(page => {
+    preloadImage(page);
+  });
+}
 }
 function renderMangaPages() {
   if (!currentManga) return;

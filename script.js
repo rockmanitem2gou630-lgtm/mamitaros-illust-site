@@ -115,12 +115,20 @@ if (viewMode === "dream") {
   filtered = published.filter(art => art.dream === true);
 } else if (currentTag === "all") {
   filtered = published.filter(art => art.dream !== true);
-} else if (currentTag === "漫画") {
-  filtered = published.filter(art => art.dream !== true && art.type === "漫画");
-} else if (currentTag === "一枚絵") {
-  filtered = published.filter(art => art.dream !== true && art.type !== "一枚絵");
 } else {
-  filtered = published.filter(art => art.dream !== true && art.tags.includes(currentTag));
+  filtered = published.filter(art => {
+    if (art.dream === true) return false;
+
+    if (currentTag === "漫画") {
+      return art.tags.includes("漫画") || art.type === "manga";
+    }
+
+    if (currentTag === "一枚絵") {
+      return art.tags.includes("一枚絵");
+    }
+
+    return art.tags.includes(currentTag);
+  });
 }
 
   const groups = {};

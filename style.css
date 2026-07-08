@@ -334,3 +334,23 @@ main {
     max-width: 100%;
   }
 }
+.tag-groups {
+  margin-bottom: 40px;
+}
+
+.genre-tag-area {
+  margin-bottom: 14px;
+}
+
+.work-tag-area {
+  margin-bottom: 0;
+}
+
+.work-tag-area .tag-button {
+  background: #f0e7df;
+}
+
+.work-tag-area .tag-button.active {
+  background: #2b2522;
+  color: #fff;
+}

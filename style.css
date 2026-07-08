@@ -389,3 +389,32 @@ main {
     border-radius: 12px;
   }
 }
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  border: none;
+  background: #2b2522;
+  color: #fff;
+  border-radius: 999px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  z-index: 900;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media (max-width: 700px) {
+  .back-to-top {
+    right: 14px;
+    bottom: 14px;
+    padding: 10px 12px;
+  }
+}

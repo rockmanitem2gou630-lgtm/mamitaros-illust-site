@@ -254,6 +254,9 @@ ${art.type === "manga" && art.pages ? `<div class="art-page-count">📖 ${art.pa
     });
   });
 }
+function isMangaArtwork(art) {
+  return art && Array.isArray(art.pages) && art.pages.length > 0;
+}
 function openArtworkByIndex(index) {
   const art = currentArtList[index];
   if (!art) return;
@@ -263,7 +266,7 @@ function openArtworkByIndex(index) {
   modal.classList.remove("show");
   mangaModal.classList.remove("show");
 
-  if (art.type === "manga") {
+  if (isMangaArtwork(art)) {
     openMangaModal(art);
   } else {
     openModal(art);
@@ -285,7 +288,7 @@ function preloadAroundArtwork() {
   [prevArt, nextArt].forEach(art => {
     if (!art) return;
 
-    if (art.type === "manga" && art.pages) {
+    if (isMangaArtwork(art)) {
       preloadImage(art.thumb);
       preloadImage(art.pages[0]);
       preloadImage(art.pages[1]);

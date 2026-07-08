@@ -1028,4 +1028,22 @@ const artworks = [
     comment: "復活直後かも",
     draft: false
   },
+  {
+    title: "FF14コラボ(大嘘)",
+    date: "2021-05-13",
+    thumb: "images/thumbnails/2021/05/20210513_puyopuyo_ff14usokorabo_th.webp",
+    image: "images/originals/2021/05/20210513_puyopuyo_ff14usokorabo.gif",
+    tags: ["ぷよぷよ", "その他"],
+    comment: "願望",
+    draft: false
+  },
+  {
+    title: "あや様ルイズ構文",
+    date: "2021-05-30",
+    thumb: "images/thumbnails/2021/05/20210530_puyopuyo_ayasama_th.webp",
+    image: "images/originals/2021/05/20210530_puyopuyo_ayasama.gif",
+    tags: ["ぷよぷよ", "らくがき"],
+    comment: "爆裂愛してる(時代錯誤)",
+    draft: false
+  },
 ];

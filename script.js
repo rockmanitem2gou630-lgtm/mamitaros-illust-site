@@ -323,6 +323,7 @@ function openModal(art) {
   modalComment.textContent = art.comment || "";
 
   modal.classList.add("show");
+  document.body.classList.add("modal-open");
 }
 function openMangaModal(art) {
   currentManga = art;
@@ -350,6 +351,7 @@ function openMangaModal(art) {
   art.pages.forEach(page => {
     preloadImage(page);
   });
+  document.body.classList.add("modal-open");
 }
 }
 function renderMangaPages() {
@@ -449,6 +451,7 @@ function prevMangaPages() {
 
 function closeMangaModal() {
   mangaModal.classList.remove("show");
+  document.body.classList.remove("modal-open");
 }
 
 mangaNext.addEventListener("click", prevMangaPages);
@@ -462,6 +465,7 @@ mangaModal.addEventListener("click", event => {
 });
 function closeModal() {
   modal.classList.remove("show");
+  document.body.classList.remove("modal-open");
 }
 
 modalClose.addEventListener("click", closeModal);

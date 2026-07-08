@@ -445,9 +445,9 @@ body.modal-open {
     position: fixed;
     top: 8px;
     right: 12px;
-    width: 45px;
-    height: 45px;
-    font-size: 25px;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
     z-index: 2000;
   }
 }

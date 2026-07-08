@@ -232,6 +232,30 @@ function openArtworkByIndex(index) {
   }
 
   updateArtNavButtons();
+  preloadAroundArtwork();
+  function preloadImage(src) {
+  if (!src) return;
+
+  const img = new Image();
+  img.src = src;
+}
+
+function preloadAroundArtwork() {
+  const prevArt = currentArtList[currentArtIndex - 1];
+  const nextArt = currentArtList[currentArtIndex + 1];
+
+  [prevArt, nextArt].forEach(art => {
+    if (!art) return;
+
+    if (art.type === "manga" && art.pages) {
+      preloadImage(art.thumb);
+      preloadImage(art.pages[0]);
+      preloadImage(art.pages[1]);
+    } else {
+      preloadImage(art.image);
+    }
+  });
+}
 }
 
 function updateArtNavButtons() {

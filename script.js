@@ -257,6 +257,7 @@ ${art.type === "manga" && art.pages ? `<div class="art-page-count">📖 ${art.pa
 function isMangaArtwork(art) {
   return art && Array.isArray(art.pages) && art.pages.length > 0;
 }
+
 function openArtworkByIndex(index) {
   const art = currentArtList[index];
   if (!art) return;

@@ -322,6 +322,25 @@ function renderMangaPages() {
     requestAnimationFrame(() => {
       mangaModal.scrollTop = keepScrollTop;
     });
+    preloadMangaAroundPages();
+    function preloadMangaAroundPages() {
+  if (!currentManga || !currentManga.pages) return;
+
+  const pages = currentManga.pages;
+
+  const preloadIndexes = [
+    currentPageIndex - 2,
+    currentPageIndex - 1,
+    currentPageIndex + 2,
+    currentPageIndex + 3
+  ];
+
+  preloadIndexes.forEach(index => {
+    if (index >= 0 && index < pages.length) {
+      preloadImage(pages[index]);
+    }
+  });
+}
 
     return;
   }

@@ -115,6 +115,44 @@ document.addEventListener("keydown", event => {
     }
   }
 });
+let touchStartX = 0;
+let touchStartY = 0;
+
+function handleTouchStart(event) {
+  if (event.touches.length !== 1) return;
+
+  touchStartX = event.touches[0].clientX;
+  touchStartY = event.touches[0].clientY;
+}
+
+function handleTouchEnd(event) {
+  const isModalOpen = modal.classList.contains("show");
+  const isMangaModalOpen = mangaModal.classList.contains("show");
+
+  if (!isModalOpen && !isMangaModalOpen) return;
+  if (event.changedTouches.length !== 1) return;
+
+  const touchEndX = event.changedTouches[0].clientX;
+  const touchEndY = event.changedTouches[0].clientY;
+
+  const diffX = touchEndX - touchStartX;
+  const diffY = touchEndY - touchStartY;
+
+  if (Math.abs(diffX) < 70) return;
+  if (Math.abs(diffY) > 60) return;
+
+  if (diffX < 0) {
+    openNextArtwork();
+  } else {
+    openPrevArtwork();
+  }
+}
+
+modal.addEventListener("touchstart", handleTouchStart);
+modal.addEventListener("touchend", handleTouchEnd);
+
+mangaModal.addEventListener("touchstart", handleTouchStart);
+mangaModal.addEventListener("touchend", handleTouchEnd);
 function renderTagButtons() {
   const separatedTags = getSeparatedTags();
 

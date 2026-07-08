@@ -338,6 +338,21 @@ function openMangaModal(art) {
   preloadMangaAllPages(art);
   renderMangaPages();
   mangaModal.classList.add("show");
+  
+function preloadImage(src) {
+  if (!src) return;
+
+  const img = new Image();
+  img.src = src;
+}
+
+function preloadMangaAllPages(art) {
+  if (!art || !Array.isArray(art.pages)) return;
+
+  art.pages.forEach(page => {
+    preloadImage(page);
+  });
+}
   document.body.classList.add("modal-open");
 }
 

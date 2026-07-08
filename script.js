@@ -137,7 +137,7 @@ if (viewMode === "dream") {
     return art.tags.includes(currentTag);
   });
 }
-
+  currentArtList = filtered;
   const groups = {};
 
   filtered.forEach(art => {
@@ -185,7 +185,6 @@ ${art.type === "manga" && art.pages ? `<div class="art-page-count">📖 ${art.pa
     });
   });
 }
-currentArtList = filtered;
 function openArtworkByIndex(index) {
   const art = currentArtList[index];
   if (!art) return;

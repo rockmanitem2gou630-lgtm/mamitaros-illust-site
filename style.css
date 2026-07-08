@@ -428,3 +428,15 @@ main {
 .manga-pages.loading {
   display: none;
 }
+body.modal-open {
+    overflow: hidden;
+    touch-action: none;
+}
+
+.modal {
+    overscroll-behavior: contain;
+}
+
+.modal-content {
+    overscroll-behavior: contain;
+}

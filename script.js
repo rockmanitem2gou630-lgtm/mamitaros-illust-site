@@ -116,9 +116,9 @@ if (viewMode === "dream") {
 } else if (currentTag === "all") {
   filtered = published.filter(art => art.dream !== true);
 } else if (currentTag === "漫画") {
-  filtered = published.filter(art => art.dream !== true && art.type === "manga");
+  filtered = published.filter(art => art.dream !== true && art.type === "漫画");
 } else if (currentTag === "一枚絵") {
-  filtered = published.filter(art => art.dream !== true && art.type !== "manga");
+  filtered = published.filter(art => art.dream !== true && art.type !== "一枚絵");
 } else {
   filtered = published.filter(art => art.dream !== true && art.tags.includes(currentTag));
 }

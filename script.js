@@ -304,15 +304,36 @@ function updateArtNavButtons() {
   mangaNextArt.disabled = isLast;
 }
 
+function openArtworkAfterPreload(index) {
+  const art = currentArtList[index];
+  if (!art) return;
+
+  if (isMangaArtwork(art)) {
+    openArtworkByIndex(index);
+    return;
+  }
+
+  const img = new Image();
+  img.src = art.image;
+
+  if (img.complete) {
+    openArtworkByIndex(index);
+    return;
+  }
+
+  img.onload = () => openArtworkByIndex(index);
+  img.onerror = () => openArtworkByIndex(index);
+}
+
 function openPrevArtwork() {
   if (currentArtIndex > 0) {
-    openArtworkByIndex(currentArtIndex - 1);
+    openArtworkAfterPreload(currentArtIndex - 1);
   }
 }
 
 function openNextArtwork() {
   if (currentArtIndex < currentArtList.length - 1) {
-    openArtworkByIndex(currentArtIndex + 1);
+    openArtworkAfterPreload(currentArtIndex + 1);
   }
 }
 function openModal(art) {

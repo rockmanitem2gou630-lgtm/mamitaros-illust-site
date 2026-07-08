@@ -326,45 +326,37 @@ function openModal(art) {
   modal.classList.add("show");
   document.body.classList.add("modal-open");
 }
-function openModal(art) {
-  const modalContent = modal.querySelector(".modal-content");
+function openMangaModal(art) {
+  currentManga = art;
+  currentPageIndex = 0;
 
-  modalContent.classList.add("is-loading");
+  mangaModalTitle.textContent = art.title;
+  mangaModalDate.textContent = art.date;
+  mangaModalTags.innerHTML = art.tags.map(tag => `<span>${tag}</span>`).join("");
+  mangaModalComment.textContent = art.comment || "";
 
-  modalTitle.textContent = "";
-  modalDate.textContent = "";
-  modalTags.innerHTML = "";
-  modalComment.textContent = "";
+  preloadMangaAllPages(art);
+  renderMangaPages();
+  mangaModal.classList.add("show");
+  
+function preloadImage(src) {
+  if (!src) return;
 
   const img = new Image();
-  img.src = art.image;
-  img.alt = art.title;
+  img.src = src;
 
-  img.onload = () => {
-    modalImage.src = art.image;
-    modalImage.alt = art.title;
+  if (img.decode) {
+    img.decode().catch(() => {});
+  }
+}
 
-    modalTitle.textContent = art.title;
-    modalDate.textContent = art.date;
-    modalTags.innerHTML = art.tags.map(tag => `<span>${tag}</span>`).join("");
-    modalComment.textContent = art.comment || "";
+function preloadMangaAllPages(art) {
+  if (!art || !Array.isArray(art.pages)) return;
 
-    modalContent.classList.remove("is-loading");
-  };
-
-  img.onerror = () => {
-    modalImage.src = art.image;
-    modalImage.alt = art.title;
-
-    modalTitle.textContent = art.title;
-    modalDate.textContent = art.date;
-    modalTags.innerHTML = art.tags.map(tag => `<span>${tag}</span>`).join("");
-    modalComment.textContent = art.comment || "";
-
-    modalContent.classList.remove("is-loading");
-  };
-
-  modal.classList.add("show");
+  art.pages.forEach(page => {
+    preloadImage(page);
+  });
+}
   document.body.classList.add("modal-open");
 }
 

@@ -440,6 +440,3 @@ body.modal-open {
 .modal-content {
     overscroll-behavior: contain;
 }
-.modal-content.is-loading {
-  opacity: 0.35;
-}

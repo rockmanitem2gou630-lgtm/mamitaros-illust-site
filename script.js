@@ -349,39 +349,53 @@ function renderMangaPages() {
 
   // スマホ：全ページを1Pずつ縦スクロール
   if (isMobile) {
-    mangaPages.innerHTML = pages.map(page => `
-      <img src="${page}" alt="${currentManga.title}">
-    `).join("");
+  mangaPages.classList.add("loading");
+  mangaPages.innerHTML = "";
 
-    mangaPageInfo.textContent = "";
-    mangaPrev.disabled = true;
-    mangaNext.disabled = true;
+  let loading = document.getElementById("mangaLoading");
+
+  if (!loading) {
+    loading = document.createElement("div");
+    loading.id = "mangaLoading";
+    loading.className = "manga-loading";
+    loading.textContent = "読み込み中…";
+    mangaPages.before(loading);
+  }
+
+  const imageElements = pages.map(page => {
+    const img = new Image();
+    img.src = page;
+    img.alt = currentManga.title;
+    return img;
+  });
+
+  Promise.all(
+    imageElements.map(img => {
+      if (img.complete) return Promise.resolve();
+
+      return new Promise(resolve => {
+        img.onload = resolve;
+        img.onerror = resolve;
+      });
+    })
+  ).then(() => {
+    mangaPages.innerHTML = "";
+    imageElements.forEach(img => mangaPages.appendChild(img));
+
+    mangaPages.classList.remove("loading");
+    loading.remove();
 
     requestAnimationFrame(() => {
       mangaModal.scrollTop = keepScrollTop;
     });
-    preloadMangaAroundPages();
-    function preloadMangaAroundPages() {
-  if (!currentManga || !currentManga.pages) return;
-
-  const pages = currentManga.pages;
-
-  const preloadIndexes = [
-    currentPageIndex - 2,
-    currentPageIndex - 1,
-    currentPageIndex + 2,
-    currentPageIndex + 3
-  ];
-
-  preloadIndexes.forEach(index => {
-    if (index >= 0 && index < pages.length) {
-      preloadImage(pages[index]);
-    }
   });
-}
 
-    return;
-  }
+  mangaPageInfo.textContent = "";
+  mangaPrev.disabled = true;
+  mangaNext.disabled = true;
+
+  return;
+}
 
   // PC：日本式見開き
   const leftPage = pages[currentPageIndex + 1];

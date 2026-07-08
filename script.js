@@ -276,15 +276,6 @@ function openArtworkByIndex(index) {
   preloadAroundArtwork();
 }
 
-  if (isMangaArtwork(art)) {
-    openMangaModal(art);
-  } else {
-    openModal(art);
-  }
-
-  updateArtNavButtons();
-  preloadAroundArtwork();
-
 function preloadAroundArtwork() {
   const prevArt = currentArtList[currentArtIndex - 1];
   const nextArt = currentArtList[currentArtIndex + 1];
@@ -347,23 +338,9 @@ function openMangaModal(art) {
   preloadMangaAllPages(art);
   renderMangaPages();
   mangaModal.classList.add("show");
-  
-  function preloadImage(src) {
-  if (!src) return;
-
-  const img = new Image();
-  img.src = src;
-  }
-
-  function preloadMangaAllPages(art) {
-  if (!art || !Array.isArray(art.pages)) return;
-
-  art.pages.forEach(page => {
-    preloadImage(page);
-  });
   document.body.classList.add("modal-open");
 }
-}
+
 function renderMangaPages() {
   if (!currentManga) return;
 

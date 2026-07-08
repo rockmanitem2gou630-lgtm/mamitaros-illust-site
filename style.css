@@ -165,16 +165,17 @@ main {
   width: min(960px, 100%);
   background: #fffaf5;
   border-radius: 18px;
-  padding: 20px;
+  padding: 12px 16px 20px;
 }
 
 .modal-content img {
   width: 100%;
-  max-height: 75vh;
+  max-height: 90vh;
+  overflow-y: auto;
   object-fit: contain;
   display: block;
   border-radius: 12px;
-  background: #fff;
+  background: transparent;
 }
 
 .modal-close {

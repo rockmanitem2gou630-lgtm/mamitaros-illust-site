@@ -1019,4 +1019,13 @@ const artworks = [
     comment: "シグといえば",
     draft: false
   },
+  {
+    title: "あやしいクルーク",
+    date: "2021-06-15",
+    thumb: "images/thumbnails/2021/06/20210615_puyopuyo_ayasama_th.webp",
+    image: "images/originals/2021/06/20210615_puyopuyo_ayasama.gif",
+    tags: ["ぷよぷよ", "GIF"],
+    comment: "復活直後かも",
+    draft: false
+  },
 ];

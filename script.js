@@ -274,12 +274,6 @@ function openArtworkByIndex(index) {
 
   updateArtNavButtons();
   preloadAroundArtwork();
-  function preloadImage(src) {
-  if (!src) return;
-
-  const img = new Image();
-  img.src = src;
-}
 
 function preloadAroundArtwork() {
   const prevArt = currentArtList[currentArtIndex - 1];
@@ -343,6 +337,13 @@ function openMangaModal(art) {
   renderMangaPages();
   mangaModal.classList.add("show");
   
+  function preloadImage(src) {
+  if (!src) return;
+
+  const img = new Image();
+  img.src = src;
+  }
+
   function preloadMangaAllPages(art) {
   if (!art || !Array.isArray(art.pages)) return;
 

@@ -297,7 +297,7 @@ function preloadAroundArtwork() {
     }
   });
 }
-}
+
 
 function updateArtNavButtons() {
   const isFirst = currentArtIndex <= 0;

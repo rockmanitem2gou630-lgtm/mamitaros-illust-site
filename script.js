@@ -85,7 +85,36 @@ function getSeparatedTags() {
     workTags: orderedWorkTags
   };
 }
+document.addEventListener("keydown", event => {
+  const isModalOpen = modal.classList.contains("show");
+  const isMangaModalOpen = mangaModal.classList.contains("show");
 
+  if (!isModalOpen && !isMangaModalOpen) return;
+
+  if (event.key === "Escape") {
+    if (isMangaModalOpen) {
+      closeMangaModal();
+    } else {
+      closeModal();
+    }
+  }
+
+  if (event.key === "ArrowLeft") {
+    if (isMangaModalOpen) {
+      nextMangaPages();
+    } else if (isModalOpen) {
+      openPrevArtwork();
+    }
+  }
+
+  if (event.key === "ArrowRight") {
+    if (isMangaModalOpen) {
+      prevMangaPages();
+    } else if (isModalOpen) {
+      openNextArtwork();
+    }
+  }
+});
 function renderTagButtons() {
   const separatedTags = getSeparatedTags();
 

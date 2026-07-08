@@ -1046,4 +1046,58 @@ const artworks = [
     comment: "爆裂愛してる(時代錯誤)",
     draft: false
   },
+  {
+    title: "主ヘン",
+    date: "2021-11-01",
+    thumb: "images/thumbnails/2021/11/20211101_dorakue_henry_th.webp",
+    image: "images/originals/2021/11/20211101_dorakue_henry.webp",
+    tags: ["ドラクエ", "セリフ付き"],
+    comment: "天空の花嫁",
+    draft: false
+  },
+  {
+    title: "みずはご",
+    date: "2021-11-03",
+    thumb: "images/thumbnails/2021/11/20211103_dorakue_henry_th.webp",
+    image: "images/originals/2021/11/20211103_dorakue_henry.webp",
+    tags: ["ドラクエ", "漫画"],
+    comment: "この時代の羽衣はかわいい",
+    draft: false
+  },
+  {
+    title: "ヘンリー",
+    date: "2021-11-11",
+    thumb: "images/thumbnails/2021/11/20211111_dorakue_henry_th.webp",
+    image: "images/originals/2021/11/20211111_dorakue_henry.webp",
+    tags: ["ドラクエ", "一枚絵"],
+    comment: "当時のアイコン",
+    draft: false
+  },
+  {
+    title: "魔界が恋しい大魔王ちゃん",
+    date: "2021-11-13",
+    thumb: "images/thumbnails/2021/11/20211113_dorakue_yushushu_th.webp",
+    image: "images/originals/2021/11/20211113_dorakue_yushushu.webp",
+    tags: ["ドラクエ", "漫画"],
+    comment: "でも実際ver6おもろかったよな",
+    draft: false
+  },
+  {
+    title: "ドラ消しヘンリー",
+    date: "2021-12-04",
+    thumb: "images/thumbnails/2021/12/20211204_dorakue_shuhen_th.webp",
+    image: "images/originals/2021/12/20211204_dorakue_shuhen.webp",
+    tags: ["ドラクエ", "漫画"],
+    comment: "願望",
+    draft: false
+  },
+  {
+    title: "流行ってたセーター",
+    date: "2021-12-15",
+    thumb: "images/thumbnails/2021/12/20211215_dorakue_shuhen_th.webp",
+    image: "images/originals/2021/12/20211215_dorakue_shuhen.webp",
+    tags: ["ドラクエ", "漫画"],
+    comment: "着せーたー（？？？？？？",
+    draft: false
+  },
 ];

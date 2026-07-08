@@ -27,6 +27,8 @@ const modalNextArt = document.getElementById("modalNextArt");
 const mangaPrevArt = document.getElementById("mangaPrevArt");
 const mangaNextArt = document.getElementById("mangaNextArt");
 
+const backToTop = document.getElementById("backToTop");
+
 let currentArtList = [];
 let currentArtIndex = 0;
 
@@ -337,6 +339,19 @@ modal.addEventListener("click", event => {
     closeModal();
   }
 });
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 600) {
+    backToTop.classList.add("show");
+  } else {
+    backToTop.classList.remove("show");
+  }
+});
 
+backToTop.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
 renderTagButtons();
 renderGallery();

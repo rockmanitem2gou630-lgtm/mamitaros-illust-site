@@ -22,6 +22,13 @@ const mangaPages = document.getElementById("mangaPages");
 const mangaPrev = document.getElementById("mangaPrev");
 const mangaNext = document.getElementById("mangaNext");
 const mangaPageInfo = document.getElementById("mangaPageInfo");
+const modalPrevArt = document.getElementById("modalPrevArt");
+const modalNextArt = document.getElementById("modalNextArt");
+const mangaPrevArt = document.getElementById("mangaPrevArt");
+const mangaNextArt = document.getElementById("mangaNextArt");
+
+let currentArtList = [];
+let currentArtIndex = 0;
 
 let currentTag = "all";
 let currentManga = null;
@@ -171,17 +178,53 @@ ${art.type === "manga" && art.pages ? `<div class="art-page-count">📖 ${art.pa
         const monthName = card.dataset.month;
         const artIndex = Number(card.dataset.index);
         const art = groups[monthName][artIndex];
+        currentArtIndex = currentArtList.indexOf(art);
 
-        if (art.type === "manga") {
-  openMangaModal(art);
-} else {
-  openModal(art);
-}
+        openArtworkByIndex(currentArtIndex);
       });
     });
   });
 }
+currentArtList = filtered;
+function openArtworkByIndex(index) {
+  const art = currentArtList[index];
+  if (!art) return;
 
+  currentArtIndex = index;
+
+  modal.classList.remove("show");
+  mangaModal.classList.remove("show");
+
+  if (art.type === "manga") {
+    openMangaModal(art);
+  } else {
+    openModal(art);
+  }
+
+  updateArtNavButtons();
+}
+
+function updateArtNavButtons() {
+  const isFirst = currentArtIndex <= 0;
+  const isLast = currentArtIndex >= currentArtList.length - 1;
+
+  modalPrevArt.disabled = isFirst;
+  modalNextArt.disabled = isLast;
+  mangaPrevArt.disabled = isFirst;
+  mangaNextArt.disabled = isLast;
+}
+
+function openPrevArtwork() {
+  if (currentArtIndex > 0) {
+    openArtworkByIndex(currentArtIndex - 1);
+  }
+}
+
+function openNextArtwork() {
+  if (currentArtIndex < currentArtList.length - 1) {
+    openArtworkByIndex(currentArtIndex + 1);
+  }
+}
 function openModal(art) {
   modalImage.src = art.image;
   modalImage.alt = art.title;
@@ -285,6 +328,10 @@ function closeModal() {
 }
 
 modalClose.addEventListener("click", closeModal);
+modalPrevArt.addEventListener("click", openPrevArtwork);
+modalNextArt.addEventListener("click", openNextArtwork);
+mangaPrevArt.addEventListener("click", openPrevArtwork);
+mangaNextArt.addEventListener("click", openNextArtwork);
 
 modal.addEventListener("click", event => {
   if (event.target === modal) {

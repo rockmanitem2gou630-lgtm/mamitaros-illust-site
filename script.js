@@ -1,5 +1,7 @@
 const gallery = document.getElementById("gallery");
-const tagArea = document.getElementById("tagArea");
+const genreTagArea = document.getElementById("genreTagArea");
+const workTagArea = document.getElementById("workTagArea");
+const workTags = ["一枚絵", "漫画", "セリフ付き", "らくがき", "イメレス", "GIF", "その他", "夢絵"];
 const dreamNotice = document.getElementById("dreamNotice");
 
 const modal = document.getElementById("modal");
@@ -37,32 +39,64 @@ function getPublishedArtworks() {
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
-function getAllTags() {
-  const tagSet = new Set();
+function getSeparatedTags() {
+  const genreTagSet = new Set();
+  const workTagSet = new Set();
 
-  getPublishedArtworks()
-    .filter(art => art.dream !== true)
-    .forEach(art => {
-      art.tags.forEach(tag => tagSet.add(tag));
+  getPublishedArtworks().forEach(art => {
+    art.tags.forEach(tag => {
+      if (workTags.includes(tag)) {
+        workTagSet.add(tag);
+      } else {
+        genreTagSet.add(tag);
+      }
     });
 
-  return ["all", ...Array.from(tagSet), "dream"];
+    if (art.type === "manga") {
+      workTagSet.add("漫画");
+    }
+
+    if (art.dream === true) {
+      workTagSet.add("夢絵");
+    }
+  });
+
+  const genreTags = ["all", ...Array.from(genreTagSet)];
+
+  const orderedWorkTags = workTags.filter(tag => {
+    if (tag === "夢絵") {
+      return getPublishedArtworks().some(art => art.dream === true);
+    }
+
+    return workTagSet.has(tag);
+  });
+
+  return {
+    genreTags,
+    workTags: orderedWorkTags
+  };
 }
 
 function renderTagButtons() {
-  const tags = getAllTags();
+  const separatedTags = getSeparatedTags();
 
-  tagArea.innerHTML = tags.map(tag => {
-    const label = tag === "all" ? "全部" : tag === "dream" ? "夢絵" : tag;
+  genreTagArea.innerHTML = separatedTags.genreTags.map(tag => {
+    const label = tag === "all" ? "全部" : tag;
     const activeClass = tag === currentTag ? "active" : "";
 
     return `<button class="tag-button ${activeClass}" data-tag="${tag}">${label}</button>`;
   }).join("");
 
+  workTagArea.innerHTML = separatedTags.workTags.map(tag => {
+    const activeClass = tag === currentTag ? "active" : "";
+
+    return `<button class="tag-button ${activeClass}" data-tag="${tag}">${tag}</button>`;
+  }).join("");
+
   document.querySelectorAll(".tag-button").forEach(button => {
     button.addEventListener("click", () => {
       currentTag = button.dataset.tag;
-      viewMode = currentTag === "dream" ? "dream" : "normal";
+      viewMode = currentTag === "夢絵" ? "dream" : "normal";
       renderTagButtons();
       renderGallery();
     });
@@ -81,6 +115,10 @@ if (viewMode === "dream") {
   filtered = published.filter(art => art.dream === true);
 } else if (currentTag === "all") {
   filtered = published.filter(art => art.dream !== true);
+} else if (currentTag === "漫画") {
+  filtered = published.filter(art => art.dream !== true && art.type === "manga");
+} else if (currentTag === "一枚絵") {
+  filtered = published.filter(art => art.dream !== true && art.type !== "manga");
 } else {
   filtered = published.filter(art => art.dream !== true && art.tags.includes(currentTag));
 }

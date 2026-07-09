@@ -5,8 +5,16 @@ const detailData = {
     images: [
       {
         src: "sample/dq10_sample.png",
-        alt: "立ち絵サンプル"
+        alt: "サンプル"
       },
+      {
+        src: "sample/dq10_face_sample.png",
+        alt: "顔グラサンプル"
+      },
+      {
+        src: "sample/dq10_sample.gif",
+        alt: "歩行ドットサンプル"
+      }
     ]
   }
 };

@@ -1,0 +1,7 @@
+[
+null,
+{"id":1,"battlerName":"","characterIndex":0,"characterName":"Anlucia","classId":1,"equips":[],"faceIndex":0,"faceName":"DQX_faces","traits":[],"initialLevel":1,"maxLevel":99,"name":"アンルシア","nickname":"","note":"","profile":""},
+{"id":2,"battlerName":"","characterIndex":0,"characterName":"Lucien","classId":2,"equips":[],"faceIndex":1,"faceName":"DQX_faces","traits":[],"initialLevel":1,"maxLevel":99,"name":"ルシェンダ","nickname":"","note":"","profile":""},
+{"id":3,"battlerName":"","characterIndex":0,"characterName":"Estelle","classId":3,"equips":[],"faceIndex":2,"faceName":"DQX_faces","traits":[],"initialLevel":1,"maxLevel":99,"name":"エステラ","nickname":"","note":"","profile":""},
+{"id":4,"battlerName":"","characterIndex":0,"characterName":"Shini","classId":4,"equips":[],"faceIndex":3,"faceName":"DQX_faces","traits":[],"initialLevel":1,"maxLevel":99,"name":"シンイ","nickname":"","note":"","profile":""}
+]

@@ -7,7 +7,18 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="./favicon.webp" type="image/webp">
 </head>
+<div id="detailModal" class="detail-modal">
+  <div class="detail-modal-content">
+    <button id="detailModalClose" class="modal-close">×</button>
 
+    <h2 id="detailModalTitle"></h2>
+    <p id="detailModalText"></p>
+
+    <div id="detailModalImages" class="detail-modal-images"></div>
+  </div>
+</div>
+
+<script src="downloads.js"></script>
 <body>
   <header class="site-header">
     <h1>配布素材</h1>
@@ -31,13 +42,17 @@
         <div class="download-info">
           <h3>ドラクエ10 勇者御一行 素材</h3>
           <p>
-            RPGツクール向けの立ち絵・顔グラ・歩行ドット素材です。
+            RPGツクール向けの立ち絵・顔グラ・歩行ドット素材・アニメカーソルプラグインです。
           </p>
 
           <div class="download-buttons">
+            <button class="download-button detail-button" data-detail="dq10-assets">
+              詳細を見る
+            </button>
+
             <a href="game/sample.html" class="download-button">サンプルゲームを見る</a>
             <a href="downloads/dq10_assets.zip" class="download-button">ZIPをダウンロード</a>
-          </div>
+        </div>
         </div>
       </article>
     </section>

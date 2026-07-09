@@ -453,7 +453,7 @@ body.modal-open {
 }
 /* 通常 */
 body {
-    cursor: url("cursor/cursor_default.cur"), auto;
+    cursor: url("cursor/cursor_default.ani"), auto;
 }
 
 /* リンク・ボタン・クリックできるもの */

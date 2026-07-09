@@ -583,3 +583,48 @@ body.loading,
     box-sizing: border-box;
   }
 }
+.game-section {
+  max-width: 1100px;
+  margin: 0 auto 48px;
+}
+
+.game-frame-wrap {
+  width: 100%;
+  background: #2b2522;
+  border-radius: 18px;
+  padding: 12px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.game-frame {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  display: block;
+  background: #000;
+  border-radius: 12px;
+}
+
+.game-info {
+  margin-top: 20px;
+  background: #fffaf5;
+  border-radius: 18px;
+  padding: 18px;
+  line-height: 1.8;
+}
+
+.game-info h2 {
+  margin-top: 0;
+}
+
+@media (max-width: 700px) {
+  .game-frame-wrap {
+    padding: 6px;
+    border-radius: 12px;
+  }
+
+  .game-frame {
+    border-radius: 8px;
+  }
+}

@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const detailData = {
     "dq10-assets": {
       title: "ドラクエ10 勇者御一行 素材",
-      text: "立ち絵・顔グラ・歩行ドットのサンプルです。",
+      text: "立ち絵・顔グラのサンプルです。。",
       images: [
         { src: "sample/dq10_sample.png", alt: "サンプル" },
       ]

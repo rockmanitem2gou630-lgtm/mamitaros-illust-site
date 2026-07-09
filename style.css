@@ -451,3 +451,44 @@ body.modal-open {
     z-index: 2000;
   }
 }
+/* 通常 */
+body {
+    cursor: url("cursor/cursor_default.cur"), auto;
+}
+
+/* リンク・ボタン・クリックできるもの */
+a,
+button,
+.tag-button,
+.art-card,
+.back-to-top,
+.modal-close,
+.art-modal-nav-button,
+.manga-nav {
+    cursor: url("cursor/cursor_pointer.cur"), pointer;
+}
+
+/* テキスト選択 */
+p,
+h1,
+h2,
+.art-title,
+.art-date,
+.art-comment,
+.month-title,
+.site-header {
+    cursor: url("cursor/cursor_text.cur"), text;
+}
+
+/* 押せないボタン */
+button:disabled,
+.art-modal-nav-button:disabled,
+.manga-nav:disabled {
+    cursor: url("cursor/cursor_disabled.cur"), not-allowed;
+}
+
+/* 読み込み中（必要なら） */
+body.loading,
+.manga-loading {
+    cursor: url("cursor/cursor_loading.cur"), progress;
+}

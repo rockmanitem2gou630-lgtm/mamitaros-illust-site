@@ -1,20 +1,12 @@
 const detailData = {
   "dq10-assets": {
     title: "ドラクエ10 勇者御一行 素材",
-    text: "立ち絵・顔グラ・歩行ドットのサンプルです。",
+    text: "立ち絵・顔グラのサンプルです。",
     images: [
       {
-        src: "sample/dq10_stand_sample.png",
+        src: "sample/dq10_sample.png",
         alt: "立ち絵サンプル"
       },
-      {
-        src: "sample/dq10_face_sample.png",
-        alt: "顔グラサンプル"
-      },
-      {
-        src: "sample/dq10_sample.gif",
-        alt: "歩行ドットサンプル"
-      }
     ]
   }
 };

@@ -690,12 +690,16 @@ body.loading,
   color: #7a6d66;
   font-size: 13px;
 }
-.detail-image-card:has(.wide-sample) {
+.detail-modal-images .detail-image-card.wide-card {
   grid-column: 1 / -1;
+  width: 100%;
+  max-width: none;
 }
 
-.detail-modal-images img.wide-sample {
+.detail-modal-images .detail-image-card.wide-card img.wide-image {
   width: 100%;
   max-width: 1000px;
   height: auto;
+  margin: 0 auto;
+  display: block;
 }

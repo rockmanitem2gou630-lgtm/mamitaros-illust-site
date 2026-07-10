@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
     text: "ヤスのギター「八咫之鉄紺青鴉式」を参考に制作した、 イラスト制作補助用の3D素材です。",
     images: [
       {
-        src: "20231018_sb69_yasu.webp",
+        src: "images/originals/2023/10/20231018_sb69_yasu.webp",
         alt: "イラスト使用例"
       },
     ]

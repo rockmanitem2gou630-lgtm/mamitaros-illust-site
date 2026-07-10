@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "ドラクエ10 勇者御一行 素材",
       text: "立ち絵・顔グラのサンプルです。。",
       images: [
-        { src: "sample/dq10_sample.png", alt: "サンプル" },
+        { src: "sample/dq10_sample.png", alt: "サンプル", className: "wide-sample" },
      ]
   },
 
@@ -54,7 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
       detailModalText.textContent = item.text;
       detailModalImages.innerHTML = item.images.map(image => `
         <figure class="detail-image-card">
-          <img src="${image.src}" alt="${image.alt}">
+          <img
+           src="${image.src}"
+           alt="${image.alt}"
+           class="${image.className || ""}">
           <figcaption>${image.alt}</figcaption>
         </figure>
       `).join("");

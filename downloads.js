@@ -31,6 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
         alt: "こんな感じです"
       }
     ]
+  },
+
+  "sb69_yasu_guitar": {
+    title: "SHOW BY ROCK!! ヤスのギター",
+    text: "ヤスのギター「八咫之鉄紺青鴉式」を参考に制作した、 イラスト制作補助用の3D素材です。",
+    images: [
+      {
+        src: "20231018_sb69_yasu.webp",
+        alt: "イラスト使用例"
+      },
+    ]
   }
 };
 

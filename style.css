@@ -795,3 +795,29 @@ body.loading,
   font-size: 13px;
   line-height: 1.6;
 }
+@media (max-width:700px){
+
+.game-launch{
+
+    display:block;
+    text-align:center;
+
+}
+
+.game-fullscreen-button{
+
+    display:block;
+    width:100%;
+    box-sizing:border-box;
+    margin-bottom:12px;
+
+}
+
+.game-fullscreen-note{
+
+    margin:0 0 18px;
+    font-size:13px;
+
+}
+
+}

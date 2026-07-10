@@ -49,6 +49,17 @@ document.addEventListener("DOMContentLoaded", () => {
         alt: "イラスト使用例"
       },
     ]
+  },
+
+  "pokemon_TeamYell_megaphone": {
+    title: "SHOW BY ROCK!! ヤスのギター",
+    text: "ポケモンのエール団のメガホンを参考に制作した、 イラスト制作補助用の3D素材です。",
+    images: [
+      {
+        src: "images/originals/2023/10/pokemon_TeamYell_megaphone_sample.webp",
+        alt: "イラスト使用例"
+      },
+    ]
   }
 };
 

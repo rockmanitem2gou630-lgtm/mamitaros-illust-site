@@ -662,12 +662,14 @@ body.loading,
 }
 
 .detail-modal-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+
     width: 100%;
-    max-width: 500px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 12px;
+    max-width: 1000px;
+
+    margin: 24px auto 0;
 }
 
 .detail-image-card {
@@ -680,6 +682,7 @@ body.loading,
 
 .detail-image-card img {
   width: 100%;
+  height: auto;
   display: block;
   border-radius: 10px;
 }

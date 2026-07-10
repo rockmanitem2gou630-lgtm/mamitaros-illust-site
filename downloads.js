@@ -11,9 +11,28 @@ document.addEventListener("DOMContentLoaded", () => {
       text: "立ち絵・顔グラのサンプルです。。",
       images: [
         { src: "sample/dq10_sample.png", alt: "サンプル" },
-      ]
-    }
-  };
+     ]
+  },
+
+  "epic7-haste-assets": {
+    title: "エピックセブン ヘイストの鎌",
+    text: "ヘイストと赤月の貴族ヘイストの鎌を収録した、イラスト制作補助用の3D素材です。",
+    images: [
+      {
+        src: "sample/haste_scythe_sample_1.png",
+        alt: "イラスト使用例"
+      },
+      {
+        src: "sample/haste_scythe_sample_2.png",
+        alt: "モデルのみのスクショ"
+      },
+      {
+        src: "sample/haste_scythe_sample_3.png",
+        alt: "こんな感じです"
+      }
+    ]
+  }
+};
 
   document.querySelectorAll(".detail-button").forEach(button => {
     button.addEventListener("click", () => {

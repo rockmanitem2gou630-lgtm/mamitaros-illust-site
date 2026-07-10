@@ -7,18 +7,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="./favicon.webp" type="image/webp">
 </head>
-<div id="detailModal" class="detail-modal">
-  <div class="detail-modal-content">
-    <button id="detailModalClose" class="modal-close">×</button>
 
-    <h2 id="detailModalTitle"></h2>
-    <p id="detailModalText"></p>
-
-    <div id="detailModalImages" class="detail-modal-images"></div>
-  </div>
-</div>
-
-<script src="downloads.js"></script>
 <body>
   <header class="site-header">
     <h1>配布素材</h1>
@@ -56,6 +45,61 @@
         </div>
       </article>
     </section>
+        </section>
+
+    <section class="download-section">
+      <h2>3D素材</h2>
+
+      <article class="download-card">
+        <div class="download-preview">
+          <img
+            src="sample/haste_scythes_sample.png"
+            alt="ヘイストの鎌3D素材サンプル">
+        </div>
+
+        <div class="download-info">
+          <h3>エピックセブン ヘイストの鎌</h3>
+
+          <p>
+            ヘイストと赤月の貴族ヘイストの鎌を収録した、
+            イラスト制作補助用の3D素材です。
+          </p>
+
+          <div class="download-buttons">
+            <a
+              href="#"
+              class="download-button detail-button"
+              data-detail="epic7-haste-assets">
+              📷 詳細を見る
+            </a>
+
+            <a
+              href="viewer/index.html"
+              class="download-button">
+              🧱 3Dプレビュー
+            </a>
+
+            <a
+              href="downloads/epic7_haste_scythes.zip"
+              class="download-button">
+              ⬇ ZIPをダウンロード
+            </a>
+          </div>
+        </div>
+      </article>
+    </section>
   </main>
+  <div id="detailModal" class="detail-modal">
+    <div class="detail-modal-content">
+      <button id="detailModalClose" class="modal-close">×</button>
+
+      <h2 id="detailModalTitle"></h2>
+      <p id="detailModalText"></p>
+
+      <div id="detailModalImages" class="detail-modal-images"></div>
+    </div>
+  </div>
+
+  <script src="downloads.js"></script>
 </body>
 </html>

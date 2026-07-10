@@ -690,3 +690,12 @@ body.loading,
   color: #7a6d66;
   font-size: 13px;
 }
+.detail-image-card:has(.wide-sample) {
+  grid-column: 1 / -1;
+}
+
+.detail-modal-images img.wide-sample {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+}

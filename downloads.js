@@ -29,12 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
     ]
   },
 
-  "sb69-yasu-guitar": {
+  "tourabu_magicalwand": {
     title: "刀剣乱舞　マジカルステッキ",
     text: "刀剣乱舞公式グッズのマジカルステッキを参考に制作した、 イラスト制作補助用の3D素材です。",
     images: [
       {
-        src: "images/tourabu_magicalwand_sample2.webp",
+        src: "sample/tourabu_magicalwand_sample.webp",
         alt: "イラスト使用例"
       },
     ]

@@ -23,10 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
         alt: "イラスト使用例"
       },
       {
-        src: "sample/haste_scythe_sample_2.png",
-        alt: "モデルのみのスクショ"
-      },
-      {
         src: "sample/haste_scythe_sample_3.png",
         alt: "こんな感じです"
       }

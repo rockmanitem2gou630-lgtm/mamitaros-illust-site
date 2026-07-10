@@ -30,6 +30,17 @@ document.addEventListener("DOMContentLoaded", () => {
   },
 
   "sb69-yasu-guitar": {
+    title: "刀剣乱舞　マジカルステッキ",
+    text: "刀剣乱舞公式グッズのマジカルステッキを参考に制作した、 イラスト制作補助用の3D素材です。",
+    images: [
+      {
+        src: "images/tourabu_magicalwand_sample2.webp",
+        alt: "イラスト使用例"
+      },
+    ]
+   },
+
+  "sb69-yasu-guitar": {
     title: "SHOW BY ROCK!! ヤスのギター",
     text: "ヤスのギター「八咫之鉄紺青鴉式」を参考に制作した、 イラスト制作補助用の3D素材です。",
     images: [

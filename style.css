@@ -788,3 +788,10 @@ body.loading,
     box-sizing: border-box;
   }
 }
+.game-fullscreen-note {
+  margin: 10px 0 0;
+  text-align: center;
+  color: #7a6d66;
+  font-size: 13px;
+  line-height: 1.6;
+}

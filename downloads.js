@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
   },
 
   "pokemon_TeamYell_megaphone": {
-    title: "SHOW BY ROCK!! ヤスのギター",
+    title: "ポケモン　エール団のメガホン",
     text: "ポケモンのエール団のメガホンを参考に制作した、 イラスト制作補助用の3D素材です。",
     images: [
       {

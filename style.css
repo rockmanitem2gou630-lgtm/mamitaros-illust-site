@@ -914,3 +914,75 @@ body.loading,
     margin-bottom: 20px;
   }
 }
+.terms-section {
+  max-width: 900px;
+  margin: 0 auto 48px;
+  padding: 24px;
+  background: #fffaf5;
+  border: 1px solid #d8cbc2;
+  border-radius: 18px;
+  box-sizing: border-box;
+}
+
+.terms-section h2 {
+  margin: 0 0 14px;
+  font-size: 24px;
+}
+
+.terms-intro {
+  margin: 0 0 20px;
+  line-height: 1.8;
+  color: #6f625c;
+}
+
+.terms-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.terms-box,
+.terms-note {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.terms-box h3,
+.terms-note h3 {
+  margin: 0 0 10px;
+  font-size: 17px;
+}
+
+.terms-box ul {
+  margin: 0;
+  padding-left: 1.4em;
+  line-height: 1.8;
+}
+
+.terms-note {
+  margin-top: 16px;
+}
+
+.terms-note p {
+  margin: 0;
+  line-height: 1.8;
+  color: #5f534d;
+}
+
+.terms-small {
+  margin: 18px 0 0;
+  color: #7a6d66;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+  .terms-section {
+    padding: 18px 14px;
+  }
+
+  .terms-grid {
+    grid-template-columns: 1fr;
+  }
+}

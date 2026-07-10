@@ -761,3 +761,6 @@ body.loading,
     overflow-wrap: anywhere;
   }
 }
+.download-section .download-card + .download-card {
+  margin-top: 24px;
+}

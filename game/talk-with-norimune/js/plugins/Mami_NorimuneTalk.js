@@ -643,6 +643,152 @@
     tags: ["honmaru"],
     expression: "norimune_gentle"
 },
+{
+    text:
+        "刀は振るう者によって、善にも悪にもなる。||" +
+        "だからこそ、主を選べる今という時代は幸せなのかもしれないねぇ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "強い刀が良い刀とは限らない。||" +
+        "最後まで折れずに役目を果たした刀も、立派なものさ。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "戦を知っているからこそ、平穏を好む。||" +
+        "それは臆病とは違うんだよ。",
+    tags: ["normal"],
+    expression: "norimune_serious"
+},
+{
+    text:
+        "刀は鞘に収まっている時が、一番役目を果たしていることもある。||" +
+        "抜かずに済むなら、それに越したことはないからねぇ。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "研がれ続けるだけでは、刀も痩せてしまう。||" +
+        "休む時間も、大切ということさ。",
+    tags: ["normal"],
+    expression: "norimune_soft"
+},
+{
+    pages: [
+        {
+            text:
+                "折れることだけが終わりじゃない。",
+            expression: "norimune_far"
+        },
+        {
+            text:
+                "忘れられることも、刀には少し堪えるものでねぇ。",
+            expression: "norimune_gentle"
+        }
+    ],
+    tags: ["normal"]
+},
+{
+    text:
+        "名刀と呼ばれることは名誉だ。||" +
+        "けれど、それだけで満たされるほど単純でもない。",
+    tags: ["normal"],
+    expression: "norimune_think"
+},
+{
+    text:
+        "長く在るというのは、失うものも増えるということだ。||" +
+        "それでも、得るものの方が少し多いと信じたいねぇ。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "昔を誇るのは悪くない。||" +
+        "だが、今を疎かにしては本末転倒だからねぇ。",
+    tags: ["normal"],
+    expression: "norimune_smile"
+},
+{
+    pages: [
+        {
+            text:
+                "刀であることは、変えられない。",
+            expression: "norimune_far"
+        },
+        {
+            text:
+                "だが、どう在るかは選べる。||" +
+                "僕は、今の暮らしを気に入っているよ。",
+            expression: "norimune_gentle"
+        }
+    ],
+    tags: ["normal"]
+},
+{
+    text:
+        "刀というものはねぇ。\n" +
+        "持ち主が変わるたび、景色まで変わるものなんだ。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "古い刀ほど、物持ちがいいと思われがちでねぇ。||" +
+        "実際は、人の方が色々と忘れてしまうものさ。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "刀は声を持たない。||" +
+        "だからこそ、持ち主が何を願って振るったのかは、よく覚えているよ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "主に呼ばれて返事をする。||" +
+        "それだけのことが、案外嬉しいものなんだよ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "折れなかった刀にも、それぞれ理由がある。||" +
+        "運だけでは片付けられないものさ。",
+    tags: ["normal"],
+    expression: "norimune_think"
+},
+{
+    text:
+        "名刀と呼ばれるのは悪い気分じゃない。||" +
+        "期待されるなら、それに応えるまでさ。",
+    tags: ["normal"],
+    expression: "norimune_smile"
+},
+{
+    pages: [
+        {
+            text:
+                "刀には、それぞれ役目がある。",
+            expression: "norimune_far"
+        },
+        {
+            text:
+                "斬ることだけじゃない。\n" +
+                "守ることも、寄り添うこともねぇ。",
+            expression: "norimune_gentle"
+        }
+    ],
+    tags: ["normal"]
+},
+
         ],
 
         season: [
@@ -1877,6 +2023,48 @@
         }
     ],
     tags: ["honmaru"]
+},
+{
+    text:
+        "近くを通るだけで、『今日は調子がいいな』と分かる刀もいてねぇ。||" +
+        "刀同士というのは、不思議なものさ。",
+    tags: ["honmaru"],
+    expression: "norimune_smile"
+},
+{
+    text:
+        "誰かが手入れを受けたあとは、空気まで軽くなる気がする。||" +
+        "気のせいだと言われても、僕はそう思うんだ。",
+    tags: ["honmaru"],
+    expression: "norimune_soft"
+},
+{
+    text:
+        "刀には、それぞれ歩んできた時代がある。||" +
+        "違う時代を生きた者同士が、こうして茶を飲んでいるのも面白い話だねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "どれほど名の知れた刀でも、今は皆同じ本丸の仲間さ。||" +
+        "肩書きを持ち込むには、少し賑やかすぎるねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_smile"
+},
+{
+    text:
+        "主が笑っている本丸はいい。\n" +
+        "刀まで肩の力が抜けるからねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_soft"
+},
+{
+    text:
+        "今は皆、刀としてではなく仲間として笑っている。||" +
+        "僕はそんな本丸が好きだよ。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
 },
 
         ]

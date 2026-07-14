@@ -1057,19 +1057,19 @@
                 expression: "norimune_think"
             },
             {
-    text:
-        "朝は自然と目が覚めるようになってしまってねぇ。\n" +
-        "寝坊というものを、ずいぶんしていない。",
-    tags: ["normal"],
-    expression: "norimune_troubled"
-},
-{
-    text:
-        "朝の茶は格別だ。\n" +
-        "……いや、昼も夜も美味いのだけれどねぇ。",
-    tags: ["normal"],
-    expression: "norimune_closed"
-},
+                text:
+                    "朝は自然と目が覚めるようになってしまってねぇ。\n" +
+                    "寝坊というものを、ずいぶんしていない。",
+                tags: ["normal"],
+                expression: "norimune_troubled"
+            },
+            {
+                text:
+                    "朝の茶は格別だ。\n" +
+                    "……いや、昼も夜も美味いのだけれどねぇ。",
+                tags: ["normal"],
+                expression: "norimune_closed"
+            },
         ],
 
         day: [
@@ -1180,19 +1180,19 @@
                 expression: "norimune_troubled"
             },
             {
-    text:
-        "縁側に座っているとね。\n" +
-        "つい、うとうとしてしまいそうになる。",
-    tags: ["normal"],
-    expression: "norimune_troubled"
-},
-{
-    text:
-        "若い頃なら落ち着かない時間だったんだろうけれど。\n" +
-        "今はこういう時間も悪くない。",
-    tags: ["normal"],
-    expression: "norimune_far"
-},
+                text:
+                    "縁側に座っているとね。\n" +
+                    "つい、うとうとしてしまいそうになる。",
+                tags: ["normal"],
+                expression: "norimune_troubled"
+            },
+            {
+                text:
+                    "若い頃なら落ち着かない時間だったんだろうけれど。\n" +
+                    "今はこういう時間も悪くない。",
+                tags: ["normal"],
+                expression: "norimune_far"
+            },
         ],
 
         evening: [
@@ -1327,19 +1327,19 @@
                 expression: "norimune_far"
             },
             {
-    text:
-        "日が沈むのを見るたび、一日が早くなったものだと思うよ。\n" +
-        "年のせいかもしれないねぇ。",
-    tags: ["normal"],
-    expression: "norimune_closed"
-},
-{
-    text:
-        "夕暮れになると茶が恋しくなる。\n" +
-        "……毎日飲んでいるのだけれど。",
-    tags: ["normal"],
-    expression: "norimune_tease"
-},
+                text:
+                    "日が沈むのを見るたび、一日が早くなったものだと思うよ。\n" +
+                    "年のせいかもしれないねぇ。",
+                tags: ["normal"],
+                expression: "norimune_closed"
+            },
+            {
+                text:
+                    "夕暮れになると茶が恋しくなる。\n" +
+                    "……毎日飲んでいるのだけれど。",
+                tags: ["normal"],
+                expression: "norimune_tease"
+            },
         ],
 
         night: [
@@ -1478,19 +1478,19 @@
                         expression: "norimune_soft"
                     },
                     {
-    text:
-        "夜は静かで好きだよ。\n" +
-        "賑やかなのも好きだが、静かな時間もまた贅沢だからねぇ。",
-    tags: ["normal"],
-    expression: "norimune_gentle"
-},
-{
-    text:
-        "今日は何杯茶を飲んだかな。\n" +
-        "数えるのは途中でやめてしまったよ。",
-    tags: ["normal"],
-    expression: "norimune_smile"
-},
+                text:
+                    "夜は静かで好きだよ。\n" +
+                    "賑やかなのも好きだが、静かな時間もまた贅沢だからねぇ。",
+                tags: ["normal"],
+                expression: "norimune_gentle"
+            },
+            {
+                text:
+                    "今日は何杯茶を飲んだかな。\n" +
+                    "数えるのは途中でやめてしまったよ。",
+                tags: ["normal"],
+                expression: "norimune_smile"
+            },
                 ],
                 tags: ["normal"]
             }
@@ -1655,20 +1655,20 @@
                 expression: "norimune_far"
             },
             {
-    text:
-        "昔話でもしようかと思ったが……。\n" +
-        "話し始めると朝になってしまいそうだ。",
-    tags: ["normal"],
-    expression: "norimune_tease"
-},
-{
-    text:
-        "年寄りは朝が早いと言うだろう。||" +
-        "……僕のことかい？\n" +
-        "うはは、それは秘密だ。",
-    tags: ["normal"],
-    expression: "norimune_closed"
-},
+                text:
+                    "昔話でもしようかと思ったが……。\n" +
+                    "話し始めると朝になってしまいそうだ。",
+                tags: ["normal"],
+                expression: "norimune_tease"
+            },
+            {
+                text:
+                    "年寄りは朝が早いと言うだろう。||" +
+                    "……僕のことかい？\n" +
+                    "うはは、それは秘密だ。",
+                tags: ["normal"],
+                expression: "norimune_closed"
+            },
                 ]
             }
         ]

@@ -768,7 +768,14 @@
                     "皆それぞれに過ごしているよ。\n" +
                     "僕も、この通りだ。",
                 tags: ["honmaru"],
-                expression: "norimune_smile"
+                expression: "norimune_smile",
+                excludeConditions: [
+                    {
+                        time: [
+                            "midnight"
+                        ]
+                    }
+                ],
             },
                         {
                 text:
@@ -804,7 +811,15 @@
                     "厨の方から、いい匂いがしているねぇ。\n" +
                     "今日は和泉守の当番らしい。",
                 tags: ["honmaru"],
-                expression: "norimune_soft"
+                expression: "norimune_soft",
+                excludeConditions: [
+                    {
+                        time: [
+                            "night",
+                            "midnight"
+                        ]
+                    }
+                ],
             },
             {
                 text:

@@ -2167,6 +2167,35 @@ function isTalkExcluded(talk) {
         return false;
     }
 
+    const dateInfo = getDateInfo();
+
+    /*
+     * 旧形式の除外指定。
+     *
+     * 例：
+     * excludeMonth: 12,
+     * excludeDate: [24, 25]
+     *
+     * この場合は12月24日と25日に除外する。
+     */
+    if (
+        talk.excludeMonth !== undefined &&
+        conditionIncludes(
+            talk.excludeMonth,
+            dateInfo.month
+        )
+    ) {
+        if (
+            talk.excludeDate === undefined ||
+            conditionIncludes(
+                talk.excludeDate,
+                dateInfo.date
+            )
+        ) {
+            return true;
+        }
+    }
+
     const excludeConditions =
         Array.isArray(talk.excludeConditions)
             ? talk.excludeConditions
@@ -2176,6 +2205,77 @@ function isTalkExcluded(talk) {
         condition =>
             matchesConditionBlock(condition)
     );
+}
+
+/*
+ * TALK_DATA内に直接書かれた、
+ *
+ * season
+ * time
+ * month
+ * date
+ * dayOfWeek
+ *
+ * を会話の出現条件として判定する。
+ */
+function isLegacyTalkAvailable(talk) {
+    if (!talk || isTalkExcluded(talk)) {
+        return false;
+    }
+
+    const dateInfo = getDateInfo();
+
+    if (
+        talk.season !== undefined &&
+        !conditionIncludes(
+            talk.season,
+            getSeason()
+        )
+    ) {
+        return false;
+    }
+
+    if (
+        talk.time !== undefined &&
+        !conditionIncludes(
+            talk.time,
+            getTimeZone()
+        )
+    ) {
+        return false;
+    }
+
+    if (
+        talk.month !== undefined &&
+        !conditionIncludes(
+            talk.month,
+            dateInfo.month
+        )
+    ) {
+        return false;
+    }
+
+    if (
+        talk.date !== undefined &&
+        !conditionIncludes(
+            talk.date,
+            dateInfo.date
+        )
+    ) {
+        return false;
+    }
+
+    if (
+        talk.dayOfWeek !== undefined &&
+        !conditionIncludes(
+            talk.dayOfWeek,
+            dateInfo.day
+        )
+    ) {
+        return false;
+    }
+
+    return true;
 }
 
     /*
@@ -2200,7 +2300,7 @@ function isTalkExcluded(talk) {
          * 話す・季節・本丸のどのボタンから呼ばれても、
          * ここで共通して除外条件を判定する。
          */
-        if (isTalkExcluded(talk)) {
+        if (!isLegacyTalkAvailable(talk)) {
             return;
         }
 

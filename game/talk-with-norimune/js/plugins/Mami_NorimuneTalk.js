@@ -1699,6 +1699,11 @@
         "厨から大きな声が聞こえたかい。||" +
         "和泉守が、誰かのつまみ食いを見つけたんだろう。",
     tags: ["honmaru"],
+    excludeConditions: [
+        {
+            time: ["midnight"]
+        }
+    ],
     expression: "norimune_closed"
 },
 {

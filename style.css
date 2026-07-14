@@ -986,3 +986,55 @@ body.loading,
     grid-template-columns: 1fr;
   }
 }
+/* ========================================
+   則宗さんと話すだけ
+   1280×720ゲーム画面
+======================================== */
+
+.norimune-page main {
+  max-width: 1330px;
+}
+
+.norimune-page .game-section {
+  max-width: 1280px;
+}
+
+.norimune-page .game-frame-wrap {
+  width: 100%;
+}
+
+.norimune-page .game-frame {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1280 / 720;
+}
+
+/* 1280px未満では埋め込み画面を非表示にして
+   全画面ボタンから開いてもらう */
+@media (max-width: 1320px) {
+  .norimune-page .game-frame-wrap,
+  .norimune-page .game-embed-heading {
+    display: none;
+  }
+
+  .norimune-page .game-mobile-lead {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto 28px;
+    padding: 22px 18px;
+    background: #fffaf5;
+    border: 1px solid #d8cbc2;
+    border-radius: 18px;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .norimune-page .game-mobile-label {
+    display: block;
+    margin: 0 0 12px;
+  }
+
+  .norimune-page .game-fullscreen-note {
+    margin-top: 12px;
+  }
+}

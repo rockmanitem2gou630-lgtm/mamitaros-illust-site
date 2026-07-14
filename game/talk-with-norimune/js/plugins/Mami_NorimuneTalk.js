@@ -797,6 +797,61 @@
     season: "summer",
     expression: "norimune_closed"
 },
+{
+    text:
+        "さっきまで扇子を探していたんだがねぇ。||" +
+        "気づけば、ずっと手に持っていたよ。",
+    tags: ["normal"],
+    expression: "norimune_troubled"
+},
+{
+    text:
+        "座ったまま取れる場所に物を置いておくと便利だよ。||" +
+        "そのうち、周りが物だらけになるけれどねぇ。",
+    tags: ["normal"],
+    expression: "norimune_tease"
+},
+{
+    pages: [
+        {
+            text:
+                "少し横になろうと思っていたんだ。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "ほんの少しのつもりが、随分眠ってしまったらしい。",
+            expression: "norimune_troubled"
+        },
+        {
+            text:
+                "うはは。年寄りには、よくあることさ。",
+            expression: "norimune_closed"
+        }
+    ],
+    tags: ["normal"]
+},
+{
+    text:
+        "茶を飲もうと思っていたのに、\n" +
+        "湯を沸かしたところで満足してしまってねぇ。",
+    tags: ["normal"],
+    expression: "norimune_troubled"
+},
+{
+    text:
+        "僕の話が長い？||" +
+        "まだ半分も話していないのだけれどねぇ。",
+    tags: ["normal"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "昔はもっと身軽だった気もするが……。||" +
+        "昔がいつだったかは、聞かないでおくれ。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
         ],
 
         honmaru: [
@@ -1007,7 +1062,7 @@
         },
         {
             text:
-                "話題はいつものように主のことさ。||" +
+                "話題はいつものように主のことさ。\n" +
                 "あれも随分、楽しそうに聞いてくれるからねぇ。",
             expression: "norimune_gentle"
         }
@@ -1015,6 +1070,263 @@
     tags: ["season", "summer", "honmaru"],
     season: "summer"
 },
+{
+    pages: [
+        {
+            text:
+                "三日月と茶を飲んでいたんだ。",
+            expression: "norimune_far"
+        },
+        {
+            text:
+                "話題はいつものように主のことさ。\n" +
+                "あれも随分、楽しそうに聞いてくれるからねぇ。",
+            expression: "norimune_gentle"
+        }
+    ],
+    tags: ["season", "summer", "honmaru"],
+    season: "summer"
+},
+{
+    text:
+        "清光と安定は、今日も好き勝手に言っていたよ。||" +
+        "僕が聞いていないと思っているのかねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    pages: [
+        {
+            text:
+                "安定に、少し休んだらどうだと言ったんだ。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "そうしたら、僕にだけは言われたくないと返されてしまったよ。",
+            expression: "norimune_closed"
+        }
+    ],
+    tags: ["honmaru"]
+},
+{
+    text:
+        "清光はよく僕の身なりに口を出すねぇ。||" +
+        "あれで案外、よく見ているんだよ。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "安定も清光も、僕を年寄り扱いするくせに、\n" +
+        "困った時にはこちらを見るんだ。||" +
+        "うはは。かわいいものだろう。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    pages: [
+        {
+            text:
+                "清光に、少しは若々しくしたらどうだと言われてねぇ。",
+            expression: "norimune_troubled"
+        },
+        {
+            text:
+                "これ以上若返ったら、あれも困るだろうに。",
+            expression: "norimune_tease"
+        }
+    ],
+    tags: ["honmaru"]
+},
+{
+    text:
+        "堀川は、僕が頼む前に書類を整えてしまう。\n" +
+        "実に頼もしいねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_smile"
+},
+{
+    text:
+        "細かな仕事は堀川に任せているよ。||" +
+        "僕が手を出すより、よほど早くて確かだからねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    pages: [
+        {
+            text:
+                "堀川に、少しくらい休んだらどうだと言ったんだ。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "『これが楽しいんです』と笑われてしまってねぇ。",
+            expression: "norimune_smile"
+        },
+        {
+            text:
+                "和泉守のこととなると、あれも随分と働き者になる。",
+            expression: "norimune_tease"
+        }
+    ],
+    tags: ["honmaru"]
+},
+{
+    text:
+        "僕の机が片づいている時は、\n" +
+        "だいたい堀川が来たあとだと思っていい。",
+    tags: ["honmaru"],
+    expression: "norimune_troubled"
+},
+{
+    text:
+        "和泉守は、あれで随分と世話焼きだ。||" +
+        "本人に言えば、きっと嫌な顔をするだろうけれどねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "厨から大きな声が聞こえたかい。||" +
+        "和泉守が、誰かのつまみ食いを見つけたんだろう。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    pages: [
+        {
+            text:
+                "和泉守に、今日は何が食べたいと聞かれてね。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "何でもいいと答えたら、それが一番困ると言われてしまったよ。",
+            expression: "norimune_troubled"
+        }
+    ],
+    tags: ["honmaru"]
+},
+{
+    text:
+        "腹が減った者を放っておけないのが、和泉守の性分らしい。||" +
+        "まったく、頼もしい厨番長だねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "長曽祢には、何かと任せてしまっているよ。\n" +
+        "あれがいると、本丸全体がよく回る。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "長曽祢は、僕が忘れた頃に確認へ来る。||" +
+        "実に隙がないねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_troubled"
+},
+{
+    pages: [
+        {
+            text:
+                "昨夜も長曽祢と少し飲んでいてね。",
+            expression: "norimune_far"
+        },
+        {
+            text:
+                "少しのつもりが長くなるのは、いつものことさ。",
+            expression: "norimune_closed"
+        }
+    ],
+    tags: ["honmaru"]
+},
+{
+    text:
+        "僕がのんびりしていられるのも、\n" +
+        "長曽祢が目を配ってくれているからだよ。",
+    tags: ["honmaru"],
+    expression: "norimune_soft"
+},
+{
+    text:
+        "孫六は、蔵のこととなると随分と細かい。\n" +
+        "僕には真似できそうもないねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_smile"
+},
+{
+    pages: [
+        {
+            text:
+                "孫六が、今日は斎藤役の気分ではないと言っていてねぇ。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "では誰をやるつもりなのかと聞いたら、\n" +
+                "それは考えていなかったらしい。",
+            expression: "norimune_closed"
+        }
+    ],
+    tags: ["honmaru"]
+},
+{
+    text:
+        "手合わせでは、僕が天才剣士役で孫六が斎藤役だ。||" +
+        "いつの間にか、すっかり決まり事になってしまったよ。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "長曽祢と孫六と飲んでいると、\n" +
+        "昔話が尽きなくてねぇ。||" +
+        "話しているうちに、夜が明けそうになる。",
+    tags: ["honmaru"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "三日月とは、何を話すでもなく茶を飲むこともある。||" +
+        "あれくらいの歳になると、沈黙も話のうちなのさ。",
+    tags: ["honmaru"],
+    expression: "norimune_far"
+},
+{
+    pages: [
+        {
+            text:
+                "三日月に、また主の話かと笑われてしまってねぇ。",
+            expression: "norimune_troubled"
+        },
+        {
+            text:
+                "僕としては、まだ話し始めたばかりだったのだけれど。",
+            expression: "norimune_tease"
+        }
+    ],
+    tags: ["honmaru"]
+},
+{
+    text:
+        "三日月は、人の話を聞いているのか分からない顔をしているだろう。||" +
+        "あれで、案外よく覚えているんだよ。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "主の話をしていると、三日月はよく笑う。||" +
+        "何がそんなに面白いのか、一度じっくり聞いてみたいものだ。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+
         ]
     };
 

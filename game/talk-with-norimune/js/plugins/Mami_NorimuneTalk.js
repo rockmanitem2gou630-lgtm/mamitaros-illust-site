@@ -445,6 +445,155 @@
                 tags: ["normal"],
                 expression: "norimune_troubled"
             },
+            {
+    text:
+        "さっきまで扇子を探していたんだがねぇ。||" +
+        "気づけば、ずっと手に持っていたよ。",
+    tags: ["normal"],
+    expression: "norimune_troubled"
+},
+{
+    text:
+        "座ったまま取れる場所に物を置いておくと便利だよ。||" +
+        "そのうち、周りが物だらけになるけれどねぇ。",
+    tags: ["normal"],
+    expression: "norimune_tease"
+},
+{
+    pages: [
+        {
+            text:
+                "少し横になろうと思っていたんだ。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "ほんの少しのつもりが、随分眠ってしまったらしい。",
+            expression: "norimune_troubled"
+        },
+        {
+            text:
+                "うはは。年寄りには、よくあることさ。",
+            expression: "norimune_closed"
+        }
+    ],
+    tags: ["normal"]
+},
+{
+    text:
+        "茶を飲もうと思っていたのに、\n" +
+        "湯を沸かしたところで満足してしまってねぇ。",
+    tags: ["normal"],
+    expression: "norimune_troubled"
+},
+{
+    text:
+        "僕の話が長い？||" +
+        "まだ半分も話していないのだけれどねぇ。",
+    tags: ["normal"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "昔はもっと身軽だった気もするが……。||" +
+        "昔がいつだったかは、聞かないでおくれ。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "また来てくれたんだねぇ。\n" +
+        "うはは、今日は何を話そうか。",
+    tags: ["normal"],
+    expression: "norimune_smile"
+},
+{
+    text:
+        "お前さんが来る時間というのも、\n" +
+        "少しずつ分かってきた気がするよ。",
+    tags: ["normal"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "話したいことがある日も、ない日もある。\n" +
+        "それでいいんだよ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    pages: [
+        {
+            text:
+                "今日は静かだねぇ。"
+        },
+        {
+            text:
+                "こうして誰かと同じ景色を眺めるだけの日も、悪くない。"
+        }
+    ],
+    tags: ["normal"]
+},
+{
+    text:
+        "今日は、少し疲れた顔をしているように見える。\n" +
+        "気のせいなら、それが一番だけれどねぇ。",
+    tags: ["normal"],
+    expression: "norimune_soft"
+},
+{
+    text:
+        "お前さんは、案外聞き上手なんだねぇ。\n" +
+        "僕まで、つい話しすぎてしまう。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
+{
+    pages: [
+        {
+            text:
+                "何も持ってこなくてもいい。"
+        },
+        {
+            text:
+                "こうして顔を見せてくれるだけで充分さ。"
+        }
+    ],
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "今日は少し長居をするのかい。||" +
+        "うはは、僕は構わないよ。",
+    tags: ["normal"],
+    expression: "norimune_smile"
+},
+{
+    text:
+        "お前さんとは、何度話しても話題が尽きないねぇ。\n" +
+        "不思議なものだ。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    pages: [
+        {
+            text:
+                "今日は聞く側の気分かい。"
+        },
+        {
+            text:
+                "なら、昔話をひとつ……。"
+        },
+        {
+            text:
+                "……いや、長くなりそうだからやめておこうか。"
+        }
+    ],
+    tags: ["normal"],
+    expression: "norimune_tease"
+},
         ],
 
         season: [
@@ -797,155 +946,7 @@
     season: "summer",
     expression: "norimune_closed"
 },
-{
-    text:
-        "さっきまで扇子を探していたんだがねぇ。||" +
-        "気づけば、ずっと手に持っていたよ。",
-    tags: ["normal"],
-    expression: "norimune_troubled"
-},
-{
-    text:
-        "座ったまま取れる場所に物を置いておくと便利だよ。||" +
-        "そのうち、周りが物だらけになるけれどねぇ。",
-    tags: ["normal"],
-    expression: "norimune_tease"
-},
-{
-    pages: [
-        {
-            text:
-                "少し横になろうと思っていたんだ。",
-            expression: "norimune_normal"
-        },
-        {
-            text:
-                "ほんの少しのつもりが、随分眠ってしまったらしい。",
-            expression: "norimune_troubled"
-        },
-        {
-            text:
-                "うはは。年寄りには、よくあることさ。",
-            expression: "norimune_closed"
-        }
-    ],
-    tags: ["normal"]
-},
-{
-    text:
-        "茶を飲もうと思っていたのに、\n" +
-        "湯を沸かしたところで満足してしまってねぇ。",
-    tags: ["normal"],
-    expression: "norimune_troubled"
-},
-{
-    text:
-        "僕の話が長い？||" +
-        "まだ半分も話していないのだけれどねぇ。",
-    tags: ["normal"],
-    expression: "norimune_tease"
-},
-{
-    text:
-        "昔はもっと身軽だった気もするが……。||" +
-        "昔がいつだったかは、聞かないでおくれ。",
-    tags: ["normal"],
-    expression: "norimune_closed"
-},
-{
-    text:
-        "また来てくれたんだねぇ。\n" +
-        "うはは、今日は何を話そうか。",
-    tags: ["normal"],
-    expression: "norimune_smile"
-},
-{
-    text:
-        "お前さんが来る時間というのも、\n" +
-        "少しずつ分かってきた気がするよ。",
-    tags: ["normal"],
-    expression: "norimune_tease"
-},
-{
-    text:
-        "話したいことがある日も、ない日もある。\n" +
-        "それでいいんだよ。",
-    tags: ["normal"],
-    expression: "norimune_gentle"
-},
-{
-    pages: [
-        {
-            text:
-                "今日は静かだねぇ。"
-        },
-        {
-            text:
-                "こうして誰かと同じ景色を眺めるだけの日も、悪くない。"
-        }
-    ],
-    tags: ["normal"]
-},
-{
-    text:
-        "今日は、少し疲れた顔をしているように見える。\n" +
-        "気のせいなら、それが一番だけれどねぇ。",
-    tags: ["normal"],
-    expression: "norimune_soft"
-},
-{
-    text:
-        "お前さんは、案外聞き上手なんだねぇ。\n" +
-        "僕まで、つい話しすぎてしまう。",
-    tags: ["normal"],
-    expression: "norimune_closed"
-},
-{
-    pages: [
-        {
-            text:
-                "何も持ってこなくてもいい。"
-        },
-        {
-            text:
-                "こうして顔を見せてくれるだけで充分さ。"
-        }
-    ],
-    tags: ["normal"],
-    expression: "norimune_gentle"
-},
-{
-    text:
-        "今日は少し長居をするのかい。||" +
-        "うはは、僕は構わないよ。",
-    tags: ["normal"],
-    expression: "norimune_smile"
-},
-{
-    text:
-        "お前さんとは、何度話しても話題が尽きないねぇ。\n" +
-        "不思議なものだ。",
-    tags: ["normal"],
-    expression: "norimune_far"
-},
-{
-    pages: [
-        {
-            text:
-                "今日は聞く側の気分かい。"
-        },
-        {
-            text:
-                "なら、昔話をひとつ……。"
-        },
-        {
-            text:
-                "……いや、長くなりそうだからやめておこうか。"
-        }
-    ],
-    tags: ["normal"],
-    expression: "norimune_tease"
-},
+
         ],
 
         honmaru: [
@@ -1557,6 +1558,40 @@
                 tags: ["normal"],
                 expression: "norimune_closed"
             },
+            {
+    text:
+        "朝の風だけは、まだ夏に遠慮しているようだ。\n" +
+        "今のうちに、涼しさを楽しんでおこうか。",
+    tags: ["season", "summer", "time", "morning"],
+    season: "summer",
+    time: "morning",
+    expression: "norimune_far"
+},
+{
+    text:
+        "朝露も、もうすぐ消えてしまうねぇ。\n" +
+        "夏の日差しは働き者だ。",
+    tags: ["season", "summer", "time", "morning"],
+    season: "summer",
+    time: "morning",
+    expression: "norimune_gentle"
+},
+{
+    pages: [
+        {
+            text:
+                "朝から来るとは、早起きなんだねぇ。"
+        },
+        {
+            text:
+                "僕も茶を淹れたところだ。"
+        }
+    ],
+    tags: ["season", "summer", "time", "morning"],
+    season: "summer",
+    time: "morning",
+    expression: "norimune_smile"
+},
         ],
 
         day: [
@@ -1680,6 +1715,33 @@
                 tags: ["normal"],
                 expression: "norimune_far"
             },
+            {
+    text:
+        "今日は蝉の方が元気そうだ。\n" +
+        "僕はもう、縁側から応援することにしたよ。",
+    tags: ["season", "summer", "time", "day"],
+    season: "summer",
+    time: "day",
+    expression: "norimune_closed"
+},
+{
+    text:
+        "こんな日は、何もしないのも立派な予定さ。\n" +
+        "夏に無理は禁物だからねぇ。",
+    tags: ["season", "summer", "time", "day"],
+    season: "summer",
+    time: "day",
+    expression: "norimune_soft"
+},
+{
+    text:
+        "冷たい茶を淹れたんだ。\n" +
+        "よければ、お前さんの分もあるよ。",
+    tags: ["season", "summer", "time", "day"],
+    season: "summer",
+    time: "day",
+    expression: "norimune_gentle"
+},
         ],
 
         evening: [
@@ -1827,6 +1889,39 @@
                 tags: ["normal"],
                 expression: "norimune_tease"
             },
+            {
+    text:
+        "日が傾くと、ようやく夏も大人しくなる。\n" +
+        "ほっとする時間だねぇ。",
+    tags: ["season", "summer", "time", "evening"],
+    season: "summer",
+    time: "evening",
+    expression: "norimune_far"
+},
+{
+    pages: [
+        {
+            text:
+                "空が茜色になってきた。"
+        },
+        {
+            text:
+                "夏の夕暮れは、つい眺めてしまうねぇ。"
+        }
+    ],
+    tags: ["season", "summer", "time", "evening"],
+    season: "summer",
+    expression: "norimune_soft"
+},
+{
+    text:
+        "夕立が来そうな空だ。\n" +
+        "帰り道は、気をつけるんだよ。",
+    tags: ["season", "summer", "time", "evening"],
+    season: "summer",
+    time: "evening",
+    expression: "norimune_serious"
+},
         ],
 
         night: [
@@ -1980,7 +2075,40 @@
                     "数えるのは途中でやめてしまったよ。",
                 tags: ["normal"],
                 expression: "norimune_smile"
-            }
+            },
+            {
+    text:
+        "昼間とは別の風が吹いている。\n" +
+        "夏は夜になってからが本番だねぇ。",
+    tags: ["season", "summer", "time", "night"],
+    season: "summer",
+    time: "night",
+    expression: "norimune_closed"
+},
+{
+    text:
+        "虫の声が賑やかだ。\n" +
+        "蝉から引き継いで、今度は夜組の出番らしい。",
+    tags: ["season", "summer", "time", "night"],
+    season: "summer",
+    time: "night",
+    expression: "norimune_smile"
+},
+{
+    pages: [
+        {
+            text:
+                "夜風は気持ちがいいねぇ。"
+        },
+        {
+            text:
+                "昼の暑さを忘れさせてくれる。"
+        }
+    ],
+    tags: ["season", "summer", "time", "night"],
+    season: "summer",
+    expression: "norimune_far"
+},
         ],
 
                 midnight: [
@@ -2157,7 +2285,32 @@
                     "うはは、それは秘密だ。",
                 tags: ["normal"],
                 expression: "norimune_closed"
-            }
+            },
+            {
+    text:
+        "少し涼しくなったからといって、\n" +
+        "油断すると風邪を引くよ。",
+    tags: ["season", "summer", "time", "midnight"],
+    season: "summer",
+    time: "midnight",
+    expression: "norimune_soft"
+},
+{
+    pages: [
+        {
+            text:
+                "こんな時間まで起きているとは。"
+        },
+        {
+            text:
+                "眠れない夜なら、少し話していこうか。"
+        }
+    ],
+    tags: ["season", "summer", "time", "midnight"],
+    season: "summer",
+    expression: "norimune_gentle"
+},
+            
         ]
     };
 

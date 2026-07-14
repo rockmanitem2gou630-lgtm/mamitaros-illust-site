@@ -1549,12 +1549,12 @@
         },
         {
             text:
-                "……と思ったら、柱の陰からこちらを見ていてねぇ。||" +
+                "……と思ったら、柱の陰からこちらを見ていてねぇ。\n" +
                 "何を期待していたんだろうね。",
             expression: "norimune_tease"
         }
     ],
-    tags: ["honmaru"],
+    tags: ["honmaru"]
 },
 {
     text:

@@ -946,6 +946,84 @@
     season: "summer",
     expression: "norimune_closed"
 },
+{
+    text:
+        "季節は毎年巡るというのに、\n" +
+        "同じ景色はひとつとしてないものだねぇ。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "景色が変わるたび、皆も少しずつ表情が変わる。\n" +
+        "それを見るのも、僕の楽しみなんだ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "暑い日もあれば、寒い日もある。\n" +
+        "そう考えると、季節というものは案外気まぐれだねぇ。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
+{
+    pages: [
+        {
+            text:
+                "季節の移ろいは早いねぇ。"
+        },
+        {
+            text:
+                "気づけば、またひとつ景色が変わっている。"
+        }
+    ],
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "花を眺める日もあれば、月を眺める日もある。||" +
+        "どちらも、急ぐ必要はない景色だ。",
+    tags: ["normal"],
+    expression: "norimune_soft"
+},
+{
+    text:
+        "季節の変わり目は、身体も驚くらしい。||" +
+        "お前さんも、無理だけはしないようにねぇ。",
+    tags: ["normal"],
+    expression: "norimune_serious"
+},
+{
+    text:
+        "今年も、もうこんな季節かと思ったら、\n" +
+        "案外そうでもなかったりする。||" +
+        "季節より、僕の勘違いだったようだ。",
+    tags: ["normal"],
+    expression: "norimune_troubled"
+},
+{
+    text:
+        "どの季節にも、それぞれ良さがある。\n" +
+        "だから僕は、嫌いな季節というものがないんだ。",
+    tags: ["normal"],
+    expression: "norimune_smile"
+},
+{
+    text:
+        "季節が巡るたび、同じ場所なのに違う顔を見せる。\n" +
+        "本丸も、なかなか飽きさせてくれないよ。",
+    tags: ["honmaru"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "景色は毎年変わる。\n" +
+        "けれど、変わらずここへ来てくれる顔があるのは嬉しいものだねぇ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
 
         ],
 

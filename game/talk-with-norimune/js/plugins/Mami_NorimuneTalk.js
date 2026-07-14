@@ -1865,6 +1865,11 @@
         "どこからか三郎の歌が聞こえてくるねぇ。||" +
         "姿が見えなくても、あれはすぐ分かる。",
     tags: ["honmaru"],
+　　excludeConditions: [
+        {
+            time: ["midnight"]
+        }
+    ],
     expression: "norimune_closed"
 },
 {
@@ -1872,6 +1877,11 @@
         "今日は三郎も機嫌がいいらしい。\n" +
         "歌声が本丸中に響いているよ。",
     tags: ["honmaru"],
+    excludeConditions: [
+        {
+            time: ["midnight"]
+        }
+    ],
     expression: "norimune_smile"
 },
 {
@@ -1939,6 +1949,13 @@
         "どこからか歌が聞こえるねぇ。||" +
         "三郎だろう。",
     tags: ["honmaru"],
+
+    excludeConditions: [
+        {
+            time: ["midnight"]
+        }
+    ],
+
     expression: "norimune_closed"
 },
 {
@@ -2464,6 +2481,11 @@
         "三郎の歌声が、もう聞こえてきたよ。||" +
         "朝からよく声が出るものだねぇ。",
     tags: ["honmaru"],
+    excludeConditions: [
+        {
+            time: ["midnight"]
+        }
+    ],
     expression: "norimune_closed"
 },
 {

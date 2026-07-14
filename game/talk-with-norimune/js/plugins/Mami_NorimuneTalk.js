@@ -793,6 +793,154 @@
     ],
     tags: ["normal"]
 },
+{
+    type: "choice",
+    id: "normal_feeling_01",
+
+    text:
+        "今日は、どんな気分なんだい。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "元気",
+
+            pages: [
+                {
+                    text:
+                        "それは何よりだ。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "お前さんが元気なら、僕も少し嬉しいよ。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "少し疲れた",
+
+            pages: [
+                {
+                    text:
+                        "そうかい。",
+                    expression:
+                        "norimune_soft"
+                },
+                {
+                    text:
+                        "なら今日は、頑張るより休む方を選びなさい。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "よく分からない",
+
+            pages: [
+                {
+                    text:
+                        "うはは。そういう日もあるさ。",
+                    expression:
+                        "norimune_closed"
+                },
+                {
+                    text:
+                        "名前をつけられない気持ちは、そのままにしておいてもいい。",
+                    expression:
+                        "norimune_far"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "normal_request_01",
+
+    text:
+        "僕に、何かしてほしいことはあるかい。",
+
+    expression: "norimune_tease",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "話を聞いてほしい",
+
+            pages: [
+                {
+                    text:
+                        "もちろん。",
+                    expression:
+                        "norimune_gentle"
+                },
+                {
+                    text:
+                        "うまく話せなくても、急かしたりはしないよ。",
+                    expression:
+                        "norimune_soft"
+                }
+            ]
+        },
+        {
+            text:
+                "褒めてほしい",
+
+            pages: [
+                {
+                    text:
+                        "ほう。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "では、よく励んだお前さんへ、僕から花丸をやろう。",
+                    expression:
+                        "norimune_smile"
+                }
+            ]
+        },
+        {
+            text:
+                "そばにいてほしい",
+
+            pages: [
+                {
+                    text:
+                        "……それだけでいいのかい。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "なら、しばらくここにいよう。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
 
         ],
 
@@ -1358,6 +1506,154 @@
                     text:
                         "次に外へ出た時は、少しだけ見上げてごらん。",
                     expression: "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "season_favorite_01",
+
+    text:
+        "お前さんは、どんな季節が好きなんだい。",
+
+    expression: "norimune_far",
+
+    tags: [
+        "season",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "暖かい季節",
+
+            pages: [
+                {
+                    text:
+                        "花も草木も、よく動く頃だねぇ。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "お前さんには、明るい景色がよく似合いそうだ。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "涼しい季節",
+
+            pages: [
+                {
+                    text:
+                        "風が心地よくなる頃か。",
+                    expression:
+                        "norimune_far"
+                },
+                {
+                    text:
+                        "縁側で茶を飲むには、実に良い季節だねぇ。",
+                    expression:
+                        "norimune_closed"
+                }
+            ]
+        },
+        {
+            text:
+                "どの季節も好き",
+
+            pages: [
+                {
+                    text:
+                        "うん。僕も似たようなものだ。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "それぞれに良さがあるから、ひとつに決めるのは難しいねぇ。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "season_view_01",
+
+    text:
+        "今の景色で、気に入っているものはあるかい。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "season",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "空",
+
+            pages: [
+                {
+                    text:
+                        "空か。",
+                    expression:
+                        "norimune_far"
+                },
+                {
+                    text:
+                        "毎日違うのに、見上げればいつもそこにある。不思議なものだねぇ。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "庭",
+
+            pages: [
+                {
+                    text:
+                        "庭は、季節の変化が一番よく見える。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "気づけば、昨日とは違う顔をしているものさ。",
+                    expression:
+                        "norimune_far"
+                }
+            ]
+        },
+        {
+            text:
+                "則宗さん",
+
+            pages: [
+                {
+                    text:
+                        "……景色の話をしていたはずだがねぇ。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "うはは。まあ、悪い気はしないよ。",
+                    expression:
+                        "norimune_tease"
                 }
             ]
         }
@@ -2224,6 +2520,154 @@
                 {
                     text:
                         "なら今日は、僕が話し相手になろう。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "honmaru_help_01",
+
+    text:
+        "本丸で、手を貸すなら誰がいいと思う。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "honmaru",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "堀川国広",
+
+            pages: [
+                {
+                    text:
+                        "堀川か。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "あれは頼めば喜んで働くが、働かせすぎないようにねぇ。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "和泉守兼定",
+
+            pages: [
+                {
+                    text:
+                        "厨仕事なら、あれほど頼もしい男もいない。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "ただし、つまみ食いは見逃してくれないよ。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        },
+        {
+            text:
+                "長曽祢虎徹",
+
+            pages: [
+                {
+                    text:
+                        "堅実な選び方だ。",
+                    expression:
+                        "norimune_closed"
+                },
+                {
+                    text:
+                        "長曽祢へ任せれば、気づかないうちに全部片づいているだろうねぇ。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "honmaru_relax_01",
+
+    text:
+        "本丸でのんびりするなら、誰と過ごしたいんだい。",
+
+    expression: "norimune_tease",
+
+    tags: [
+        "honmaru",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "清光と安定",
+
+            pages: [
+                {
+                    text:
+                        "のんびりできるかは、少し怪しいねぇ。",
+                    expression:
+                        "norimune_closed"
+                },
+                {
+                    text:
+                        "だが、退屈はしないだろう。",
+                    expression:
+                        "norimune_smile"
+                }
+            ]
+        },
+        {
+            text:
+                "三日月宗近",
+
+            pages: [
+                {
+                    text:
+                        "縁側で茶でも飲むのかな。",
+                    expression:
+                        "norimune_far"
+                },
+                {
+                    text:
+                        "話が長くなっても、僕は知らないよ。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        },
+        {
+            text:
+                "則宗さん",
+
+            pages: [
+                {
+                    text:
+                        "僕を選ぶのかい。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "うはは。それなら、特等席を空けておこう。",
                     expression:
                         "norimune_gentle"
                 }

@@ -3108,6 +3108,143 @@
     tags:["honmaru"],
     expression:"norimune_gentle"
 },
+{
+    text:
+        "遠征から戻った清光が、『これ土産！』と菓子を渡してきてねぇ。||" +
+        "……半分、自分で食べていたけれど。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "安定は、何でもない顔をして世話を焼くんだ。||" +
+        "ああいうところは、昔から変わらないねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "清光も安定も、僕に遠慮というものがなくてねぇ。||" +
+        "……うはは。それでいいと思っているよ。",
+    tags: ["honmaru"],
+    expression: "norimune_smile"
+},
+{
+    text:
+        "清光が悔しそうな顔をしていてねぇ。||" +
+        "伸びる刀は、ああいう顔をするものさ。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "あの二振りは、一振りだけ静かということがない。||" +
+        "大抵、二振りまとめて賑やかだねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "遠征帰りの清光と安定は、まず互いに話し始める。||" +
+        "報告より先に話が弾むあたり、仲が良い証拠だろうねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "長曽祢に、『少し甘いんじゃないか』と言われてしまってねぇ。||" +
+        "さて、誰のことだったかな。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "さっきまで扇子が見当たらなくてねぇ。||" +
+        "犯人は、すぐ名乗り出てくれたよ。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    type: "choice",
+    id: "honmaru_okitagumi_01",
+
+    text:
+        "今日は先に来たのは、どちらだったかな。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "honmaru",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "加州清光",
+
+            pages: [
+                {
+                    text:
+                        "そうそう。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "安定は少し遅れて、『また先に行ったの？』なんて言っていたよ。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        },
+        {
+            text:
+                "大和守安定",
+
+            pages: [
+                {
+                    text:
+                        "うん。",
+                    expression:
+                        "norimune_gentle"
+                },
+                {
+                    text:
+                        "『今日は静かだな』と思ったら、あとから清光が飛び込んできた。",
+                    expression:
+                        "norimune_closed"
+                }
+            ]
+        },
+        {
+            text:
+                "二振り一緒",
+
+            pages: [
+                {
+                    text:
+                        "それが一番あの二振りらしい。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "賑やかさも二倍になるけれどねぇ。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        }
+    ]
+},
+{
+    text:
+        "清光も安定も、もう立派な刀だ。||" +
+        "それでも、つい気に掛けてしまうのは……年寄りの悪い癖かな。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
 
         ]
     };

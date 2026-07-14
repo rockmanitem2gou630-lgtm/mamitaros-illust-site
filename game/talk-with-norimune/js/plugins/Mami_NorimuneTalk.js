@@ -6325,18 +6325,35 @@ function isLegacyTalkAvailable(talk) {
         category
     ) {
         switch (category) {
-            case "season":
-                return candidates.filter(
-                    candidate =>
-                        hasTag(
-                            candidate,
-                            "season"
-                        ) ||
-                        hasTag(
-                            candidate,
-                            getSeason()
-                        )
-                );
+case "season":
+    return candidates.filter(
+        candidate => {
+
+            /*
+             * 本丸会話は
+             * 季節コマンドでは除外。
+             */
+            if (
+                hasTag(
+                    candidate,
+                    "honmaru"
+                )
+            ) {
+                return false;
+            }
+
+            return (
+                hasTag(
+                    candidate,
+                    "season"
+                ) ||
+                hasTag(
+                    candidate,
+                    getSeason()
+                )
+            );
+        }
+    );
 
             case "honmaru":
                 return candidates.filter(
@@ -6375,65 +6392,44 @@ function isLegacyTalkAvailable(talk) {
         }
     }
 
-    function makeTalkCandidates(category) {
-        const candidates = [];
+function makeTalkCandidates(category) {
 
-        /*
-         * 「すべて」は既存カテゴリを全部混ぜる
-         */
-        if (
-            category === "all" ||
-            category === "normal"
-        ) {
-            addLegacyCategoryCandidates(
-                candidates,
-                "normal"
-            );
+    const candidates = [];
 
-            addLegacyCategoryCandidates(
-                candidates,
-                "season"
-            );
+    addLegacyCategoryCandidates(
+        candidates,
+        "normal"
+    );
 
-            addLegacyCategoryCandidates(
-                candidates,
-                "honmaru"
-            );
+    addLegacyCategoryCandidates(
+        candidates,
+        "season"
+    );
 
-            addTimeCandidates(candidates);
-            addConditionalCandidates(
-                candidates
-            );
-        } else if (category === "season") {
-            addLegacyCategoryCandidates(
-                candidates,
-                "season"
-            );
+    addLegacyCategoryCandidates(
+        candidates,
+        "honmaru"
+    );
 
-            addConditionalCandidates(
-                candidates
-            );
-        } else if (category === "honmaru") {
-            addLegacyCategoryCandidates(
-                candidates,
-                "honmaru"
-            );
+    /*
+     * 時間帯会話も全部追加。
+     */
+    addTimeCandidates(
+        candidates
+    );
 
-            addConditionalCandidates(
-                candidates
-            );
-        } else if (category === "time") {
-            addTimeCandidates(candidates);
-            addConditionalCandidates(
-                candidates
-            );
-        }
+    /*
+     * 条件付き会話
+     */
+    addConditionalCandidates(
+        candidates
+    );
 
-        return filterCandidatesByCategory(
-            candidates,
-            category
-        );
-    }
+    return filterCandidatesByCategory(
+        candidates,
+        category
+    );
+}
 
     /*
      * ─────────────────────────────

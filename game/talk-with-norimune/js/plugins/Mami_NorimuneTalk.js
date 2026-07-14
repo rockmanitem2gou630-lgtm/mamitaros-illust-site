@@ -1768,6 +1768,116 @@
     ],
     tags: ["honmaru"]
 },
+{
+    text:
+        "畑仕事かい。||" +
+        "……草は抜いても抜いても生えてくる。\n" +
+        "実に元気だねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_troubled"
+},
+{
+    text:
+        "畑は嫌いではないよ。||" +
+        "好きでもないけれどねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "土に好かれていない気がするんだ。||" +
+        "僕が触ると、皆どこか元気がなくなる。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "馬というものは賢いねぇ。\n" +
+        "撫でているだけでも、退屈しない。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "馬当番の日は悪くない。\n" +
+        "あの子たちは、よく話を聞いてくれるからねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_smile"
+},
+{
+    pages: [
+        {
+            text:
+                "今日も馬が寄ってきてくれてね。",
+            expression: "norimune_gentle"
+        },
+        {
+            text:
+                "……いや、おやつ目当てだったのかもしれないが。",
+            expression: "norimune_closed"
+        }
+    ],
+    tags: ["honmaru"]
+},
+{
+    text:
+        "孫六との手合わせは気楽でいい。||" +
+        "今日は誰の役をやるんだと言われる前に、もう決まっているからねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "天才剣士役も、ずいぶん板についてしまったよ。||" +
+        "孫六が相手だと、自然とそうなる。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "若い子との手合わせかい。||" +
+        "まずは思い切り打ち込ませることにしている。",
+    tags: ["honmaru"],
+    expression: "norimune_normal"
+},
+{
+    pages: [
+        {
+            text:
+                "『説明はしないんですか』と聞かれてね。",
+            expression: "norimune_surprised"
+        },
+        {
+            text:
+                "するよ。\n" +
+                "ただ、先に身体で覚えた方が早いだけさ。",
+            expression: "norimune_gentle"
+        }
+    ],
+    tags: ["honmaru"]
+},
+{
+    text:
+        "『もう一度』と言えば、皆ちゃんと向かってくる。||" +
+        "教える側としては、それで充分なんだ。",
+    tags: ["honmaru"],
+    expression: "norimune_serious"
+},
+{
+    pages: [
+        {
+            text:
+                "説明が面倒だから、先に打ち込ませる訳じゃないよ。",
+            expression: "norimune_closed"
+        },
+        {
+            text:
+                "……本当だとも。",
+            expression: "norimune_tease"
+        }
+    ],
+    tags: ["honmaru"]
+},
 
         ]
     };

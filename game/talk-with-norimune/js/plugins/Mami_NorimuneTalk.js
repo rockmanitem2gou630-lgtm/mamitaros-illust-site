@@ -2375,6 +2375,434 @@
     time: "morning",
     expression: "norimune_smile"
 },
+{
+    text:
+        "朝は、まだ一日の形が決まっていない。||" +
+        "そう思うと、少し気が楽になるねぇ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "起きたばかりの顔だねぇ。||" +
+        "うはは。無理にしゃんとしなくてもいいよ。",
+    tags: ["normal"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "朝の空気は、少し刃に似ている。||" +
+        "澄んでいて、触れると目が覚める。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "昨日のことを、朝まで抱えてきたのかい。||" +
+        "なら、ここで少し置いていくといい。",
+    tags: ["normal"],
+    expression: "norimune_soft"
+},
+{
+    text:
+        "朝は静かでいい。||" +
+        "皆が動き出す前の、ほんの短い時間だけれどねぇ。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "清光と安定なら、朝から元気だったよ。||" +
+        "口が動くうちは、まだ余裕があるということだろう。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "堀川は、朝からもう書類を整えていてねぇ。||" +
+        "僕が手をつける前に片づいている。実に頼もしいよ。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "和泉守は、朝餉の支度で随分忙しそうだった。||" +
+        "あれで皆の顔色まで見ているのだから、大したものさ。",
+    tags: ["honmaru"],
+    expression: "norimune_smile"
+},
+{
+    text:
+        "長曽祢は、朝から本丸を一巡していたよ。||" +
+        "僕よりよほど近侍らしく見える時があるねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "孫六に、朝稽古の相手を頼まれてねぇ。||" +
+        "朝からあの役というのも、なかなか忙しいものだ。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "三日月は、朝から縁側で茶を飲んでいたよ。||" +
+        "あれを見ると、こちらまで急ぐ気がなくなるねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "包丁が朝からこちらを拝んでいてねぇ。||" +
+        "何か御利益でもあると思っているのかな。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "三郎の歌声が、もう聞こえてきたよ。||" +
+        "朝からよく声が出るものだねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "朝の手入れは悪くない。||" +
+        "刃も心も、曇りが少ない方が気持ちいいからねぇ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "朝稽古では、皆まだ余計な力が入っていない。||" +
+        "そういう時ほど、その刀らしさがよく見えるものさ。",
+    tags: ["normal"],
+    expression: "norimune_think"
+},
+{
+    text:
+        "戦へ向かう朝も、こうして穏やかな朝も、空の色は変わらない。||" +
+        "だからこそ、今の方を大切にしたいものだねぇ。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "出陣前は、皆少しだけ静かになる。||" +
+        "言葉にしなくても分かることが、刀同士にはあるからねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_serious"
+},
+{
+    type: "choice",
+    id: "morning_wake_01",
+
+    text:
+        "よく眠れたかい。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "よく眠れた",
+
+            pages: [
+                {
+                    text:
+                        "それは何よりだ。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "朝の顔も、いつもより晴れて見えるよ。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "あまり眠れなかった",
+
+            pages: [
+                {
+                    text:
+                        "そうかい。",
+                    expression:
+                        "norimune_soft"
+                },
+                {
+                    text:
+                        "今日は、いつもより少しゆっくり動くといい。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "まだ眠い",
+
+            pages: [
+                {
+                    text:
+                        "うはは。正直でよろしい。",
+                    expression:
+                        "norimune_closed"
+                },
+                {
+                    text:
+                        "朝餉まで、もう少しここにいるかい。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "morning_plan_01",
+
+    text:
+        "今日は、何から始めるつもりだい。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "まず仕事",
+
+            pages: [
+                {
+                    text:
+                        "感心だねぇ。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "ただし、朝餉を抜くほど急ぐんじゃないよ。",
+                    expression:
+                        "norimune_serious"
+                }
+            ]
+        },
+        {
+            text:
+                "まず朝餉",
+
+            pages: [
+                {
+                    text:
+                        "うん。それがいい。",
+                    expression:
+                        "norimune_gentle"
+                },
+                {
+                    text:
+                        "腹が減っていては、良い考えも浮かばないからねぇ。",
+                    expression:
+                        "norimune_closed"
+                }
+            ]
+        },
+        {
+            text:
+                "まだ決めていない",
+
+            pages: [
+                {
+                    text:
+                        "それも悪くないさ。",
+                    expression:
+                        "norimune_soft"
+                },
+                {
+                    text:
+                        "朝のうちは、迷う時間もまだ残っている。",
+                    expression:
+                        "norimune_far"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "morning_honmaru_01",
+
+    text:
+        "朝の本丸で、誰を見掛けたんだい。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "honmaru",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "清光と安定",
+
+            pages: [
+                {
+                    text:
+                        "あの二振りなら、朝から賑やかだっただろう。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "元気でいてくれるなら、それでいいさ。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "和泉守兼定",
+
+            pages: [
+                {
+                    text:
+                        "厨にいたかな。",
+                    expression:
+                        "norimune_think"
+                },
+                {
+                    text:
+                        "朝から皆の腹を預かるのは、なかなか骨が折れるものだ。",
+                    expression:
+                        "norimune_soft"
+                }
+            ]
+        },
+        {
+            text:
+                "三郎国宗",
+
+            pages: [
+                {
+                    text:
+                        "もう歌っていたかい。",
+                    expression:
+                        "norimune_tease"
+                },
+                {
+                    text:
+                        "うはは。あれも、本丸の目覚ましのようなものだねぇ。",
+                    expression:
+                        "norimune_closed"
+                }
+            ]
+        },
+        {
+            text:
+                "誰も見ていない",
+
+            pages: [
+                {
+                    text:
+                        "随分早起きだったんだねぇ。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "静かな本丸を独り占めできたのなら、少し得をしたね。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "morning_visit_01",
+
+    text:
+        "こんな朝早くから、僕に会いに来たのかい。",
+
+    expression: "norimune_tease",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "会いたかった",
+
+            pages: [
+                {
+                    text:
+                        "……そうか。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "それなら、朝から随分嬉しいことを言ってくれる。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "たまたま通っただけ",
+
+            pages: [
+                {
+                    text:
+                        "うはは。そういうことにしておこうか。",
+                    expression:
+                        "norimune_closed"
+                }
+            ]
+        },
+        {
+            text:
+                "朝餉に呼びに来た",
+
+            pages: [
+                {
+                    text:
+                        "それは助かるよ。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "話し込んで、また堀川に探されるところだった。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        }
+    ]
+},
         ],
 
         day: [
@@ -2524,6 +2952,442 @@
     season: "summer",
     time: "day",
     expression: "norimune_gentle"
+},
+{
+    text:
+        "昼になると、時間まで少し緩むように感じるねぇ。||" +
+        "急ぐ用がなければ、少しくらい足を止めてもいいだろう。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "日が高いねぇ。||" +
+        "こんな時間に考え事を始めると、つい長くなってしまう。",
+    tags: ["normal"],
+    expression: "norimune_think"
+},
+{
+    text:
+        "昼の光は、何でもよく見せる。||" +
+        "見たくないものまで、ということもあるけれどねぇ。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "少し眠そうだねぇ。||" +
+        "無理に抗わなくても、昼寝という立派な手があるよ。",
+    tags: ["normal"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "昼餉は済ませたのかい。||" +
+        "考え事は、腹を満たしてからにした方がいい。",
+    tags: ["normal"],
+    expression: "norimune_soft"
+},
+{
+    text:
+        "昼は、朝ほど慌ただしくもなく、夜ほど静かでもない。||" +
+        "案外、過ごしやすい時間だねぇ。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "遠征組なら、もうとっくに出ているよ。||" +
+        "今頃は、それぞれの役目を果たしている頃だろうねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "昼の本丸は、朝より少し静かだ。||" +
+        "皆が持ち場に散っているからだろうねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_normal"
+},
+{
+    text:
+        "堀川は、昼になっても書類を抱えていたよ。||" +
+        "楽しそうなのだから、止めるのも野暮かと思ってねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "和泉守は、昼餉が済んでも厨を離れないことがある。||" +
+        "皆の腹具合まで気にしているんだろう。",
+    tags: ["honmaru"],
+    expression: "norimune_soft"
+},
+{
+    text:
+        "長曽祢は、昼も本丸中を見て回っているよ。||" +
+        "あれだけ働けば、夜の酒も美味いだろうねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_smile"
+},
+{
+    text:
+        "孫六なら、蔵の方にいるんじゃないかな。||" +
+        "昼から手合わせに誘えば、きっと嫌な顔をされるだろうねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "三日月は、縁側の一番涼しい場所を見つけるのが上手い。||" +
+        "あれも長く生きた知恵というものかな。",
+    tags: ["honmaru"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "包丁が、昼餉のあとの甘いものを探していてねぇ。||" +
+        "人妻より先に、菓子へ辿り着いたようだ。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "三郎の歌声なら、さっきまで聞こえていたよ。||" +
+        "今は昼餉でも食べているんじゃないかな。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "昼の手入れ部屋は、妙に落ち着くことがある。||" +
+        "傷を負って戻った刀が、少しずつ元へ戻っていく場所だからねぇ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "遠征は、戦とは少し違う。||" +
+        "けれど、戻る場所があることに変わりはないよ。",
+    tags: ["honmaru"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "刀は、振るわれている時ばかりが役目ではない。||" +
+        "こうして待つことも、立派な役目のひとつさ。",
+    tags: ["normal"],
+    expression: "norimune_serious"
+},
+{
+    text:
+        "出陣していない刀にも、できることはある。||" +
+        "本丸を守るのも、戻る者を迎えるのもねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    type: "choice",
+    id: "day_lunch_01",
+
+    text:
+        "昼餉は、もう済ませたのかい。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "もう食べた",
+
+            pages: [
+                {
+                    text:
+                        "それは結構。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "なら、少しくらいゆっくりしていくといい。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "まだ食べていない",
+
+            pages: [
+                {
+                    text:
+                        "それはいけないねぇ。",
+                    expression:
+                        "norimune_soft"
+                },
+                {
+                    text:
+                        "和泉守に見つかる前に、何か腹へ入れておいで。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        },
+        {
+            text:
+                "あまり食欲がない",
+
+            pages: [
+                {
+                    text:
+                        "そうかい。",
+                    expression:
+                        "norimune_soft"
+                },
+                {
+                    text:
+                        "無理はしなくていいが、少しでも口にできるものを探そうか。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "day_sleepy_01",
+
+    text:
+        "眠そうだねぇ。どうするつもりだい。",
+
+    expression: "norimune_tease",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "少し昼寝する",
+
+            pages: [
+                {
+                    text:
+                        "うん。それがいい。",
+                    expression:
+                        "norimune_gentle"
+                },
+                {
+                    text:
+                        "起きる頃には、頭も少し軽くなっているさ。",
+                    expression:
+                        "norimune_soft"
+                }
+            ]
+        },
+        {
+            text:
+                "まだ頑張る",
+
+            pages: [
+                {
+                    text:
+                        "感心ではあるけれど。",
+                    expression:
+                        "norimune_closed"
+                },
+                {
+                    text:
+                        "倒れるまで頑張るのは、あまり賢いやり方ではないよ。",
+                    expression:
+                        "norimune_serious"
+                }
+            ]
+        },
+        {
+            text:
+                "則宗さんと話す",
+
+            pages: [
+                {
+                    text:
+                        "僕で眠気が覚めるのかい。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "うはは。それなら、もう少し付き合おう。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "day_honmaru_01",
+
+    text:
+        "昼の本丸で、気になる者でもいるのかい。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "honmaru",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "遠征組",
+
+            pages: [
+                {
+                    text:
+                        "無事にやっているさ。",
+                    expression:
+                        "norimune_gentle"
+                },
+                {
+                    text:
+                        "帰ってくる頃には、また門の方が賑やかになるだろうねぇ。",
+                    expression:
+                        "norimune_far"
+                }
+            ]
+        },
+        {
+            text:
+                "堀川国広",
+
+            pages: [
+                {
+                    text:
+                        "今頃も、僕の代わりに細かな仕事を片づけているだろう。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "僕が苦手だからではないよ。適材適所というものさ。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        },
+        {
+            text:
+                "和泉守兼定",
+
+            pages: [
+                {
+                    text:
+                        "厨にいるんじゃないかな。",
+                    expression:
+                        "norimune_think"
+                },
+                {
+                    text:
+                        "あれは見た目より、ずっと皆のことをよく見ているからねぇ。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "特にいない",
+
+            pages: [
+                {
+                    text:
+                        "それなら、僕のところで正解だったねぇ。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "day_stay_01",
+
+    text:
+        "昼のうちから、随分ゆっくりしているねぇ。",
+
+    expression: "norimune_tease",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "ここが落ち着くから",
+
+            pages: [
+                {
+                    text:
+                        "そうかい。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "なら、無理に追い出す理由もないねぇ。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "則宗さんがいるから",
+
+            pages: [
+                {
+                    text:
+                        "……僕がいるから？",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "昼から、なかなか嬉しいことを言ってくれる。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "たまたま",
+
+            pages: [
+                {
+                    text:
+                        "うはは。そういうことにしておこうか。",
+                    expression:
+                        "norimune_closed"
+                }
+            ]
+        }
+    ]
 },
         ],
 
@@ -2704,6 +3568,442 @@
     season: "summer",
     time: "evening",
     expression: "norimune_serious"
+},
+{
+    text:
+        "夕方というのは、不思議だねぇ。||" +
+        "一日が終わるようでいて、まだ少し残っている。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "西日が眩しいねぇ。||" +
+        "昼とは違って、少し名残惜しそうな光だ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "今日やり残したことでもあるのかい。||" +
+        "明日に回せるものなら、無理に今日へ詰め込まなくてもいいさ。",
+    tags: ["normal"],
+    expression: "norimune_soft"
+},
+{
+    text:
+        "夕暮れは、考え事に向いているようでねぇ。||" +
+        "気づけば、ただ空を眺めているだけのことも多い。",
+    tags: ["normal"],
+    expression: "norimune_think"
+},
+{
+    text:
+        "一日が短く感じるのは、忙しかった証拠かもしれないねぇ。||" +
+        "何もしていなかったように思えても、案外そうでもないものさ。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "日が落ちる前の風は、少しだけ優しい。||" +
+        "今日もよく励んだと、そう言っているようだねぇ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "遠征組も、そろそろ戻る頃だねぇ。||" +
+        "門の方が賑やかになるのも、もうすぐだろう。",
+    tags: ["honmaru"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "遠征帰りの足音は、少し違って聞こえる。||" +
+        "疲れていても、戻ってきた時の足取りには力があるものさ。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "清光と安定が戻る日は、門を見る前に分かることがある。||" +
+        "声が先に帰ってくるからねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "堀川は、夕餉までに書類を片づけようとしていたよ。||" +
+        "和泉守に呼ばれる前に終えたいらしい。",
+    tags: ["honmaru"],
+    expression: "norimune_smile"
+},
+{
+    text:
+        "和泉守が厨に立つと、本丸の空気まで少し変わる。||" +
+        "皆、夕餉の匂いには正直だからねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "長曽祢は、戻った者の報告を聞いている頃かな。||" +
+        "夕餉の前まで、なかなか休めない男だよ。",
+    tags: ["honmaru"],
+    expression: "norimune_soft"
+},
+{
+    text:
+        "孫六は、蔵の戸締まりを確かめていたよ。||" +
+        "ああいうところは、実に几帳面だねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "三日月とは、夕暮れの縁側で茶を飲むこともある。||" +
+        "話しているうちに、いつの間にか夜になってしまうよ。",
+    tags: ["honmaru"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "包丁が、夕餉の前から厨の周りをうろうろしていてねぇ。||" +
+        "人妻を探しているのか、菓子を探しているのか、僕にも分からない。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "三郎の歌が、夕暮れの廊下まで響いていたよ。||" +
+        "あれだけ声が通るなら、帰ってきた者も迷わないだろうねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "出陣から戻った刀は、まず鞘に収まる。||" +
+        "戻る場所があるというのは、それだけで有難いものだよ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "戦を終えたあとの静けさは、平穏とは少し違う。||" +
+        "それでも、こうして日が暮れていくのは悪くないねぇ。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "刀は、帰ってきた時にようやく力を抜ける。||" +
+        "人も、案外同じなのかもしれないねぇ。",
+    tags: ["normal"],
+    expression: "norimune_soft"
+},
+{
+    text:
+        "手入れを終えた刀の気配は、少し軽い。||" +
+        "言葉にしなくても、無事でよかったと思うものさ。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    type: "choice",
+    id: "evening_day_01",
+
+    text:
+        "今日は、どんな一日だったんだい。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "良い一日だった",
+
+            pages: [
+                {
+                    text:
+                        "それは何よりだ。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "良かったことは、ちゃんと覚えておくといい。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "疲れた",
+
+            pages: [
+                {
+                    text:
+                        "そうかい。",
+                    expression:
+                        "norimune_soft"
+                },
+                {
+                    text:
+                        "なら、ここから先は少し自分を甘やかしてもいいだろう。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "よく分からない",
+
+            pages: [
+                {
+                    text:
+                        "うはは。そういう日もある。",
+                    expression:
+                        "norimune_closed"
+                },
+                {
+                    text:
+                        "答えを出すのは、明日でも遅くないさ。",
+                    expression:
+                        "norimune_far"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "evening_return_01",
+
+    text:
+        "遠征組の帰りが、気になるのかい。",
+
+    expression: "norimune_tease",
+
+    tags: [
+        "honmaru",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "少し気になる",
+
+            pages: [
+                {
+                    text:
+                        "そうだろうねぇ。",
+                    expression:
+                        "norimune_gentle"
+                },
+                {
+                    text:
+                        "無事な顔を見るまでは、誰でも落ち着かないものさ。",
+                    expression:
+                        "norimune_soft"
+                }
+            ]
+        },
+        {
+            text:
+                "信じて待ってる",
+
+            pages: [
+                {
+                    text:
+                        "うん。それでいい。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "待ってくれる者がいるから、皆も帰ってこられる。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "則宗さんと待つ",
+
+            pages: [
+                {
+                    text:
+                        "僕と一緒にかい。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "それなら、門が開くまでここにいようか。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "evening_honmaru_01",
+
+    text:
+        "夕餉まで、どう過ごすつもりだい。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "honmaru",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "厨を手伝う",
+
+            pages: [
+                {
+                    text:
+                        "それは和泉守が助かるだろう。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "ただし、勝手に味見ばかりして叱られないようにねぇ。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        },
+        {
+            text:
+                "遠征組を迎える",
+
+            pages: [
+                {
+                    text:
+                        "うん。それがいい。",
+                    expression:
+                        "norimune_gentle"
+                },
+                {
+                    text:
+                        "帰ってきた時に、知った顔があると安心するものだからねぇ。",
+                    expression:
+                        "norimune_soft"
+                }
+            ]
+        },
+        {
+            text:
+                "ここで則宗さんといる",
+
+            pages: [
+                {
+                    text:
+                        "僕と？",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "うはは。夕餉に呼ばれるまでなら、構わないよ。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "evening_sky_01",
+
+    text:
+        "夕焼けを見に来たのかい。",
+
+    expression: "norimune_far",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "そうだよ",
+
+            pages: [
+                {
+                    text:
+                        "それなら、良い場所を知っている。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "日が沈むまで、少し付き合おうか。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "則宗さんを見に来た",
+
+            pages: [
+                {
+                    text:
+                        "夕焼けより僕を？",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "うはは。随分と贅沢なことを言うねぇ。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        },
+        {
+            text:
+                "なんとなく来た",
+
+            pages: [
+                {
+                    text:
+                        "理由なんて、なくてもいいさ。",
+                    expression:
+                        "norimune_soft"
+                },
+                {
+                    text:
+                        "せっかくだ。日が沈むまで、ここにいるといい。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
 },
         ],
 
@@ -2891,6 +4191,543 @@
     tags: ["season", "summer", "time", "night"],
     season: "summer",
     expression: "norimune_far"
+},
+{
+    text:
+        "夜になると、一日の音が少しずつ遠ざかっていく。||" +
+        "ようやく、自分の声が聞こえる時間だねぇ。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "今日のことを、まだ考えているのかい。||" +
+        "夜は何でも少し重く見える。結論は朝まで待ってもいいさ。",
+    tags: ["normal"],
+    expression: "norimune_soft"
+},
+{
+    text:
+        "行灯の明かりは、昼より人の顔を素直に見せるねぇ。||" +
+        "お前さんも、少し気が抜けてきたようだ。",
+    tags: ["normal"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "眠る前くらいは、自分を責めるのをやめておきなさい。||" +
+        "反省は、明るいところでした方が役に立つよ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "夜は静かでいい。||" +
+        "言葉にしなくても、同じ場所にいるだけで済むからねぇ。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "今日も一日、よく励んだねぇ。||" +
+        "誰が見ていなくても、働いた身体はちゃんと覚えているものさ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "眠るにはまだ早い。けれど、何かを始めるには少し遅い。||" +
+        "夜というのは、実に都合のいい時間だねぇ。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "夕餉も済んで、ようやく本丸が落ち着いたねぇ。||" +
+        "昼とは違う、満ち足りた静けさだ。",
+    tags: ["honmaru"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "清光と安定なら、まだ何やら言い合っていたよ。||" +
+        "あれだけ元気なら、遠征の疲れも心配なさそうだ。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "堀川には、もう書類を置くよう言っておいた。||" +
+        "放っておくと、和泉守に呼ばれるまで働きそうだからねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_troubled"
+},
+{
+    text:
+        "和泉守も、ようやく厨から出てきた頃かな。||" +
+        "皆が食べ終わるまで落ち着かないとは、難儀な性分だねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_soft"
+},
+{
+    text:
+        "長曽祢とは、あとで一杯やる約束をしているんだ。||" +
+        "孫六も来れば、また昔の話が長くなるだろうねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_smile"
+},
+{
+    text:
+        "孫六が、今夜は手合わせの続きをすると言っていてねぇ。||" +
+        "酒が入る前にしておくべきだったかな。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "三日月とは、夜の縁側でもよく茶を飲む。||" +
+        "主の話をしていると、茶が冷めるのも忘れてしまうよ。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "包丁が、今夜も柱の陰からこちらを見ていてねぇ。||" +
+        "喜ぶなら、もう少し主の近くへ座ってみようか。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "三郎の歌なら、さっきまで聞こえていたよ。||" +
+        "静かになったと思ったら、曲の合間だったらしい。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "遠征組も皆戻った。手入れも済んだ。||" +
+        "こうして人数を確かめ終えると、ようやく夜になった気がするねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "戦から戻った夜は、鞘の内まで静かに感じる。||" +
+        "無事に帰れたと、刀もようやく理解するのかもしれないねぇ。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "手入れを受けたあとの夜は、よく眠れる。||" +
+        "刀が眠るというのも、妙な話だけれどねぇ。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "刀は夜目が利くわけではない。||" +
+        "だが、闇の中で向けられる殺気には、昔からよく馴染んでいてねぇ。",
+    tags: ["normal"],
+    expression: "norimune_serious"
+},
+{
+    text:
+        "本丸の夜番は、何も起きないのが一番だ。||" +
+        "抜かれずに朝を迎える刀ほど、よく役目を果たしていることもある。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "昔は、夜が明けるまで鞘へ戻れないこともあった。||" +
+        "今は主のそばで茶を飲んでいる。随分と良い身分になったものさ。",
+    tags: ["normal"],
+    expression: "norimune_smile"
+},
+{
+    text:
+        "夜の静けさを知っている刀ほど、戦場の音を忘れない。||" +
+        "忘れないからこそ、今を穏やかに過ごせるのかもしれないねぇ。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    type: "choice",
+    id: "night_day_end_01",
+
+    text:
+        "今日という日は、もう終わりにできそうかい。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "うん、もう休める",
+
+            pages: [
+                {
+                    text:
+                        "それは何よりだ。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "では、今日のことは今日へ置いていきなさい。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "まだやることがある",
+
+            pages: [
+                {
+                    text:
+                        "そうかい。",
+                    expression:
+                        "norimune_soft"
+                },
+                {
+                    text:
+                        "終わらせることより、明日に響かせないことを考えるんだよ。",
+                    expression:
+                        "norimune_serious"
+                }
+            ]
+        },
+        {
+            text:
+                "終わりにしたくない",
+
+            pages: [
+                {
+                    text:
+                        "何か名残惜しいことでもあったのかな。",
+                    expression:
+                        "norimune_think"
+                },
+                {
+                    text:
+                        "なら、もう少しくらい僕が付き合おう。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "night_sleep_01",
+
+    text:
+        "眠くなってきたんじゃないかい。",
+
+    expression: "norimune_tease",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "もう眠い",
+
+            pages: [
+                {
+                    text:
+                        "うん。良い子だ。",
+                    expression:
+                        "norimune_gentle"
+                },
+                {
+                    text:
+                        "温かくして、ゆっくり休みなさい。",
+                    expression:
+                        "norimune_soft"
+                }
+            ]
+        },
+        {
+            text:
+                "まだ眠くない",
+
+            pages: [
+                {
+                    text:
+                        "そうかい。",
+                    expression:
+                        "norimune_closed"
+                },
+                {
+                    text:
+                        "なら、夜更かしにならない程度に話していこうか。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "則宗さんが寝るまで起きてる",
+
+            pages: [
+                {
+                    text:
+                        "僕を待つつもりかい。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "うはは。それでは、どちらが先に折れるか分からないねぇ。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "night_honmaru_01",
+
+    text:
+        "今夜は、どこで過ごすつもりだい。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "honmaru",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "自室へ戻る",
+
+            pages: [
+                {
+                    text:
+                        "うん。それがいい。",
+                    expression:
+                        "norimune_gentle"
+                },
+                {
+                    text:
+                        "廊下は冷えるから、足元に気をつけるんだよ。",
+                    expression:
+                        "norimune_soft"
+                }
+            ]
+        },
+        {
+            text:
+                "皆の様子を見て回る",
+
+            pages: [
+                {
+                    text:
+                        "主は働き者だねぇ。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "けれど、皆が休めるのは主も休んでこそだよ。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "ここにいる",
+
+            pages: [
+                {
+                    text:
+                        "僕のところにかい。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "構わないよ。茶なら、まだ残っている。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "night_visit_01",
+
+    text:
+        "こんな時間まで、僕のそばにいてくれるのかい。",
+
+    expression: "norimune_tease",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "一緒にいたいから",
+
+            pages: [
+                {
+                    text:
+                        "……そうか。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "夜は長い。焦らず、ゆっくりしていくといい。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "ひとりで眠るのが寂しい",
+
+            pages: [
+                {
+                    text:
+                        "それは困ったねぇ。",
+                    expression:
+                        "norimune_soft"
+                },
+                {
+                    text:
+                        "では、眠くなるまで僕が話し相手になろう。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "もう帰るところ",
+
+            pages: [
+                {
+                    text:
+                        "そうかい。",
+                    expression:
+                        "norimune_normal"
+                },
+                {
+                    text:
+                        "引き止めはしないが、少し残念ではあるねぇ。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "night_sword_01",
+
+    text:
+        "主は、刀が戦を恐れると思うかい。",
+
+    expression: "norimune_think",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "恐れないと思う",
+
+            pages: [
+                {
+                    text:
+                        "うはは。随分と買ってくれるねぇ。",
+                    expression:
+                        "norimune_closed"
+                },
+                {
+                    text:
+                        "だが、恐れを知らないことと、勇敢であることは違うものさ。",
+                    expression:
+                        "norimune_serious"
+                }
+            ]
+        },
+        {
+            text:
+                "少しは怖いと思う",
+
+            pages: [
+                {
+                    text:
+                        "そうだねぇ。",
+                    expression:
+                        "norimune_gentle"
+                },
+                {
+                    text:
+                        "失いたくないものが増えれば、刀にも恐れる理由はできる。",
+                    expression:
+                        "norimune_far"
+                }
+            ]
+        },
+        {
+            text:
+                "則宗さんはどうなの",
+
+            pages: [
+                {
+                    text:
+                        "僕かい。",
+                    expression:
+                        "norimune_surprised"
+                },
+               {
+                   text:
+                       "恐れることはあるよ。",
+                   expression:
+                       "norimune_far"
+               },
+               {
+                   text:
+                       "それでも、主の前では笑っていたいと思っている。",
+                   expression:
+                       "norimune_gentle"
+               }
+            ]
+        }
+    ]
 },
         ],
 
@@ -3092,6 +4929,606 @@
     tags: ["season", "summer", "time", "midnight"],
     season: "summer",
     expression: "norimune_gentle"
+},
+{
+    text:
+        "随分と静かな夜だねぇ。\n" +
+        "自分の息遣いまで、よく聞こえる。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "こんな時間まで考え事かい。\n" +
+        "夜更けに出した答えは、朝になると形が変わることもあるよ。",
+    tags: ["normal"],
+    expression: "norimune_soft"
+},
+{
+    text:
+        "眠れないことを、気に病む必要はないさ。\n" +
+        "身体が眠る支度をしている間、少し待ってやればいい。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "夜更けは、些細なことまで大きく見える。\n" +
+        "明るくなれば、案外小さなものかもしれないよ。",
+    tags: ["normal"],
+    expression: "norimune_think"
+},
+{
+    text:
+        "もう今日なのか、まだ昨日なのか。\n" +
+        "この時間は、少し曖昧だねぇ。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "眠ろうと力を入れるほど、眠りは逃げていくものさ。\n" +
+        "随分と気まぐれなお客だねぇ。",
+    tags: ["normal"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "声を潜めて話すと、何でも秘密らしく聞こえるねぇ。\n" +
+        "大した話をしているわけでもないのに。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "お前さんが眠くなるまで、ここにいるよ。\n" +
+        "年寄りは、夜が長いことにも慣れているからねぇ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "本丸も、ようやく寝静まったようだ。\n" +
+        "昼間の賑わいが嘘のようだねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "清光と安定の部屋も、さすがに静かになったよ。\n" +
+        "眠っている時くらいは、喧嘩もしないらしい。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "堀川には、夜更けまで書類へ触れないよう言ってある。\n" +
+        "それでも灯りが見えたら、和泉守を呼ぶことにしているよ。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "和泉守は、厨の火を確かめてから休むんだ。\n" +
+        "あれで随分と慎重な男だからねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "長曽祢と孫六の部屋に、まだ灯りが見えることがある。\n" +
+        "静かに飲んでいるのか、昔話が長引いているのか。",
+    tags: ["honmaru"],
+    expression: "norimune_smile"
+},
+{
+    text:
+        "三日月なら、まだ起きているかもしれないねぇ。\n" +
+        "あれと話し始めると、朝まで戻れなくなるけれど。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "包丁も、さすがに今頃は眠っているだろう。\n" +
+        "柱の陰にいないか、一応確かめておこうか。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "三郎の歌も、今は聞こえない。\n" +
+        "……眠っている時は静かな男なんだねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "夜番の足音が、廊下の向こうから聞こえる。\n" +
+        "何も起こらない夜を守るのも、大切な務めさ。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "皆が眠っている間も、本丸は止まっているわけじゃない。\n" +
+        "火の番も、夜番も、それぞれ静かに働いているよ。",
+    tags: ["honmaru"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "夜襲を待った夜というのは、妙に長かったものさ。\n" +
+        "今は、何も起きないまま朝を待てる。それで充分だよ。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "刀は眠っていても、気配までは鈍らない。\n" +
+        "長くそうしてきたから、身体が覚えているんだろうねぇ。",
+    tags: ["normal"],
+    expression: "norimune_serious"
+},
+{
+    text:
+        "鞘に収まったまま朝を迎えられる夜は、良い夜だ。\n" +
+        "抜かれないことも、刀の幸せのひとつだからねぇ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "暗闇の中では、姿より気配の方がよく見える。\n" +
+        "刀にとっては、昔から馴染み深い感覚さ。",
+    tags: ["normal"],
+    expression: "norimune_serious"
+},
+{
+    pages: [
+        {
+            text:
+                "長く在れば、眠れない夜も増える。",
+            expression: "norimune_far"
+        },
+        {
+            text:
+                "けれど今は、朝を待つ相手がいる。\n" +
+                "昔より、随分と気楽になったものだよ。",
+            expression: "norimune_gentle"
+        }
+    ],
+    tags: ["normal"]
+},
+{
+    text:
+        "主が眠っている間くらいは、刀が起きていてもいいだろう。\n" +
+        "守られる側にも、休む時間は必要だからねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    type: "choice",
+    id: "midnight_reason_01",
+
+    text:
+        "眠れない理由を、聞いてもいいかい。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "考え事をしていた",
+
+            pages: [
+                {
+                    text:
+                        "そうかい。",
+                    expression:
+                        "norimune_soft"
+                },
+                {
+                    text:
+                        "今夜のうちに答えを出さなくてもいい。\n" +
+                        "朝の自分にも、少し任せておやり。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "なんとなく眠れない",
+
+            pages: [
+                {
+                    text:
+                        "理由のない夜もあるさ。",
+                    expression:
+                        "norimune_closed"
+                },
+                {
+                    text:
+                        "なら、理由を探す代わりに僕と話していこう。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "則宗さんに会いたかった",
+
+            pages: [
+                {
+                    text:
+                        "こんな夜更けに、僕へ会いに？",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "うはは。\n" +
+                        "それでは追い返すわけにもいかないねぇ。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "midnight_stay_01",
+
+    text:
+        "眠くなるまで、どう過ごそうか。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "話を聞きたい",
+
+            pages: [
+                {
+                    text:
+                        "昔話なら、いくらでもあるよ。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "ただし、眠るどころか朝になるかもしれないねぇ。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        },
+        {
+            text:
+                "静かに一緒にいたい",
+
+            pages: [
+                {
+                    text:
+                        "うん。それもいい。",
+                    expression:
+                        "norimune_gentle"
+                },
+                {
+                    text:
+                        "言葉がなくても、同じ夜を過ごすことはできるからねぇ。",
+                    expression:
+                        "norimune_far"
+                }
+            ]
+        },
+        {
+            text:
+                "眠るように努力する",
+
+            pages: [
+                {
+                    text:
+                        "努力することではない気もするがねぇ。",
+                    expression:
+                        "norimune_closed"
+                },
+                {
+                    text:
+                        "まあ、目を閉じるところから始めてみようか。",
+                    expression:
+                        "norimune_soft"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "midnight_patrol_01",
+
+    text:
+        "少し本丸を見て回るつもりだが、お前さんはどうする。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "honmaru",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "一緒に行く",
+
+            pages: [
+                {
+                    text:
+                        "付き合ってくれるのかい。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "では、足音を立てないようにねぇ。\n" +
+                        "皆を起こしたら、僕らが叱られてしまう。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        },
+        {
+            text:
+                "ここで待ってる",
+
+            pages: [
+                {
+                    text:
+                        "うん。すぐ戻るよ。",
+                    expression:
+                        "norimune_gentle"
+                },
+                {
+                    text:
+                        "眠くなったら、待たずに休んで構わないからねぇ。",
+                    expression:
+                        "norimune_soft"
+                }
+            ]
+        },
+        {
+            text:
+                "もう休む",
+
+            pages: [
+                {
+                    text:
+                        "それが一番いい。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "あとのことは、起きている刀に任せておきなさい。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "midnight_sword_01",
+
+    text:
+        "刀も夢を見ると思うかい。",
+
+    expression: "norimune_think",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "見ると思う",
+
+            pages: [
+                {
+                    text:
+                        "そうかい。",
+                    expression:
+                        "norimune_gentle"
+                },
+                {
+                    text:
+                        "なら僕らが覚えている景色も、夢として残っているのかもしれないねぇ。",
+                    expression:
+                        "norimune_far"
+                }
+            ]
+        },
+        {
+            text:
+                "見ないと思う",
+
+            pages: [
+                {
+                    text:
+                        "それも道理だ。",
+                    expression:
+                        "norimune_closed"
+                },
+                {
+                    text:
+                        "刀は、人の夢を傍らで見てきたものだからねぇ。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "則宗さんは見るの？",
+
+            pages: [
+                {
+                    text:
+                        "僕かい。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "時々、随分と古い景色を見るよ。",
+                    expression:
+                        "norimune_far"
+                },
+                {
+                    text:
+                        "けれど目が覚めれば、主のいる本丸だ。\n" +
+                        "今のところ、それで困ってはいないねぇ。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "midnight_bed_01",
+
+    text:
+        "そろそろ休んだ方がいいと思うが、まだ帰りたくないのかい。",
+
+    expression: "norimune_tease",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "もう少し一緒にいたい",
+
+            pages: [
+                {
+                    text:
+                        "……そうか。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "では、眠気が勝つまでここにいるといい。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "ひとりになるのが寂しい",
+
+            pages: [
+                {
+                    text:
+                        "それなら、今夜は急いで帰ることもないさ。",
+                    expression:
+                        "norimune_soft"
+                },
+                {
+                    text:
+                        "朝までとは言わないが、眠くなるまでは隣にいよう。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "もう帰る",
+
+            pages: [
+                {
+                    text:
+                        "うん。良い判断だ。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "廊下は暗いから、足元に気をつけるんだよ。",
+                    expression:
+                        "norimune_soft"
+                }
+            ]
+        }
+    ]
+},
+{
+    pages: [
+        {
+            text:
+                "夜明けを待ちながら、刀を抱えていた若者もいた。",
+            expression: "norimune_far"
+        },
+        {
+            text:
+                "何を思っていたのかは、今となっては分からない。",
+            expression: "norimune_think"
+        },
+        {
+            text:
+                "ただ、朝が来ることだけは皆に平等だったよ。",
+            expression: "norimune_gentle"
+        }
+    ],
+    tags: ["normal"]
+},
+{
+    text:
+        "京の夜は、静かに見えて案外騒がしかった。\n" +
+        "若い刀も、若い剣士も、皆よく眠れずにいたものさ。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    pages: [
+        {
+            text:
+                "天才と呼ばれる者ほど、夜は静かだったりする。",
+            expression: "norimune_think"
+        },
+        {
+            text:
+                "……いや。\n" +
+                "昔、そんな剣士がいたというだけの話さ。",
+            expression: "norimune_closed"
+        }
+    ],
+    tags: ["normal"]
 },
             
         ]

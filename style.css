@@ -988,36 +988,49 @@ body.loading,
 }
 /* ========================================
    則宗さんと話すだけ
-   1280×720ゲーム画面
+   1280×720 実寸表示
 ======================================== */
 
-.norimune-page main {
-  max-width: 1330px;
+.norimune-game-section {
+  width: 1304px;
+  max-width: none;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.norimune-page .game-section {
-  max-width: 1280px;
+.norimune-game-section .game-frame-wrap {
+  width: 1304px;
+  max-width: none;
+  padding: 12px;
+  box-sizing: border-box;
 }
 
-.norimune-page .game-frame-wrap {
-  width: 100%;
+.norimune-game-section .game-frame {
+  display: block;
+  width: 1280px;
+  height: 720px;
+  aspect-ratio: auto;
+  border: none;
 }
 
-.norimune-page .game-frame {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 1280 / 720;
+/* このページではmainの共通幅制限を解除 */
+body:has(.norimune-game-section) main {
+  max-width: none;
+  overflow-x: hidden;
 }
 
-/* 1280px未満では埋め込み画面を非表示にして
-   全画面ボタンから開いてもらう */
-@media (max-width: 1320px) {
-  .norimune-page .game-frame-wrap,
-  .norimune-page .game-embed-heading {
+/* 1280px実寸で置けない画面では埋め込みを隠す */
+@media (max-width: 1351px) {
+  .norimune-game-section {
+    width: 100%;
+  }
+
+  .norimune-game-section .game-frame-wrap,
+  .norimune-game-section .game-embed-heading {
     display: none;
   }
 
-  .norimune-page .game-mobile-lead {
+  .norimune-game-section .game-mobile-lead {
     display: block;
     max-width: 600px;
     margin: 0 auto 28px;
@@ -1029,12 +1042,12 @@ body.loading,
     box-sizing: border-box;
   }
 
-  .norimune-page .game-mobile-label {
+  .norimune-game-section .game-mobile-label {
     display: block;
     margin: 0 0 12px;
   }
 
-  .norimune-page .game-fullscreen-note {
+  .norimune-game-section .game-fullscreen-note {
     margin-top: 12px;
   }
 }

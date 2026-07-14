@@ -1024,6 +1024,83 @@
     tags: ["normal"],
     expression: "norimune_gentle"
 },
+{
+    text:
+        "景色というものは、毎日少しずつ変わっている。||" +
+        "同じ場所でも、見飽きることはないねぇ。",
+    tags: ["season"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "風にも、それぞれ癖があるらしい。||" +
+        "耳を澄ませば、今日はどんな日かわかることもあるよ。",
+    tags: ["season"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "花も葉も空も、同じ姿ではいてくれない。||" +
+        "だからこそ、眺める甲斐があるんだろうねぇ。",
+    tags: ["season"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "季節が変わるたび、庭の歩き方まで少し変わる。\n" +
+        "面白いものだねぇ。",
+    tags: ["season"],
+    expression: "norimune_smile"
+},
+{
+    text:
+        "今日は空を見上げたかい。||" +
+        "忙しい日ほど、案外忘れてしまうものだからねぇ。",
+    tags: ["season"],
+    expression: "norimune_soft"
+},
+{
+    text:
+        "風景は急には変わらない。\n" +
+        "気づけば、すっかり季節が移っているものさ。",
+    tags: ["season"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "季節は待ってくれないが、急かしてくるわけでもない。||" +
+        "実に気楽な付き合いだねぇ。",
+    tags: ["season"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "縁側に座っているだけで、一日違う景色が見られる。\n" +
+        "贅沢というのは、案外そういうものかもしれない。",
+    tags: ["season"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "庭の草木は、誰に言われるでもなく季節を知っている。||" +
+        "見習いたいものだねぇ。",
+    tags: ["season"],
+    expression: "norimune_think"
+},
+{
+    text:
+        "何気ない景色ほど、あとになって思い出すものさ。\n" +
+        "だから僕は、今日も庭を眺めている。",
+    tags: ["season"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "今年も、この景色を見ることができた。||" +
+        "それだけでも、悪くない一年だと思えるねぇ。",
+    tags: ["season"],
+    expression: "norimune_gentle"
+},
 
         ],
 

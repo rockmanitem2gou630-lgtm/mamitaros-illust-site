@@ -411,40 +411,40 @@
                 expression: "norimune_closed"
             },
             {
-    text:
-        "最近、探し物が増えてしまってねぇ。\n" +
-        "探しているうちに、別のものを見つけるんだ。",
-    tags: ["normal"],
-    expression: "norimune_troubled"
-},
-{
-    text:
-        "昔の話はいくらでもあるよ。\n" +
-        "ありすぎて、どこから話せばいいか迷ってしまうねぇ。",
-    tags: ["normal"],
-    expression: "norimune_think"
-},
-{
-    text:
-        "年寄り扱いされることには慣れているさ。||" +
-        "……否定もしにくいからねぇ。",
-    tags: ["normal"],
-    expression: "norimune_closed"
-},
-{
-    text:
-        "座ると立ちたくなくなる。\n" +
-        "これも経験というものかな。",
-    tags: ["normal"],
-    expression: "norimune_tease"
-},
-{
-    text:
-        "茶を淹れようと思って立ったのに、\n" +
-        "何をしに来たのか忘れそうになることがある。",
-    tags: ["normal"],
-    expression: "norimune_troubled"
-},
+                text:
+                    "最近、探し物が増えてしまってねぇ。\n" +
+                    "探しているうちに、別のものを見つけるんだ。",
+                tags: ["normal"],
+                expression: "norimune_troubled"
+            },
+            {
+                text:
+                    "昔の話はいくらでもあるよ。\n" +
+                    "ありすぎて、どこから話せばいいか迷ってしまうねぇ。",
+                tags: ["normal"],
+                expression: "norimune_think"
+            },
+            {
+                text:
+                    "年寄り扱いされることには慣れているさ。||" +
+                    "……否定もしにくいからねぇ。",
+                tags: ["normal"],
+                expression: "norimune_closed"
+            },
+            {
+                text:
+                    "座ると立ちたくなくなる。\n" +
+                    "これも経験というものかな。",
+                tags: ["normal"],
+                expression: "norimune_tease"
+            },
+            {
+                text:
+                    "茶を淹れようと思って立ったのに、\n" +
+                    "何をしに来たのか忘れそうになることがある。",
+                tags: ["normal"],
+                expression: "norimune_troubled"
+            },
         ],
 
         season: [

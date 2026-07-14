@@ -1499,6 +1499,129 @@
     tags: ["honmaru"],
     expression: "norimune_tease"
 },
+{
+    pages: [
+        {
+            text:
+                "三郎が歌いながら歩いていたんだ。",
+            expression: "norimune_closed"
+        },
+        {
+            text:
+                "包丁は拍手をしていて、清光と安定は笑っていてねぇ。",
+            expression: "norimune_smile"
+        },
+        {
+            text:
+                "……平和というものは、案外ああいう光景なのかもしれない。",
+            expression: "norimune_far"
+        }
+    ],
+    tags: ["honmaru"],
+},
+{
+    text:
+        "賑やかな者もいれば、静かな者もいる。||" +
+        "それで本丸というものは、ちょうど良くできているんだよ。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "どこからか三郎の歌が聞こえてくるねぇ。||" +
+        "姿が見えなくても、あれはすぐ分かる。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "今日は三郎も機嫌がいいらしい。\n" +
+        "歌声が本丸中に響いているよ。",
+    tags: ["honmaru"],
+    expression: "norimune_smile"
+},
+{
+    pages: [
+        {
+            text:
+                "包丁が、今日は妙に静かだったんだ。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "……と思ったら、柱の陰からこちらを見ていてねぇ。||" +
+                "何を期待していたんだろうね。",
+            expression: "norimune_tease"
+        }
+    ],
+    tags: ["honmaru"],
+},
+{
+    text:
+        "包丁が僕らを見て、今日も手を合わせていたよ。||" +
+        "……拝まれる側というのも、不思議なものだねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_troubled"
+},
+{
+    text:
+        "包丁が、また夫婦はいいものだと言っていてねぇ。||" +
+        "ああも嬉しそうなら、好きに言わせておけばいいさ。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "包丁がまた『人妻だ！』と騒いでいてねぇ。||" +
+        "あれで喜ぶのだから、好きにさせているよ。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "包丁は、僕と主を見るたび拝んでいくんだ。||" +
+        "……まあ、害はないからねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    pages: [
+        {
+            text:
+                "包丁に『もっと仲良くしてください！』と言われてね。",
+            expression: "norimune_surprised"
+        },
+        {
+            text:
+                "うはは。\n" +
+                "応援される夫婦というのも、不思議なものだ。",
+            expression: "norimune_gentle"
+        }
+    ],
+    tags: ["honmaru"]
+},
+{
+    text:
+        "どこからか歌が聞こえるねぇ。||" +
+        "三郎だろう。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "三郎とは、時々扇子を片手に話しているよ。||" +
+        "静かに始まっても、向こうが静かに終わらなくてねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "長曽祢たちと飲んでいると、どこからともなく三郎の歌が聞こえてくる。||" +
+        "夏の風物詩みたいなものさ。",
+    tags: ["honmaru", "summer"],
+    season: "summer",
+    expression: "norimune_far"
+},
 
         ]
     };

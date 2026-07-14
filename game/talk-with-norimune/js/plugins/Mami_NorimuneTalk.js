@@ -594,6 +594,55 @@
     tags: ["normal"],
     expression: "norimune_tease"
 },
+{
+    text:
+        "京という場所は、不思議だねぇ。||" +
+        "今歩いても静かなものだが、昔は随分賑やかな若者たちがいたものさ。",
+    tags: ["honmaru"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "天才というものは、案外気負っていない。||" +
+        "肩の力が抜けている者ほど、恐ろしいものだよ。",
+    tags: ["honmaru"],
+    expression: "norimune_think"
+},
+{
+    text:
+        "ある左利きの剣士とは、妙な縁があってねぇ。||" +
+        "今でも孫六と手合わせをしていると、時々思い出すよ。",
+    tags: ["honmaru"],
+    expression: "norimune_smile"
+},
+{
+    text:
+        "鬼と呼ばれるほど厳しい男だったがね。||" +
+        "案外、情の深いところもあったよ。",
+    tags: ["honmaru"],
+    expression: "norimune_serious"
+},
+{
+    text:
+        "昔の話を始めると長くなる。||" +
+        "茶が冷めるくらいにはねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "刀というものは、不思議だ。||" +
+        "主は変わっても、思い出まで無くなるわけじゃないからねぇ。",
+    tags: ["honmaru"],
+    expression: "norimune_far"
+},
+{
+    text:
+        "昔、ある場所でよく見掛けた顔があってねぇ。||" +
+        "今はその刀たちと、同じ本丸で茶を飲んでいる。人生というのは面白いものだ。",
+    tags: ["honmaru"],
+    expression: "norimune_gentle"
+},
         ],
 
         season: [
@@ -1698,6 +1747,26 @@
     tags: ["honmaru", "summer"],
     season: "summer",
     expression: "norimune_far"
+},
+{
+    pages: [
+        {
+            text:
+                "今の清光や安定を見ているとね。",
+            expression: "norimune_far"
+        },
+        {
+            text:
+                "思い出す顔が、いくつかある。",
+            expression: "norimune_gentle"
+        },
+        {
+            text:
+                "……それだけの話さ。",
+            expression: "norimune_closed"
+        }
+    ],
+    tags: ["honmaru"]
 },
 
         ]

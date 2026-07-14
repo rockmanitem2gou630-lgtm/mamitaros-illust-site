@@ -941,6 +941,381 @@
         }
     ]
 },
+{
+    text:
+        "昔を思い出すことはあるよ。||" +
+        "だが、昔へ帰りたいとは思わない。",
+    tags:["normal"],
+    expression:"norimune_far"
+},
+{
+    text:
+        "若い者が前へ出るのは良いことだ。||" +
+        "年寄りは、後ろから笑って見ているくらいでちょうどいい。",
+    tags:["normal"],
+    expression:"norimune_gentle"
+},
+{
+    text:
+        "面倒ごとは、昔ほど嫌いじゃない。||" +
+        "ただ、昔ほど自分で抱えようとも思わなくなっただけさ。",
+    tags:["normal"],
+    expression:"norimune_closed"
+},
+{
+    type: "choice",
+    id: "oldman_tea_01",
+
+    text:
+        "さて、茶でも淹れようか。\n" +
+        "何がいい。",
+
+    expression: "norimune_closed",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "熱いお茶",
+
+            pages: [
+                {
+                    text:
+                        "うん。やはり落ち着くねぇ。",
+                    expression:
+                        "norimune_gentle"
+                },
+                {
+                    text:
+                        "急がず飲めば、それだけで良い時間になる。",
+                    expression:
+                        "norimune_far"
+                }
+            ]
+        },
+        {
+            text:
+                "冷たいお茶",
+
+            pages: [
+                {
+                    text:
+                        "それも悪くない。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "昔は贅沢だったんだけれどねぇ。",
+                    expression:
+                        "norimune_closed"
+                }
+            ]
+        },
+        {
+            text:
+                "則宗さんが選んで",
+
+            pages: [
+                {
+                    text:
+                        "おや、任された。",
+                    expression:
+                        "norimune_tease"
+                },
+                {
+                    text:
+                        "では今日は、僕のおすすめということで。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "oldman_age_01",
+
+    text:
+        "僕を年寄りだと思っている顔だねぇ。",
+
+    expression: "norimune_tease",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "思ってる",
+
+            pages: [
+                {
+                    text:
+                        "正直でよろしい。",
+                    expression:
+                        "norimune_closed"
+                },
+                {
+                    text:
+                        "否定はしないとも。",
+                    expression:
+                        "norimune_smile"
+                }
+            ]
+        },
+        {
+            text:
+                "まだ若い",
+
+            pages: [
+                {
+                    text:
+                        "うはは。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "その言葉は素直に受け取っておこうか。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        },
+        {
+            text:
+                "秘密",
+
+            pages: [
+                {
+                    text:
+                        "お前さんも、なかなか策士だねぇ。",
+                    expression:
+                        "norimune_closed"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "oldman_engawa_01",
+
+    text:
+        "縁側というのは、不思議な場所だ。\n" +
+        "お前さんは何をする。",
+
+    expression: "norimune_far",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "ぼーっとする",
+
+            pages: [
+                {
+                    text:
+                        "うん。それが一番贅沢かもしれない。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "茶を飲む",
+
+            pages: [
+                {
+                    text:
+                        "良い趣味だ。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "三日月も呼べば、一日終わってしまいそうだけれどねぇ。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        },
+        {
+            text:
+                "昼寝",
+
+            pages: [
+                {
+                    text:
+                        "それも年寄りらしくて結構。",
+                    expression:
+                        "norimune_closed"
+                },
+                {
+                    text:
+                        "……僕のことではないよ？",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "oldman_time_01",
+
+    text:
+        "好きな時間帯はあるかい。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "朝",
+
+            pages: [
+                {
+                    text:
+                        "始まりの空気は悪くない。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text:
+                "夜",
+
+            pages: [
+                {
+                    text:
+                        "静かだからかな。",
+                    expression:
+                        "norimune_far"
+                },
+                {
+                    text:
+                        "僕も夜は嫌いじゃないよ。",
+                    expression:
+                        "norimune_closed"
+                }
+            ]
+        },
+        {
+            text:
+                "今",
+
+            pages: [
+                {
+                    text:
+                        "……おや。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "その答えは、少し嬉しいねぇ。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
+{
+    type: "choice",
+    id: "oldman_story_01",
+
+    text:
+        "昔話でも聞くかい。",
+
+    expression: "norimune_tease",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "聞きたい",
+
+            pages: [
+                {
+                    text:
+                        "では、長くなるよ。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "途中で眠っても、起こしたりはしないさ。",
+                    expression:
+                        "norimune_closed"
+                }
+            ]
+        },
+        {
+            text:
+                "今日はやめておく",
+
+            pages: [
+                {
+                    text:
+                        "うん。それもいい。",
+                    expression:
+                        "norimune_gentle"
+                },
+                {
+                    text:
+                        "昔話は逃げないからねぇ。",
+                    expression:
+                        "norimune_far"
+                }
+            ]
+        },
+        {
+            text:
+                "短めで",
+
+            pages: [
+                {
+                    text:
+                        "……それが一番難しい注文だ。",
+                    expression:
+                        "norimune_surprised"
+                },
+                {
+                    text:
+                        "年寄りというものは、話し始めると長くなるものでねぇ。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        }
+    ]
+},
 
         ],
 
@@ -2674,6 +3049,64 @@
             ]
         }
     ]
+},
+{
+    pages:[
+        {
+            text:
+                "御前と呼ばれるたび、隠居なんだがねぇと思う。",
+            expression:"norimune_closed"
+        },
+        {
+            text:
+                "……けれど、呼んでくれる者がいるうちは、それも悪くないか。",
+            expression:"norimune_gentle"
+        }
+    ],
+    tags:["honmaru"]
+},
+{
+    pages: [
+        {
+            text:
+                "御前と呼ばれることもある。"
+        },
+        {
+            text:
+                "隠居したつもりなんだがねぇ。"
+        },
+        {
+            text:
+                "どうも周りは、そうは思ってくれないらしい。"
+        }
+    ],
+    tags:["honmaru"],
+    expression:"norimune_tease"
+},
+{
+    text:
+        "長く在ると、色々なものへ興味が移る。||" +
+        "今は、あの若者たちの話を聞くのが楽しくてねぇ。",
+    tags:["honmaru"],
+    expression:"norimune_gentle"
+},
+{
+    pages:[
+        {
+            text:
+                "隠居とは、肩書きを捨てることじゃない。"
+        },
+        {
+            text:
+                "少し肩の力を抜いて、生き方を変えることさ。"
+        },
+        {
+            text:
+                "だから僕は、今日も隠居を続けている。"
+        }
+    ],
+    tags:["honmaru"],
+    expression:"norimune_gentle"
 },
 
         ]

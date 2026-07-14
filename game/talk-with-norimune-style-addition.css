@@ -1,0 +1,49 @@
+/* ========================================
+   則宗さんと話すだけ
+   更新履歴・既知の問題
+======================================== */
+
+.game-history {
+  margin: 0;
+}
+
+.game-history-item {
+  display: grid;
+  grid-template-columns: 8.5em 1fr;
+  gap: 0.75rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.game-history-item:first-child {
+  padding-top: 0;
+}
+
+.game-history-item:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.game-history dt {
+  font-weight: 700;
+}
+
+.game-history dd {
+  margin: 0;
+}
+
+.game-notes {
+  margin: 0;
+  padding-left: 1.4em;
+}
+
+.game-notes li + li {
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 600px) {
+  .game-history-item {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}

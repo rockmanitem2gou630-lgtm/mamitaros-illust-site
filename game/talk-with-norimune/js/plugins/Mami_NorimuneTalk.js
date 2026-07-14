@@ -121,6 +121,11 @@
             1,
             Number(params.HistoryCount || 3)
         );
+     /*
+    　* 選択肢会話の出現率
+    　* 0.05 = 5%
+    　*/
+     const CHOICE_TALK_RATE = 0.05;
 
     /*
      * ─────────────────────────────
@@ -7119,7 +7124,40 @@ function makeTalkCandidates(category) {
 
             return;
         }
+/*
+ * 低確率で選択肢会話を優先する。
+ */
+const choiceCandidates =
+    candidates.filter(
+        candidate =>
+            candidate.talk &&
+            candidate.talk.type ===
+                "choice"
+    );
 
+if (
+    choiceCandidates.length > 0 &&
+    Math.random() <
+        CHOICE_TALK_RATE
+) {
+    const selectedChoice =
+        choiceCandidates[
+            Math.floor(
+                Math.random() *
+                choiceCandidates.length
+            )
+        ];
+
+    enqueueChoiceTalk(
+        selectedChoice.talk
+    );
+
+    rememberCandidate(
+        selectedChoice
+    );
+
+    return;
+}
         const selected =
             candidates[
                 Math.floor(

@@ -409,7 +409,42 @@
                     "お前さんを追い返したりはしないさ。",
                 tags: ["normal"],
                 expression: "norimune_closed"
-            }
+            },
+            {
+    text:
+        "最近、探し物が増えてしまってねぇ。\n" +
+        "探しているうちに、別のものを見つけるんだ。",
+    tags: ["normal"],
+    expression: "norimune_troubled"
+},
+{
+    text:
+        "昔の話はいくらでもあるよ。\n" +
+        "ありすぎて、どこから話せばいいか迷ってしまうねぇ。",
+    tags: ["normal"],
+    expression: "norimune_think"
+},
+{
+    text:
+        "年寄り扱いされることには慣れているさ。||" +
+        "……否定もしにくいからねぇ。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "座ると立ちたくなくなる。\n" +
+        "これも経験というものかな。",
+    tags: ["normal"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "茶を淹れようと思って立ったのに、\n" +
+        "何をしに来たのか忘れそうになることがある。",
+    tags: ["normal"],
+    expression: "norimune_troubled"
+},
         ],
 
         season: [
@@ -1021,6 +1056,20 @@
                 tags: ["normal"],
                 expression: "norimune_think"
             },
+            {
+    text:
+        "朝は自然と目が覚めるようになってしまってねぇ。\n" +
+        "寝坊というものを、ずいぶんしていない。",
+    tags: ["normal"],
+    expression: "norimune_troubled"
+},
+{
+    text:
+        "朝の茶は格別だ。\n" +
+        "……いや、昼も夜も美味いのだけれどねぇ。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
         ],
 
         day: [
@@ -1129,7 +1178,21 @@
                     "急いでも、涼しくはならないからねぇ。",
                 tags: ["normal"],
                 expression: "norimune_troubled"
-            }
+            },
+            {
+    text:
+        "縁側に座っているとね。\n" +
+        "つい、うとうとしてしまいそうになる。",
+    tags: ["normal"],
+    expression: "norimune_troubled"
+},
+{
+    text:
+        "若い頃なら落ち着かない時間だったんだろうけれど。\n" +
+        "今はこういう時間も悪くない。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
         ],
 
         evening: [
@@ -1262,7 +1325,21 @@
                     "空を見ていれば、案外すぐに帰ってくるよ。",
                 tags: ["normal"],
                 expression: "norimune_far"
-            }
+            },
+            {
+    text:
+        "日が沈むのを見るたび、一日が早くなったものだと思うよ。\n" +
+        "年のせいかもしれないねぇ。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
+{
+    text:
+        "夕暮れになると茶が恋しくなる。\n" +
+        "……毎日飲んでいるのだけれど。",
+    tags: ["normal"],
+    expression: "norimune_tease"
+},
         ],
 
         night: [
@@ -1399,7 +1476,21 @@
                             "……まだここにいる？\n" +
                             "うはは、あまり遅くならないようにね。",
                         expression: "norimune_soft"
-                    }
+                    },
+                    {
+    text:
+        "夜は静かで好きだよ。\n" +
+        "賑やかなのも好きだが、静かな時間もまた贅沢だからねぇ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "今日は何杯茶を飲んだかな。\n" +
+        "数えるのは途中でやめてしまったよ。",
+    tags: ["normal"],
+    expression: "norimune_smile"
+},
                 ],
                 tags: ["normal"]
             }
@@ -1562,7 +1653,22 @@
                     "静かな時間も、あと少しだけだねぇ。",
                 tags: ["honmaru"],
                 expression: "norimune_far"
-            }
+            },
+            {
+    text:
+        "昔話でもしようかと思ったが……。\n" +
+        "話し始めると朝になってしまいそうだ。",
+    tags: ["normal"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "年寄りは朝が早いと言うだろう。||" +
+        "……僕のことかい？\n" +
+        "うはは、それは秘密だ。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
                 ]
             }
         ]

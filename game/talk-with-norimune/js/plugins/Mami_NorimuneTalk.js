@@ -1464,7 +1464,7 @@
                 tags: ["normal"],
                 expression: "norimune_tease"
             },
-            {
+                        {
                 pages: [
                     {
                         text:
@@ -1476,8 +1476,11 @@
                             "……まだここにいる？\n" +
                             "うはは、あまり遅くならないようにね。",
                         expression: "norimune_soft"
-                    },
-                    {
+                    }
+                ],
+                tags: ["normal"]
+            },
+            {
                 text:
                     "夜は静かで好きだよ。\n" +
                     "賑やかなのも好きだが、静かな時間もまた贅沢だからねぇ。",
@@ -1490,13 +1493,10 @@
                     "数えるのは途中でやめてしまったよ。",
                 tags: ["normal"],
                 expression: "norimune_smile"
-            },
-                ],
-                tags: ["normal"]
             }
         ],
 
-        midnight: [
+                midnight: [
             {
                 text:
                     "さすがに皆、寝静まったようだね。",
@@ -1510,7 +1510,6 @@
                 expression: "norimune_smile"
             },
             {
-                tags: ["normal"],
                 pages: [
                     {
                         text:
@@ -1523,8 +1522,11 @@
                             "……僕もだろうって？\n" +
                             "うはは、それもそうだ。",
                         expression: "norimune_fan"
-                    },
-                                {
+                    }
+                ],
+                tags: ["normal"]
+            },
+            {
                 text:
                     "皆、もう寝静まったようだねぇ。\n" +
                     "本丸も、ずいぶん静かになった。",
@@ -1668,8 +1670,6 @@
                     "うはは、それは秘密だ。",
                 tags: ["normal"],
                 expression: "norimune_closed"
-            },
-                ]
             }
         ]
     };

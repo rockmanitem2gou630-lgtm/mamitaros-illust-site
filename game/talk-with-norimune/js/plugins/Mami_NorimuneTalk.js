@@ -772,7 +772,31 @@
                 "夏の日差しは手加減を知らない。\n" +
                 "無茶だけはしないようにねぇ。",
             expression: "norimune_serious"
-        }
+        },
+        {
+    text:
+        "夏というのは、不思議だねぇ。\n" +
+        "暑い暑いと言いながら、毎年ちゃんと恋しくなる。",
+    tags: ["season", "summer"],
+    season: "summer",
+    expression: "norimune_far"
+},
+{
+    text:
+        "縁側で風を待つのも、夏の楽しみさ。\n" +
+        "急いでも、風は急いでくれないからねぇ。",
+    tags: ["season", "summer"],
+    season: "summer",
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "風鈴というものは不思議だ。\n" +
+        "音ひとつで、少し涼しくなった気がしてしまう。",
+    tags: ["season", "summer"],
+    season: "summer",
+    expression: "norimune_closed"
+},
         ],
 
         honmaru: [
@@ -934,6 +958,63 @@
                 tags: ["honmaru"],
                 expression: "norimune_gentle"
             },
+            {
+    text:
+        "暑い日は、清光も安定も口だけは元気だねぇ。||" +
+        "あれだけ言い合えるなら、今年の夏も心配はいらない。",
+    tags: ["season", "summer", "honmaru"],
+    season: "summer",
+    expression: "norimune_closed"
+},
+{
+    text:
+        "和泉守が氷を多めに用意してくれていてねぇ。\n" +
+        "暑い日ほど、あの気遣いが身に染みるよ。",
+    tags: ["season", "summer", "honmaru"],
+    season: "summer",
+    expression: "norimune_soft"
+},
+{
+    text:
+        "堀川が書類を風で飛ばしてしまってねぇ。||" +
+        "拾う方が大変だったらしい。",
+    tags: ["season", "summer", "honmaru"],
+    season: "summer",
+    expression: "norimune_tease"
+},
+{
+    text:
+        "長曽祢が冷やした茶を持ってきてくれたよ。\n" +
+        "気が利く男というのは、ありがたいものだねぇ。",
+    tags: ["season", "summer", "honmaru"],
+    season: "summer",
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "孫六が『暑いから今日は手合わせはなしだ』と言っていてねぇ。||" +
+        "天才剣士役としては、少し残念だったよ。",
+    tags: ["season", "summer", "honmaru"],
+    season: "summer",
+    expression: "norimune_tease"
+},
+{
+    pages: [
+        {
+            text:
+                "三日月と茶を飲んでいたんだ。",
+            expression: "norimune_far"
+        },
+        {
+            text:
+                "話題はいつものように主のことさ。||" +
+                "あれも随分、楽しそうに聞いてくれるからねぇ。",
+            expression: "norimune_gentle"
+        }
+    ],
+    tags: ["season", "summer", "honmaru"],
+    season: "summer"
+},
         ]
     };
 

@@ -1296,6 +1296,68 @@
     tags: ["season"],
     expression: "norimune_gentle"
 },
+{
+    type: "choice",
+    id: "season_weather_01",
+
+    text:
+        "今日の空は、どうだったかい。",
+
+    expression: "norimune_far",
+
+    tags: ["season"],
+
+    choices: [
+        {
+            text: "よく晴れていた",
+
+            pages: [
+                {
+                    text:
+                        "それは何よりだ。",
+                    expression: "norimune_smile"
+                },
+                {
+                    text:
+                        "晴れた空を見ていると、少し得をした気分になるねぇ。",
+                    expression: "norimune_gentle"
+                }
+            ]
+        },
+        {
+            text: "雨が降っていた",
+
+            pages: [
+                {
+                    text:
+                        "雨の日も、悪いことばかりではないよ。",
+                    expression: "norimune_soft"
+                },
+                {
+                    text:
+                        "庭の草木は、随分嬉しそうにしているからねぇ。",
+                    expression: "norimune_far"
+                }
+            ]
+        },
+        {
+            text: "見ていなかった",
+
+            pages: [
+                {
+                    text:
+                        "うはは。忙しかったのかな。",
+                    expression: "norimune_closed"
+                },
+                {
+                    text:
+                        "次に外へ出た時は、少しだけ見上げてごらん。",
+                    expression: "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
 
         ],
 
@@ -2065,6 +2127,82 @@
         "僕はそんな本丸が好きだよ。",
     tags: ["honmaru"],
     expression: "norimune_gentle"
+},
+{
+    type: "choice",
+    id: "honmaru_someone_01",
+
+    text:
+        "今日は本丸で、誰かと話したのかい。",
+
+    expression:
+        "norimune_normal",
+
+    tags: [
+        "honmaru",
+        "choice"
+    ],
+
+    choices: [
+        {
+            text:
+                "清光と安定",
+
+            pages: [
+                {
+                    text:
+                        "あの二振りか。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "随分と賑やかだっただろう。\n" +
+                        "まあ、元気なら何よりだ。",
+                    expression:
+                        "norimune_closed"
+                }
+            ]
+        },
+        {
+            text:
+                "堀川国広",
+
+            pages: [
+                {
+                    text:
+                        "堀川には、僕も随分助けられているよ。",
+                    expression:
+                        "norimune_gentle"
+                },
+                {
+                    text:
+                        "もっとも、和泉守の話をしている時が一番楽しそうだけれどねぇ。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        },
+        {
+            text:
+                "誰とも話していない",
+
+            pages: [
+                {
+                    text:
+                        "そうかい。",
+                    expression:
+                        "norimune_soft"
+                },
+                {
+                    text:
+                        "なら今日は、僕が話し相手になろう。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
 },
 
         ]
@@ -3173,6 +3311,15 @@
     let resetDelay = 0;
 
     /*
+     * 選択肢を選んだ直後の返答。
+     *
+     * 選択肢のコールバック内で直接文章を追加すると、
+     * ツクール本体のメッセージ終了処理に消されるため、
+     * 一度ここへ預けてから表示する。
+     */
+    let pendingChoiceResponse = null;
+
+    /*
      * ─────────────────────────────
      * 時間・季節
      * ─────────────────────────────
@@ -4216,7 +4363,251 @@ function isLegacyTalkAvailable(talk) {
             }
         }
     }
+    /*
+     * ─────────────────────────────
+     * JS内選択肢会話
+     * ─────────────────────────────
+     */
 
+    function normalizeChoiceResponse(choice) {
+        if (!choice) {
+            return null;
+        }
+
+        /*
+         * response: [
+         *     { text: "...", expression: "..." }
+         * ]
+         *
+         * の形式。
+         */
+        if (choice.response) {
+            if (Array.isArray(choice.response)) {
+                return {
+                    pages: choice.response
+                };
+            }
+
+            /*
+             * response: {
+             *     text: "...",
+             *     expression: "..."
+             * }
+             *
+             * の形式。
+             */
+            if (
+                typeof choice.response ===
+                "object"
+            ) {
+                return choice.response;
+            }
+
+            /*
+             * response: "返答"
+             *
+             * の簡易形式。
+             */
+            return {
+                text:
+                    String(choice.response),
+
+                expression:
+                    choice.expression || ""
+            };
+        }
+
+        /*
+         * choices内に直接pagesを書く形式。
+         */
+        if (
+            Array.isArray(choice.pages) &&
+            choice.pages.length > 0
+        ) {
+            return {
+                pages: choice.pages
+            };
+        }
+
+        /*
+         * reply: "返答"
+         *
+         * の簡易形式。
+         */
+        if (
+            choice.reply !== undefined
+        ) {
+            return {
+                text:
+                    String(choice.reply),
+
+                expression:
+                    choice.expression || ""
+            };
+        }
+
+        return null;
+    }
+
+    function enqueueChoiceTalk(talk) {
+        const choices =
+            Array.isArray(talk.choices)
+                ? talk.choices
+                : [];
+
+        if (choices.length === 0) {
+            console.warn(
+                `[${pluginName}] 選択肢がありません。`,
+                talk
+            );
+
+            enqueueTalkMessage(talk);
+            requestExpressionReset();
+
+            return;
+        }
+
+        /*
+         * 選択肢を出す前の則宗さんの台詞。
+         */
+        if (
+            talk.text ||
+            (
+                Array.isArray(talk.pages) &&
+                talk.pages.length > 0
+            )
+        ) {
+            enqueueTalkMessage(talk);
+        } else if (talk.expression) {
+            showExpression(
+                talk.expression
+            );
+        }
+
+        /*
+         * labelがある場合はlabelを優先。
+         *
+         * labelがなければtextを
+         * 選択肢の表示名として使う。
+         */
+        const choiceTexts =
+            choices.map(choice =>
+                String(
+                    choice.label ??
+                    choice.text ??
+                    "……"
+                )
+            );
+
+        /*
+         * 最初に選択状態になる項目。
+         *
+         * 0 = 一番上
+         * 1 = 二番目
+         */
+        const defaultType =
+            Number.isFinite(
+                Number(
+                    talk.defaultChoice
+                )
+            )
+                ? Number(
+                    talk.defaultChoice
+                )
+                : 0;
+
+        /*
+         * キャンセル時の処理。
+         *
+         * -1 = キャンセル不可
+         *  0 = 一番上を選んだ扱い
+         *  1 = 二番目を選んだ扱い
+         */
+        const cancelType =
+            Number.isFinite(
+                Number(
+                    talk.cancelChoice
+                )
+            )
+                ? Number(
+                    talk.cancelChoice
+                )
+                : -1;
+
+        /*
+         * 選択肢ウィンドウの位置。
+         *
+         * 0 = 左
+         * 1 = 中央
+         * 2 = 右
+         */
+        const positionType =
+            Number.isFinite(
+                Number(
+                    talk.choicePosition
+                )
+            )
+                ? Number(
+                    talk.choicePosition
+                )
+                : 2;
+
+        /*
+         * 選択肢ウィンドウの背景。
+         *
+         * 0 = 通常
+         * 1 = 暗くする
+         * 2 = 透明
+         */
+        const background =
+            Number.isFinite(
+                Number(
+                    talk.choiceBackground
+                )
+            )
+                ? Number(
+                    talk.choiceBackground
+                )
+                : 0;
+
+        $gameMessage.setChoices(
+            choiceTexts,
+            defaultType,
+            cancelType
+        );
+
+        $gameMessage
+            .setChoicePositionType(
+                positionType
+            );
+
+        $gameMessage
+            .setChoiceBackground(
+                background
+            );
+
+        $gameMessage.setChoiceCallback(
+            selectedIndex => {
+                const selectedChoice =
+                    choices[selectedIndex];
+
+                const response =
+                    normalizeChoiceResponse(
+                        selectedChoice
+                    );
+
+                /*
+                 * ここではまだ表示しない。
+                 *
+                 * この直後にツクール側が
+                 * 選択肢用メッセージを消去するため、
+                 * 返答を一度保留しておく。
+                 */
+                pendingChoiceResponse =
+                    response || null;
+            }
+        );
+    }
     /*
      * ─────────────────────────────
      * 抽選
@@ -4287,6 +4678,11 @@ function isLegacyTalkAvailable(talk) {
                 talk.type || "message"
             );
 
+        if (type === "choice") {
+            enqueueChoiceTalk(talk);
+            return;
+        }
+        
         if (
             type === "commonEvent"
         ) {
@@ -4339,6 +4735,32 @@ function isLegacyTalkAvailable(talk) {
             _Scene_Map_update.call(
                 this
             );
+
+            /*
+             * 選択肢が完全に閉じたあとで、
+             * 保留していた則宗さんの返答を表示する。
+             */
+            if (
+                pendingChoiceResponse &&
+                !$gameMessage.isBusy()
+            ) {
+                const response =
+                    pendingChoiceResponse;
+
+                /*
+                 * 二重表示を防ぐため、
+                 * 先に保留を解除する。
+                 */
+                pendingChoiceResponse = null;
+
+                enqueueTalkMessage(
+                    response
+                );
+
+                requestExpressionReset();
+
+                return;
+            }
 
             if (!resetRequested) {
                 return;

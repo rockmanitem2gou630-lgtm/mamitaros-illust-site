@@ -852,6 +852,100 @@
     tags: ["normal"],
     expression: "norimune_closed"
 },
+{
+    text:
+        "また来てくれたんだねぇ。\n" +
+        "うはは、今日は何を話そうか。",
+    tags: ["normal"],
+    expression: "norimune_smile"
+},
+{
+    text:
+        "お前さんが来る時間というのも、\n" +
+        "少しずつ分かってきた気がするよ。",
+    tags: ["normal"],
+    expression: "norimune_tease"
+},
+{
+    text:
+        "話したいことがある日も、ない日もある。\n" +
+        "それでいいんだよ。",
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    pages: [
+        {
+            text:
+                "今日は静かだねぇ。"
+        },
+        {
+            text:
+                "こうして誰かと同じ景色を眺めるだけの日も、悪くない。"
+        }
+    ],
+    tags: ["normal"]
+},
+{
+    text:
+        "今日は、少し疲れた顔をしているように見える。\n" +
+        "気のせいなら、それが一番だけれどねぇ。",
+    tags: ["normal"],
+    expression: "norimune_soft"
+},
+{
+    text:
+        "お前さんは、案外聞き上手なんだねぇ。\n" +
+        "僕まで、つい話しすぎてしまう。",
+    tags: ["normal"],
+    expression: "norimune_closed"
+},
+{
+    pages: [
+        {
+            text:
+                "何も持ってこなくてもいい。"
+        },
+        {
+            text:
+                "こうして顔を見せてくれるだけで充分さ。"
+        }
+    ],
+    tags: ["normal"],
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "今日は少し長居をするのかい。||" +
+        "うはは、僕は構わないよ。",
+    tags: ["normal"],
+    expression: "norimune_smile"
+},
+{
+    text:
+        "お前さんとは、何度話しても話題が尽きないねぇ。\n" +
+        "不思議なものだ。",
+    tags: ["normal"],
+    expression: "norimune_far"
+},
+{
+    pages: [
+        {
+            text:
+                "今日は聞く側の気分かい。"
+        },
+        {
+            text:
+                "なら、昔話をひとつ……。"
+        },
+        {
+            text:
+                "……いや、長くなりそうだからやめておこうか。"
+        }
+    ],
+    tags: ["normal"],
+    expression: "norimune_tease"
+},
         ],
 
         honmaru: [
@@ -1263,7 +1357,7 @@
     pages: [
         {
             text:
-                "孫六が、今日は斎藤役の気分ではないと言っていてねぇ。",
+                "孫六が、今日は斎藤一役の気分ではないと言っていてねぇ。",
             expression: "norimune_normal"
         },
         {
@@ -1277,7 +1371,7 @@
 },
 {
     text:
-        "手合わせでは、僕が天才剣士役で孫六が斎藤役だ。||" +
+        "手合わせでは、僕が天才剣士役で孫六が斎藤一役だ。||" +
         "いつの間にか、すっかり決まり事になってしまったよ。",
     tags: ["honmaru"],
     expression: "norimune_tease"

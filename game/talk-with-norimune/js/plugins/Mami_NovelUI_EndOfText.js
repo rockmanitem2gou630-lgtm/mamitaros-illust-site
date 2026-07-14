@@ -165,50 +165,51 @@
             this._mamiPageSerial =
                 Number(this._mamiPageSerial || 0) + 1;
         };
-
     /*
-     * すべての文字処理が通るprocessCharacterを監視。
+     * 実際に文字列が描画された直後に
+     * 文末座標を保存します。
      *
-     * 通常文字だけを判定し、
-     * 描画後のXと描画前のYを保存します。
+     * 通常のタイプ表示と、
+     * クリックによる高速表示の両方に対応します。
      */
-    const _Window_Base_processCharacter =
-        Window_Base.prototype.processCharacter;
+    const _Window_Base_flushTextState =
+        Window_Base.prototype.flushTextState;
 
-    Window_Base.prototype.processCharacter = function(
-        textState
-    ) {
-        const character =
-            textState.text[textState.index];
+    Window_Base.prototype.flushTextState =
+        function(textState) {
+            const hadText =
+                this instanceof Window_Message &&
+                textState &&
+                typeof textState.buffer === "string" &&
+                textState.buffer.length > 0;
 
-        const characterY =
-            textState.y;
+            const characterY =
+                textState ? textState.y : null;
 
-        const isNormalCharacter =
-            character !== "\n" &&
-            character !== "\f" &&
-            character !== "\x1b";
+            _Window_Base_flushTextState.call(
+                this,
+                textState
+            );
 
-        _Window_Base_processCharacter.call(
-            this,
-            textState
-        );
+            /*
+             * flushTextState実行後のtextState.xが、
+             * 実際に描画された文字列の右端です。
+             */
+            if (
+                hadText &&
+                Number.isFinite(textState.x) &&
+                Number.isFinite(characterY)
+            ) {
+                this._mamiEndX =
+                    textState.x;
 
-        if (
-            this instanceof Window_Message &&
-            isNormalCharacter
-        ) {
-            this._mamiEndX =
-                textState.x;
+                this._mamiEndY =
+                    characterY;
 
-            this._mamiEndY =
-                characterY;
-
-            this._mamiHasEndPosition =
-                true;
-        }
-    };
-
+                this._mamiHasEndPosition =
+                    true;
+            }
+        };
     /*
      * メッセージ開始
      */
@@ -425,7 +426,104 @@
                 );
             }
         };
+    /*
+     * 各ページの入力待ち開始時に
+     * 文末座標を確定
+     *
+     * タイプ途中のクリック・タップで
+     * 一気に全文表示された場合も、
+     * そのページの最終位置へマーカーを移動します。
+     */
+    const _Window_Message_startPause =
+        Window_Message.prototype.startPause;
 
+    Window_Message.prototype.startPause =
+        function() {
+
+            /*
+             * 座標はprocessCharacterで
+             * 最後の文字を描画した時点ですでに保存済み。
+             *
+             * ここでは座標を上書きせず、
+             * アニメーションだけ最初から再生します。
+             */
+            if (
+                this._mamiHasEndPosition &&
+                Number.isFinite(this._mamiEndX) &&
+                Number.isFinite(this._mamiEndY)
+            ) {
+                this._mamiPageSerial =
+                    Number(
+                        this._mamiPageSerial || 0
+                    ) + 1;
+            }
+
+            _Window_Message_startPause.call(
+                this
+            );
+        };
+    /*
+     * タイプ中に全文表示した入力が、
+     * そのまま次ページ送りに使われるのを防止
+     */
+    const _Window_Message_isTriggered =
+        Window_Message.prototype.isTriggered;
+
+    const _Window_Message_updateShowFast =
+        Window_Message.prototype.updateShowFast;
+
+    Window_Message.prototype.updateShowFast =
+        function() {
+            /*
+             * 文字表示中にクリック・タップ・決定入力が
+             * 行われたかを先に記録します。
+             */
+            const fastForwardTriggered =
+                !!this._textState &&
+                !this.pause &&
+                _Window_Message_isTriggered.call(
+                    this
+                );
+
+            _Window_Message_updateShowFast.call(
+                this
+            );
+
+            /*
+             * 全文表示に使った入力は、
+             * 一度ボタンや指を離すまで
+             * 次ページ送りには使用しません。
+             */
+            if (fastForwardTriggered) {
+                this._mamiWaitInputRelease =
+                    true;
+            }
+        };
+
+    Window_Message.prototype.isTriggered =
+        function() {
+            if (this._mamiWaitInputRelease) {
+                const stillPressed =
+                    Input.isPressed("ok") ||
+                    TouchInput.isPressed();
+
+                /*
+                 * 入力が離されたらロック解除。
+                 * 解除したフレームでは進めず、
+                 * 次の新しいクリックを待ちます。
+                 */
+                if (!stillPressed) {
+                    this._mamiWaitInputRelease =
+                        false;
+                }
+
+                return false;
+            }
+
+            return _Window_Message_isTriggered.call(
+                this
+            );
+        };
     /*
      * メッセージ終了
      */
@@ -488,4 +586,5 @@
                 imageName
             );
         };
+
 })();

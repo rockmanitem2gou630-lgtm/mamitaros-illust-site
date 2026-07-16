@@ -47,6 +47,11 @@
  * @command ShowEnding
  * @text 退室画面を表示
  * @desc 現在の画面の上へ退室画面を表示します。
+ * 
+ * @command UnlockNorimuneInput
+ * @text 則宗タッチ判定を再開
+ * @desc 退室・再訪イベント後に、則宗さんへのクリックとタップを再開します。
+ *
  *
  * @help
  * ページの再読み込みは行いません。
@@ -76,6 +81,15 @@
     const revisitCommonEventId = Number(
         params.RevisitCommonEvent || 5
     );
+        /*
+     * 則宗さん本体へのクリック・タップを
+     * 一時的に停止するための共通フラグ。
+     *
+     * true  = 入力停止中
+     * false = 入力可能
+     */
+    window.MamiNorimuneInputLock =
+        window.MamiNorimuneInputLock || false;
 
     class Sprite_RevisitButton extends Sprite_Clickable {
         constructor(endingLayer) {
@@ -246,6 +260,7 @@
             this._opening = false;
             this._closing = true;
             this._revisitButton._canClick = false;
+            TouchInput.clear();
         }
 
         updateClosing() {
@@ -294,6 +309,7 @@
                     revisitCommonEventId
                 );
             }
+            TouchInput.clear();
         }
     }
 
@@ -302,10 +318,14 @@
             return;
         }
 
+        /*
+         * 退室画面を開いている間は、
+         * 則宗さんへのタッチ判定を停止。
+         */
+        window.MamiNorimuneInputLock = true;
+
         const endingLayer =
             new Sprite_NorimuneEnding(scene);
-
-        scene._norimuneEndingLayer = endingLayer;
 
         /*
          * Scene_Map本体へ追加するので、
@@ -323,6 +343,19 @@
             if (scene instanceof Scene_Map) {
                 showEnding(scene);
             }
+        }
+    );
+    /*
+     * 再訪イベントがすべて終わったあとに、
+     * 則宗さんへの入力を再開する。
+     */
+    PluginManager.registerCommand(
+        pluginName,
+        "UnlockNorimuneInput",
+        () => {
+            TouchInput.clear();
+
+            window.MamiNorimuneInputLock = false;
         }
     );
 

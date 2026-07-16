@@ -2075,6 +2075,857 @@
         }
     ]
 },
+{
+    text:
+        "土曜日か。||" +
+        "今日は、いつもより穏やかな顔をしている者が多い気がするねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "土曜日だからといって、必ず休めるわけではない。||" +
+        "それでも、少しだけ肩の力は抜いていこうじゃないか。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "今日は何か予定があるのかい。||" +
+        "何もないなら、それも立派な予定だよ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "土曜日というだけで、少し空気までゆっくり流れているように思える。||" +
+        "気分というものは、不思議だねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_far"
+},
+{
+    text:
+        "忙しい土曜日もあれば、静かな土曜日もある。||" +
+        "どちらも悪いものじゃないさ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_closed"
+},
+{
+    pages: [
+        {
+            text:
+                "土曜日くらい、自分を甘やかしてもいい頃だ。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "もちろん、今日が忙しい者もいる。||" +
+                "その時は、終わったあとに甘やかせばいい。",
+            expression: "norimune_gentle"
+        }
+    ],
+    tags: ["normal"],
+    dayOfWeek: 6
+},
+{
+    text:
+        "今日は、少し肩の力が抜けているように見えるねぇ。||" +
+        "そのくらいで、ちょうどいいんじゃないかな。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "何かを始めるにも、何もしないにも、悪くない日だ。||" +
+        "お前さんの好きなように過ごすといい。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_far"
+},
+{
+    text:
+        "少しくらい、自分の機嫌を取ってやってもいいんだよ。||" +
+        "誰かに任せきりでは、待ちくたびれてしまうからねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "今日は、いつもより話しやすそうな顔をしている。||" +
+        "うはは。何を話すかは、まだ決めていないけれどねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "やるべきことばかり数えていると、\n" +
+        "やりたいことが隠れてしまうよ。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "急がずに過ごすと、普段は見えないものが見えることもある。||" +
+        "まあ、見えなくても困りはしないさ。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "今日は少し、遠回りをしてもいい気分だねぇ。||" +
+        "近道ばかりが、良い道とは限らないから。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_far"
+},
+{
+    pages: [
+        {
+            text:
+                "何か、心残りでもあるのかい。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "すぐに片づけなくてもいいさ。||" +
+                "しばらく持っていて、形が変わることもある。",
+            expression: "norimune_gentle"
+        }
+    ],
+    tags: ["normal"],
+    dayOfWeek: 0
+},
+{
+    text:
+        "お前さんは、静かな時間を持てているかい。||" +
+        "賑やかな場所にいても、心まで急ぐ必要はないよ。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "何も決めずにいる時間も、案外悪くない。||" +
+        "年寄りになると、そういう贅沢がよく分かるんだ。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "今日ここへ来たことに、理由はあるのかい。||" +
+        "なくても構わないよ。僕も、理由を求めてはいないからねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "好きなものに時間を使うのは、怠けることとは違う。||" +
+        "むしろ、随分と大事なことだと思うよ。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_serious"
+},
+{
+    text:
+        "今日は、少し長く座っていたい気分なんだ。||" +
+        "お前さんも付き合うかい。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "物事には、進める日と立ち止まる日がある。||" +
+        "どちらも同じ道の上だよ。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_far"
+},
+{
+    text:
+        "何か面白いことでもあったのかい。||" +
+        "その顔を見ると、少し分けてもらいたくなるねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "今日は、少し気負っているように見えるねぇ。||" +
+        "肩の力は、あとから入れても遅くないよ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "最初から上手くやろうとしなくてもいい。||" +
+        "歩きながら整えていけば、それで充分さ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "何事も、最初の一歩が一番重いものだ。||" +
+        "二歩目からは、案外そうでもないよ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_far"
+},
+{
+    text:
+        "今日は、少しだけ慎重な顔をしているねぇ。||" +
+        "悪いことじゃない。そのぶん丁寧に進めるから。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "始める前というのは、誰でも少しだけ不安になる。||" +
+        "それは長く生きても、案外変わらないものさ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "今日は、先のことを考えすぎてはいないかい。||" +
+        "目の前の一つを片づければ、次も見えてくるよ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "急いでいる時ほど、茶はゆっくり飲むようにしている。||" +
+        "その方が、結局は早く着くこともあるからねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "今日は少し、景色を眺める余裕を残しておきなさい。||" +
+        "前ばかり見ていると、良い景色を見逃してしまうよ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_far"
+},
+{
+    pages: [
+        {
+            text:
+                "張り切るのも悪くない。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "けれど、最後まで歩けるくらいの元気は残しておこうねぇ。",
+            expression: "norimune_gentle"
+        }
+    ],
+    tags: ["normal"],
+    dayOfWeek: 1
+},
+{
+    text:
+        "難しく考え始めると、足が止まることもある。||" +
+        "そんな時は、一歩だけ動いてみるといい。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "今日は、いつもより話しかけに来る者が多い気がしてねぇ。||" +
+        "始まりというのは、誰かと話したくなるものなのかな。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "何かを始める日というのは、案外特別じゃない。||" +
+        "いつもの続きを、一歩進めるだけでいいんだ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "今日は、少し自然な顔をしているねぇ。||" +
+        "ようやく肩の力が抜けてきたかな。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "歩き始めというのは、どうしても足元ばかり見てしまう。||" +
+        "今日は少し、前も見えているようだね。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_far"
+},
+{
+    text:
+        "昨日できなかったことを、まだ気にしているのかい。||" +
+        "もう昨日のことなら、置いてきてもいい頃だよ。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "物事というのは、不思議なものでねぇ。||" +
+        "一日経つだけで、案外見え方が変わるものさ。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "今日は少し、景色を楽しむ余裕がありそうだ。||" +
+        "そのくらいの歩幅が、長続きするんだよ。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "順調かどうかなんて、あとから分かるものだ。||" +
+        "今は歩いているだけで充分さ。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "今日は茶が美味しく感じるねぇ。||" +
+        "茶が変わったのか、お前さんの気分なのか。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "慣れてくる頃ほど、無理をしやすい。||" +
+        "気づかない疲れには、少し気をつけようか。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_soft"
+},
+{
+    pages: [
+        {
+            text:
+                "少しだけ、歩く音が軽くなった気がする。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "そういう変化は、自分では案外気づかないものだからねぇ。",
+            expression: "norimune_gentle"
+        }
+    ],
+    tags: ["normal"],
+    dayOfWeek: 2
+},
+{
+    text:
+        "焦ることも、立ち止まることもある。||" +
+        "今日は、その間くらいで歩いていこう。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_far"
+},
+{
+    text:
+        "今日は何となく、話しかけたくなってしまってねぇ。||" +
+        "理由は……特にないよ。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "一つずつ積み重ねるというのは、地味だけれど強い。||" +
+        "長く生きると、それが一番だと分かるんだ。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "今日は、お前さんの話を聞く方が楽しそうだ。||" +
+        "僕ばかり喋っていても仕方ないからねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "今日は、昨日より少し落ち着いて見えるねぇ。||" +
+        "その調子、その調子。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "何事も、続けるうちに力が抜けてくる。||" +
+        "それくらいが、一番長続きするものさ。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "今日は少し、歩幅がちょうど良さそうだ。||" +
+        "急ぎすぎても、ゆっくりすぎても疲れるからねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "慣れてきた頃ほど、気が緩みすぎることもある。||" +
+        "まあ、それも人らしくて嫌いじゃないけれど。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "今日は、少しだけ自分を褒めておきなさい。||" +
+        "理由はあとから考えればいいさ。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "何かを続けるというのは、案外立派なことだ。||" +
+        "続いていることは、それだけで価値があるよ。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "今日は風の流れが穏やかだねぇ。||" +
+        "こういう日は、茶がよく進む。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_far"
+},
+{
+    text:
+        "うまくいっている時ほど、足元を見るようにしている。||" +
+        "転ばないためじゃない。良い景色を見逃さないためさ。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_closed"
+},
+{
+    pages: [
+        {
+            text:
+                "今日は、少し余裕がありそうな顔だ。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "その余裕は、大事に持っておきなさい。||" +
+                "いざという時の力になるからねぇ。",
+            expression: "norimune_gentle"
+        }
+    ],
+    tags: ["normal"],
+    dayOfWeek: 3
+},
+{
+    text:
+        "長く歩いていると、景色は少しずつ変わる。||" +
+        "変わっていないように見えてもねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_far"
+},
+{
+    text:
+        "今日は、少しだけ遠回りしたくなる気分なんだ。||" +
+        "急ぐ理由もないからねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "順調というのは、派手じゃない。||" +
+        "だから見逃されやすいんだよ。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_serious"
+},
+{
+    text:
+        "何も特別なことがない日というのも、案外好きでねぇ。||" +
+        "静かな日ほど、あとで思い出に残ることがある。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "今日は、少し肩の力が抜けているように見える。||" +
+        "そのくらいが、一番自然かもしれないねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "毎日同じように見えても、少しずつ積み重なっている。||" +
+        "そういうものは、あとになって効いてくるんだ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_far"
+},
+{
+    text:
+        "今日は茶請けでもあれば、なお良かったんだがねぇ。||" +
+        "まあ、こうして話せるだけでも十分かな。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "気づけば、ここまで来ていた。||" +
+        "そんな日も悪くないさ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "一息つくというのは、止まることじゃない。||" +
+        "長く歩くための準備だからねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "最近、お前さんの顔をよく見る気がする。||" +
+        "うはは。気のせいなら、それでも嬉しいよ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "急いでいる時ほど、景色を一つ眺めるようにしている。||" +
+        "案外、それだけで気持ちが整うものさ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_far"
+},
+{
+    text:
+        "今日は、少しだけ話し声も穏やかに聞こえるねぇ。||" +
+        "気分のせいかもしれないけれど。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_closed"
+},
+{
+    pages: [
+        {
+            text:
+                "物事には、勢いで進む時もある。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "けれど今日は、ゆっくり歩く方が似合いそうだ。",
+            expression: "norimune_gentle"
+        }
+    ],
+    tags: ["normal"],
+    dayOfWeek: 4
+},
+{
+    text:
+        "何かを続けていると、自分では変化が分からなくなる。||" +
+        "周りの方が、よく見ているものなんだ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_serious"
+},
+{
+    text:
+        "今日は、お前さんの好きなことを少しだけ教えておくれ。||" +
+        "年寄りは、そういう話を聞くのが好きでねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "茶というものは、不思議だ。||" +
+        "同じ葉でも、一緒に飲む相手で味が変わる気がする。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "静かな日ほど、あとになって思い出すものなんだ。||" +
+        "だから今日は、このくらいでいい。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "今日は、少し表情が柔らかいねぇ。||" +
+        "何か良いことでもあったのかな。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "ここまで歩いてくると、足取りにも癖が出る。||" +
+        "それも、お前さんらしさというものさ。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_far"
+},
+{
+    text:
+        "今日は少しだけ、自分を甘やかしても誰も怒らないよ。||" +
+        "……怒る者がいたら、僕が茶でも淹れてごまかそう。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "頑張った日というのは、自分では案外気づかないものだ。||" +
+        "だから僕が代わりに言っておこう。よく励んだねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "今日は少し、ゆっくり茶を飲みたい気分なんだ。||" +
+        "お前さんも付き合ってくれるかい。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "急ぐことばかりが良いとは限らない。||" +
+        "最後まで歩けた者が、一番強いからねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_serious"
+},
+{
+    text:
+        "今日は、お前さんの声が少し軽く聞こえる。||" +
+        "そういう日は、こちらまで気分がいい。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "何かを終えたあとの茶は、格別でねぇ。||" +
+        "終えたことの大小は、あまり関係ないんだ。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_far"
+},
+{
+    pages: [
+        {
+            text:
+                "今日は、少しだけ肩の荷が軽そうだ。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "その顔を見ると、こちらも安心するよ。",
+            expression: "norimune_gentle"
+        }
+    ],
+    tags: ["normal"],
+    dayOfWeek: 5
+},
+{
+    text:
+        "今日は、空を見上げる回数が増えそうだねぇ。||" +
+        "理由なんて、なくても構わないさ。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_far"
+},
+{
+    text:
+        "良い日というのは、大きな出来事がある日とは限らない。||" +
+        "穏やかに終わる日も、十分に良い日だよ。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "今日は少し、話が弾みそうな気がしていてねぇ。||" +
+        "さて、何から話そうか。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "ここまで積み重ねたものは、ちゃんとお前さんの力になっている。||" +
+        "見えなくても、なくなったりはしないよ。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "今日は、少し歩く速さを落としてみてもいい。||" +
+        "景色というのは、ゆっくり歩いた者によく見えるからねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_far"
+},
+{
+    text:
+        "茶を飲みながら空を眺める。||" +
+        "それだけで満足な日もあるものさ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "今日は、お前さんも少し穏やかな顔をしている。||" +
+        "その顔は、なかなか好きだよ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "今日は少し、寄り道でもしたくなる気分でねぇ。||" +
+        "急ぐ理由も見当たらないから。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "忙しく過ごす日もあれば、静かな日もある。||" +
+        "どちらも同じくらい、大事な時間さ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "今日は、少しだけ風の音を聞いていたい気分なんだ。||" +
+        "話は、そのあとでも逃げないからねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_far"
+},
+{
+    text:
+        "何もしない時間というのは、案外忙しい。||" +
+        "ぼんやりするにも、才能が要るからねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "今日は少し、甘い物でも欲しくなるねぇ。||" +
+        "……もちろん、茶も忘れずに。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_smile"
+},
+{
+    pages: [
+        {
+            text:
+                "お前さんは、何もしない時間は得意かい。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "僕は昔より、ずいぶん上手くなったよ。",
+            expression: "norimune_closed"
+        }
+    ],
+    tags: ["normal"],
+    dayOfWeek: 6
+},
+{
+    text:
+        "今日は、誰かと笑えたかい。||" +
+        "それだけでも、悪くない一日になるものさ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "気が向いたら、外へ出るのもいい。||" +
+        "気が向かなければ、そのままでも構わないよ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "今日は、お前さんの話をのんびり聞く日にしようか。||" +
+        "急かす者もいないだろう。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "静かな時間というのは、不思議でねぇ。||" +
+        "誰かと一緒にいる方が、もっと静かに感じることがある。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_far"
+},
 
      /*
     　* ↑「話す」コマンドここまで↑
@@ -4823,6 +5674,105 @@
     dayOfWeek: 5,
     expression: "norimune_soft"
 },
+{
+    text:
+        "土曜の朝だねぇ。||" +
+        "今日は、いつもよりゆっくり始めてもいいんじゃないかな。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "早起きも悪くないが、寝坊も時には必要さ。||" +
+        "今日はそんな日かもしれないねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "土曜日の朝は、茶もゆっくり飲みたくなる。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_closed"
+},
+{
+    type: "choice",
+    id: "saturday_plan_01",
+
+    text:
+        "今日は、どんな土曜日にしたい。",
+
+    expression: "norimune_normal",
+
+    tags: [
+        "normal",
+        "choice"
+    ],
+
+    dayOfWeek: 6,
+
+    choices: [
+        {
+            text:
+                "ゆっくり過ごす",
+
+            pages: [
+                {
+                    text:
+                        "うん。それができるなら何よりだ。",
+                    expression:
+                        "norimune_gentle"
+                },
+                {
+                    text:
+                        "何もしない時間も、ちゃんと大切だからねぇ。",
+                    expression:
+                        "norimune_smile"
+                }
+            ]
+        },
+        {
+            text:
+                "出掛ける",
+
+            pages: [
+                {
+                    text:
+                        "気をつけて行っておいで。",
+                    expression:
+                        "norimune_smile"
+                },
+                {
+                    text:
+                        "楽しい話ができる土産を、ひとつ持ち帰ってくれると嬉しいねぇ。",
+                    expression:
+                        "norimune_tease"
+                }
+            ]
+        },
+        {
+            text:
+                "まだ決めてない",
+
+            pages: [
+                {
+                    text:
+                        "うはは。",
+                    expression:
+                        "norimune_closed"
+                },
+                {
+                    text:
+                        "決めないまま始まる一日も、案外悪くないものさ。",
+                    expression:
+                        "norimune_gentle"
+                }
+            ]
+        }
+    ]
+},
      /*
     　* ↑朝の話ここまで↑
     　* ↓昼の話↓
@@ -5570,6 +6520,30 @@
     tags: ["normal"],
     dayOfWeek: 5,
     expression: "norimune_far"
+},
+{
+    text:
+        "土曜の昼だ。||" +
+        "今日は少し、自分のために時間を使えそうかい。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "昼餉のあとは、少し休むのもいい。||" +
+        "急がない昼というのは、案外贅沢だからねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "今日はどこか出掛けるのかな。||" +
+        "家で過ごすのも、同じくらい良い休日だよ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_smile"
 },
      /*
     　* ↑昼の話ここまで↑
@@ -6350,6 +7324,29 @@
     tags: ["normal"],
     dayOfWeek: 5,
     expression: "norimune_closed"
+},
+{
+    text:
+        "土曜の夕方だ。||" +
+        "今日はどんな一日だったかな。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_far"
+},
+{
+    text:
+        "夕暮れになると、一日があっという間だったと感じるねぇ。||" +
+        "楽しい日ほど、そういうものさ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "今日は今日で、充分だったと思える夕方になるといいねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_soft"
 },
      /*
     　* ↑夕方の話ここまで↑
@@ -7320,6 +8317,37 @@
     tags: ["normal"],
     dayOfWeek: 5,
     expression: "norimune_soft"
+},
+{
+    text:
+        "土曜日の夜だ。||" +
+        "今日は少し、のんびりできたかい。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "忙しかった者も、静かだった者も。||" +
+        "今夜くらいは、一息つこうじゃないか。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "土曜の夜というだけで、どこか気持ちまで穏やかになるねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "夜更かしも楽しいが、眠れる時は眠っておきなさい。||" +
+        "年寄りからの助言だよ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_tease"
 },
      /*
     　* ↑夜の話ここまで↑
@@ -8369,6 +9397,30 @@
     dayOfWeek: 5,
     expression: "norimune_gentle"
 },
+{
+    text:
+        "日付が変わって、土曜日になったようだ。||" +
+        "穏やかな始まりになるといいねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "土曜日になったばかりだ。||" +
+        "まずは眠って、朝を迎えてから予定を考えよう。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "夜更かしもほどほどにねぇ。||" +
+        "せっかく始まった土曜日を、寝不足で迎えるのは惜しいから。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_tease"
+},
      /*
     　* ↑深夜の話ここまで↑
     　* ↓訪問回数条件会話↓
@@ -8430,14 +9482,129 @@
         {
             id: "very_long_stay",
             minCount: 50,
-            chance: 0.1,
+            chance: 0.01,
             once: false,
             priority: 10,
 
             text:
                 "お前さん、今日はここで暮らすつもりかい。",
             expression: "norimune_fan"
-        }
+        },
+        {
+    id: "long_stay_1",
+    minCount: 50,
+    chance: 0.01,
+    once: false,
+    priority: 10,
+
+    text: "今日はここで暮らすつもりかい。",
+    expression: "norimune_fan"
+},
+{
+    id: "very_long_stay_2",
+    minCount: 50,
+    chance: 0.01,
+    once: false,
+    priority: 10,
+
+    text:
+        "今日はずいぶん長居だねぇ。\n" +
+        "暇なじじぃにはありがたいことさ。",
+    expression: "norimune_smile"
+},
+{
+    id: "very_long_stay_3",
+    minCount: 50,
+    chance: 0.01,
+    once: false,
+    priority: 10,
+
+    text:
+        "まだ話し足りないらしい。\n" +
+        "なら、もう少し付き合おうか。",
+    expression: "norimune_smile"
+},
+{
+    id: "very_long_stay_4",
+    minCount: 50,
+    chance: 0.01,
+    once: false,
+    priority: 10,
+
+    text:
+        "気づけば、今日もこんな時間まで話しているねぇ。",
+    expression: "norimune_normal"
+},
+{
+    id: "very_long_stay_5",
+    minCount: 50,
+    chance: 0.01,
+    once: false,
+    priority: 10,
+
+    text:
+        "お前さんも物好きだ。\n" +
+        "もっとも、僕も人のことは言えないけれど。",
+    expression: "norimune_fan"
+},
+{
+    id: "very_long_stay_6",
+    minCount: 50,
+    chance: 0.01,
+    once: false,
+    priority: 10,
+
+    text:
+        "こうして話し相手がいる日は、退屈せずに済む。",
+    expression: "norimune_smile"
+},
+{
+    id: "very_long_stay_7",
+    minCount: 50,
+    chance: 0.01,
+    once: false,
+    priority: 10,
+
+    text:
+        "帰る頃には、茶でも一杯飲んでいくといい。",
+    expression: "norimune_smile"
+},
+{
+    id: "very_long_stay_8",
+    minCount: 50,
+    chance: 0.01,
+    once: false,
+    priority: 10,
+
+    text:
+        "これだけ顔を見せてもらえると、\n" +
+        "今日の機嫌も悪くはならないねぇ。",
+    expression: "norimune_smile"
+},
+{
+    id: "very_long_stay_9",
+    minCount: 50,
+    chance: 0.01,
+    once: false,
+    priority: 10,
+
+    text:
+        "まあ、急いで追い返す理由もない。\n" +
+        "好きなだけ居るといい。",
+    expression: "norimune_normal"
+},
+{
+    id: "very_long_stay_10",
+    minCount: 50,
+    chance: 0.01,
+    once: false,
+    priority: 10,
+
+    text:
+        "じじぃの相手は骨が折れるだろう？\n" +
+        "それでも付き合ってくれるとはねぇ。",
+    expression: "norimune_fan"
+}
     ];
 
     /*

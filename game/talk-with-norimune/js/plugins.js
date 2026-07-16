@@ -15,6 +15,6 @@ var $plugins =
 {"name":"Mami_NorimuneUI","status":true,"description":"則宗さん会話作品専用UI Ver2.0","parameters":{"DisabledOpacity":"120","HoverScale":"1.05","PressedScale":"0.97","AnimationSpeed":"0.20"}},
 {"name":"Mami_NorimuneEnding","status":true,"description":"則宗さん会話作品用の退室・再訪画面 Ver2.1","parameters":{"ButtonImage":"btn_revisit","ButtonX":"640","ButtonY":"430","Message":"","FontSize":"30","FadeSpeed":"10","RevisitCommonEvent":"5"}},
 {"name":"Mami_NorimuneIdleTalk","status":true,"description":"則宗さん会話作品用・放置台詞 Ver1.0","parameters":{"FirstIdleSeconds":"30","NextIdleMinSeconds":"45","NextIdleMaxSeconds":"75","PictureId":"2","PictureX":"640","PictureY":"360","Scale":"100","DefaultExpression":"norimune_normal","ResetDelay":"15"}},
-{"name":"Mami_NorimuneTouch","status":true,"description":"則宗さん立ち絵・部位別タップ会話 Ver2.0","parameters":{"PictureId":"2","MaskImage":"norimune_touch_mask","DefaultExpression":"norimune_normal","ResetDelay":"15","HistoryCount":"20","ColorTolerance":"10","CooldownFrames":"15"}},
+{"name":"Mami_NorimuneTouch","status":true,"description":"則宗さん立ち絵・部位別タップ会話 Ver2.0","parameters":{"PictureId":"2","MaskImage":"norimune_touch_mask","DefaultExpression":"norimune_normal","ResetDelay":"15","HistoryCount":"30","ColorTolerance":"10","CooldownFrames":"15"}},
 {"name":"Mami_DisableMenu","status":true,"description":"標準メニューとキャンセル操作を無効化します。","parameters":{}}
 ];

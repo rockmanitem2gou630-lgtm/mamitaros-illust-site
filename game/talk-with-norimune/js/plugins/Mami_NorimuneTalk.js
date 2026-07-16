@@ -2926,6 +2926,796 @@
     dayOfWeek: 6,
     expression: "norimune_far"
 },
+{
+    text:
+        "年を重ねるとねぇ。||" +
+        "勝ち負けより、機嫌よく茶を飲める日の方が好きになる。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "昔は、早く答えを知りたいと思っていたものさ。||" +
+        "今は、ゆっくり分かるのも悪くないと思っている。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_far"
+},
+{
+    text:
+        "年寄りというものはねぇ。||" +
+        "昨日と同じ茶でも、今日は少し違う味がしたりするんだ。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "長く生きていると、急ぐことより待つことの方が増えてくる。||" +
+        "待つのも、案外悪くないものだよ。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "若い頃は、沈黙というものが苦手でねぇ。||" +
+        "今は静かな時間も、立派な会話だと思っている。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_far"
+},
+{
+    text:
+        "年寄りになると、天気の話ばかりするようになる。||" +
+        "うはは。理由は未だによく分からない。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "最近は、人の話を聞く方が面白くてねぇ。||" +
+        "若い頃は、そうでもなかったんだが。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "歳を重ねると、一日が早いと言うだろう。||" +
+        "……あれは本当だよ。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_surprised"
+},
+{
+    text:
+        "昔話というものはねぇ。||" +
+        "話したいからするんじゃない。思い出してしまうから始まるんだ。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_far"
+},
+{
+    pages: [
+        {
+            text:
+                "最近、物を探すことが増えてしまってねぇ。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "探している途中で、何を探していたか忘れることは……まだないよ。",
+            expression: "norimune_tease"
+        }
+    ],
+    tags: ["normal"],
+    dayOfWeek: 0
+},
+{
+    text:
+        "昔は、休むことに少し罪悪感があった。||" +
+        "今は『ちゃんと休めたな』と思える日の方が嬉しい。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "若い者はよく、『暇でしょう』なんて言うけれどねぇ。||" +
+        "年寄りは年寄りで、忙しいんだよ。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "座って茶を飲んでいるだけに見えるかい。||" +
+        "うはは。それも立派な仕事さ。",
+    tags: ["normal"],
+    dayOfWeek: 0,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "年寄りというものはねぇ。||" +
+        "最初の一歩は、小さく踏み出すくらいがちょうどいいと思っている。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "若い頃は、何でも勢いで始めていたよ。||" +
+        "今は茶を一杯飲んでからでも遅くないと思っている。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "始まりというものは、少し緊張するくらいがちょうどいい。||" +
+        "油断していない証だからねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_far"
+},
+{
+    text:
+        "昔は、急いだ方が偉いと思っていたこともあってねぇ。||" +
+        "今は、急がず続ける方が難しいと知ったよ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "新しいことを始めるのは、いくつになっても少し怖い。||" +
+        "うはは。それでいいんだよ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "茶葉というものは、慌てて開こうとしても美味くならない。||" +
+        "人も、少し似ている気がしていてねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_far"
+},
+{
+    text:
+        "年寄りになると、『まあ何とかなる』と思える回数が増える。||" +
+        "本当に何とかなった回数が多いからだろうねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "今日は少し、茶を飲む手がゆっくりでねぇ。||" +
+        "急ぐ理由がない日は、そういうものさ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_closed"
+},
+{
+    pages: [
+        {
+            text:
+                "年寄りの助言というのは、案外大したことは言わない。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "『無理をするな』と『ちゃんと食べろ』くらいだよ。",
+            expression: "norimune_tease"
+        }
+    ],
+    tags: ["normal"],
+    dayOfWeek: 1
+},
+{
+    text:
+        "物事を始める前は、つい難しく考えてしまう。||" +
+        "始めてしまえば、案外そうでもないものさ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "年寄りはねぇ、昨日より今日、お前さんが元気そうなら、それだけで嬉しいんだ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "長く生きていると、『完璧な始まり』なんて滅多にないと分かる。||" +
+        "だから今日も、十分いい始まりさ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "若い頃は、失敗すると一日中気にしていた。||" +
+        "今は『茶でも飲むか』で済ませてしまうねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 1,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "若い頃は、昨日の失敗を翌日まで引きずっていてねぇ。||" +
+        "今は、茶を一杯飲めば大抵忘れてしまう。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "年寄りになると、一日くらい上手くいかなくても慌てなくなる。||" +
+        "長い目で見る癖がつくんだろうねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "人は、昨日より今日の方が少しだけ上手になる。||" +
+        "本人は案外、気づかないものだけれど。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "茶でも飲みながら考えるとねぇ。||" +
+        "大抵の悩みは、少しだけ小さく見えるんだ。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_far"
+},
+{
+    text:
+        "昔は、何でもすぐ答えを出そうとしていた。||" +
+        "急がない方が良い答えもあると知ったのは、ずっと後だったよ。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "歳を重ねるほど、『まあいいか』は大事になる。||" +
+        "案外、人生を長持ちさせる言葉だからねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "今日は少し、空を見上げる時間が長かった。||" +
+        "年寄りは、そういう時間が好きなんだ。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+　　excludeConditions: [
+                    {
+                        time: [
+                            "morning",
+                            "day",
+                        ]
+                    }
+    ],    
+    expression: "norimune_far"
+},
+{
+    text:
+        "若い頃は、『まだ足りない』ばかり考えていた。||" +
+        "今は『十分だな』と思える日の方が嬉しいよ。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_gentle"
+},
+{
+    pages: [
+        {
+            text:
+                "年寄りの知恵というものはねぇ。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "実は失敗談を、少し格好良く話しているだけだったりする。",
+            expression: "norimune_tease"
+        }
+    ],
+    tags: ["normal"],
+    dayOfWeek: 2
+},
+{
+    text:
+        "今日は少し、風の音が心地よくてねぇ。||" +
+        "何も考えずに聞いている時間も、嫌いじゃない。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "『頑張る』という言葉は便利だけれどねぇ。||" +
+        "頑張らない日があっても、人はちゃんと前へ進むよ。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "年寄りになると、話より相槌が増える。||" +
+        "話している相手が楽しそうだと、それで満足なんだ。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "最近は、景色を見るより、お前さんの顔を見る方が多い気がするねぇ。||" +
+        "うはは。悪い癖かな。",
+    tags: ["normal"],
+    dayOfWeek: 2,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "長く歩いているとねぇ。||" +
+        "急ぐ日より、立ち止まって笑った日の方をよく覚えているものさ。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_far"
+},
+{
+    text:
+        "若い頃は、遠回りばかりしてしまったと思っていた。||" +
+        "振り返ると、その道でしか見られない景色も多かったよ。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "年寄りになると、『今日は何もしなかった』ではなくてねぇ。||" +
+        "『今日は穏やかだった』と思えるようになる。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "人生というものは、不思議でねぇ。||" +
+        "寄り道ばかりしていたつもりでも、ちゃんと目的地へ着くことがある。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "昔は、人より先へ行くことばかり考えていた。||" +
+        "今は、一緒に歩ける方が嬉しいねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "茶はねぇ。||" +
+        "一人で飲んでも美味いが、誰かと飲むと少しだけ美味くなる。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "年寄りは、よく空を見るんだ。||" +
+        "暇だからじゃないよ。急がなくなっただけさ。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "『まだまだ』と思えるうちは、きっと大丈夫なんだろうねぇ。||" +
+        "人は案外、伸びしろを残したまま歳を重ねるものだから。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_far"
+},
+{
+    pages: [
+        {
+            text:
+                "若い者から『昔は良かった？』なんて聞かれることがある。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "うはは。今も悪くないよ、と答えることにしている。",
+            expression: "norimune_smile"
+        }
+    ],
+    tags: ["normal"],
+    dayOfWeek: 3
+},
+{
+    text:
+        "年寄りになると、答えを教えるより、考える顔を見る方が好きになる。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "失くしたものより、残ってくれたものを見るようになってねぇ。||" +
+        "その方が、毎日が少し豊かになる。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "年寄りの朝は早いと言うだろう？||" +
+        "……あれは目が覚めてしまうだけなんだ。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "最近はねぇ。||" +
+        "茶が冷めるまで誰かと話していられる日が、一番の贅沢だと思っている。",
+    tags: ["normal"],
+    dayOfWeek: 3,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "年寄りになるとねぇ。||" +
+        "急いで答えを出すことが、減ってくるんだ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_far"
+},
+{
+    text:
+        "若い頃は、失敗しないことばかり考えていた。||" +
+        "今は、失敗しても笑える方が大事だと思っているよ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "人付き合いというのは、不思議なものでねぇ。||" +
+        "長く続く相手ほど、無理をしないものなんだ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "昔は、暇というものが苦手だった。||" +
+        "今は、暇がある日は少し得をした気分になる。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "茶を淹れる時間まで惜しんでいた頃もあったよ。||" +
+        "……今思えば、あれが一番もったいなかったねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_far"
+},
+{
+    text:
+        "歳を重ねるほど、誰かの『おかえり』は良いものだと思うようになった。||" +
+        "帰る場所があるというのは、ありがたいことだからねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "年寄りはねぇ。||" +
+        "昔話を始めたら、止まらない者も多いんだ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "昔は、立派になろうとしていた。||" +
+        "今は、機嫌よく暮らせれば十分だと思っているよ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_soft"
+},
+{
+    pages: [
+        {
+            text:
+                "若い者から相談を受けることがある。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "答えより、『うんうん』と聞いている時間の方が長いんだけれどねぇ。",
+            expression: "norimune_smile"
+        }
+    ],
+    tags: ["normal"],
+    dayOfWeek: 4
+},
+{
+    text:
+        "年寄りというものは、少し歩いただけで座りたがる。||" +
+        "座る理由を考えるのも、また楽しいんだ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "『また今度』と言える相手は、大切にした方がいい。||" +
+        "そう思うようになったのは、随分あとだった。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_far"
+},
+{
+    text:
+        "今日は少し、お前さんの顔を見て安心してしまってねぇ。||" +
+        "年寄りは、そういう日もあるんだ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "長く生きていると、『ありがとう』は早めに言っておこうと思うようになる。||" +
+        "言える時に言っておく方が、後悔が少ないからねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 4,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "長く生きているとねぇ。||" +
+        "上手く終わることより、笑って終われる方が好きになる。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "若い頃は、何でも百点を目指していた。||" +
+        "今は七十点でも、続けられる方が立派だと思っているよ。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_far"
+},
+{
+    text:
+        "茶というものは、不思議でねぇ。||" +
+        "忙しい日に飲む一杯ほど、美味しく感じることがある。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "年寄りになると、『頑張ったな』と思う相手が増える。||" +
+        "自分のことより先にねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "昔は、人より前を歩こうとしていた。||" +
+        "今は、隣を歩ける方が嬉しいよ。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "『今日はこれで十分』と思える日は、案外良い日なんだ。||" +
+        "欲張らないのも、経験のうちさ。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "年寄りというものは、景色を見ているようでねぇ。||" +
+        "案外、人の様子を見ているものなんだ。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "最近は、静かな日ほど『良い日だった』と思えるようになった。||" +
+        "賑やかな日も好きだけれどねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_far"
+},
+{
+    pages: [
+        {
+            text:
+                "年寄りは、よく同じ話をすると言われる。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "うはは。大事な話ほど、何度もしたくなるんだよ。",
+            expression: "norimune_closed"
+        }
+    ],
+    tags: ["normal"],
+    dayOfWeek: 5
+},
+{
+    text:
+        "人に優しくするというのはねぇ。||" +
+        "案外、自分が一番助けられているのかもしれない。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "長く生きるほど、『また会おう』の重みが分かるようになる。||" +
+        "だから僕は、あまり軽くは言わないんだ。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_serious"
+},
+{
+    text:
+        "年寄りになるとねぇ。||" +
+        "美味い茶と、笑い声があれば大抵は満足なんだ。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_smile"
+},
+{
+    text:
+        "お前さんが笑っていると、こちらまで肩の力が抜ける。||" +
+        "それも年寄りの楽しみというやつかな。",
+    tags: ["normal"],
+    dayOfWeek: 5,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "年寄りになるとねぇ。||" +
+        "急いで歩く理由より、ゆっくり歩く理由の方が増えるんだ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_far"
+},
+{
+    text:
+        "茶は冷めても淹れ直せる。||" +
+        "だから慌てて飲む必要はないよ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "今日は、少しだけ座って話そうじゃないか。||" +
+        "立ったままでは、茶も落ち着かないからねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "昔は、静かな時間を退屈だと思っていた。||" +
+        "今では、一番贅沢な時間だと思っているよ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "年寄りというものはねぇ。||" +
+        "日向を見つけるのが、やたら上手いんだ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "風に当たりながら茶を飲む。||" +
+        "それだけで一日が良い日になることもある。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_far"
+},
+{
+    text:
+        "若い頃は、『暇だ』なんて口にしていた。||" +
+        "今は、その暇が少し羨ましく思えるねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_closed"
+},
+{
+    text:
+        "お前さんと話していると、茶が冷めるのが早い。||" +
+        "うはは。時間が過ぎるのが早いのかな。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_smile"
+},
+{
+    pages: [
+        {
+            text:
+                "年寄りは、よく『まあ座りなさい』と言うだろう。",
+            expression: "norimune_normal"
+        },
+        {
+            text:
+                "座れば大抵の話は、少し穏やかになるからねぇ。",
+            expression: "norimune_gentle"
+        }
+    ],
+    tags: ["normal"],
+    dayOfWeek: 6
+},
+{
+    text:
+        "長く生きていると、季節の巡りが早く感じる。||" +
+        "それでも、一日一日はちゃんと長いんだよ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_soft"
+},
+{
+    text:
+        "今日は少し、縁側で昼寝でもしたい気分だ。||" +
+        "……もちろん、お前さんが来たなら起きるとも。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_tease"
+},
+{
+    text:
+        "年寄りはねぇ。||" +
+        "『また今度』より、『今話そう』と思うことが増えるんだ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_gentle"
+},
+{
+    text:
+        "茶を淹れる時間も、話を聞く時間も。||" +
+        "惜しいと思わなくなった時、人は少し大人になるのかもしれないねぇ。",
+    tags: ["normal"],
+    dayOfWeek: 6,
+    expression: "norimune_far"
+},
 
      /*
     　* ↑「話す」コマンドここまで↑

@@ -683,6 +683,145 @@
     expression:
         "norimune_closed"
 },
+{
+    text:
+        "髪に触れるとは、\n" +
+        "ずいぶん大胆だねぇ。",
+    expression:
+        "norimune_tease"
+},
+{
+    text:
+        "乱れても構わないよ。||" +
+        "どうせ、すぐ元に戻る。",
+    expression:
+        "norimune_closed"
+},
+{
+    text:
+        "そんなに撫でていると、\n" +
+        "癖になってしまうよ。",
+    expression:
+        "norimune_smile"
+},
+{
+    pages: [
+        {
+            text:
+                "おや。",
+            expression:
+                "norimune_surprised"
+        },
+        {
+            text:
+                "今日は髪の機嫌でも見に来たのかな。",
+            expression:
+                "norimune_gentle"
+        }
+    ]
+},
+{
+    text:
+        "年寄りの髪など眺めても、\n" +
+        "面白いものじゃあるまい。",
+    expression:
+        "norimune_closed"
+},
+{
+    text:
+        "今日は随分と頭が人気だねぇ。",
+    expression:
+        "norimune_smile"
+},
+{
+    text:
+        "そこまで気に入ったなら、\n" +
+        "好きなだけ撫でるといい。",
+    expression:
+        "norimune_gentle"
+},
+{
+    pages: [
+        {
+            text:
+                "……気になるかい。",
+            expression:
+                "norimune_fan"
+        },
+        {
+            text:
+                "隠れている方が。",
+            expression:
+                "norimune_tease"
+        }
+    ]
+},
+{
+    text:
+        "見えないものほど、\n" +
+        "気になってしまうものらしいねぇ。",
+    expression:
+        "norimune_far"
+},
+{
+    pages: [
+        {
+            text:
+                "髪をどけてまで見ようとは、",
+            expression:
+                "norimune_surprised"
+        },
+        {
+            text:
+                "なかなか物好きなお客さんだ。",
+            expression:
+                "norimune_closed"
+        }
+    ]
+},
+{
+    text:
+        "うはは。\n" +
+        "隠しているからこそ、面白いんだよ。",
+    expression:
+        "norimune_tease"
+},
+{
+    text:
+        "全部見せてしまったら、\n" +
+        "つまらないだろう？",
+    expression:
+        "norimune_smile"
+},
+{
+    pages: [
+        {
+            text:
+                "秘密というほどのものでもない。",
+            expression:
+                "norimune_far"
+        },
+        {
+            text:
+                "けれど、少しくらい隠していた方が粋でねぇ。",
+            expression:
+                "norimune_gentle"
+        }
+    ]
+},
+{
+    text:
+        "その好奇心は嫌いじゃないよ。",
+    expression:
+        "norimune_soft"
+},
+{
+    text:
+        "さて。\n" +
+        "今日は見えたかな。",
+    expression:
+        "norimune_tease"
+},
         ],
      /*
     　* ↑頭への反応ここまで↑
@@ -1192,6 +1331,146 @@
     expression:
         "norimune_tease"
 },
+{
+    text:
+        "おや。\n" +
+        "そんなに近くで見るものじゃないよ。",
+    expression:
+        "norimune_closed"
+},
+{
+    text:
+        "見えている方だけでは、物足りないかい。",
+    expression:
+        "norimune_tease"
+},
+{
+    pages: [
+        {
+            text:
+                "隠れている方が、",
+            expression:
+                "norimune_tease"
+        },
+        {
+            text:
+                "気になる顔をしているねぇ。",
+            expression:
+                "norimune_smile"
+        }
+    ]
+},
+{
+    text:
+        "片方しか見えないからこそ、\n" +
+        "想像が膨らむものさ。",
+    expression:
+        "norimune_far"
+},
+{
+    text:
+        "全部見えてしまったら、\n" +
+        "拍子抜けするかもしれないよ。",
+    expression:
+        "norimune_tease"
+},
+{
+    pages: [
+        {
+            text:
+                "その目は、",
+            expression:
+                "norimune_normal"
+        },
+        {
+            text:
+                "僕の目を見ているのかな。\n" +
+                "それとも髪を見ているのかな。",
+            expression:
+                "norimune_think"
+        }
+    ]
+},
+{
+    text:
+        "そんなに覗き込まれると、\n" +
+        "照れてしまうじゃないか。",
+    expression:
+        "norimune_gentle"
+},
+{
+    text:
+        "見えない方まで見ようとするとは、\n" +
+        "なかなか好奇心旺盛だ。",
+    expression:
+        "norimune_closed"
+},
+{
+    pages: [
+        {
+            text:
+                "うはは。",
+            expression:
+                "norimune_closed"
+        },
+        {
+            text:
+                "髪をどけても、\n" +
+                "大した種明かしはないよ。",
+            expression:
+                "norimune_tease"
+        }
+    ]
+},
+{
+    text:
+        "気になるなら、\n" +
+        "想像したままでもいいじゃないか。",
+    expression:
+        "norimune_far"
+},
+{
+    text:
+        "目は口ほどに物を言う。\n" +
+        "……と言うだろう？",
+    expression:
+        "norimune_think"
+},
+{
+    pages: [
+        {
+            text:
+                "じっと見つめられると、",
+            expression:
+                "norimune_surprised"
+        },
+        {
+            text:
+                "僕も見つめ返したくなるねぇ。",
+            expression:
+                "norimune_gentle"
+        }
+    ]
+},
+{
+    text:
+        "見えている方ばかり見ているねぇ。",
+    expression:
+        "norimune_smile"
+},
+{
+    text:
+        "今日は、どちらの目が気になるんだい。",
+    expression:
+        "norimune_tease"
+},
+{
+    text:
+        "秘密は秘密のままだから、\n" +
+        "面白いこともある。",
+    expression:
+        "norimune_far"
+},
         ],
      /*
     　* ↑顔への反応ここまで↑
@@ -1616,6 +1895,146 @@
     expression:
         "norimune_gentle"
 },
+{
+    text:
+        "おや。\n" +
+        "今日は扇子と遊びたい気分かい。",
+    expression:
+        "norimune_fan"
+},
+{
+    text:
+        "こっちばかり構うと、\n" +
+        "僕が拗ねてしまうよ。",
+    expression:
+        "norimune_tease"
+},
+{
+    text:
+        "うはは。\n" +
+        "そこまで気に入られると、扇子も鼻が高い。",
+    expression:
+        "norimune_closed"
+},
+{
+    pages: [
+        {
+            text:
+                "この扇子も、",
+            expression:
+                "norimune_fan"
+        },
+        {
+            text:
+                "お前さんによく触れられるようになったねぇ。",
+            expression:
+                "norimune_gentle"
+        }
+    ]
+},
+{
+    text:
+        "今日は閉じたままでいてほしいのかな。",
+    expression:
+        "norimune_think"
+},
+{
+    text:
+        "開こうか。\n" +
+        "それとも、このままがいい？",
+    expression:
+        "norimune_tease"
+},
+{
+    pages: [
+        {
+            text:
+                "隠れている方が、",
+            expression:
+                "norimune_fan"
+        },
+        {
+            text:
+                "気になるものらしいねぇ。",
+            expression:
+                "norimune_smile"
+        }
+    ]
+},
+{
+    text:
+        "この向こうで何を笑っているか。\n" +
+        "想像してみるのも一興さ。",
+    expression:
+        "norimune_far"
+},
+{
+    text:
+        "今日は扇子まで人気者だ。",
+    expression:
+        "norimune_closed"
+},
+{
+    text:
+        "少し貸してあげたいところだけれど、\n" +
+        "癖になってしまうかもしれないねぇ。",
+    expression:
+        "norimune_tease"
+},
+{
+    pages: [
+        {
+            text:
+                "扇子は便利なんだ。",
+            expression:
+                "norimune_far"
+        },
+        {
+            text:
+                "笑う時も、考える時も、困った時もねぇ。",
+            expression:
+                "norimune_gentle"
+        }
+    ]
+},
+{
+    text:
+        "つい手が伸びるんだろう？||" +
+        "分からなくもないよ。",
+    expression:
+        "norimune_smile"
+},
+{
+    text:
+        "お前さんに構われて、\n" +
+        "今日は扇子も上機嫌だ。",
+    expression:
+        "norimune_closed"
+},
+{
+    text:
+        "僕の顔より、\n" +
+        "扇子の方が有名かもしれないねぇ。",
+    expression:
+        "norimune_tease"
+},
+{
+    pages: [
+        {
+            text:
+                "さて。",
+            expression:
+                "norimune_fan"
+        },
+        {
+            text:
+                "次はどちらを見ているのかな。\n" +
+                "僕か、それとも扇子か。",
+            expression:
+                "norimune_tease"
+        }
+    ]
+},
         ],
      /*
     　* ↑扇子への反応ここまで↑
@@ -1992,6 +2411,144 @@
         }
     ]
 },
+{
+    text:
+        "おや。\n" +
+        "今日は手にご挨拶かい。",
+    expression:
+        "norimune_smile"
+},
+{
+    text:
+        "その手つきだと、\n" +
+        "何か頼み事でもありそうだねぇ。",
+    expression:
+        "norimune_tease"
+},
+{
+    text:
+        "うはは。\n" +
+        "そんなに確かめなくても、ちゃんと動くとも。",
+    expression:
+        "norimune_closed"
+},
+{
+    pages: [
+        {
+            text:
+                "僕の手に興味があるとは。",
+            expression:
+                "norimune_surprised"
+        },
+        {
+            text:
+                "なかなか珍しいお客さんだ。",
+            expression:
+                "norimune_smile"
+        }
+    ]
+},
+{
+    text:
+        "年寄りの手というものは、\n" +
+        "思ったより丈夫なんだよ。",
+    expression:
+        "norimune_closed"
+},
+{
+    text:
+        "そのうち手相でも見てくれるのかな。",
+    expression:
+        "norimune_tease"
+},
+{
+    text:
+        "手は正直だからねぇ。||" +
+        "その日の調子も、よく分かる。",
+    expression:
+        "norimune_far"
+},
+{
+    pages: [
+        {
+            text:
+                "お前さんの手も、",
+            expression:
+                "norimune_think"
+        },
+        {
+            text:
+                "今日はよく働いた顔をしている。",
+            expression:
+                "norimune_soft"
+        }
+    ]
+},
+{
+    text:
+        "あまり触れていると、\n" +
+        "こちらも動かしたくなるねぇ。",
+    expression:
+        "norimune_gentle"
+},
+{
+    text:
+        "僕の手より、お前さんの手の方が若い。",
+    expression:
+        "norimune_closed"
+},
+{
+    pages: [
+        {
+            text:
+                "何かを確かめるように触れる。",
+            expression:
+                "norimune_think"
+        },
+        {
+            text:
+                "そういう癖なのかな。",
+            expression:
+                "norimune_tease"
+        }
+    ]
+},
+{
+    text:
+        "今日は随分と素直だねぇ。",
+    expression:
+        "norimune_gentle"
+},
+{
+    text:
+        "そんなに触れていると、\n" +
+        "手が照れてしまうよ。",
+    expression:
+        "norimune_closed"
+},
+{
+    text:
+        "うはは。\n" +
+        "その調子なら、握力比べは負けそうだ。",
+    expression:
+        "norimune_tease"
+},
+{
+    pages: [
+        {
+            text:
+                "ちゃんとここにいる。",
+            expression:
+                "norimune_gentle"
+        },
+        {
+            text:
+                "何度確かめても、結果は変わらないさ。",
+            expression:
+                "norimune_soft"
+        }
+    ]
+},
         ],
      /*
     　* ↑手への反応ここまで↑
@@ -2306,6 +2863,149 @@
 {
     text:
         "服より中身の方が、案外面白いかもしれないよ。",
+    expression:
+        "norimune_tease"
+},
+{
+    text:
+        "おや。\n" +
+        "今日はその辺りが気になるのかい。",
+    expression:
+        "norimune_normal"
+},
+{
+    text:
+        "そんなところをつついても、\n" +
+        "隠し戸は付いていないよ。",
+    expression:
+        "norimune_closed"
+},
+{
+    text:
+        "近い近い。\n" +
+        "ちゃんと見えているとも。",
+    expression:
+        "norimune_tease"
+},
+{
+    pages: [
+        {
+            text:
+                "お前さんは、",
+            expression:
+                "norimune_think"
+        },
+        {
+            text:
+                "案外、物怖じしないねぇ。",
+            expression:
+                "norimune_smile"
+        }
+    ]
+},
+{
+    text:
+        "うはは。\n" +
+        "今日は随分と積極的だ。",
+    expression:
+        "norimune_closed"
+},
+{
+    text:
+        "その距離にも、もう慣れたかな。",
+    expression:
+        "norimune_gentle"
+},
+{
+    text:
+        "そこに何か面白いものでも見つけた？",
+    expression:
+        "norimune_tease"
+},
+{
+    pages: [
+        {
+            text:
+                "どうした。",
+            expression:
+                "norimune_normal"
+        },
+        {
+            text:
+                "何か気になることがあるなら、聞こうか。",
+            expression:
+                "norimune_gentle"
+        }
+    ]
+},
+{
+    text:
+        "今日は、いつもより一歩近いねぇ。",
+    expression:
+        "norimune_far"
+},
+{
+    text:
+        "逃げたりはしないさ。\n" +
+        "そんなに急がなくてもね。",
+    expression:
+        "norimune_soft"
+},
+{
+    text:
+        "年寄りをあまり驚かせないでおくれ。",
+    expression:
+        "norimune_troubled"
+},
+{
+    pages: [
+        {
+            text:
+                "ふふ。",
+            expression:
+                "norimune_closed"
+        },
+        {
+            text:
+                "今日はお前さんの勝ちかな。",
+            expression:
+                "norimune_tease"
+        }
+    ]
+},
+{
+    text:
+        "そうして近くへ来られるのは、\n" +
+        "嫌いじゃないよ。",
+    expression:
+        "norimune_gentle"
+},
+{
+    text:
+        "今日は、ずいぶん興味深そうな顔をしている。",
+    expression:
+        "norimune_think"
+},
+{
+    pages: [
+        {
+            text:
+                "近くに来る者は多い。",
+            expression:
+                "norimune_far"
+        },
+        {
+            text:
+                "けれど、触れてくる者は案外少ないものでねぇ。",
+            expression:
+                "norimune_gentle"
+        }
+    ]
+},
+{
+    text:
+        "年寄りにも、\n" +
+        "近寄りすぎ注意というものがあってねぇ。",
     expression:
         "norimune_tease"
 },
@@ -2670,6 +3370,140 @@
         }
     ]
 },
+{
+    text:
+        "おや。\n" +
+        "何か用かい。",
+    expression:
+        "norimune_normal"
+},
+{
+    text:
+        "腕ならここにあるよ。||" +
+        "ちゃんと二本ともねぇ。",
+    expression:
+        "norimune_closed"
+},
+{
+    text:
+        "うはは。\n" +
+        "そんなところを触るとは珍しい。",
+    expression:
+        "norimune_smile"
+},
+{
+    pages: [
+        {
+            text:
+                "呼び止められたかと思ったよ。",
+            expression:
+                "norimune_surprised"
+        },
+        {
+            text:
+                "違ったかな。",
+            expression:
+                "norimune_tease"
+        }
+    ]
+},
+{
+    text:
+        "今日は腕が人気者らしい。",
+    expression:
+        "norimune_closed"
+},
+{
+    text:
+        "僕が逃げないか、試しているのかな。",
+    expression:
+        "norimune_tease"
+},
+{
+    text:
+        "そのくらいでは、びくともしないさ。",
+    expression:
+        "norimune_smile"
+},
+{
+    pages: [
+        {
+            text:
+                "お前さんは、",
+            expression:
+                "norimune_think"
+        },
+        {
+            text:
+                "触れる場所が面白いねぇ。",
+            expression:
+                "norimune_closed"
+        }
+    ]
+},
+{
+    text:
+        "ちゃんと気付いているとも。",
+    expression:
+        "norimune_gentle"
+},
+{
+    text:
+        "今日は随分と構ってくれる。",
+    expression:
+        "norimune_soft"
+},
+{
+    text:
+        "その辺りは、案外無防備なんだよ。",
+    expression:
+        "norimune_tease"
+},
+{
+    pages: [
+        {
+            text:
+                "ふむ。",
+            expression:
+                "norimune_normal"
+        },
+        {
+            text:
+                "もう少し近くで話すかい。",
+            expression:
+                "norimune_gentle"
+        }
+    ]
+},
+{
+    text:
+        "腕をつついても、\n" +
+        "秘密の仕掛けは動かないよ。",
+    expression:
+        "norimune_closed"
+},
+{
+    text:
+        "今日は元気いっぱいだねぇ。",
+    expression:
+        "norimune_smile"
+},
+{
+    pages: [
+        {
+            text:
+                "僕を呼ぶ代わりに、",
+            expression:
+                "norimune_far"
+        },
+        {
+            text:
+                "こうして触れるのも、お前さんらしい。",
+            expression:
+                "norimune_gentle"
+        }
+    ]
+},
         ],
      /*
     　* ↑腕への反応ここまで↑
@@ -2976,6 +3810,132 @@
                 "norimune_closed"
         }
     ]
+},
+{
+    text:
+        "おや。\n" +
+        "呼んだかい。",
+    expression:
+        "norimune_normal"
+},
+{
+    text:
+        "ちゃんと返事はしているとも。",
+    expression:
+        "norimune_smile"
+},
+{
+    text:
+        "今日はよく構ってくれるねぇ。",
+    expression:
+        "norimune_closed"
+},
+{
+    text:
+        "何か気になることでもあったかな。",
+    expression:
+        "norimune_gentle"
+},
+{
+    text:
+        "うはは。\n" +
+        "ちゃんと気付いているよ。",
+    expression:
+        "norimune_closed"
+},
+{
+    text:
+        "そこをつついても、\n" +
+        "隠し扉は開かないよ。",
+    expression:
+        "norimune_tease"
+},
+{
+    pages: [
+        {
+            text:
+                "ふむ。",
+            expression:
+                "norimune_think"
+        },
+        {
+            text:
+                "何となく触れてみた、という顔をしているねぇ。",
+            expression:
+                "norimune_smile"
+        }
+    ]
+},
+{
+    text:
+        "僕で遊んでいるんじゃないだろうねぇ。",
+    expression:
+        "norimune_tease"
+},
+{
+    text:
+        "返事くらいなら、何度でもしよう。",
+    expression:
+        "norimune_gentle"
+},
+{
+    text:
+        "今日は僕が気になる日らしい。",
+    expression:
+        "norimune_soft"
+},
+{
+    pages: [
+        {
+            text:
+                "……おや。",
+            expression:
+                "norimune_surprised"
+        },
+        {
+            text:
+                "また会いに来てくれたんだねぇ。",
+            expression:
+                "norimune_gentle"
+        }
+    ]
+},
+{
+    text:
+        "僕は逃げないから、\n" +
+        "そんなに急がなくてもいいよ。",
+    expression:
+        "norimune_soft"
+},
+{
+    text:
+        "何度触れられても、\n" +
+        "返事をするのは嫌いじゃない。",
+    expression:
+        "norimune_far"
+},
+{
+    pages: [
+        {
+            text:
+                "さて。",
+            expression:
+                "norimune_closed"
+        },
+        {
+            text:
+                "次はどんな反応を期待しているのかな。",
+            expression:
+                "norimune_tease"
+        }
+    ]
+},
+{
+    text:
+        "お前さんは、\n" +
+        "案外、好奇心が尽きないねぇ。",
+    expression:
+        "norimune_smile"
 },
         ]
      /*

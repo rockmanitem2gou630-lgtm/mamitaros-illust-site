@@ -1100,4 +1100,13 @@ const artworks = [
     comment: "着せーたー（？？？？？？",
     draft: false
   },
+  {
+    title: "桜が似合う菊のおじいちゃん",
+    date: "2026-07-10",
+    thumb: "images/thumbnails/2026/07/20260710_touken_norimune_th.webp",
+    image: "images/originals/2026/07/20260710_touken_norimune.webp",
+    tags: ["刀剣乱舞", "一枚絵"],
+    comment: "己が立てた企画用の絵",
+    draft: false
+  },
 ];

@@ -142,6 +142,47 @@ main {
   font-size: 14px;
   z-index: 2;
 }
+/* ゲーム作品カード */
+.game-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 2;
+
+  padding: 6px 10px;
+
+  color: #fff;
+  background: rgba(43, 37, 34, 0.88);
+
+  border-radius: 999px;
+
+  font-size: 13px;
+  font-weight: bold;
+
+  pointer-events: none;
+}
+
+.game-card-label {
+  margin-top: 7px;
+
+  color: #7a6d66;
+
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.game-card {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.game-card:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.13);
+}
 
 /* モーダル共通 */
 .modal {
@@ -1050,4 +1091,22 @@ body:has(.norimune-game-section) main {
   .norimune-game-section .game-fullscreen-note {
     margin-top: 12px;
   }
+  @media (max-width: 700px) {
+  .game-badge {
+    top: 7px;
+    right: 7px;
+
+    padding: 4px 7px;
+
+    font-size: 10px;
+  }
+
+  .game-card-label {
+    font-size: 10px;
+  }
+
+  .game-card:hover {
+    transform: none;
+  }
+}
 }

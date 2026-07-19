@@ -224,7 +224,12 @@ if (viewMode === "dream") {
       <div class="art-grid">
         ${groups[month].map((art, index) => `
           <article class="art-card" data-month="${month}" data-index="${index}">
-  ${art.type === "manga" ? `<div class="manga-badge">📖</div>` : ""}
+  ${art.type === "manga"
+  ? `<div class="manga-badge">📖</div>`
+  : art.type === "game"
+    ? `<div class="game-badge">🎮 β</div>`
+    : ""
+}
   <img src="${art.thumb}" alt="${art.title}">
             <div class="art-info">
               <div class="art-title">${art.title}</div>
@@ -247,8 +252,21 @@ ${art.type === "manga" && art.pages ? `<div class="art-page-count">📖 ${art.pa
         const monthName = card.dataset.month;
         const artIndex = Number(card.dataset.index);
         const art = groups[monthName][artIndex];
-        currentArtIndex = currentArtList.indexOf(art);
 
+        if (!art) {
+          return;
+        }
+
+        /*
+         * ゲーム作品だけは画像モーダルを開かず、
+         * 登録された作品ページへ移動します。
+         */
+        if (isGameArtwork(art)) {
+          window.location.href = art.url;
+          return;
+        }
+
+        currentArtIndex = currentArtList.indexOf(art);
         openArtworkByIndex(currentArtIndex);
       });
     });
@@ -256,6 +274,9 @@ ${art.type === "manga" && art.pages ? `<div class="art-page-count">📖 ${art.pa
 }
 function isMangaArtwork(art) {
   return art && Array.isArray(art.pages) && art.pages.length > 0;
+}
+function isGameArtwork(art) {
+  return art && art.type === "game" && typeof art.url === "string";
 }
 
 function openArtworkByIndex(index) {
@@ -281,27 +302,43 @@ function preloadAroundArtwork() {
   const nextArt = currentArtList[currentArtIndex + 1];
 
   [prevArt, nextArt].forEach(art => {
-    if (!art) return;
+  if (!art) return;
 
-    if (isMangaArtwork(art)) {
-      preloadImage(art.thumb);
-      preloadImage(art.pages[0]);
-      preloadImage(art.pages[1]);
-    } else {
-      preloadImage(art.image);
-    }
-  });
+  /*
+   * ゲームカードには通常作品用の
+   * imageデータがないので先読みしません。
+   */
+  if (isGameArtwork(art)) {
+    preloadImage(art.thumb);
+    return;
+  }
+
+  if (isMangaArtwork(art)) {
+    preloadImage(art.thumb);
+    preloadImage(art.pages[0]);
+    preloadImage(art.pages[1]);
+  } else {
+    preloadImage(art.image);
+  }
+});
 }
 
 
 function updateArtNavButtons() {
-  const isFirst = currentArtIndex <= 0;
-  const isLast = currentArtIndex >= currentArtList.length - 1;
+  const previousIndex =
+    findPreviousViewableArtworkIndex(currentArtIndex);
 
-  modalPrevArt.disabled = isFirst;
-  modalNextArt.disabled = isLast;
-  mangaPrevArt.disabled = isFirst;
-  mangaNextArt.disabled = isLast;
+  const nextIndex =
+    findNextViewableArtworkIndex(currentArtIndex);
+
+  const hasPrevious = previousIndex !== -1;
+  const hasNext = nextIndex !== -1;
+
+  modalPrevArt.disabled = !hasPrevious;
+  modalNextArt.disabled = !hasNext;
+
+  mangaPrevArt.disabled = !hasPrevious;
+  mangaNextArt.disabled = !hasNext;
 }
 
 function openArtworkAfterPreload(index) {
@@ -325,15 +362,45 @@ function openArtworkAfterPreload(index) {
   img.onerror = () => openArtworkByIndex(index);
 }
 
+function findPreviousViewableArtworkIndex(startIndex) {
+  for (let index = startIndex - 1; index >= 0; index--) {
+    if (!isGameArtwork(currentArtList[index])) {
+      return index;
+    }
+  }
+
+  return -1;
+}
+
+function findNextViewableArtworkIndex(startIndex) {
+  for (
+    let index = startIndex + 1;
+    index < currentArtList.length;
+    index++
+  ) {
+    if (!isGameArtwork(currentArtList[index])) {
+      return index;
+    }
+  }
+
+  return -1;
+}
+
 function openPrevArtwork() {
-  if (currentArtIndex > 0) {
-    openArtworkAfterPreload(currentArtIndex - 1);
+  const previousIndex =
+    findPreviousViewableArtworkIndex(currentArtIndex);
+
+  if (previousIndex !== -1) {
+    openArtworkAfterPreload(previousIndex);
   }
 }
 
 function openNextArtwork() {
-  if (currentArtIndex < currentArtList.length - 1) {
-    openArtworkAfterPreload(currentArtIndex + 1);
+  const nextIndex =
+    findNextViewableArtworkIndex(currentArtIndex);
+
+  if (nextIndex !== -1) {
+    openArtworkAfterPreload(nextIndex);
   }
 }
 function openModal(art) {

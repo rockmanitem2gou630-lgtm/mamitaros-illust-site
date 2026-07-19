@@ -1114,7 +1114,7 @@ const artworks = [
   date: "2026-07-20",
   thumb: "images/thumbnails/2026/07/20260720_deno_game_th.webp",
   type: "game",
-  url: "game/game/talk-with-deno.html",
+  url: "game/game/talk-with-DenO.html",
   tags: ["電王", "ゲーム"],
   comment: "デンライナーに行こうぜ！",
   dream: true,

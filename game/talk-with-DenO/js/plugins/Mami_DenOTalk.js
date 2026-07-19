@@ -2008,9 +2008,6 @@ const TALK_DATA = {
                     "おい澪、もう夜中だぞ。\nちゃんと寝てんのか？"
             },
             
-            {
-   
-},
 {
     initialPossession: {
         imagin: "momotaros",

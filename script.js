@@ -1,7 +1,7 @@
 const gallery = document.getElementById("gallery");
 const genreTagArea = document.getElementById("genreTagArea");
 const workTagArea = document.getElementById("workTagArea");
-const workTags = ["一枚絵", "漫画", "セリフ付き", "らくがき", "イメレス", "GIF", "その他", "夢絵"];
+const workTags = ["一枚絵", "漫画", "セリフ付き", "らくがき", "イメレス", "GIF", "ゲーム","その他", "夢絵"];
 const dreamNotice = document.getElementById("dreamNotice");
 
 const modal = document.getElementById("modal");

@@ -485,21 +485,31 @@ let possessionState = {
     active: false,
 
     /*
-     * 良太郎固定。
-     * 将来他キャラへ憑依させたくなっても対応可能。
+     * 憑依されている人物。
      */
     host: "ryotaro",
 
     /*
-     * 憑依しているイマジン
+     * 現在憑依しているイマジン。
      */
     imagin: null,
 
     /*
      * normal
-     * imagin_outfit
+     *     良太郎の普段着
+     *
+     * imagin_preference
+     *     いずれかのイマジンが選んだ服
      */
-    outfit: "normal"
+    outfit: "normal",
+
+    /*
+     * 現在の服を選んだ人物。
+     *
+     * normalならryotaro。
+     * イマジン好みなら、そのイマジンID。
+     */
+    outfitOwner: "ryotaro"
 };
 /*
  * 会話開始直前の一対一状態。
@@ -572,6 +582,12 @@ let pendingPossessionAction = null;
  * 憑依解除演出のあとに再生する会話。
  */
 let pendingPostReleaseTalk = null;  
+/*
+ * 憑依横取り後に再生する会話。
+ *
+ * 着替え会話とは別管理にする。
+ */
+let pendingPostStealTalk = null;
 
 /*
  * 着替えに行った良太郎が
@@ -1735,6 +1751,719 @@ const TALK_DATA = {
         "ryotaro_momotaros"
     ]
 },
+{
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "ウラタロスって、話を聞くの上手だよね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "そう？\n君が話しやすいだけじゃないかな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "気付いたらいっぱい話しちゃってるんだ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "それなら成功かな。\n無理に聞き出した覚えはないし。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "なんだか安心する。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text:
+                "ふふっ。\nそういう言葉には弱いんだよね、僕。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "urataros_mio"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "先輩って、待つの苦手だよね。"
+        },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry",
+            text:
+                "待ってられっか！"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "うん、知ってる。"
+        }
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_normal",
+            text:
+                "お前、また笑ってやがるな。"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "先輩見てると飽きないから。"
+        },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry",
+            text:
+                "見世物じゃねぇ！"
+        }
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_normal",
+            text:
+                "おい、暇だな。"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_normal",
+            text:
+                "暇って口にした瞬間、暇になるんだよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry",
+            text:
+                "意味わかんねぇこと言うな！"
+        }
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_normal",
+            text:
+                "お前、何考えてるかわかんねぇ時あるよな。"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "全部分かりやすかったら、つまらないでしょ？"
+        },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry",
+            text:
+                "回りくどいだけだ！"
+        }
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression: "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryotaro",
+            expression: "portrait_ryotaro_base_ryotaro_normal",
+            text:
+                "ウラタロスって、\n結構話すよね。"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "話さないと退屈じゃない？"
+        },
+        {
+            speaker: "ryotaro",
+            expression: "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "それはそうかも。"
+        }
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression: "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "良太郎って、すぐ人を信じるよね。"
+        },
+        {
+            speaker: "ryotaro",
+            expression: "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "そうかな……？"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "うん。\nだから放っておけないんだ。"
+        }
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression: "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryotaro",
+            expression: "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "ウラタロスって、\n何でも知ってるみたいに話すよね。"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "知らないこともあるよ？"
+        },
+        {
+            speaker: "ryotaro",
+            expression: "portrait_ryotaro_base_ryotaro_normal",
+            text:
+                "例えば？"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_normal",
+            text:
+                "……秘密。"
+        },
+        {
+            speaker: "ryotaro",
+            expression: "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "結局教えてくれないんだね……。"
+        }
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression: "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryotaro",
+            expression: "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "たまに、ウラタロスが\n本気なのか冗談なのか分からなくなるよ。"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "それは秘密。"
+        },
+        {
+            speaker: "ryotaro",
+            expression: "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "また秘密なんだ……。"
+        }
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "澪ちゃん、今日も可愛いね。"
+        },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry",
+            text:
+                "おい亀ぇ！！"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "なに、先輩。"
+        },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry",
+            text:
+                "人ん前でサラッと口説いてんじゃねぇ！！"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "褒めただけだよ？"
+        },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry",
+            text:
+                "それが口説いてんだろうが！！"
+        }
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "澪ちゃん、僕と出掛けない？"
+        },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry",
+            text:
+                "勝手に誘ってんじゃねぇ！！"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_normal",
+            text:
+                "先輩には言ってないよ？"
+        },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry",
+            text:
+                "余計悪ぃわ！！"
+        }
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry",
+            text:
+                "お前なぁ！\n澪にベタベタすんな！"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "嫉妬？"
+        },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry",
+            text:
+                "ちげぇ！！"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "即答だったね。"
+        }
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "澪ちゃんの笑顔、素敵だね。"
+        },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry",
+            text:
+                "……。"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "先輩？"
+        },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry",
+            text:
+                "……お前なぁ。"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "うん。"
+        },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry",
+            text:
+                "そういうの、軽々しく言うんじゃねぇ！"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "本当にそう思ったから言っただけだけど？"
+        },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_angry",
+            text:
+                "だからタチ悪ぃんだよ！！"
+        }
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "澪ちゃん。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "なに？"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "今、暇だったりする？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "話すくらいなら。"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "それなら十分。"
+        }
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "今日も綺麗だね。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ありがとう。"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_normal",
+            text:
+                "……それだけ？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "他に何かあるの？"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "いや、ないけど。"
+        }
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "もう少し近くで話さない？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "今でも聞こえてるけど。"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_normal",
+            text:
+                "そこは照れるところじゃない？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "なんで？"
+        }
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "澪ちゃんってさ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "結構、僕のタイプなんだよね。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "そうなんだ。"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "……さて、どうだろうね。"
+        }
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_normal",
+            text:
+                "澪ちゃん。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "なに？"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "もし僕が本気だって言ったら、信じる？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "言い方次第かな。"
+        },
+        {
+            speaker: "urataros",
+            expression: "portrait_urataros_base_default_smile",
+            text:
+                "なるほど。\nじゃあ、まだ早いか。"
+        }
+    ]
+},
     /*
      *↑通常会話追加ここまで↑
      */
@@ -1810,7 +2539,53 @@ const TALK_DATA = {
                 "朝だからこそキメんだろ！\n一日の始まりは格好からだ！"
         }
     ]
-}
+},
+{
+    speaker: "urataros",
+
+    expression:
+        "portrait_urataros_base_default_smile",
+
+    text:
+        "おはよう、澪ちゃん。\n朝から君に会えるなんて嬉しいな。"
+},
+{
+    initialPossession: {
+        imagin: "urataros",
+        outfit: "imagin_preference"
+    },
+
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "おはよう、澪ちゃん。\n朝一番に僕を選んでくれたの？"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "ウラタロスが先に出てただけだよね……。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "細かいことはいいじゃない。\n会えたことに変わりはないんだから。"
+        }
+    ]
+},
+
         ],
 
         day: [
@@ -1866,6 +2641,51 @@ const TALK_DATA = {
                 "portrait_momotaros_base_default_normal",
             text:
                 "いいじゃねぇか！\n昼間っからバッチリキマってんだろ？"
+        }
+    ]
+},
+{
+    speaker: "urataros",
+
+    expression:
+        "portrait_urataros_base_default_smile",
+
+    text:
+        "こんにちは、澪ちゃん。\nちょうど退屈してたところなんだ。"
+},
+{
+    initialPossession: {
+        imagin: "urataros",
+        outfit: "imagin_preference"
+    },
+
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "やあ、澪ちゃん。\nいいところに来たね。"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "ウラタロス、僕の身体で\n何をするつもりなの……？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "ただ澪ちゃんと話すだけだよ。\n良太郎は心配性だなあ。"
         }
     ]
 }
@@ -1926,6 +2746,51 @@ const TALK_DATA = {
                 "なんだよその言い方！\n俺だって労うくらいするっつーの！"
         }
     ]
+},
+{
+    speaker: "urataros",
+
+    expression:
+        "portrait_urataros_base_default_smile",
+
+    text:
+        "おかえり、澪ちゃん。\n今日も一日お疲れさま。"
+},
+{
+    initialPossession: {
+        imagin: "urataros",
+        outfit: "imagin_preference"
+    },
+
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "おかえり、澪ちゃん。\n疲れてるなら、僕が癒してあげようか？"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "ウラタロス、その言い方は\nちょっと怪しいよ……。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "普通に労ってるだけなのに。\n信用がないなあ。"
+        }
+    ]
 }
         ],
 
@@ -1984,7 +2849,53 @@ const TALK_DATA = {
                     "いいじゃねぇか！\nこっちのほうがキマってんだろ？"
             }
         ]
-    }
+    },
+    {
+    speaker: "urataros",
+
+    expression:
+        "portrait_urataros_base_default_smile",
+
+    text:
+        "こんばんは、澪ちゃん。\n今夜はゆっくり話せそうだね。"
+},
+{
+    initialPossession: {
+        imagin: "urataros",
+        outfit: "imagin_preference"
+    },
+
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "こんばんは、澪ちゃん。\nこんな時間に僕に会いに来るなんて……。"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "ウラタロス、変な意味にしないでよ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "まだ何も言ってないよ？\n良太郎は想像力が豊かだね。"
+        }
+    ]
+}
+    
 ],
 
         midnight: [
@@ -2043,7 +2954,58 @@ const TALK_DATA = {
                 "俺はいいんだよ！\nお前はちゃんと寝ろ！"
         }
     ]
-}            
+},
+{
+    speaker: "urataros",
+
+    expression:
+        "portrait_urataros_base_default_smile",
+
+    text:
+        "まだ起きてたんだ、澪ちゃん。\n眠れないなら少し付き合うよ。"
+},
+{
+    initialPossession: {
+        imagin: "urataros",
+        outfit: "imagin_preference"
+    },
+
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "こんばんは、澪ちゃん。\nこんな夜更けに二人きりだね。"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "僕もいるから、二人きりじゃないよ……。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "そうだったね。\n今だけ少し静かにしててくれる？"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "してないよ。"
+        }
+    ]
+}
+           
         ]
     };
     
@@ -2101,6 +3063,44 @@ const CHARACTER_CHANGE_TALK_DATA = {
             ]
         }
     ],
+    ryotaro_to_urataros: [
+{
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "ウラタロス、少し話せる？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "それじゃ、交代するね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "お待たせ。\n今日は僕がお相手するよ。"
+        }
+    ]
+}
+],
 
     /*
      * モモタロス → 良太郎
@@ -2150,6 +3150,120 @@ const CHARACTER_CHANGE_TALK_DATA = {
             ]
         }
     ],
+    urataros_to_ryotaro: [
+{
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "良太郎くん、お願い。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "はいはい。\n名残惜しいけど交代だね。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "ただいま。\n待たせちゃったかな？"
+        }
+    ]
+}
+],
+momotaros_to_urataros: [
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "次はウラタロスと話したいな。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "ちっ、俺じゃ駄目かよ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "拗ねないの、先輩。\nそれじゃ、僕に代わるね。"
+        }
+    ]
+}
+],
+urataros_to_momotaros: [
+{
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "モモ、お願い。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "了解。\n先輩、出番だよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "おう！\n待たせたな！"
+        }
+    ]
+}
+],
 
     /*
      * 良太郎がいる状態で、
@@ -2212,6 +3326,32 @@ const CHARACTER_CHANGE_TALK_DATA = {
             ]
         }
     ],
+    urataros_to_urataros: [
+{
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "ウラタロス、もう少し話そう？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "もちろん。\n君が帰るまで付き合うよ。"
+        }
+    ]
+}
+],
 
     /*
      * キャラ個別の汎用
@@ -2302,6 +3442,10 @@ const CHARACTER_CHANGE_TALK_DATA = {
  */
 const POSSESSION_EVENT_DATA = {
     momotaros: {
+        /*
+         * 良太郎がメインの時に、
+         * モモタロスが憑依する。
+         */
         startFromRyotaro: [
             {
                 participants: [
@@ -2350,6 +3494,10 @@ const POSSESSION_EVENT_DATA = {
             }
         ],
 
+        /*
+         * モモタロス本人がメインの時に、
+         * 良太郎へ憑依する。
+         */
         startFromImagin: [
             {
                 participants: [
@@ -2398,14 +3546,11 @@ const POSSESSION_EVENT_DATA = {
             }
         ],
 
+        /*
+         * 良太郎の服を着ている時の解除。
+         */
         release: [
             {
-                /*
-                 * 憑依中なので、
-                 * モモの立ち絵画像は
-                 * getDisplayExpression()によって
-                 * M良太郎へ置き換わる。
-                 */
                 participants: [
                     {
                         speaker: "momotaros",
@@ -2416,13 +3561,6 @@ const POSSESSION_EVENT_DATA = {
 
                 pages: [
                     {
-                        /*
-                         * 良太郎は内側から話すため、
-                         * participantsには入れない。
-                         *
-                         * ネームプレートだけ良太郎へ変わり、
-                         * M良太郎の立ち絵はそのまま残る。
-                         */
                         speaker: "ryotaro",
                         text:
                             "……モモタロス。"
@@ -2447,54 +3585,299 @@ const POSSESSION_EVENT_DATA = {
                             "もうかよ。\n仕方ねぇなぁ。"
                     }
                 ]
-            },
-        ],
-
-        releaseImaginPreference: [
-    {
-        participants: [
-            {
-                speaker: "momotaros",
-                expression:
-                    "portrait_momotaros_base_default_normal"
             }
         ],
 
-        pages: [
+        /*
+         * モモタロス好みの服を
+         * 着ている時の解除。
+         */
+        releaseImaginPreference: [
             {
-                speaker: "ryotaro",
-                text:
-                    "……モモタロス。\nそろそろ返して。"
-            },
+                participants: [
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_normal"
+                    }
+                ],
+
+                pages: [
+                    {
+                        speaker: "ryotaro",
+                        text:
+                            "……モモタロス。\nそろそろ返して。"
+                    },
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_angry",
+                        text:
+                            "なんだよ、もう終わりかよ。"
+                    },
+                    {
+                        speaker: "ryotaro",
+                        text:
+                            "それに、この服のままじゃ\n僕は落ち着かないよ……。"
+                    },
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_normal",
+                        text:
+                            "へいへい。\n返しゃいいんだろ、返しゃ！"
+                    }
+                ]
+            }
+        ]
+    },
+
+    urataros: {
+        /*
+         * 良太郎がメインの時に、
+         * ウラタロスが憑依する。
+         */
+        startFromRyotaro: [
             {
-                speaker: "momotaros",
-                expression:
-                    "portrait_momotaros_base_default_angry",
-                text:
-                    "なんだよ、もう終わりかよ。"
-            },
+                participants: [
+                    {
+                        speaker: "ryotaro",
+                        expression:
+                            "portrait_ryotaro_base_ryotaro_normal"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile"
+                    }
+                ],
+
+                pages: [
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "良太郎、ちょっと代わってくれる？"
+                    },
+                    {
+                        speaker: "ryotaro",
+                        expression:
+                            "portrait_ryotaro_base_ryotaro_worried",
+                        text:
+                            "えっ……。\n何をするつもり？"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "大したことじゃないよ。\n澪ちゃんと少し話したいだけ。"
+                    },
+                    {
+                        speaker: "ryotaro",
+                        expression:
+                            "portrait_ryotaro_base_ryotaro_worried",
+                        text:
+                            "それなら、そのまま話せばいいよね……？"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "この姿より、君の姿のほうが\n話しやすいこともあるんだよ。"
+                    },
+                    {
+                        speaker: "ryotaro",
+                        expression:
+                            "portrait_ryotaro_base_ryotaro_worried",
+                        text:
+                            "それ、僕にとっては\n全然安心できない説明だよ……。"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "大丈夫、大丈夫。\nすぐ返すから。"
+                    },
+                    {
+                        speaker: "ryotaro",
+                        expression:
+                            "portrait_ryotaro_base_ryotaro_worried",
+                        text:
+                            "ウラタロスの『すぐ』は\n信用できな……"
+                    }
+                ]
+            }
+        ],
+
+        /*
+         * ウラタロス本人がメインの時に、
+         * 良太郎へ憑依する。
+         */
+        startFromImagin: [
             {
-                speaker: "ryotaro",
-                text:
-                    "それに、この服のままじゃ\n僕は落ち着かないよ……。"
-            },
+                participants: [
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile"
+                    },
+                    {
+                        speaker: "ryotaro",
+                        expression:
+                            "portrait_ryotaro_base_ryotaro_normal"
+                    }
+                ],
+
+                pages: [
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "良太郎、少し身体を借りるよ。"
+                    },
+                    {
+                        speaker: "ryotaro",
+                        expression:
+                            "portrait_ryotaro_base_ryotaro_worried",
+                        text:
+                            "えっ、待って。\nどうして急に……？"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "澪ちゃんが来てるんだから、\n少しくらいいいだろ？"
+                    },
+                    {
+                        speaker: "ryotaro",
+                        expression:
+                            "portrait_ryotaro_base_ryotaro_worried",
+                        text:
+                            "それ、理由になってないよ……！"
+                    }
+                ]
+            }
+        ],
+
+        /*
+         * 良太郎の服を着ている時の解除。
+         */
+        release: [
             {
-                speaker: "momotaros",
-                expression:
-                    "portrait_momotaros_base_default_normal",
-                text:
-                    "へいへい。\n返しゃいいんだろ、返しゃ！"
+                participants: [
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_normal"
+                    }
+                ],
+
+                pages: [
+                    {
+                        speaker: "ryotaro",
+                        text:
+                            "……ウラタロス。"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_normal",
+                        text:
+                            "どうしたの、良太郎。"
+                    },
+                    {
+                        speaker: "ryotaro",
+                        text:
+                            "そろそろ……\n返してくれないかな。"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "もう少しくらいいいじゃない。\nせっかく澪ちゃんと話してたのに。"
+                    },
+                    {
+                        speaker: "ryotaro",
+                        text:
+                            "駄目だよ……。"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "はいはい。\nそれじゃ、続きはまた今度ね。"
+                    }
+                ]
+            }
+        ],
+
+        /*
+         * ウラタロス好みの服を
+         * 着ている時の解除。
+         */
+        releaseImaginPreference: [
+            {
+                participants: [
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_normal"
+                    }
+                ],
+
+                pages: [
+                    {
+                        speaker: "ryotaro",
+                        text:
+                            "……ウラタロス。\nそろそろ返して。"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "もう？\nまだ話し足りないんだけどな。"
+                    },
+                    {
+                        speaker: "ryotaro",
+                        text:
+                            "それに、その服のまま返されても\n困るよ……。"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_normal",
+                        text:
+                            "似合ってるんだから、\nそのままでもいいと思うけど。"
+                    },
+                    {
+                        speaker: "ryotaro",
+                        text:
+                            "よくないよ。"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "分かったよ。\n着替えるところまで責任を持つから。"
+                    }
+                ]
             }
         ]
     }
-]
-    }
-
 };
+
 const FORCE_RELEASE_TALK_DATA = {
-
     momotaros: [
-
         {
             participants: [
                 {
@@ -2505,13 +3888,11 @@ const FORCE_RELEASE_TALK_DATA = {
             ],
 
             pages: [
-
                 {
                     speaker: "ryotaro",
                     text:
                         "……モモタロス。"
                 },
-
                 {
                     speaker: "momotaros",
                     expression:
@@ -2519,13 +3900,11 @@ const FORCE_RELEASE_TALK_DATA = {
                     text:
                         "ん？"
                 },
-
                 {
                     speaker: "ryotaro",
                     text:
                         "僕が話すから……\n一回代わって。"
                 },
-
                 {
                     speaker: "momotaros",
                     expression:
@@ -2533,12 +3912,555 @@ const FORCE_RELEASE_TALK_DATA = {
                     text:
                         "へいへい。\n分かったよ。"
                 }
-
             ]
         }
+    ],
 
+    urataros: [
+        {
+            participants: [
+                {
+                    speaker: "urataros",
+                    expression:
+                        "portrait_urataros_base_default_normal"
+                }
+            ],
+
+            pages: [
+                {
+                    speaker: "ryotaro",
+                    text:
+                        "……ウラタロス。"
+                },
+                {
+                    speaker: "urataros",
+                    expression:
+                        "portrait_urataros_base_default_normal",
+                    text:
+                        "何かな、良太郎。"
+                },
+                {
+                    speaker: "ryotaro",
+                    text:
+                        "澪さんが僕を呼んでるから……\n一回代わって。"
+                },
+                {
+                    speaker: "urataros",
+                    expression:
+                        "portrait_urataros_base_default_smile",
+                    text:
+                        "はいはい。\nご指名なら仕方ないね。"
+                }
+            ]
+        }
     ]
+};
+/*
+ * ─────────────────────────────
+ * 憑依横取り会話
+ * ─────────────────────────────
+ *
+ * キー：
+ *   現在の憑依者_to_横取りするイマジン
+ *
+ * 服装キー：
+ *   ryotaro
+ *       良太郎の普段着
+ *
+ *   momotaros
+ *       モモタロス好みの服
+ *
+ *   urataros
+ *       ウラタロス好みの服
+ */
+const POSSESSION_STEAL_TALK_DATA = {
+    urataros_to_momotaros: {
+        /*
+         * U良太郎・良太郎服
+         * ↓
+         * M良太郎・良太郎服
+         */
+        ryotaro: [
+            {
+                participants: [
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile"
+                    },
+                    {
+                        speaker: "momotaros",
+                       expression:
+                            "portrait_momotaros_base_default_normal"
+                    }
+                ],
 
+                pages: [
+                    {
+                        speaker: "momotaros",
+                        text:
+                            "おい亀！\nいつまで入ってやがる！"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "先輩、急に何？\n今いいところなんだけど。"
+                    },
+                    {
+                        speaker: "momotaros",
+                        text:
+                            "知るか！\n次は俺の番だ！"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_normal",
+                        text:
+                            "順番なんて決めてたっけ？"
+                    },
+                    {
+                        speaker: "momotaros",
+                        text:
+                            "今決めた！\nさっさと代われ！"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "はいはい。\n乱暴だなあ、先輩は。"
+                    }
+                ]
+            }
+        ],
+
+        /*
+         * U良太郎・ウラ服
+         * ↓
+         * M良太郎・ウラ服
+         */
+        urataros: [
+            {
+                participants: [
+                  {
+                      speaker: "urataros",
+                      expression:
+                          "portrait_urataros_base_default_smile"
+                  },
+                  {
+                      speaker: "momotaros",
+                      expression:
+                          "portrait_momotaros_base_default_normal"
+                  }
+              ],
+
+                pages: [
+                    {
+                        speaker: "momotaros",
+                        text:
+                            "おい亀！\nそこ代われ！"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "また急だね、先輩。"
+                    },
+                    {
+                        speaker: "momotaros",
+                        text:
+                            "いいから代われっつってんだ！"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "分かったよ。\nじゃあ、このままどうぞ。"
+                    },
+                    {
+                        speaker: "momotaros",
+                        text:
+                            "あ？　このままって……"
+                    }
+                ]
+            },
+            {
+                /*
+                 * 横取り後の画像は、
+                 * M良太郎＋ウラ服へ自動変換される。
+                 */
+                participants: [
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_normal"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile"
+                    }
+                ],
+
+                pages: [
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_angry",
+                        text:
+                            "なんだこのチャラチャラした服は！？"
+                    },
+                    {
+                        speaker: "urataros",
+                        text:
+                            "似合ってるよ、先輩。"
+                    },
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_angry",
+                        text:
+                            "褒めてんじゃねぇ！\n首元がスースーすんだよ！"
+                    },
+                    {
+                        speaker: "urataros",
+                        text:
+                            "そのくらい開いてるほうが、\n格好よく見えるんじゃない？"
+                    },
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_angry",
+                        text:
+                            "男なら革だろ、革！"
+                    }
+                ]
+            }
+        ],
+
+        /*
+         * ウラから横取り返したが、
+         * 服は元々モモのもの。
+         */
+        momotaros: [
+            {
+                participants: [
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile"
+                    },
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_normal"
+                    }
+                ],
+
+                pages: [
+                    {
+                        speaker: "momotaros",
+                        text:
+                            "おい亀！\nそれ俺の服だろうが！"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "服だけじゃなくて、\n身体も良太郎のだけどね。"
+                    },
+                    {
+                        speaker: "momotaros",
+                        text:
+                            "細けぇことはいい！\n返せ！"
+                    }
+                ]
+            },
+            {
+                participants: [
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_normal"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile"
+                    }
+                ],
+
+                pages: [
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_normal",
+                        text:
+                            "へへっ、やっぱこれだよな！"
+                    },
+                    {
+                        speaker: "urataros",
+                        text:
+                            "服を取り返したかっただけ？"
+                    },
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_angry",
+                        text:
+                            "ちげぇ！\nついでだ、ついで！"
+                    }
+                ]
+            }
+        ]
+    },
+
+    momotaros_to_urataros: {
+        /*
+         * M良太郎・良太郎服
+         * ↓
+         * U良太郎・良太郎服
+         */
+        ryotaro: [
+            {
+                participants: [
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_normal"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile"
+                    }
+                ],
+
+                pages: [
+                    {
+                        speaker: "urataros",
+                        text:
+                            "先輩、そろそろ代わってよ。"
+                    },
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_angry",
+                        text:
+                            "ああ！？\n今俺が話してんだろうが！"
+                    },
+                    {
+                        speaker: "urataros",
+                        text:
+                            "少しくらいいいじゃない。\n独り占めはよくないよ？"
+                    },
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_angry",
+                        text:
+                            "勝手に入ってくんな、亀ぇ！"
+                    }
+                ]
+            }
+        ],
+
+        /*
+         * M良太郎・モモ服
+         * ↓
+         * U良太郎・モモ服
+         */
+        momotaros: [
+            {
+                participants: [
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_normal"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile"
+                    }
+                ],
+
+                pages: [
+                    {
+                        speaker: "urataros",
+                        text:
+                            "先輩、ちょっと代わるよ。"
+                    },
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_angry",
+                        text:
+                            "おい、待て亀！\n今いいところだろうが！"
+                    },
+                    {
+                        speaker: "urataros",
+                        text:
+                            "だからこそ、かな。"
+                    },
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_angry",
+                        text:
+                            "どういう意味だコラ！"
+                    }
+                ]
+            },
+            {
+                participants: [
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile"
+                    },
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_normal"
+                    }
+                ],
+
+                pages: [
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_normal",
+                        text:
+                            "うわ……重いね、この上着。"
+                    },
+                    {
+                        speaker: "momotaros",
+                        text:
+                            "重くねぇ！\n革の良さが分かってねぇな！"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "それに、この鎖……。\n先輩らしいと言えば先輩らしいけど。"
+                    },
+                    {
+                        speaker: "momotaros",
+                        text:
+                            "文句あんなら脱げ！"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "でも、澪ちゃんには\n意外と好評かもしれないよ？"
+                    },
+                    {
+                        speaker: "momotaros",
+                        text:
+                            "勝手に俺の服で口説くんじゃねぇ！"
+                    }
+                ]
+            }
+        ],
+
+        /*
+         * モモから横取り返したが、
+         * 服は元々ウラのもの。
+         */
+        urataros: [
+            {
+                participants: [
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_normal"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile"
+                    }
+                ],
+
+                pages: [
+                    {
+                        speaker: "urataros",
+                        text:
+                            "先輩、その服返してもらうね。"
+                    },
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_angry",
+                        text:
+                            "俺だって好きで着てんじゃねぇ！"
+                    },
+                    {
+                        speaker: "urataros",
+                        text:
+                            "じゃあ遠慮なく。"
+                    },
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_angry",
+                        text:
+                            "身体ごと持ってくなぁ！"
+                    }
+                ]
+            },
+            {
+                participants: [
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile"
+                    },
+                    {
+                        speaker: "momotaros",
+                        expression:
+                            "portrait_momotaros_base_default_normal"
+                    }
+                ],
+
+                pages: [
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "うん。\nやっぱりこれが落ち着くね。"
+                    },
+                    {
+                        speaker: "momotaros",
+                        text:
+                            "どこがだ！\n首元開きすぎだろ！"
+                    },
+                    {
+                        speaker: "urataros",
+                        expression:
+                            "portrait_urataros_base_default_smile",
+                        text:
+                            "先輩には少し早かったかな。"
+                    },
+                    {
+                        speaker: "momotaros",
+                        text:
+                            "何がだコラァ！"
+                    }
+                ]
+            }
+        ]
+    }
 };
     /*
      * ─────────────────────────────
@@ -3741,9 +5663,7 @@ function getDisplayExpression(
     speakerId,
     expression
 ) {
-    if (
-        !possessionState.active
-    ) {
+    if (!possessionState.active) {
         return expression;
     }
 
@@ -3754,31 +5674,52 @@ function getDisplayExpression(
         return expression;
     }
 
-    /*
-     * モモタロス
-     */
-    if (
-        speakerId ===
-        "momotaros"
-    ) {
-        if (
-            possessionState.outfit ===
-            "imagin_preference"
-        ) {
-            return expression.replace(
-                "portrait_momotaros_base_default",
-                "portrait_ryotaro_momotaros_momotaros"
-            );
-        }
-
-        return expression.replace(
-            "portrait_momotaros_base_default",
-            "portrait_ryotaro_momotaros_ryotaro"
+    const imaginId =
+        String(
+            possessionState.imagin || ""
         );
-    }
 
-    return expression;
+    /*
+     * 良太郎の普段着。
+     */
+    const outfitOwner =
+        possessionState.outfit === "normal"
+            ? "ryotaro"
+            : String(
+                possessionState.outfitOwner ||
+                imaginId
+            );
+
+    /*
+     * イマジン本人の立ち絵名の接頭辞。
+     *
+     * 例：
+     * portrait_momotaros_base_default
+     */
+    const sourcePrefix =
+        `portrait_${imaginId}_base_default`;
+
+    /*
+     * 憑依後の画像名の接頭辞。
+     *
+     * 例：
+     * portrait_ryotaro_momotaros_urataros
+     *
+     * 中身：モモタロス
+     * 服　：ウラタロス
+     */
+    const displayPrefix =
+        `portrait_ryotaro_${imaginId}_${outfitOwner}`;
+
+    return String(expression).replace(
+        sourcePrefix,
+        displayPrefix
+    );
 }
+
+/*
+ * 指定した話者のネームプレートを表示する。
+ */
 function showNamePlate(
     speakerId
 ) {
@@ -3805,6 +5746,18 @@ function showNamePlate(
             .showNamePlate(
                 speaker.namePlate
             );
+    }
+}
+
+function eraseNamePlate() {
+    if (
+        window.MamiDenOMessageUI &&
+        typeof MamiDenOMessageUI
+            .hideNamePlate ===
+            "function"
+    ) {
+        MamiDenOMessageUI
+            .hideNamePlate();
     }
 }
 
@@ -5383,6 +7336,130 @@ function getCharacterChangeTalk(
     );
 }
 /*
+ * 現在の服の持ち主を返す。
+ */
+function getCurrentPossessionOutfitOwner() {
+    if (
+        possessionState.outfit ===
+        "normal"
+    ) {
+        return "ryotaro";
+    }
+
+    return String(
+        possessionState.outfitOwner ||
+        possessionState.imagin ||
+        "ryotaro"
+    );
+}
+
+/*
+ * 憑依横取り会話を取得する。
+ */
+function getPossessionStealTalk(
+    fromImagin,
+    toImagin
+) {
+    const routeKey =
+        `${fromImagin}_to_${toImagin}`;
+
+    const routeData =
+        POSSESSION_STEAL_TALK_DATA[
+            routeKey
+        ];
+
+    if (!routeData) {
+        return null;
+    }
+
+    const outfitOwner =
+        getCurrentPossessionOutfitOwner();
+
+    const talks =
+        routeData[outfitOwner] ||
+        routeData.ryotaro;
+
+    if (
+        !Array.isArray(talks) ||
+        talks.length === 0
+    ) {
+        return null;
+    }
+
+    return {
+        beforeTalk:
+            talks[0] || null,
+
+        afterTalk:
+            talks[1] || null
+    };
+}
+/*
+ * 憑依中のイマジンから、
+ * 別のイマジンが憑依を横取りする。
+ */
+function showPossessionStealEvent(
+    nextImagin
+) {
+    if (
+        !possessionState.active
+    ) {
+        return false;
+    }
+
+    const currentImagin =
+        String(
+            possessionState.imagin || ""
+        );
+
+    const targetImagin =
+        String(nextImagin || "");
+
+    if (
+        !currentImagin ||
+        !targetImagin ||
+        currentImagin === targetImagin
+    ) {
+        return false;
+    }
+
+    const talkSet =
+        getPossessionStealTalk(
+            currentImagin,
+            targetImagin
+        );
+
+    if (!talkSet) {
+        console.warn(
+            `[${pluginName}] 憑依横取り会話がありません: ` +
+            `${currentImagin} -> ${targetImagin}`
+        );
+
+        return false;
+    }
+
+    /*
+     * 暗転後に実行する横取り処理。
+     *
+     * outfitとoutfitOwnerは変更しない。
+     */
+    pendingPossessionAction = {
+        type: "steal",
+        imagin: targetImagin,
+
+        afterTalk:
+            talkSet.afterTalk || null
+    };
+
+    enqueueTalkMessage(
+        talkSet.beforeTalk
+    );
+
+    requestExpressionReset();
+
+    return true;
+}
+/*
  * 会話演出つきで、
  * メインキャラクターを交代する。
  */
@@ -5399,14 +7476,45 @@ function changeMainCharacter(
             speakerId ||
             defaultSpeaker
         );
-if (
-    possessionState.active &&
-    nextSpeaker === "ryotaro"
-) {
-    showForceReleaseEvent();
 
-    return;
-}
+    /*
+     * 憑依中に良太郎を呼んだ場合。
+     *
+     * 現在の憑依を解除して、
+     * 良太郎へ戻す。
+     */
+    if (
+        possessionState.active &&
+        nextSpeaker === "ryotaro"
+    ) {
+        showForceReleaseEvent();
+        return;
+    }
+
+    /*
+     * 憑依中に別のイマジンを呼んだ場合。
+     *
+     * 通常のメイン交代ではなく、
+     * 憑依の横取りイベントにする。
+     */
+    if (
+        possessionState.active &&
+        nextSpeaker !==
+            possessionState.imagin &&
+        (
+            nextSpeaker === "momotaros" ||
+            nextSpeaker === "urataros"
+        )
+    ) {
+        if (
+            showPossessionStealEvent(
+                nextSpeaker
+            )
+        ) {
+            return;
+        }
+    }
+
     const nextExpression =
         String(
             expression ||
@@ -5501,16 +7609,19 @@ function startPossessionEvent() {
     }
 
     /*
-     * イマジン本人がメインなら、
-     * 良太郎へ憑依するか確認する。
-     */
-    if (mainSpeaker === "momotaros") {
-        showPossessionConfirmChoice(
-            "momotaros"
-        );
+ * イマジン本人がメインなら、
+ * 良太郎へ憑依するか確認する。
+ */
+if (
+    mainSpeaker === "momotaros" ||
+    mainSpeaker === "urataros"
+) {
+    showPossessionConfirmChoice(
+        mainSpeaker
+    );
 
-        return;
-    }
+    return;
+}
 
     /*
      * まだ憑依処理がないキャラなら
@@ -5525,16 +7636,16 @@ function startPossessionEvent() {
  * 良太郎がメインの場合の、
  * 憑依するイマジン選択。
  *
- * 現在はモモのみ実装。
  */
 function showPossessionTargetChoice() {
     $gameMessage.setChoices(
         [
             "モモタロス",
+            "ウラタロス",
             "やめる"
         ],
         0,
-        1
+        2
     );
 
     $gameMessage.setChoicePositionType(
@@ -5550,6 +7661,15 @@ function showPossessionTargetChoice() {
             if (selectedIndex === 0) {
                 reservePossessionStartTalk(
                     "momotaros",
+                    "startFromRyotaro"
+                );
+
+                return;
+            }
+
+            if (selectedIndex === 1) {
+                reservePossessionStartTalk(
+                    "urataros",
                     "startFromRyotaro"
                 );
             }
@@ -5863,7 +7983,7 @@ function startPossessionVisualEffect(
      * フェードで立ち絵交換を隠す。
      */
     $gameScreen.startFadeOut(
-        12
+        18
     );
 }
 
@@ -5883,7 +8003,7 @@ function startReleaseVisualEffect(
      * 解除時も一度完全に暗くする。
      */
     $gameScreen.startFadeOut(
-        12
+        8
     );
 }
 
@@ -5914,6 +8034,13 @@ function executePendingPossessionAction() {
 
         return true;
     }
+    if (action.type === "steal") {
+    startPossessionVisualEffect(
+        action
+    );
+
+    return true;
+}
 
     if (action.type === "end") {
         startReleaseVisualEffect(
@@ -5952,6 +8079,11 @@ function applyPossessionEffectAction(
                 action.outfit ||
                 "normal"
             );
+            possessionState.outfitOwner =
+    possessionState.outfit ===
+    "imagin_preference"
+        ? String(action.imagin)
+        : "ryotaro";
 
         showSoloPortrait(
             action.imagin,
@@ -5963,7 +8095,84 @@ function applyPossessionEffectAction(
 
         return;
     }
+/*
+ * 憑依横取り。
+ *
+ * 現在の服装と服の持ち主は
+ * そのまま維持する。
+ */
+if (action.type === "steal") {
+    possessionState.active =
+        true;
 
+    possessionState.host =
+        "ryotaro";
+
+    possessionState.imagin =
+        String(action.imagin);
+
+    /*
+     * 横取り後、最終的に中央へ戻す
+     * 一人表示状態だけ先に保存する。
+     */
+    currentSoloPortrait = {
+        speaker:
+            action.imagin,
+
+        expression:
+            getDefaultExpressionForSpeaker(
+                action.imagin
+            )
+    };
+
+    returnSoloPortrait = {
+        speaker:
+            action.imagin,
+
+        expression:
+            getDefaultExpressionForSpeaker(
+                action.imagin
+            )
+    };
+
+    /*
+     * 横取り後の会話がある場合。
+     *
+     * 画面が完全に暗い今のうちに、
+     * 会話参加者の立ち絵配置まで済ませる。
+     *
+     * これにより、明転した時点で
+     * 横取り後の二人配置になっている。
+     */
+    if (action.afterTalk) {
+    /*
+     * 画面が完全に暗い今のうちに、
+     * 横取り後会話の立ち絵だけ配置する。
+     *
+     * この時点では文章を登録しない。
+     */
+    prepareTalkPortraits(
+        action.afterTalk
+    );
+
+    /*
+     * 会話本体は、
+     * フェードイン完了後まで保留する。
+     */
+    pendingPostStealTalk =
+        action.afterTalk;
+} else {
+    showSoloPortrait(
+        action.imagin,
+        getDefaultExpressionForSpeaker(
+            action.imagin
+        ),
+        true
+    );
+}
+
+    return;
+}
     if (action.type === "end") {
     possessionState.active =
         false;
@@ -6505,7 +8714,67 @@ function requestExpressionReset(
     resetPortraitOnEnd =
         resetPortrait;
 }
+/*
+ * 会話本文を開始せず、
+ * 参加者の立ち絵配置だけを準備する。
+ *
+ * 憑依横取りの暗転中に使用する。
+ */
+function prepareTalkPortraits(
+    talk
+) {
+    if (!talk) {
+        return;
+    }
 
+    const participants =
+        getTalkParticipants(
+            talk
+        );
+
+    /*
+     * 会話開始時の距離指定。
+     */
+    const startDistances =
+        talk.startDistances &&
+        typeof talk.startDistances ===
+            "object"
+            ? talk.startDistances
+            : {};
+
+    activeTalkDistanceSpeakers =
+        Object.keys(
+            startDistances
+        );
+
+    if (talk.keepPortraitHidden) {
+        eraseAllPortraits();
+        return;
+    }
+
+    /*
+     * ここでは
+     * saveSoloPortraitForReturn()を呼ばない。
+     *
+     * 横取り後に戻る中央表示状態は、
+     * applyPossessionEffectAction()側で
+     * すでに保存しているため。
+     */
+    showParticipants(
+        participants
+    );
+
+    activeTalkDistanceSpeakers.forEach(
+        speakerId => {
+            fadePortraitDistance(
+                speakerId,
+                startDistances[
+                    speakerId
+                ]
+            );
+        }
+    );
+}
     /*
      * ─────────────────────────────
      * メッセージ登録
@@ -6804,6 +9073,11 @@ if (greeting.initialPossession) {
             greeting.initialPossession.outfit ||
             "normal"
         );
+        possessionState.outfitOwner =
+    possessionState.outfit ===
+    "imagin_preference"
+        ? possessionState.imagin
+        : "ryotaro";
 }
 
 /*
@@ -7434,8 +9708,8 @@ if (possessionEffectState) {
             possessionEffectState;
 
         /*
-         * 完全に暗くなったところで
-         * 立ち絵を切り替える。
+         * フェードアウトが終わり、
+         * 完全に暗くなったところ。
          */
         if (
             effect.phase === "fadeOut"
@@ -7444,25 +9718,22 @@ if (possessionEffectState) {
                 effect.action
             );
 
-            effect.phase =
-                "colorFlash";
-
-            effect.wait = 8;
-
             /*
-             * 暗転中のまま、
-             * 次のフェーズへ移る。
+             * 真っ黒のまま少し待つ。
              */
+            effect.phase =
+                "blackWait";
+
+            effect.wait = 30;
+
             return;
         }
 
         /*
-         * 暗転から戻し始めると同時に、
-         * イマジン色の薄い光を出す。
+         * 暗転維持後、明転を開始する。
          */
         if (
-            effect.phase ===
-                "colorFlash"
+            effect.phase === "blackWait"
         ) {
             effect.phase =
                 "fadeIn";
@@ -7474,8 +9745,8 @@ if (possessionEffectState) {
             );
 
             if (
-                effect.action.type ===
-                "start"
+                effect.action.type === "start" ||
+                effect.action.type === "steal"
             ) {
                 const flashColor =
                     getPossessionFlashColor(
@@ -7487,10 +9758,6 @@ if (possessionEffectState) {
                     12
                 );
             } else {
-                /*
-                 * 解除時は白っぽく、
-                 * 色が抜ける印象にする。
-                 */
                 $gameScreen.startFlash(
                     [220, 220, 220, 80],
                     12
@@ -7500,15 +9767,62 @@ if (possessionEffectState) {
             return;
         }
 
-        if (
+        /*
+         * 明転が終わってから、
+         * メッセージ開始まで少し待つ。
+         */
+if (
     effect.phase === "fadeIn"
+) {
+    /*
+     * フェードイン完了後、
+     * メッセージ開始まで少し待つ。
+     */
+    effect.phase =
+        "messageWait";
+
+    effect.wait = 8;
+
+    return;
+}
+
+if (
+    effect.phase === "messageWait"
 ) {
     possessionEffectState =
         null;
 
     /*
-     * モモ好みの服だった場合だけ、
-     * 解除後に立ち絵なしの台詞を出す。
+     * 憑依横取り後の会話。
+     */
+    if (
+        pendingPostStealTalk &&
+        !$gameMessage.isBusy()
+    ) {
+        const postStealTalk =
+            pendingPostStealTalk;
+
+        pendingPostStealTalk =
+            null;
+
+        enqueueTalkMessage(
+            postStealTalk
+        );
+
+        /*
+         * 会話終了後は、
+         * 新しい憑依者の中央表示へ戻す。
+         */
+        requestExpressionReset(
+            true
+        );
+
+        return;
+    }
+
+    /*
+     * 専用服で憑依解除した後の、
+     * 着替え会話。
      */
     if (
         pendingPostReleaseTalk &&
@@ -7519,23 +9833,28 @@ if (possessionEffectState) {
 
         pendingPostReleaseTalk =
             null;
-isChangeClothesTalkActive =
-    true;
+
+        isChangeClothesTalkActive =
+            true;
+
         enqueueTalkMessage(
             postTalk
         );
 
         /*
-         * この会話後に良太郎の立ち絵を
-         * 勝手に復元しない。
+         * 着替え中なので、
+         * 会話後に立ち絵を復元しない。
          */
         requestExpressionReset(
             false
         );
+
+        return;
     }
 
     return;
 }
+
     }
 
     return;
@@ -7889,5 +10208,7 @@ window.MamiDenOTalk.endPossession =
         possessionState.imagin = null;
         possessionState.outfit =
             "normal";
+            possessionState.outfitOwner =
+    "ryotaro";
     };
 })();

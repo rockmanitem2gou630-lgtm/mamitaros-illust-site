@@ -238,8 +238,73 @@
         expression:
             "portrait_momotaros_base_default_angry"
     }
-]
+],
+
+    urataros: [
+        // ウラ用
+        {
+            text:
+                "澪ちゃん。\n考え事？",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            text:
+                "僕は待つのも嫌いじゃないよ。\n相手が君ならね。",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            text:
+                "……静かだね。\nこういう時間も悪くない。",
+            expression:
+                "portrait_urataros_base_default_normal"
+        },
+        {
+            text:
+                "退屈してるなら、\n僕が話し相手になるよ？",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            text:
+                "寝ちゃった？\nそれとも僕を焦らしてる？",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            text:
+                "ふふ。\n返事がなくても、君らしいね。",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            text:
+                "そんなに見つめられると、\n照れるんだけど。",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            text:
+                "暇ならデートのお誘いでも\nしてみようかと思ったけど……。",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            text:
+                "君となら、\n沈黙も会話になる気がするよ。",
+            expression:
+                "portrait_urataros_base_default_normal"
+        },
+        {
+            text:
+                "……さて。\n次はどんな顔を見せてくれるのかな？",
+            expression:
+                "portrait_urataros_base_default_smile"
+        }
+    ]
 };
+
 
     let idleEnabled = true;
     let idleFrames = 0;

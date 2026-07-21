@@ -1406,6 +1406,9 @@ const TALK_DATA = {
     possessionOutfit:
         "imagin_preference",
 
+    possessionOutfitOwner:
+        "momotaros",
+
     participants: [
         {
             speaker: "momotaros",
@@ -2938,11 +2941,14 @@ tags: [
     possessionOutfit:
         "imagin_preference",
 
+    possessionOutfitOwner:
+        "urataros",        
+
     participants: [
         {
             speaker: "urataros",
             expression:
-                "portrait_urataros_base_default_smile"
+                "portrait_urataros_base_default_normal"
         },
         {
             speaker: "mio"
@@ -3000,6 +3006,9 @@ tags: [
 
     possessionOutfit:
         "imagin_preference",
+
+    possessionOutfitOwner:
+        "urataros",
 
     participants: [
         {
@@ -3077,6 +3086,9 @@ tags: [
     possessionOutfit:
         "imagin_preference",
 
+    possessionOutfitOwner:
+        "urataros",
+
     allowHostWhilePossessed: true,
 
     participants: [
@@ -3139,11 +3151,14 @@ tags: [
     possessionOutfit:
         "imagin_preference",
 
+    possessionOutfitOwner:
+        "urataros",
+
     participants: [
         {
             speaker: "urataros",
             expression:
-                "portrait_urataros_base_default_smile"
+                "portrait_urataros_base_default_normal"
         },
         {
             speaker: "mio"
@@ -3201,6 +3216,9 @@ tags: [
 
     possessionOutfit:
         "imagin_preference",
+
+    possessionOutfitOwner:
+        "urataros",        
 
     participants: [
         {
@@ -5216,6 +5234,455 @@ tags: [
         "normal",
         "ryotaro_urataros",
         "imagin_form"
+    ]
+},
+{
+    possessedBy: "momotaros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "urataros",
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "……やっぱ落ち着かねぇ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "服？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "そうだよ！\nなんで俺が亀みてぇな格好してんだ！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "似合ってるよ？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "似合う似合わねぇの話じゃねぇ！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_mio",
+        "m_ryotaro",
+        "cross_outfit"
+    ]
+},
+{
+    possessedBy: "momotaros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "urataros",
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "おい亀。\nなんでこんな服選んだんだよ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "似合うと思ったから。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "俺にじゃねぇだろ！！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "でも今着てるの、先輩だよ？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "だからムカつくんだよ！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_urataros",
+        "m_ryotaro",
+        "cross_outfit"
+    ]
+},
+{
+    possessedBy: "momotaros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "urataros",
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "ったく、こんな服早く着替えてぇ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "でも私は好きだよ、その格好。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "……。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "モモ？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "……別に、今すぐじゃなくてもいい。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_mio",
+        "m_ryotaro",
+        "cross_outfit"
+    ]
+},
+{
+    possessedBy: "urataros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "momotaros",
+
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "ウラタロス、その服でも普通に似合うね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "そう？\n着る人が違えば見え方も変わるでしょ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "モモが聞いたら怒りそう。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "聞かせてみる？"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "urataros_mio",
+        "u_ryotaro",
+        "cross_outfit"
+    ]
+},
+{
+    possessedBy: "urataros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "momotaros",
+
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "服はモモっぽいのに、\nちゃんとウラタロスに見えるね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "服だけで僕らしさまで消せないよ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "自信あるね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "澪ちゃんがそう見てくれてるならね♪"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "urataros_mio",
+        "u_ryotaro",
+        "cross_outfit"
+    ]
+},
+{
+    possessedBy: "urataros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "momotaros",
+
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "先輩、どう？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "何がだよ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "この服。\n僕が着ても似合うでしょ？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "返せ！！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "服は良太郎のだけどね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "そういう話じゃねぇ！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_urataros",
+        "u_ryotaro",
+        "cross_outfit"
+    ]
+},
+{
+    possessedBy: "urataros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "momotaros",
+
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "なんか、モモが着てる時より……"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "より何だ！？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……違って見える。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "澪ちゃん、今言い直したね？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "何言おうとしたんだ！！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "言わない。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "ふふっ。\nそのほうが面白いかも。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_urataros_mio",
+        "u_ryotaro",
+        "cross_outfit"
     ]
 },
 
@@ -9778,6 +10245,32 @@ function isTalkAvailableForPossession(
             return false;
         }
     }
+    /*
+ * 特定の服装所有者限定。
+ *
+ * 例：
+ * possessionOutfitOwner:
+ *     "momotaros"
+ *
+ * モモ服、ウラ服などを
+ * 厳密に判定するために使用する。
+ */
+if (
+    talk.possessionOutfitOwner !== undefined
+) {
+    if (!possessionState.active) {
+        return false;
+    }
+
+    if (
+        !conditionIncludes(
+            talk.possessionOutfitOwner,
+            possessionState.outfitOwner
+        )
+    ) {
+        return false;
+    }
+}
 
     /*
      * 未憑依なら、

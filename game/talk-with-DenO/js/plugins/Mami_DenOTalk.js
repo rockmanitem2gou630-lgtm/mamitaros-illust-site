@@ -450,12 +450,54 @@ const PORTRAIT_LAYOUT = {
     4: [1, 2, 4, 5],
     5: [1, 2, 3, 4, 5]
 };
-
+/*
+ * 3人表示専用のX座標。
+ *
+ * 通常の2・3・4番スロットより少し広げる。
+ */
+const PORTRAIT_THREE_PERSON_X = {
+    2: 300,
+    3: 640,
+    4: 980
+};
 /*
  * 現在画面にいるキャラクターと、
  * 使用スロットの対応。
  */
 let currentPortraitSlots = {};
+/*
+ * 現在表示中の立ち絵人数。
+ *
+ * 3人表示時の専用座標判定に使用する。
+ */
+let currentPortraitCount = 0;
+/*
+ * スロット番号から実際のX座標を取得する。
+ *
+ * 3人表示時だけ専用座標を使用する。
+ */
+function getPortraitSlotX(
+    slotNumber
+) {
+    if (
+        currentPortraitCount === 3 &&
+        PORTRAIT_THREE_PERSON_X[
+            slotNumber
+        ] !== undefined
+    ) {
+        return (
+            PORTRAIT_THREE_PERSON_X[
+                slotNumber
+            ]
+        );
+    }
+
+    return (
+        PORTRAIT_SLOT_X[
+            slotNumber
+        ]
+    );
+}
 /*
  * ─────────────────────────────
  * 通常時の一対一表示
@@ -523,6 +565,7 @@ let returnSoloPortrait = null;
  * 現在、複数人会話を表示中か。
  */
 let isTemporaryGroupTalk = false;
+let isRestoringSoloPortrait = false;
 /*
  * ─────────────────────────────
  * 憑依状態
@@ -3923,6 +3966,384 @@ tags: [
         "m_ryotaro"
     ]
 },
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "おい亀！\nさっきから俺の真似すんな！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "してないよ。\n先輩の真似なんて難しくないし。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "それがムカつくっつってんだよ！！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "二人とも、喧嘩しないでよ……。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "僕はしてないよ？\n先輩が勝手に怒ってるだけ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "てめぇ……！！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "ほら、また……。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_urataros_ryotaro"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "ねえ澪ちゃん。\n今度、僕と二人でどこか行かない？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "二人で？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "おい亀！！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "ほら。\nまだ何も言ってないのに釣れた。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "最初から俺を釣ってんじゃねぇ！！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "ウラタロスも、わざと怒らせないでよ……。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "私、餌だったの？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "そんな言い方しないでよ。\n澪ちゃんを餌になんてしないって♪"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "じゃあ何なんだよ！！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "秘密。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_urataros_ryotaro_mio"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "良太郎！\n今日は俺が行くからな！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "えー。\n僕でいいじゃない。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "よくねぇ！\n昨日お前だっただろうが！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "そうだったっけ？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "あの……。\n僕の身体なんだけど……。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "分かってるって！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "もちろん分かってるよ。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "本当に分かってるのかな……。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_urataros_ryotaro"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "良太郎くん、これありがとう。\n助かったよ。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "ううん。\n僕も役に立ててよかった。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "良太郎、澪ちゃんに褒めてもらえてよかったね。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_shy",
+            text:
+                "そ、そういう言い方しないでよ……。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "……なんだよ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "モモ？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "なんでもねぇ！！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "先輩も褒めてほしいんじゃない？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "ちげぇ！！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "モモもいつも頼りにしてるよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "……お、おう。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "よかったね、先輩。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "お前は黙ってろ！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_urataros_ryotaro_mio"
+    ]
+},
     /*
      *↑通常会話追加ここまで↑
      */
@@ -7263,13 +7684,13 @@ function showPortraitInSlot(
     speakerId
 ) {
     if (
-        !filename ||
-        !PORTRAIT_SLOT_X[
-            slotNumber
-        ]
-    ) {
-        return;
-    }
+    !filename ||
+    getPortraitSlotX(
+        slotNumber
+    ) === undefined
+) {
+    return;
+}
     /*
  * 転倒・復帰演出中のキャラクターは、
  * 通常の立ち絵表示処理で上書きしない。
@@ -7333,9 +7754,9 @@ if (speakerId) {
             targetPictureId,
             filename,
             1,
-            PORTRAIT_SLOT_X[
-                slotNumber
-            ],
+            getPortraitSlotX(
+    slotNumber
+),
             distanceData.y,
             distanceData.scale,
             distanceData.scale,
@@ -7354,9 +7775,9 @@ if (speakerId) {
         targetPictureId,
         filename,
         1,
-        PORTRAIT_SLOT_X[
-            slotNumber
-        ],
+        getPortraitSlotX(
+    slotNumber
+),
         distanceData.y,
         distanceData.scale,
         distanceData.scale,
@@ -7367,9 +7788,9 @@ if (speakerId) {
     $gameScreen.movePicture(
         targetPictureId,
         1,
-        PORTRAIT_SLOT_X[
-            slotNumber
-        ],
+        getPortraitSlotX(
+    slotNumber
+),
         distanceData.y,
         distanceData.scale,
         distanceData.scale,
@@ -7410,6 +7831,72 @@ function darkenAllPortraits() {
     }
 }
 /*
+ * 指定キャラクターの立ち絵を、
+ * 他の立ち絵より手前へ移動する。
+ *
+ * ピクチャそのものは変更せず、
+ * Sprite_Pictureの描画順だけ変更する。
+ *
+ * ウィンドウUIより前には出ない。
+ */
+function bringPortraitToFront(
+    speakerId
+) {
+    const id =
+        String(speakerId || "");
+
+    const slotNumber =
+        currentPortraitSlots[id];
+
+    if (!slotNumber) {
+        return;
+    }
+
+    const targetPictureId =
+        getPortraitPictureId(
+            slotNumber
+        );
+
+    const scene =
+        SceneManager._scene;
+
+    if (
+        !scene ||
+        !scene._spriteset ||
+        !scene._spriteset._pictureContainer
+    ) {
+        return;
+    }
+
+    const container =
+        scene._spriteset._pictureContainer;
+
+    const sprite =
+        container.children.find(
+            child =>
+                child &&
+                child._pictureId ===
+                    targetPictureId
+        );
+
+    if (!sprite) {
+        return;
+    }
+
+    /*
+     * 同じpictureContainer内の
+     * 一番手前へ移動する。
+     *
+     * UIのWindowLayerは別なので、
+     * メッセージウィンドウより
+     * 前には出ない。
+     */
+    container.addChild(
+        sprite
+    );
+}
+
+/*
  * 話者だけ明るくする
  */
 function highlightSpeaker(
@@ -7422,8 +7909,8 @@ function highlightSpeaker(
         currentPortraitSlots[id];
 
     /*
-     * 画面に表示されている
-     * 立ち絵スロットを取得する。
+     * 現在画面に存在する
+     * 立ち絵スロット。
      */
     const visibleSlots =
         Object.values(
@@ -7436,15 +7923,13 @@ function highlightSpeaker(
     /*
      * 澪が話している場合。
      *
-     * 一対一なら、
-     * 相手の立ち絵は明るいまま。
-     *
-     * 立ち絵キャラが二人以上なら、
-     * 全員を暗くして
-     * 画面外の澪が話者だと示す。
+     * 一対一なら相手は明るいまま。
+     * 複数人なら全員暗くする。
      */
     if (id === "mio") {
-        if (visibleSlots.length >= 2) {
+        if (
+            visibleSlots.length >= 2
+        ) {
             darkenAllPortraits();
         } else if (
             visibleSlots.length === 1
@@ -7459,18 +7944,15 @@ function highlightSpeaker(
     }
 
     /*
-     * 澪以外でも、
-     * 画面に立ち絵がない話者なら
-     * 現在の明るさを維持する。
+     * 憑依中の良太郎の内声など、
+     * 画面に立ち絵を持たない話者。
      */
     if (!slotNumber) {
         return;
     }
 
     /*
-     * 通常の立ち絵キャラなら、
-     * 全員を暗くしてから
-     * 話者だけ明るくする。
+     * 通常の立ち絵キャラクター。
      */
     darkenAllPortraits();
 
@@ -7478,11 +7960,24 @@ function highlightSpeaker(
         slotNumber,
         ACTIVE_PORTRAIT_TONE
     );
+
+    /*
+     * 話者を立ち絵同士の最前面へ。
+     */
+    bringPortraitToFront(
+        id
+    );
 }
 /*
  * すべての立ち絵を消す。
  */
 function eraseAllPortraits() {
+
+    portraitDistanceFadeStates = [];
+
+    pendingRestoreAfterDistanceFade =
+        false;
+
     for (
         let slotNumber = 1;
         slotNumber <=
@@ -7497,6 +7992,7 @@ function eraseAllPortraits() {
     }
 
     currentPortraitSlots = {};
+    currentPortraitCount = 0;
 }
 /*
  * 指定キャラクターの立ち絵モーションを開始する。
@@ -7915,9 +8411,9 @@ function movePortraitDistance(
             slotNumber
         ),
         1,
-        PORTRAIT_SLOT_X[
-            slotNumber
-        ],
+        getPortraitSlotX(
+    slotNumber
+),
         distanceData.y,
         distanceData.scale,
         distanceData.scale,
@@ -8111,9 +8607,9 @@ $gameScreen.showPicture(
     state.pictureId,
     state.filename,
     1,
-    PORTRAIT_SLOT_X[
+    getPortraitSlotX(
         state.slotNumber
-    ],
+    ),
     distanceData.y,
     distanceData.scale,
     distanceData.scale,
@@ -8128,9 +8624,9 @@ $gameScreen.showPicture(
             $gameScreen.movePicture(
                 state.pictureId,
                 1,
-                PORTRAIT_SLOT_X[
-                    state.slotNumber
-                ],
+                getPortraitSlotX(
+    state.slotNumber
+),
                 distanceData.y,
                 distanceData.scale,
                 distanceData.scale,
@@ -8510,105 +9006,158 @@ function showParticipants(
         return;
     }
 
-    const layout =
-        PORTRAIT_LAYOUT[
-            normalized.length
-        ] ||
-        PORTRAIT_LAYOUT[5];
+const layout =
+    PORTRAIT_LAYOUT[
+        normalized.length
+    ] ||
+    PORTRAIT_LAYOUT[5];
+
+const sameLayout =
+    normalized.length !== 3 &&
+    normalized.every(
+        (
+            participant,
+            index
+        ) => {
+            return (
+                currentPortraitSlots[
+                    participant.speaker
+                ] ===
+                layout[index]
+            );
+        }
+    ) &&
+    Object.keys(
+        currentPortraitSlots
+    ).length ===
+    normalized.length;
+
+if (!sameLayout) {
+    /*
+     * ここではまだ以前の人数情報のまま。
+     *
+     * まず以前の配置を完全に消す。
+     */
+    eraseAllPortraits();
+
+    currentPortraitSlots = {};
 
     /*
-     * 今のキャラ配置と、
-     * 次のキャラ配置が完全に同じか確認する。
+     * 消し終わってから、
+     * 新しい人数へ切り替える。
      */
-    const sameLayout =
-        normalized.every(
-            (
-                participant,
-                index
-            ) => {
-                return (
-                    currentPortraitSlots[
-                        participant.speaker
-                    ] ===
-                    layout[index]
+    currentPortraitCount =
+        normalized.length;
+
+    normalized.forEach(
+        (
+            participant,
+            index
+        ) => {
+            const slotNumber =
+                layout[index];
+
+            currentPortraitSlots[
+                participant.speaker
+            ] = slotNumber;
+
+            if (
+                participant.expression
+            ) {
+                showPortraitInSlot(
+                    slotNumber,
+
+                    getDisplayExpression(
+                        participant.speaker,
+                        participant.expression
+                    ),
+
+                    participant.speaker
                 );
             }
-        ) &&
-        Object.keys(
-            currentPortraitSlots
-        ).length ===
+        }
+    );
+    /*
+ * 3人表示時は中央スロットを
+ * 参加者2人目の立ち絵で明示的に確定する。
+ *
+ * 通常時のメインキャラクターが
+ * スロット3へ残る／再表示される事故対策。
+ */
+if (
+    normalized.length === 3
+) {
+    const centerParticipant =
+        normalized[1];
+
+    if (
+        centerParticipant &&
+        centerParticipant.expression
+    ) {
+        /*
+         * 中央スロットを一度完全に消す。
+         */
+        $gameScreen.erasePicture(
+            getPortraitPictureId(3)
+        );
+
+        /*
+         * 中央担当を改めて3番へ表示。
+         */
+        showPortraitInSlot(
+            3,
+
+            getDisplayExpression(
+                centerParticipant.speaker,
+                centerParticipant.expression
+            ),
+
+            centerParticipant.speaker
+        );
+
+        /*
+         * キャラ→スロット対応も
+         * 念のため確定しておく。
+         */
+        currentPortraitSlots[
+            centerParticipant.speaker
+        ] = 3;
+    }
+}
+} else {
+
+    currentPortraitCount =
         normalized.length;
 
     /*
-     * 人数やキャラ位置が変わる場合だけ、
-     * 一度すべて消して配置し直す。
+     * 配置が同じなら消さない。
      */
-    if (!sameLayout) {
-        eraseAllPortraits();
+    normalized.forEach(
+        participant => {
+            if (
+                !participant.expression
+            ) {
+                return;
+            }
 
-        currentPortraitSlots = {};
-
-        normalized.forEach(
-            (
-                participant,
-                index
-            ) => {
-                const slotNumber =
-                    layout[index];
-
+            const slotNumber =
                 currentPortraitSlots[
                     participant.speaker
-                ] = slotNumber;
+                ];
 
-                if (
-    participant.expression
-) {
-    showPortraitInSlot(
-        slotNumber,
+            showPortraitInSlot(
+                slotNumber,
 
-        getDisplayExpression(
-            participant.speaker,
-            participant.expression
-        ),
+                getDisplayExpression(
+                    participant.speaker,
+                    participant.expression
+                ),
 
-        participant.speaker
+                participant.speaker
+            );
+        }
     );
 }
-            }
-        );
-    } else {
-        /*
-         * 配置が同じなら消さない。
-         *
-         * 表情指定があるキャラだけ、
-         * 現在のスロットで更新する。
-         */
-        normalized.forEach(
-            participant => {
-                if (
-                    !participant.expression
-                ) {
-                    return;
-                }
-
-                const slotNumber =
-                    currentPortraitSlots[
-                        participant.speaker
-                    ];
-
-                showPortraitInSlot(
-    slotNumber,
-
-    getDisplayExpression(
-        participant.speaker,
-        participant.expression
-    ),
-
-    participant.speaker
-);
-            }
-        );
-    }
 
     /*
      * 先頭キャラクターを話者として明るくする。
@@ -8636,6 +9185,20 @@ function showSoloPortrait(
     expression,
     saveState = true
 ) {
+    /*
+     * 複数人会話中に、
+     * 放置処理や外部処理などから
+     * 一人表示が割り込むのを防ぐ。
+     *
+     * 正式な会話終了復元時だけ許可する。
+     */
+    if (
+        isTemporaryGroupTalk &&
+        !isRestoringSoloPortrait
+    ) {
+        return;
+    }
+
     const speaker =
         String(
             speakerId ||
@@ -8706,11 +9269,15 @@ function restoreSoloPortrait() {
                 defaultExpression
         };
 
-    showSoloPortrait(
-        returnState.speaker,
-        returnState.expression,
-        false
-    );
+    isRestoringSoloPortrait = true;
+
+showSoloPortrait(
+    returnState.speaker,
+    returnState.expression,
+    false
+);
+
+isRestoringSoloPortrait = false;
 
     currentSoloPortrait = {
         speaker:

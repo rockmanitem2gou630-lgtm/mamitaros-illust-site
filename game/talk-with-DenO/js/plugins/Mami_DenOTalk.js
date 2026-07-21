@@ -5685,6 +5685,400 @@ tags: [
         "cross_outfit"
     ]
 },
+{
+    possessedBy: "momotaros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "momotaros",
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "……なあ、澪。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "なに？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            distance: "close",
+            text:
+                "こうしてっと、\nいつもより顔近ぇな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "モモが近づいたんでしょ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "……まあ、そうだけどよ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "嫌じゃないよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "……そういうこと、\n簡単に言うんじゃねぇ。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_mio",
+        "m_ryotaro",
+        "imagin_preference"
+    ]
+},
+{
+    possessedBy: "momotaros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "momotaros",
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "モモ？\nどうしたの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            distance: "close",
+            text:
+                "……いや。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "何かついてる？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_worried",
+            text:
+                "そうじゃねぇ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "……今の俺の手、\n良太郎のだからな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "だから……まあ、いい。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "モモって、そういうところ真面目だよね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "うるせぇ！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_mio",
+        "m_ryotaro",
+        "imagin_preference"
+    ]
+},
+{
+    possessedBy: "momotaros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "momotaros",
+
+    startDistances: {
+        momotaros: "close"
+    },
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "……近ぇよ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "モモがいつもより小さいから。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "この身体がだろ！\n俺が縮んだみてぇに言うな！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "でも、こうしてると\n目の高さ近いね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "……。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "モモ？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "だから近ぇっつってんだろ……。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_mio",
+        "m_ryotaro",
+        "imagin_preference"
+    ]
+},
+{
+    possessedBy: "momotaros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "momotaros",
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            distance: "close",
+            text:
+                "……。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "モモ？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "何でもねぇ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "そう？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_worried",
+            text:
+                "……ったく。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "何？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            distance: "normal",
+            text:
+                "何でもねぇって言ってんだろ！"
+        }      
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_mio",
+        "m_ryotaro",
+        "imagin_preference"
+    ]
+},
+{
+    possessedBy: "momotaros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "momotaros",
+
+    startDistances: {
+        momotaros: "close"
+    },
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "……やっぱり不思議。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "何がだよ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "触ると良太郎くんの顔なのに、\nちゃんとモモなんだなって。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "お、お前……！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "嫌だった？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "……嫌とは言ってねぇ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "じゃあ、もう少し。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "調子乗んな……。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_mio",
+        "m_ryotaro",
+        "imagin_preference"
+    ]
+},
 
     /*
      *↑通常会話追加ここまで↑
@@ -12086,15 +12480,28 @@ if (code === "MDIST") {
             );
 
         if (
-            distance !== "normal" &&
-            !activeTalkDistanceSpeakers.includes(
-                speakerId
-            )
-        ) {
-            activeTalkDistanceSpeakers.push(
-                speakerId
-            );
-        }
+    distance !== "normal"
+) {
+    if (
+        !activeTalkDistanceSpeakers.includes(
+            speakerId
+        )
+    ) {
+        activeTalkDistanceSpeakers.push(
+            speakerId
+        );
+    }
+} else {
+    /*
+     * 会話中に自分で通常距離へ戻った場合は、
+     * 会話終了時の自動距離復帰対象から外す。
+     */
+    activeTalkDistanceSpeakers =
+        activeTalkDistanceSpeakers.filter(
+            id =>
+                id !== speakerId
+        );
+}
 
         /*
          * 実際に距離フェードが開始された場合だけ、

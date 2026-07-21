@@ -2579,7 +2579,7 @@ tags: [
         {
             speaker: "urataros",
             expression:
-                "portrait_urataros_base_default_smile"
+                "portrait_urataros_base_default_normal"
         },
         {
             speaker: "mio"
@@ -4344,6 +4344,881 @@ tags: [
         "momotaros_urataros_ryotaro_mio"
     ]
 },
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "先輩と澪ちゃんって、\nもう付き合ってるみたいだよね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "はぁ！？\n急に何言い出すんだ亀！！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "そう見える？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "見える見える。\n特に先輩がね♪"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "俺のどこ見て言ってんだ！！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "……モモタロス、\n結構分かりやすいと思うよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "良太郎まで乗っかるな！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_urataros_ryotaro_mio",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "モモ、これ食べる？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "おう！\nもらう！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "へえ。\n先輩には最初に聞くんだ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "だってモモ、すぐお腹空いたって言うから。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "余計なこと言うな！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "でも、ちゃんと覚えてもらえてよかったね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "……うるせぇ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "嬉しいんだね、先輩。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "黙れ亀ぇ！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_urataros_ryotaro_mio",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "先輩ってさ、\n澪ちゃんに話す時だけちょっと声違うよね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "違わねぇよ！！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "違うの？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "少しだけ優しくなる。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "なってねぇ！！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "……僕も、ちょっとそう思う。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "だから良太郎まで言うなって！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_urataros_ryotaro_mio",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "澪ちゃんって、\n気付くといつも先輩の近くにいるよね。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "そうかな？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "変なこと気にすんな！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "先輩が一番気にしてるじゃない。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "気にしてねぇ！！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "でも、自然にそうなってるなら\nいいんじゃないかな。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "……お前まで何なんだよ。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_urataros_ryotaro_mio",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "先輩って、本当にすぐ怒るよね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "誰のせいだと思ってんだ！！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "でも、モモって怒ってても\nちゃんと周り見てるよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "……澪？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "あれ。\n僕、先輩をからかってたはずなんだけど。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "澪さんには、ちゃんと分かってるんだね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "……もういい！\nこの話終わり！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_urataros_ryotaro_mio",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal",
+            text:
+                "ウラタロスって、\n人が嘘ついてるか分かるの？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "どうだろうね。\n分かる時もあるよ。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "……今の答えも嘘だったりする？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "さあ？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "やっぱり分からないなぁ……。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro_urataros",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal",
+            text:
+                "僕って、そんなに騙しやすい？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "うん。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "即答なんだ……。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "でも、疑うことを知らないって\n悪いことばかりじゃないよ。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal",
+            text:
+                "……それ、褒めてる？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "もちろん♪"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro_urataros",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal",
+            text:
+                "ウラタロスって、\nいつも余裕ありそうだよね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "そう見えるなら成功かな。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "成功？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "余裕がない顔なんて、\nあんまり見せたくないでしょ？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal",
+            text:
+                "……ウラタロスでも、\nそういう時あるんだね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "さて、どうだろうね。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro_urataros",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "良太郎って、\n本当に誰にでも優しいよね。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "そうかな？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "うん。\nそのうち悪い人に利用されそう。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal",
+            text:
+                "……ウラタロスが言うと、\nちょっと説得力あるね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "それ、どういう意味？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "そのままの意味。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro_urataros",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal",
+            text:
+                "ウラタロスって、\n僕と話してる時は少し違うよね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "違う？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal",
+            text:
+                "うん。\nちょっとだけ普通に話してる感じがする。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "僕はいつも普通だけど？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "そういうことにしておくよ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "ふふっ。\n良太郎も言うようになったね。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro_urataros",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal",
+            text:
+                "ウラタロスって、\nどうしてすぐ女の人に声かけるの？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "気になったから話しかける。\nそれだけだよ。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "毎回気になるの？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "良太郎、そこ掘り下げるんだ。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal",
+            text:
+                "ちょっと気になって。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "知らないほうがいいこともあるよ♪"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro_urataros",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal",
+            text:
+                "ウラタロスって、\n本当に嫌な時は笑わなくなるよね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text:
+                "……へえ。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "違った？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "いや。\n良太郎って、意外とよく見てるんだなって。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "一緒にいる時間、長いからね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "……そういうところ、ずるいよね。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro_urataros",
+        "imagin_form"
+    ]
+},
+
     /*
      *↑通常会話追加ここまで↑
      */

@@ -109,20 +109,21 @@ const BUTTON_DATA = [
         action: "possession"
     },
     {
-        id: "random",
-        image: "btn_random",
-        x: 760,
-        y: 665,
-        commonEventId: 3
-    },
-    {
         id: "characterChange",
         image: "btn_character_change",
-        x: 1000,
+        x: 760,
         y: 665,
         action: "characterChange"
+    },
+    {
+        id: "random",
+        image: "btn_random",
+        x: 1000,
+        y: 665,
+        commonEventId: 3
     }
 ];
+
 const CHARACTER_CHANGE_ITEMS = [
     {
         label: "良太郎",
@@ -460,7 +461,7 @@ class Sprite_CharacterChangeMenu
          * 右下の交代ボタンから
          * 上へ伸びる位置。
          */
-        this.x = 875;
+        this.x = 635;
         this._baseY = 395;
         this.y = this._baseY;
 

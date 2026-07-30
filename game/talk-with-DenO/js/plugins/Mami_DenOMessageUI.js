@@ -84,6 +84,19 @@
  * @dir img/pictures
  * @default message_window
  *
+ * @param FrameImage
+ * @text メッセージ枠画像
+ * @type file
+ * @dir img/pictures
+ * @default message_window
+ *
+ * @param InnerFrameImage
+ * @text 憑依中・内側用メッセージ枠
+ * @type file
+ * @dir img/pictures
+ * @default message_window_inner
+ *
+ *
  * @param FrameOffsetX
  * @text 枠画像X補正
  * @desc 文字ウィンドウ左上からの相対位置です。
@@ -254,6 +267,14 @@
     const frameImageName =
         String(params.FrameImage || "message_window");
 
+    const innerFrameImageName =
+        String(
+            params.InnerFrameImage ||
+            "message_window_inner"
+       );
+    const frameOnlyImageName =
+  　　  "message_window_frame";
+    
     const frameOffsetX =
         numberParam("FrameOffsetX", -20);
 
@@ -472,91 +493,316 @@ Window_Message.prototype.newPage =
      * ─────────────────────────────
      */
 
-    class Sprite_MamiMessageFrame extends Sprite {
-        constructor(messageWindow) {
-            super();
+class Sprite_MamiMessageFrame extends Sprite {
+    constructor(messageWindow) {
+        super();
 
-            this._messageWindow = messageWindow;
+        this._messageWindow =
+            messageWindow;
 
-            this.bitmap =
-                ImageManager.loadPicture(frameImageName);
+        /*
+         * 背景面の色。
+         *
+         * 通常：
+         *     白
+         *
+         * 内側：
+         *     少し青みのあるグレー
+         */
+        this._normalColor =
+            [255, 255, 255];
 
-            this.anchor.x = 0;
-            this.anchor.y = 0;
+        this._innerColor =
+            [204, 204, 211];
 
-            this.scale.x = frameScaleX;
-            this.scale.y = frameScaleY;
+        /*
+         * 現在色。
+         */
+        this._currentColor =
+            [...this._normalColor];
 
-            this.opacity = 0;
-            this.visible = false;
+        /*
+         * 色変更開始時の色。
+         */
+        this._startColor =
+            [...this._normalColor];
 
-            this.updatePosition();
+        /*
+         * 色変更先。
+         */
+        this._targetColor =
+            [...this._normalColor];
+
+        /*
+         * 色変更時間。
+         * 6フレーム前後がおすすめ。
+         */
+        this._colorDuration = 6;
+        this._colorCount = 0;
+        this._isColorChanging = false;
+
+        /*
+         * 背景面。
+         *
+         * フレームより先に追加するので、
+         * 必ずフレームの下になる。
+         */
+        this._panelGraphics =
+            new PIXI.Graphics();
+
+        this.addChild(
+            this._panelGraphics
+        );
+
+        /*
+         * 共通フレーム。
+         */
+        this._frameSprite =
+            new Sprite(
+                ImageManager.loadPicture(
+                    frameOnlyImageName
+                )
+            );
+
+        this._frameSprite.anchor.x = 0;
+        this._frameSprite.anchor.y = 0;
+
+        this.addChild(
+            this._frameSprite
+        );
+
+        this.anchor.x = 0;
+        this.anchor.y = 0;
+
+        this.scale.x =
+            frameScaleX;
+
+        this.scale.y =
+            frameScaleY;
+
+        this.opacity = 0;
+        this.visible = false;
+
+        this.redrawPanel();
+        this.updatePosition();
+    }
+
+    /*
+     * 既存の外部呼び出しをそのまま使うため、
+     * 関数名はsetFrameImageのままにする。
+     *
+     * 実際には画像を変更せず、
+     * 背景色だけを変更する。
+     */
+    setFrameImage(filename) {
+        const isInner =
+            String(filename || "") ===
+            innerFrameImageName;
+
+        const nextColor =
+            isInner
+                ? this._innerColor
+                : this._normalColor;
+
+        /*
+         * すでに同じ色へ向かっている場合は
+         * 何もしない。
+         */
+        if (
+            this.colorsEqual(
+                this._targetColor,
+                nextColor
+            )
+        ) {
+            return;
         }
 
-        update() {
-            super.update();
+        /*
+         * 連打された場合も、
+         * 現在表示中の途中色から
+         * 新しい色へ移行する。
+         *
+         * 白へ戻してから始めないので、
+         * チラつきが出ない。
+         */
+        this._startColor =
+            [...this._currentColor];
 
-            this.updatePosition();
-            this.updateVisibility();
+        this._targetColor =
+            [...nextColor];
+
+        this._colorCount = 0;
+        this._isColorChanging = true;
+    }
+
+    colorsEqual(colorA, colorB) {
+        return (
+            colorA[0] === colorB[0] &&
+            colorA[1] === colorB[1] &&
+            colorA[2] === colorB[2]
+        );
+    }
+
+    update() {
+        super.update();
+
+        this.updatePosition();
+        this.updatePanelColor();
+        this.updateVisibility();
+    }
+
+    /*
+     * 背景色を補間。
+     */
+    updatePanelColor() {
+        if (!this._isColorChanging) {
+            return;
         }
 
-        updatePosition() {
-            const messageWindow =
-                this._messageWindow;
+        this._colorCount++;
 
-            if (!messageWindow) {
-                return;
-            }
+        const rate =
+            Math.min(
+                1,
+                this._colorCount /
+                    this._colorDuration
+            );
 
-            this.x =
-                messageWindow.x +
-                frameOffsetX;
-
-            this.y =
-                messageWindow.y +
-                frameOffsetY;
+        /*
+         * 線形補間。
+         */
+        for (let index = 0; index < 3; index++) {
+            this._currentColor[index] =
+                Math.round(
+                    this._startColor[index] +
+                    (
+                        this._targetColor[index] -
+                        this._startColor[index]
+                    ) *
+                    rate
+                );
         }
 
-        updateVisibility() {
-            const messageWindow =
-                this._messageWindow;
+        this.redrawPanel();
 
-            if (!messageWindow) {
-                this.visible = false;
-                return;
-            }
+        if (rate >= 1) {
+            this._currentColor =
+                [...this._targetColor];
 
-            const isWindowVisible =
-                messageWindow.visible &&
-                messageWindow.openness > 0;
-
-            const isFastForwarding =
-                hideDuringFastForward &&
-                Input.isPressed("ok");
-
-            this.visible =
-                isWindowVisible &&
-                !isFastForwarding;
-
-            if (!this.visible) {
-                this.opacity = 0;
-                return;
-            }
-
-            if (followWindowOpenness) {
-                this.opacity =
-                    Math.round(
-                        frameOpacity *
-                        (
-                            messageWindow.openness /
-                            255
-                        )
-                    );
-            } else {
-                this.opacity = frameOpacity;
-            }
+            this._isColorChanging = false;
         }
     }
+
+    /*
+     * 背景面を描画。
+     */
+    redrawPanel() {
+        const red =
+            this._currentColor[0];
+
+        const green =
+            this._currentColor[1];
+
+        const blue =
+            this._currentColor[2];
+
+        const color =
+            (
+                red << 16
+            ) |
+            (
+                green << 8
+            ) |
+            blue;
+
+        this._panelGraphics.clear();
+
+        /*
+         * 元画像の中央面は
+         * およそ80％の不透明度。
+         */
+        this._panelGraphics.beginFill(
+            color,
+            0.8
+        );
+
+        /*
+         * フレーム内側の形。
+         *
+         * 1160×150px基準。
+         */
+        this._panelGraphics.drawPolygon([
+            55, 12,
+            1103, 8,
+            1132, 29,
+            1132, 104,
+            1085, 137,
+            45, 142,
+            24, 121,
+            24, 44
+        ]);
+
+        this._panelGraphics.endFill();
+    }
+
+    updatePosition() {
+        const messageWindow =
+            this._messageWindow;
+
+        if (!messageWindow) {
+            return;
+        }
+
+        this.x =
+            messageWindow.x +
+            frameOffsetX;
+
+        this.y =
+            messageWindow.y +
+            frameOffsetY;
+    }
+
+    updateVisibility() {
+        const messageWindow =
+            this._messageWindow;
+
+        if (!messageWindow) {
+            this.visible = false;
+            return;
+        }
+
+        const isWindowVisible =
+            messageWindow.visible &&
+            messageWindow.openness > 0;
+
+        const isFastForwarding =
+            hideDuringFastForward &&
+            Input.isPressed("ok");
+
+        this.visible =
+            isWindowVisible &&
+            !isFastForwarding;
+
+        if (!this.visible) {
+            this.opacity = 0;
+            return;
+        }
+
+        if (followWindowOpenness) {
+            this.opacity =
+                Math.round(
+                    frameOpacity *
+                    (
+                        messageWindow.openness /
+                        255
+                    )
+                );
+        } else {
+            this.opacity =
+                frameOpacity;
+        }
+    }
+}
 /*
  * ─────────────────────────────
  * ネームプレート用Sprite
@@ -836,6 +1082,16 @@ if (this._mamiNamePlate) {
                 frameImageName
             );
         }
+        if (innerFrameImageName) {
+            ImageManager.loadPicture(
+                innerFrameImageName
+            );
+        }
+        if (frameOnlyImageName) {
+           ImageManager.loadPicture(
+               frameOnlyImageName
+           );
+       }
     };
 /*
  * ─────────────────────────────
@@ -844,6 +1100,29 @@ if (this._mamiNamePlate) {
  */
 
 window.MamiDenOMessageUI = {
+    setFrameMode(mode) {
+    const scene =
+        SceneManager._scene;
+
+    if (
+        !scene ||
+        !scene._mamiMessageFrame
+    ) {
+        return false;
+    }
+
+    const filename =
+        mode === "inner"
+            ? innerFrameImageName
+            : frameImageName;
+
+    scene
+        ._mamiMessageFrame
+        .setFrameImage(filename);
+
+    return true;
+},
+
     showNamePlate(filename) {
         const scene =
             SceneManager._scene;

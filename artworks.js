@@ -1110,13 +1110,13 @@ const artworks = [
     draft: false
   },
   {
-  title: "デンライナーに行くだけ β",
+  title: "デンライナーに行くだけ",
   date: "2026-07-20",
   thumb: "images/thumbnails/2026/07/20260720_deno_game_th.webp",
   type: "game",
   url: "game/talk-with-DenO.html",
   tags: ["電王", "ゲーム"],
-  comment: "デンライナーに行こうぜ！",
+  comment: "ほぼ乙女ゲー。",
   dream: true,
   draft: false
 },

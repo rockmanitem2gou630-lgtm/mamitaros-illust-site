@@ -227,7 +227,7 @@ if (viewMode === "dream") {
   ${art.type === "manga"
   ? `<div class="manga-badge">📖</div>`
   : art.type === "game"
-    ? `<div class="game-badge">🎮 β</div>`
+    ? `<div class="game-badge">🎮</div>`
     : ""
 }
   <img src="${art.thumb}" alt="${art.title}">

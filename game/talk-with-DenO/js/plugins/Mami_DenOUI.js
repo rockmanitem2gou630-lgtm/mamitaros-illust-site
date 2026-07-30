@@ -106,7 +106,7 @@ const BUTTON_DATA = [
         image: "btn_possess",
         x: 520,
         y: 665,
-        commonEventId: 2
+        action: "possession"
     },
     {
         id: "random",
@@ -238,23 +238,63 @@ const CHARACTER_CHANGE_ITEMS = [
         return;
     }
 
+    const scene =
+        SceneManager._scene;
+
     /*
-     * 交代ボタンだけ、
-     * 自前のキャラ選択メニューを開く。
+     * 交代ボタン。
      */
     if (
         this._buttonData.action ===
         "characterChange"
     ) {
-        const scene =
-            SceneManager._scene;
+        if (scene) {
+            /*
+             * 憑依メニューが開いていたら閉じる。
+             */
+            if (
+                scene._possessionMenu
+            ) {
+                scene._possessionMenu
+                    .close();
+            }
 
-        if (
-            scene &&
-            scene._characterChangeMenu
-        ) {
-            scene._characterChangeMenu
-                .toggle();
+            if (
+                scene._characterChangeMenu
+            ) {
+                scene._characterChangeMenu
+                    .toggle();
+            }
+        }
+
+        TouchInput.clear();
+        return;
+    }
+
+    /*
+     * 憑依ボタン。
+     */
+    if (
+        this._buttonData.action ===
+        "possession"
+    ) {
+        if (scene) {
+            /*
+             * 交代メニューが開いていたら閉じる。
+             */
+            if (
+                scene._characterChangeMenu
+            ) {
+                scene._characterChangeMenu
+                    .close();
+            }
+
+            if (
+                scene._possessionMenu
+            ) {
+                scene._possessionMenu
+                    .toggle();
+            }
         }
 
         TouchInput.clear();
@@ -369,37 +409,40 @@ class Sprite_CharacterChangeItem
     }
 
     onClick() {
-        /*
-         * メニューを先に閉じる。
-         */
-        this._parentMenu.close();
-
-        /*
-         * クリックをメッセージ送りへ
-         * 渡さない。
-         */
+    if (
+        !this._parentMenu
+            .canSelectItem()
+    ) {
         TouchInput.clear();
-
-        if (
-            !window.MamiDenOTalk ||
-            !window.MamiDenOTalk
-                .changeMainCharacter
-        ) {
-            return;
-        }
-
-        /*
-         * 既存の交代イベント処理へ渡す。
-         *
-         * 同キャラ専用会話も、
-         * 憑依横取りもここから発生する。
-         */
-        window.MamiDenOTalk
-            .changeMainCharacter(
-                this._item.speaker,
-                this._item.expression
-            );
+        return;
     }
+
+    const item =
+        this._item;
+
+    /*
+     * 会話処理はまだ呼ばず、
+     * 閉じアニメ終了後に実行する。
+     */
+    this._parentMenu
+        .closeWithAction(
+            function() {
+                if (
+                    !window.MamiDenOTalk ||
+                    !window.MamiDenOTalk
+                        .changeMainCharacter
+                ) {
+                    return;
+                }
+
+                window.MamiDenOTalk
+                    .changeMainCharacter(
+                        item.speaker,
+                        item.expression
+                    );
+            }
+        );
+}
 }
 /*
  * ─────────────────────────────
@@ -424,6 +467,8 @@ class Sprite_CharacterChangeMenu
         this._animationDuration = 6;
         this._animationCount = 0;
         this._animationType = null;
+
+        this._pendingAction = null;
 
         this._menuWidth = 260;
         this._menuHeight =
@@ -483,6 +528,8 @@ class Sprite_CharacterChangeMenu
         return;
     }
 
+    this._pendingAction = null;
+
     this.visible = true;
     this._openedThisFrame = true;
 
@@ -505,6 +552,25 @@ class Sprite_CharacterChangeMenu
 
     this._animationType = "close";
     this._animationCount = 0;
+}
+canSelectItem() {
+    return (
+        this.visible &&
+        this._animationType !== "close" &&
+        !this._pendingAction
+    );
+}
+
+closeWithAction(action) {
+    if (!this.canSelectItem()) {
+        return;
+    }
+
+    this._pendingAction = action;
+
+    TouchInput.clear();
+
+    this.close();
 }
 
     toggle() {
@@ -628,13 +694,29 @@ class Sprite_CharacterChangeMenu
             );
 
         if (rate >= 1) {
-            this.visible = false;
-            this.opacity = 255;
-            this.y =
-                this._baseY;
-            this._animationType = null;
-            this._openedThisFrame = false;
-        }
+    this.visible = false;
+    this.opacity = 255;
+    this.y =
+        this._baseY;
+
+    this._animationType = null;
+    this._openedThisFrame = false;
+
+    /*
+     * 完全に閉じてから、
+     * 予約されていた会話を開始。
+     */
+    const action =
+        this._pendingAction;
+
+    this._pendingAction = null;
+
+    TouchInput.clear();
+
+    if (action) {
+        action();
+    }
+}
     }
 }
 }
@@ -653,6 +735,19 @@ class Sprite_CharacterChangeMenu
         scene._DenOButtonContainer = container;
         scene._denOButtons = [];
 
+/*
+ * 憑依メニュー。
+ */
+scene._possessionMenu =
+    new Sprite_PossessionMenu();
+
+container.addChild(
+    scene._possessionMenu
+);
+
+/*
+ * 交代メニュー。
+ */
 scene._characterChangeMenu =
     new Sprite_CharacterChangeMenu();
 
@@ -660,6 +755,12 @@ container.addChild(
     scene._characterChangeMenu
 );
 
+/*
+ * 各ボタン。
+ *
+ * メニューより後に追加するため、
+ * ボタンが手前に描画される。
+ */
 for (const data of BUTTON_DATA) {
     const button =
         new Sprite_DenOButton(data);
@@ -733,4 +834,525 @@ for (const data of BUTTON_DATA) {
             buttonsVisible = false;
         }
     );
+/*
+ * ─────────────────────────────
+ * 憑依メニュー
+ * ─────────────────────────────
+ */
+
+class Sprite_PossessionMenu
+    extends Sprite {
+
+    constructor() {
+        super();
+
+        /*
+         * 憑依ボタンの上。
+         *
+         * 交代メニューと同じ高さ。
+         */
+        this.x = 390;
+
+        this._baseY = 395;
+        this.y = this._baseY;
+
+        this._menuWidth = 260;
+        this._itemHeight = 48;
+
+        this._animationDuration = 6;
+        this._animationCount = 0;
+        this._animationType = null;
+
+        this._pendingAction = null;
+
+        this._openedThisFrame = false;
+        this._items = [];
+
+        this.visible = false;
+    }
+    canSelectItem() {
+    return (
+        this.visible &&
+        this._animationType !== "close" &&
+        !this._pendingAction
+    );
+}
+
+closeWithAction(action) {
+    if (!this.canSelectItem()) {
+        return;
+    }
+
+    this._pendingAction = action;
+
+    TouchInput.clear();
+
+    this.close();
+}
+
+    makeItemData() {
+        if (
+            !window.MamiDenOTalk ||
+            !window.MamiDenOTalk
+                .getPossessionState ||
+            !window.MamiDenOTalk
+                .getMainCharacter
+        ) {
+            return [];
+        }
+
+        const possession =
+            window.MamiDenOTalk
+                .getPossessionState();
+
+        /*
+         * 憑依中は解除だけ。
+         */
+        if (
+            possession &&
+            possession.active
+        ) {
+            return [
+                {
+                    label: "憑依を解く",
+                    action: "release"
+                }
+            ];
+        }
+
+        const main =
+            window.MamiDenOTalk
+                .getMainCharacter();
+
+        const speaker =
+            String(
+                main &&
+                main.speaker ||
+                "ryotaro"
+            );
+
+        /*
+         * 良太郎なら4人から選択。
+         */
+        if (speaker === "ryotaro") {
+            return [
+                {
+                    label: "モモタロス",
+                    imagin: "momotaros"
+                },
+                {
+                    label: "ウラタロス",
+                    imagin: "urataros"
+                },
+                {
+                    label: "キンタロス",
+                    imagin: "kintaros"
+                },
+                {
+                    label: "リュウタロス",
+                    imagin: "ryutaros"
+                }
+            ];
+        }
+
+        const names = {
+            momotaros: "モモタロス",
+            urataros: "ウラタロス",
+            kintaros: "キンタロス",
+            ryutaros: "リュウタロス"
+        };
+
+        /*
+         * イマジン本人なら、
+         * その本人の憑依項目だけ。
+         */
+        if (names[speaker]) {
+            return [
+                {
+                    label:
+                        "良太郎に憑依する",
+                    imagin:
+                        speaker
+                }
+            ];
+        }
+
+        return [];
+    }
+
+    rebuild() {
+        for (
+            const sprite of this._items
+        ) {
+            this.removeChild(sprite);
+            sprite.destroy();
+        }
+
+        this._items = [];
+
+        if (this._background) {
+            this.removeChild(
+                this._background
+            );
+
+            this._background.destroy();
+            this._background = null;
+        }
+
+        const itemData =
+            this.makeItemData();
+
+        this._menuHeight =
+            itemData.length *
+            this._itemHeight;
+
+        if (itemData.length === 0) {
+            return false;
+        }
+
+        this._background =
+            new Sprite(
+                new Bitmap(
+                    this._menuWidth,
+                    this._menuHeight
+                )
+            );
+
+        this._background.bitmap.fillRect(
+            0,
+            0,
+            this._menuWidth,
+            this._menuHeight,
+            "rgba(0, 0, 0, 0.75)"
+        );
+
+        this.addChild(
+            this._background
+        );
+
+        itemData.forEach(
+            (item, index) => {
+                const sprite =
+                    new Sprite_PossessionMenuItem(
+                        item,
+                        this,
+                        index
+                    );
+
+                this.addChild(sprite);
+                this._items.push(sprite);
+            }
+        );
+
+        /*
+         * 項目数が変わっても、
+         * 下端の位置を揃える。
+         */
+        this._baseY =
+            635 - this._menuHeight;
+
+        this.y = this._baseY;
+
+        return true;
+    }
+
+    open() {
+        if (!areButtonsEnabled()) {
+            return;
+        }
+
+        this._pendingAction = null;
+
+        if (!this.rebuild()) {
+            return;
+        }
+
+        this.visible = true;
+        this._openedThisFrame = true;
+
+        this._animationType = "open";
+        this._animationCount = 0;
+
+        this.y =
+            this._baseY + 12;
+
+        this.opacity = 0;
+    }
+
+    close() {
+        if (!this.visible) {
+            return;
+        }
+
+        this._animationType = "close";
+        this._animationCount = 0;
+    }
+
+    toggle() {
+        if (this.visible) {
+            this.close();
+        } else {
+            this.open();
+        }
+    }
+
+    isPointerInside() {
+        const x =
+            TouchInput.x - this.x;
+
+        const y =
+            TouchInput.y - this.y;
+
+        return (
+            x >= 0 &&
+            x < this._menuWidth &&
+            y >= 0 &&
+            y < this._menuHeight
+        );
+    }
+
+    updateAnimation() {
+        if (!this._animationType) {
+            return;
+        }
+
+        this._animationCount++;
+
+        const rate =
+            Math.min(
+                this._animationCount /
+                this._animationDuration,
+                1
+            );
+
+        if (
+            this._animationType ===
+            "open"
+        ) {
+            this.y =
+                this._baseY +
+                12 * (1 - rate);
+
+            this.opacity =
+                Math.floor(
+                    255 * rate
+                );
+
+            if (rate >= 1) {
+                this.y = this._baseY;
+                this.opacity = 255;
+                this._animationType = null;
+            }
+
+            return;
+        }
+
+        if (
+            this._animationType ===
+            "close"
+        ) {
+            this.y =
+                this._baseY +
+                12 * rate;
+
+            this.opacity =
+                Math.floor(
+                    255 * (1 - rate)
+                );
+
+            if (rate >= 1) {
+    this.visible = false;
+    this.opacity = 255;
+    this.y = this._baseY;
+
+    this._animationType = null;
+    this._openedThisFrame = false;
+
+    const action =
+        this._pendingAction;
+
+    this._pendingAction = null;
+
+    TouchInput.clear();
+
+    if (action) {
+        action();
+    }
+}
+        }
+    }
+
+    update() {
+        super.update();
+
+        this.updateAnimation();
+
+        if (!this.visible) {
+            return;
+        }
+
+        if (
+            !buttonsVisible ||
+            !areButtonsEnabled()
+        ) {
+            this.close();
+            return;
+        }
+
+        if (this._openedThisFrame) {
+            this._openedThisFrame = false;
+            return;
+        }
+
+        if (
+            TouchInput.isTriggered() &&
+            !this.isPointerInside()
+        ) {
+            this.close();
+            TouchInput.clear();
+        }
+    }
+}
+    /*
+ * ─────────────────────────────
+ * 憑依メニュー項目
+ * ─────────────────────────────
+ */
+
+class Sprite_PossessionMenuItem
+    extends Sprite_Clickable {
+
+    constructor(
+        item,
+        parentMenu,
+        index
+    ) {
+        super();
+
+        this._item = item;
+        this._parentMenu = parentMenu;
+        this._hovered = false;
+
+        this.bitmap =
+            new Bitmap(260, 48);
+
+        this.x = 0;
+        this.y = index * 48;
+
+        this.refresh();
+    }
+
+    refresh() {
+        this.bitmap.clear();
+
+        const background =
+            this._hovered
+                ? "rgba(70, 55, 90, 0.95)"
+                : "rgba(15, 15, 20, 0.92)";
+
+        this.bitmap.fillRect(
+            0,
+            0,
+            260,
+            46,
+            background
+        );
+
+        this.bitmap.fillRect(
+            0,
+            0,
+            260,
+            2,
+            "rgba(210, 190, 255, 0.8)"
+        );
+
+        this.bitmap.fillRect(
+            0,
+            44,
+            260,
+            2,
+            "rgba(100, 80, 140, 0.8)"
+        );
+
+        this.bitmap.fontSize = 23;
+        this.bitmap.textColor = "#ffffff";
+        this.bitmap.outlineColor =
+            "rgba(0, 0, 0, 0.9)";
+        this.bitmap.outlineWidth = 4;
+
+        this.bitmap.drawText(
+            this._item.label,
+            16,
+            0,
+            228,
+            46,
+            "left"
+        );
+    }
+
+    onMouseEnter() {
+        this._hovered = true;
+        this.refresh();
+    }
+
+    onMouseExit() {
+        this._hovered = false;
+        this.refresh();
+    }
+
+    onClick() {
+    if (
+        !this._parentMenu
+            .canSelectItem()
+    ) {
+        TouchInput.clear();
+        return;
+    }
+
+    const item =
+        this._item;
+
+    this._parentMenu
+        .closeWithAction(
+            function() {
+                if (
+                    !window.MamiDenOTalk
+                ) {
+                    return;
+                }
+
+                /*
+                 * 憑依解除。
+                 */
+                if (
+                    item.action ===
+                    "release"
+                ) {
+                    if (
+                        window.MamiDenOTalk
+                            .requestPossessionReleaseFromUi
+                    ) {
+                        window.MamiDenOTalk
+                            .requestPossessionReleaseFromUi();
+                    }
+
+                    return;
+                }
+
+                /*
+                 * 憑依開始。
+                 */
+                if (
+                    window.MamiDenOTalk
+                        .requestPossessionFromUi
+                ) {
+                    window.MamiDenOTalk
+                        .requestPossessionFromUi(
+                            item.imagin
+                        );
+                }
+            }
+        );
+}
+}
 })();

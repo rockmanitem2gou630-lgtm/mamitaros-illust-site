@@ -236,6 +236,11 @@
             "TextStartX",
             10
         );
+/*
+ * ストーリーモード中の
+ * メッセージUI下方向補正。
+ */
+let storyOffsetY = 0;
 
     const textStartY =
         numberParam(
@@ -347,7 +352,7 @@
     Window_Message.prototype.initialize = function(rect) {
         const customRect = new Rectangle(
             windowX,
-            windowY,
+            windowY + storyOffsetY,
             windowWidth,
             windowHeight
         );
@@ -372,9 +377,14 @@
      * 位置を常に固定
      */
 
-    Window_Message.prototype.updatePlacement = function() {
+    Window_Message.prototype.updatePlacement =
+    function() {
+
+        const currentWindowY =
+            windowY + storyOffsetY;
+
         this.x = windowX;
-        this.y = windowY;
+        this.y = currentWindowY;
 
         if (
             this.width !== windowWidth ||
@@ -382,7 +392,7 @@
         ) {
             this.move(
                 windowX,
-                windowY,
+                currentWindowY,
                 windowWidth,
                 windowHeight
             );
@@ -843,15 +853,18 @@ class Sprite_MamiNamePlate extends Sprite {
     }
 
     updatePosition() {
-        this.x = namePlateX;
-        this.y = namePlateY;
+    this.x = namePlateX;
 
-        this.scale.x =
-            namePlateScale;
+    this.y =
+        namePlateY +
+        storyOffsetY;
 
-        this.scale.y =
-            namePlateScale;
-    }
+    this.scale.x =
+        namePlateScale;
+
+    this.scale.y =
+        namePlateScale;
+}
 
     updateVisibility() {
         const messageWindow =
@@ -1100,7 +1113,37 @@ if (this._mamiNamePlate) {
  */
 
 window.MamiDenOMessageUI = {
+
+    /*
+     * ストーリーモード用の
+     * メッセージUI位置切替。
+     */
+    setStoryMode(enabled) {
+        storyOffsetY =
+            enabled ? 50 : 0;
+
+        const scene =
+            SceneManager._scene;
+
+        /*
+         * 表示中のメッセージウィンドウへ
+         * 即座に反映する。
+         */
+        if (
+            scene &&
+            scene._messageWindow &&
+            scene._messageWindow
+                .updatePlacement
+        ) {
+            scene._messageWindow
+                .updatePlacement();
+        }
+
+        return true;
+    },
+
     setFrameMode(mode) {
+        
     const scene =
         SceneManager._scene;
 

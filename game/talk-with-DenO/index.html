@@ -13,5 +13,61 @@
     </head>
     <body style="background-color: black">
         <script type="text/javascript" src="js/main.js"></script>
+
+<script>
+(() => {
+    "use strict";
+
+    function refreshGameSize() {
+        /*
+         * ブラウザのviewport確定後に
+         * RPGツクールMZへresizeを通知する。
+         */
+        window.dispatchEvent(
+            new Event("resize")
+        );
+    }
+
+    /*
+     * iPhoneは画面回転直後だと
+     * viewportサイズがまだ古いことがあるため、
+     * 少し時間をずらして複数回更新する。
+     */
+    window.addEventListener(
+        "orientationchange",
+        () => {
+            setTimeout(
+                refreshGameSize,
+                100
+            );
+
+            setTimeout(
+                refreshGameSize,
+                300
+            );
+
+            setTimeout(
+                refreshGameSize,
+                600
+            );
+        }
+    );
+
+    /*
+     * Safariで実際の表示領域が変わった時にも対応。
+     */
+    if (window.visualViewport) {
+        window.visualViewport.addEventListener(
+            "resize",
+            () => {
+                setTimeout(
+                    refreshGameSize,
+                    50
+                );
+            }
+        );
+    }
+})();
+</script>
     </body>
 </html>

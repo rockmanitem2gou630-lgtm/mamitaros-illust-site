@@ -519,25 +519,73 @@
       );
 
 
-      /*
-       * ─────────────────────────────
-       * 全画面ボタン
-       * ─────────────────────────────
-       */
+/*
+ * ─────────────────────────────
+ * 全画面ボタン
+ * ─────────────────────────────
+ */
 
-      fullscreenButton.addEventListener(
-        "click",
-        event => {
-          event.preventDefault();
+fullscreenButton.addEventListener(
+  "click",
+  async event => {
+    event.preventDefault();
 
-          const gameSrc =
-            gameFrame.dataset.gameSrc;
+    const gameSrc =
+      gameFrame.dataset.gameSrc;
 
-          if (gameSrc) {
-            window.location.href = gameSrc;
+    /*
+     * まだゲームを読み込んでいなければ読み込む。
+     */
+    loadGame();
+
+    /*
+     * Fullscreen APIに対応している端末なら、
+     * iframeをそのまま全画面表示する。
+     */
+    if (
+      gameFrame &&
+      typeof gameFrame.requestFullscreen === "function"
+    ) {
+      try {
+        await gameFrame.requestFullscreen();
+
+        /*
+         * 全画面化したあと、
+         * 対応端末では横向きへ固定する。
+         */
+        if (
+          screen.orientation &&
+          typeof screen.orientation.lock === "function"
+        ) {
+          try {
+            await screen.orientation.lock("landscape");
+          } catch (orientationError) {
+            console.log(
+              "横向き固定には対応していません。",
+              orientationError
+            );
           }
         }
-      );
+
+        return;
+
+      } catch (fullscreenError) {
+        console.log(
+          "全画面表示には対応していません。",
+          fullscreenError
+        );
+      }
+    }
+
+    /*
+     * Fullscreen APIが使えない端末では、
+     * 今まで通りゲームページを直接開く。
+     */
+    if (gameSrc) {
+      window.location.href = gameSrc;
+    }
+  }
+);
 
 
       /*

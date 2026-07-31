@@ -1,0 +1,9 @@
+{
+  "name": "デンライナーに行くだけ",
+  "short_name": "デンライナー",
+  "start_url": "./index.html",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#000000",
+  "theme_color": "#000000"
+}

@@ -201,20 +201,31 @@ function isStoryDebugEnabled() {
 }
 
     function areButtonsEnabled() {
-        if (!manuallyEnabled) {
-            return false;
-        }
-
-        if ($gameMessage && $gameMessage.isBusy()) {
-            return false;
-        }
-
-        if ($gameTemp && $gameTemp.isCommonEventReserved()) {
-            return false;
-        }
-
-        return true;
+    if (!manuallyEnabled) {
+        return false;
     }
+
+    if (
+        window.MamiDenOTalk &&
+        window.MamiDenOTalk.isInteractionLocked &&
+        window.MamiDenOTalk.isInteractionLocked()
+    ) {
+        return false;
+    }
+
+    if ($gameMessage && $gameMessage.isBusy()) {
+        return false;
+    }
+
+    if (
+        $gameTemp &&
+        $gameTemp.isCommonEventReserved()
+    ) {
+        return false;
+    }
+
+    return true;
+}
 
     class Sprite_DenOButton extends Sprite_Clickable {
         constructor(data) {
@@ -649,7 +660,10 @@ class Sprite_CharacterChangeMenu
 }
 
     close() {
-    if (!this.visible) {
+    if (
+        !this.visible ||
+        this._animationType === "close"
+    ) {
         return;
     }
 
@@ -1183,13 +1197,16 @@ closeWithAction(action) {
     }
 
     close() {
-        if (!this.visible) {
-            return;
-        }
-
-        this._animationType = "close";
-        this._animationCount = 0;
+    if (
+        !this.visible ||
+        this._animationType === "close"
+    ) {
+        return;
     }
+
+    this._animationType = "close";
+    this._animationCount = 0;
+}
 
     toggle() {
         if (this.visible) {

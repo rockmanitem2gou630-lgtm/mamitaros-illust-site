@@ -205,15 +205,35 @@ function isStoryDebugEnabled() {
         return false;
     }
 
+    /*
+     * Talkプラグイン側の
+     * 独自演出中も操作禁止。
+     */
     if (
         window.MamiDenOTalk &&
-        window.MamiDenOTalk.isInteractionLocked &&
-        window.MamiDenOTalk.isInteractionLocked()
+        window.MamiDenOTalk
+            .isInteractionLocked &&
+        window.MamiDenOTalk
+            .isInteractionLocked()
     ) {
         return false;
     }
 
-    if ($gameMessage && $gameMessage.isBusy()) {
+    /*
+     * コモンイベント実行中も
+     * 連続予約させない。
+     */
+    if (
+        $gameMap &&
+        $gameMap.isEventRunning()
+    ) {
+        return false;
+    }
+
+    if (
+        $gameMessage &&
+        $gameMessage.isBusy()
+    ) {
         return false;
     }
 

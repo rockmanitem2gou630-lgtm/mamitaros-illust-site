@@ -16,7 +16,7 @@
     const BUTTON = {
         image: "btn_history",
         x: 1165,
-        y: 485,
+        y: 472,
         hitWidth: 120,
         hitHeight: 70
     };

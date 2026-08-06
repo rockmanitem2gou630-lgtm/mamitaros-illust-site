@@ -47,7 +47,7 @@ const HISTORY_UI = {
     entryWidth: 860,
     entryHeight: 96,
 
-entryOpacity: 220,
+entryOpacity: 255,
 
 /*
  * 履歴全体の背面に敷く

@@ -13,5 +13,6 @@ var $plugins =
 {"name":"Mami_DenOIdleTalk","status":true,"description":"電王会話作品用・放置台詞 Ver1.0","parameters":{"FirstIdleSeconds":"30","NextIdleMinSeconds":"45","NextIdleMaxSeconds":"75","PictureId":"2","PictureX":"640","PictureY":"360","Scale":"100","DefaultExpression":"portrait_ryotaro_base_ryotaro_normal","ResetDelay":"15"}},
 {"name":"Mami_DenOHistory","status":true,"description":"電王会話作品用・会話履歴 Ver0.1","parameters":{}},
 {"name":"Mami_DenOAuto","status":true,"description":"電王会話作品用・AUTO送り Ver0.1","parameters":{}},
+{"name":"Mami_DenOHideUI","status":true,"description":"電王会話作品用・UI一時非表示 Ver0.1","parameters":{}},
 {"name":"Mami_DisableMenu","status":true,"description":"標準メニューとキャンセル操作を無効化します。","parameters":{}}
 ];

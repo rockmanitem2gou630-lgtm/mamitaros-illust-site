@@ -310,6 +310,27 @@ onClick() {
         return;
     }
 
+    /*
+     * 「話す」以外の下部ボタンを押したら、
+     * AUTOを終了する。
+     *
+     * 対象：
+     * ・憑依
+     * ・交代
+     * ・ストーリー
+     */
+    if (
+        this._buttonData.id !==
+            "talk" &&
+        window.MamiDenOAuto &&
+        typeof window.MamiDenOAuto
+            .setEnabled ===
+            "function"
+    ) {
+        window.MamiDenOAuto
+            .setEnabled(false);
+    }
+
     const scene =
         SceneManager._scene;
 
@@ -678,7 +699,16 @@ class Sprite_CharacterChangeMenu
 
     this.opacity = 0;
 }
+cancelPendingActionAndClose() {
+    /*
+     * 外部理由で閉じる場合は、
+     * 閉じたあとに実行予定だった処理を破棄する。
+     */
+    this._pendingAction = null;
+    this._openedThisFrame = false;
 
+    this.close();
+}
     close() {
     if (
         !this.visible ||
@@ -1026,7 +1056,16 @@ closeWithAction(action) {
 
     this.close();
 }
+cancelPendingActionAndClose() {
+    /*
+     * 外部理由で閉じる場合は、
+     * 閉じたあとに実行予定だった処理を破棄する。
+     */
+    this._pendingAction = null;
+    this._openedThisFrame = false;
 
+    this.close();
+}
     makeItemData() {
         if (
             !window.MamiDenOTalk ||
@@ -1530,19 +1569,43 @@ window.MamiDenOUI.hideButtons =
          * 開いているサブメニューも閉じる。
          */
         if (
-            scene._characterChangeMenu
-        ) {
-            scene._characterChangeMenu
-                .close();
-        }
+    scene._characterChangeMenu
+) {
+    if (
+        typeof scene
+            ._characterChangeMenu
+            .cancelPendingActionAndClose ===
+            "function"
+    ) {
+        scene._characterChangeMenu
+            .cancelPendingActionAndClose();
+    } else {
+        scene._characterChangeMenu
+            .close();
+    }
+}
 
-        if (
-            scene._possessionMenu
-        ) {
-            scene._possessionMenu
-                .close();
-        }
+if (
+    scene._possessionMenu
+) {
+    if (
+        typeof scene
+            ._possessionMenu
+            .cancelPendingActionAndClose ===
+            "function"
+    ) {
+        scene._possessionMenu
+            .cancelPendingActionAndClose();
+    } else {
+        scene._possessionMenu
+            .close();
+    }
+}
+
+TouchInput.clear();
+Input.clear();
     };
+
 
 /*
  * 通常ボタンの表示状態を取得。

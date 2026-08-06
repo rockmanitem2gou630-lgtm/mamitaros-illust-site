@@ -181,6 +181,22 @@ const NAME_PLATE_FILES = {
 };
 
 let currentSpeakerIdForUi = "";
+/*
+ * 履歴を開く前の
+ * 通常UI表示状態を保存する。
+ */
+/*
+ * 履歴を開く前のUI状態。
+ *
+ * nullはまだ保存していない状態。
+ */
+let savedNormalButtonsVisible = null;
+let savedRandomButtonVisible = null;
+
+/*
+ * 二重に保存・復元しないための印。
+ */
+let controlsHiddenForHistory = false;
 function setBehindTalkUiVisible(visible) {
     const scene =
         SceneManager._scene;
@@ -252,9 +268,139 @@ function setBehindTalkUiVisible(visible) {
     }
 }
 /*
- * 履歴の末尾にある、
- * 最後の発言を取得する。
- *
+ * ─────────────────────────────
+ * 履歴表示中の操作UI
+ * ─────────────────────────────
+ */
+function hideControlUiForHistory() {
+    /*
+     * 二重実行すると、すでに隠れた状態を
+     * 「元の状態」として保存してしまうので防ぐ。
+     */
+    if (controlsHiddenForHistory) {
+        return;
+    }
+
+    controlsHiddenForHistory = true;
+
+    /*
+     * 下の4ボタン。
+     */
+    const denOUi =
+        window.MamiDenOUI;
+
+    if (
+        denOUi &&
+        typeof denOUi
+            .areButtonsVisible ===
+            "function"
+    ) {
+        savedNormalButtonsVisible =
+            denOUi
+                .areButtonsVisible();
+    } else {
+        savedNormalButtonsVisible =
+            true;
+    }
+
+    if (
+        denOUi &&
+        typeof denOUi
+            .hideButtons ===
+            "function"
+    ) {
+        denOUi.hideButtons();
+    }
+
+    /*
+     * 左上の憑依乱入許可ボタン。
+     */
+    const scene =
+        SceneManager._scene;
+
+    const randomButton =
+        scene
+            ? scene
+                ._randomPossessionButton
+            : null;
+
+    if (randomButton) {
+        savedRandomButtonVisible =
+            randomButton.visible;
+
+        randomButton.visible =
+            false;
+    } else {
+        savedRandomButtonVisible =
+            null;
+    }
+}
+
+function restoreControlUiAfterHistory() {
+    if (!controlsHiddenForHistory) {
+        return;
+    }
+
+    /*
+     * 下の4ボタンを元の状態へ戻す。
+     */
+    const denOUi =
+        window.MamiDenOUI;
+
+    if (denOUi) {
+        if (
+            savedNormalButtonsVisible ===
+                true &&
+            typeof denOUi
+                .showButtons ===
+                "function"
+        ) {
+            denOUi.showButtons();
+        } else if (
+            savedNormalButtonsVisible ===
+                false &&
+            typeof denOUi
+                .hideButtons ===
+                "function"
+        ) {
+            denOUi.hideButtons();
+        }
+    }
+
+    /*
+     * 左上の憑依乱入許可ボタンを戻す。
+     */
+    const scene =
+        SceneManager._scene;
+
+    const randomButton =
+        scene
+            ? scene
+                ._randomPossessionButton
+            : null;
+
+    if (
+        randomButton &&
+        savedRandomButtonVisible !==
+            null
+    ) {
+        randomButton.visible =
+            savedRandomButtonVisible;
+    }
+
+    /*
+     * 次回のために初期化。
+     */
+    savedNormalButtonsVisible =
+        null;
+
+    savedRandomButtonVisible =
+        null;
+
+    controlsHiddenForHistory =
+        false;
+}
+/*
  * 区切り用の空白は無視する。
  */
 function getLastHistoryMessage() {
@@ -709,7 +855,10 @@ class Window_DialogueHistory
              * 非表示にする既存処理。
              */
             setBehindTalkUiVisible(false);
-
+            /*
+             * 左上と下部の操作UIを隠す。
+             */
+            hideControlUiForHistory();
             /*
              * 履歴用の大枠画像を表示。
              */
@@ -749,46 +898,46 @@ class Window_DialogueHistory
 
         }
 
-        closeHistory() {
-            this._historyOpen =
-                false;
+closeHistory() {
+    this._historyOpen =
+        false;
 
-            /*
-             * 後ろの会話UIを戻す。
-             */
-            setBehindTalkUiVisible(true);
+    setBehindTalkUiVisible(true);
 
-            /*
-             * 履歴用の大枠画像を消す。
-             */
-            const scene =
-                SceneManager._scene;
-        
-            if (
-                scene &&
-                scene._dialogueHistoryFrame
-            ) {
-                        scene
-                    ._dialogueHistoryFrame
-                    .visible = false;
-            }
+    const scene =
+        SceneManager._scene;
 
-            if (
-                scene &&
-                scene._dialogueHistoryPanel
-            ) {
-                scene
-                    ._dialogueHistoryPanel
-                    .visible = false;
-            }              
+    if (
+        scene &&
+        scene._dialogueHistoryFrame
+    ) {
+        scene
+            ._dialogueHistoryFrame
+            .visible = false;
+    }
 
-            this.deactivate();
-            this.close();
-            this.hide();
+    if (
+        scene &&
+        scene._dialogueHistoryPanel
+    ) {
+        scene
+            ._dialogueHistoryPanel
+            .visible = false;
+    }
 
-            TouchInput.clear();
-            Input.clear();
-        }
+    this.deactivate();
+    this.close();
+    this.hide();
+
+    /*
+     * 履歴側を全部消したあとで、
+     * 通常UIを復元する。
+     */
+    restoreControlUiAfterHistory();
+
+    TouchInput.clear();
+    Input.clear();
+}
 
 drawItem(index) {
     const page =

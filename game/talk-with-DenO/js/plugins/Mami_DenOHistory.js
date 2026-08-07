@@ -148,7 +148,15 @@ function getSpeakerNameColor(
 
         return NAMES[id] || id;
     }
-
+/*
+ * 履歴の通常本文色。
+ *
+ * ColorManager.normalColor()には頼らず、
+ * スマホで長時間動作しても変化しない
+ * 固定色を使用する。
+ */
+const NORMAL_HISTORY_TEXT_COLOR =
+    "#f2f2f2";
     /*
  * 履歴内の実際の発言数を数える。
  *
@@ -1100,13 +1108,18 @@ drawItem(index) {
     this.contents.outlineWidth =
         2;
 
-    this.changeTextColor(
-        page.innerVoice
-            ? INNER_VOICE_TEXT_COLOR
-            : ColorManager
-                .normalColor()
-    );
+/*
+ * 長時間動作時も本文色が
+ * ウィンドウスキンの状態に左右されないよう、
+ * 履歴専用の固定色を使う。
+ */
+this.contents.paintOpacity = 255;
 
+this.changeTextColor(
+    page.innerVoice
+        ? INNER_VOICE_TEXT_COLOR
+        : NORMAL_HISTORY_TEXT_COLOR
+);
     const lines =
         String(
             page.text || ""

@@ -156,7 +156,53 @@ const CHARACTER_CHANGE_ITEMS = [
             "portrait_ryutaros_base_default_normal"
     }
 ];
+const MENU_UI = {
+    panelImage: "menu_console_panel",
 
+    possessionItemImage:
+        "menu_item_possess",
+    possessionItemHoverImage:
+        "menu_item_possess_hover",
+
+    characterChangeItemImage:
+        "menu_item_change",
+    characterChangeItemHoverImage:
+        "menu_item_change_hover",
+
+    /*
+     * 現在の余白調整値。
+     * Xは負数でもOK。
+     */
+    panelPaddingX: -5,
+    panelPaddingY: 5,
+
+    /*
+     * タップ判定は広いまま、
+     * ボタン画像だけ少し内側へ収める。
+     */
+    itemWidth: 280,
+    itemHeight: 54,
+    itemGap: 6,
+    itemVisualInsetX: 12,
+    itemVisualInsetY: 3,
+
+    panelSliceX: 26,
+    panelSliceY: 26,
+
+    textLeft: 40,
+    textRight: 30,
+    fontSize: 22
+};
+
+const POSSESSION_MENU_COLORS = {
+    normal: "#ff6a6a",
+    hover: "#ffc0c0"
+};
+
+const CHARACTER_CHANGE_MENU_COLORS = {
+    normal: "#ffd95a",
+    hover: "#fff0a8"
+};
     let manuallyEnabled = true;
     let buttonsVisible = true;
     /*
@@ -246,7 +292,323 @@ function isStoryDebugEnabled() {
 
     return true;
 }
+function calcMenuHeight(itemCount) {
+    if (itemCount <= 0) {
+        return 0;
+    }
 
+    return (
+        MENU_UI.panelPaddingY * 2 +
+        itemCount * MENU_UI.itemHeight +
+        (itemCount - 1) * MENU_UI.itemGap
+    );
+}
+
+function calcMenuItemY(index) {
+    return (
+        MENU_UI.panelPaddingY +
+        index * (
+            MENU_UI.itemHeight +
+            MENU_UI.itemGap
+        )
+    );
+}
+
+/*
+ * 画像を指定サイズへ合わせる。
+ *
+ * 子スプライトだけを拡大縮小するため、
+ * 文字やタップ判定は元サイズのまま保てる。
+ */
+function fitSpriteToSize(
+    sprite,
+    width,
+    height
+) {
+    if (!sprite || !sprite.bitmap) {
+        return;
+    }
+
+    const applyScale = function() {
+        if (
+            sprite.bitmap.width <= 0 ||
+            sprite.bitmap.height <= 0
+        ) {
+            return;
+        }
+
+        sprite.scale.x =
+            width / sprite.bitmap.width;
+
+        sprite.scale.y =
+            height / sprite.bitmap.height;
+    };
+
+    if (sprite.bitmap.isReady()) {
+        applyScale();
+    } else {
+        sprite.bitmap.addLoadListener(
+            applyScale
+        );
+    }
+}
+
+/*
+ * 背景パネルを9分割で描画する。
+ *
+ * 項目が1個でも5個でも、
+ * 四隅とフレームの太さを保ったまま
+ * 中央部分だけ伸縮する。
+ */
+function createNineSlicePanel(
+    imageName,
+    width,
+    height
+) {
+    const output =
+        new Bitmap(
+            width,
+            height
+        );
+
+    const sprite =
+        new Sprite(output);
+
+    const source =
+        ImageManager.loadPicture(
+            imageName
+        );
+
+    const redraw = function() {
+        output.clear();
+
+        const sourceWidth =
+            source.width;
+
+        const sourceHeight =
+            source.height;
+
+        if (
+            sourceWidth <= 0 ||
+            sourceHeight <= 0
+        ) {
+            return;
+        }
+
+        const sourceLeft =
+            Math.max(
+                1,
+                Math.floor(
+                    sourceWidth * 0.16
+                )
+            );
+
+        const sourceRight =
+            sourceLeft;
+
+        const sourceTop =
+            Math.max(
+                1,
+                Math.floor(
+                    sourceHeight * 0.12
+                )
+            );
+
+        const sourceBottom =
+            sourceTop;
+
+        const targetLeft =
+            Math.min(
+                MENU_UI.panelSliceX,
+                Math.floor(width / 2)
+            );
+
+        const targetRight =
+            targetLeft;
+
+        const targetTop =
+            Math.min(
+                MENU_UI.panelSliceY,
+                Math.floor(height / 2)
+            );
+
+        const targetBottom =
+            targetTop;
+
+        const sourceCenterWidth =
+            Math.max(
+                1,
+                sourceWidth -
+                    sourceLeft -
+                    sourceRight
+            );
+
+        const sourceCenterHeight =
+            Math.max(
+                1,
+                sourceHeight -
+                    sourceTop -
+                    sourceBottom
+            );
+
+        const targetCenterWidth =
+            Math.max(
+                1,
+                width -
+                    targetLeft -
+                    targetRight
+            );
+
+        const targetCenterHeight =
+            Math.max(
+                1,
+                height -
+                    targetTop -
+                    targetBottom
+            );
+
+        const blt = function(
+            sx,
+            sy,
+            sw,
+            sh,
+            dx,
+            dy,
+            dw,
+            dh
+        ) {
+            output.blt(
+                source,
+                sx,
+                sy,
+                sw,
+                sh,
+                dx,
+                dy,
+                dw,
+                dh
+            );
+        };
+
+        /*
+         * 上段。
+         */
+        blt(
+            0,
+            0,
+            sourceLeft,
+            sourceTop,
+            0,
+            0,
+            targetLeft,
+            targetTop
+        );
+
+        blt(
+            sourceLeft,
+            0,
+            sourceCenterWidth,
+            sourceTop,
+            targetLeft,
+            0,
+            targetCenterWidth,
+            targetTop
+        );
+
+        blt(
+            sourceWidth - sourceRight,
+            0,
+            sourceRight,
+            sourceTop,
+            width - targetRight,
+            0,
+            targetRight,
+            targetTop
+        );
+
+        /*
+         * 中段。
+         */
+        blt(
+            0,
+            sourceTop,
+            sourceLeft,
+            sourceCenterHeight,
+            0,
+            targetTop,
+            targetLeft,
+            targetCenterHeight
+        );
+
+        blt(
+            sourceLeft,
+            sourceTop,
+            sourceCenterWidth,
+            sourceCenterHeight,
+            targetLeft,
+            targetTop,
+            targetCenterWidth,
+            targetCenterHeight
+        );
+
+        blt(
+            sourceWidth - sourceRight,
+            sourceTop,
+            sourceRight,
+            sourceCenterHeight,
+            width - targetRight,
+            targetTop,
+            targetRight,
+            targetCenterHeight
+        );
+
+        /*
+         * 下段。
+         */
+        blt(
+            0,
+            sourceHeight - sourceBottom,
+            sourceLeft,
+            sourceBottom,
+            0,
+            height - targetBottom,
+            targetLeft,
+            targetBottom
+        );
+
+        blt(
+            sourceLeft,
+            sourceHeight - sourceBottom,
+            sourceCenterWidth,
+            sourceBottom,
+            targetLeft,
+            height - targetBottom,
+            targetCenterWidth,
+            targetBottom
+        );
+
+        blt(
+            sourceWidth - sourceRight,
+            sourceHeight - sourceBottom,
+            sourceRight,
+            sourceBottom,
+            width - targetRight,
+            height - targetBottom,
+            targetRight,
+            targetBottom
+        );
+    };
+
+    if (source.isReady()) {
+        redraw();
+    } else {
+        source.addLoadListener(
+            redraw
+        );
+    }
+
+    return sprite;
+}
     class Sprite_DenOButton extends Sprite_Clickable {
         constructor(data) {
             super();
@@ -493,64 +855,151 @@ class Sprite_CharacterChangeItem
         this._parentMenu = parentMenu;
         this._hovered = false;
 
-        this.bitmap =
-            new Bitmap(260, 48);
+        this.x =
+            MENU_UI.panelPaddingX;
 
-        this.x = 0;
-        this.y = index * 48;
+        this.y =
+            calcMenuItemY(index);
+
+        /*
+         * 通常画像とホバー画像を両方保持。
+         */
+        this._normalBitmap =
+            ImageManager.loadPicture(
+                MENU_UI
+                    .characterChangeItemImage
+            );
+
+        this._hoverBitmap =
+            ImageManager.loadPicture(
+                MENU_UI
+                    .characterChangeItemHoverImage
+            );
+
+        /*
+         * 画像部分。
+         */
+        this._background =
+            new Sprite(
+                this._normalBitmap
+            );
+
+        this._background.x =
+            MENU_UI.itemVisualInsetX;
+
+        this._background.y =
+            MENU_UI.itemVisualInsetY;
+
+        this.updateBackgroundBitmap();
+
+        this.addChild(
+            this._background
+        );
+
+        /*
+         * 文字部分。
+         */
+        this._overlay =
+            new Sprite(
+                new Bitmap(
+                    MENU_UI.itemWidth,
+                    MENU_UI.itemHeight
+                )
+            );
+
+        this.addChild(
+            this._overlay
+        );
 
         this.refresh();
     }
 
-    refresh() {
-        this.bitmap.clear();
+    hitTest(
+        x,
+        y
+    ) {
+        return (
+            x >= 0 &&
+            y >= 0 &&
+            x < MENU_UI.itemWidth &&
+            y < MENU_UI.itemHeight
+        );
+    }
 
-        const background =
+    updateBackgroundBitmap() {
+        this._background.bitmap =
             this._hovered
-                ? "rgba(70, 55, 90, 0.95)"
-                : "rgba(15, 15, 20, 0.92)";
+                ? this._hoverBitmap
+                : this._normalBitmap;
 
-        this.bitmap.fillRect(
+        fitSpriteToSize(
+            this._background,
+            MENU_UI.itemWidth -
+                MENU_UI.itemVisualInsetX * 2,
+            MENU_UI.itemHeight -
+                MENU_UI.itemVisualInsetY * 2
+        );
+    }
+
+    refresh() {
+        this.updateBackgroundBitmap();
+
+        const overlay =
+            this._overlay.bitmap;
+
+        overlay.clear();
+
+        const accentColor =
+            this._hovered
+                ? this._parentMenu
+                    .getHoverAccentColor()
+                : this._parentMenu
+                    .getAccentColor();
+
+        overlay.fontSize =
+            MENU_UI.fontSize;
+
+        overlay.textColor =
+            "#ffffff";
+
+        overlay.outlineColor =
+            "rgba(0, 0, 0, 0.95)";
+
+        overlay.outlineWidth = 4;
+
+        overlay.drawText(
+            this._item.label,
+            MENU_UI.textLeft,
             0,
-            0,
-            260,
-            46,
-            background
+            MENU_UI.itemWidth -
+                MENU_UI.textLeft -
+                MENU_UI.textRight,
+            MENU_UI.itemHeight,
+            "left"
         );
 
         /*
-         * 上下の境界線。
+         * 右端の小さな選択マーク。
          */
-        this.bitmap.fillRect(
+        overlay.fontSize = 20;
+        overlay.textColor =
+            accentColor;
+        overlay.outlineWidth = 3;
+
+        overlay.drawText(
+            "＞",
+            MENU_UI.itemWidth - 50,
             0,
-            0,
-            260,
-            2,
-            "rgba(210, 190, 255, 0.8)"
+            18,
+            MENU_UI.itemHeight,
+            "center"
         );
 
-        this.bitmap.fillRect(
-            0,
-            44,
-            260,
-            2,
-            "rgba(100, 80, 140, 0.8)"
-        );
-
-        this.bitmap.fontSize = 23;
-        this.bitmap.textColor = "#ffffff";
-        this.bitmap.outlineColor =
-            "rgba(0, 0, 0, 0.9)";
-        this.bitmap.outlineWidth = 4;
-
-        this.bitmap.drawText(
-            this._item.label,
-            16,
-            0,
-            228,
-            46,
-            "left"
-        );
+        /*
+         * 画像側で通常/ホバー差を出すので、
+         * 不透明度は固定。
+         */
+        this._background.opacity = 255;
     }
 
     onMouseEnter() {
@@ -564,40 +1013,36 @@ class Sprite_CharacterChangeItem
     }
 
     onClick() {
-    if (
-        !this._parentMenu
-            .canSelectItem()
-    ) {
-        TouchInput.clear();
-        return;
-    }
+        if (
+            !this._parentMenu
+                .canSelectItem()
+        ) {
+            TouchInput.clear();
+            return;
+        }
 
-    const item =
-        this._item;
+        const item =
+            this._item;
 
-    /*
-     * 会話処理はまだ呼ばず、
-     * 閉じアニメ終了後に実行する。
-     */
-    this._parentMenu
-        .closeWithAction(
-            function() {
-                if (
-                    !window.MamiDenOTalk ||
-                    !window.MamiDenOTalk
-                        .changeMainCharacter
-                ) {
-                    return;
+        this._parentMenu
+            .closeWithAction(
+                function() {
+                    if (
+                        !window.MamiDenOTalk ||
+                        !window.MamiDenOTalk
+                            .changeMainCharacter
+                    ) {
+                        return;
+                    }
+
+                    window.MamiDenOTalk
+                        .changeMainCharacter(
+                            item.speaker,
+                            item.expression
+                        );
                 }
-
-                window.MamiDenOTalk
-                    .changeMainCharacter(
-                        item.speaker,
-                        item.expression
-                    );
-            }
-        );
-}
+            );
+    }
 }
 /*
  * ─────────────────────────────
@@ -611,24 +1056,48 @@ class Sprite_CharacterChangeMenu
     constructor() {
         super();
 
+        this._menuWidth =
+            MENU_UI.itemWidth +
+            MENU_UI.panelPaddingX * 2;
+
+        this._menuHeight =
+            calcMenuHeight(
+                CHARACTER_CHANGE_ITEMS.length
+            );
+
+        const buttonData =
+            BUTTON_DATA.find(
+                data =>
+                    data.id ===
+                    "characterChange"
+            );
+
+        const centerX =
+            buttonData
+                ? buttonData.x
+                : 760;
+
+        this.x =
+            Math.round(
+                centerX -
+                this._menuWidth / 2
+            );
+
         /*
-         * 右下の交代ボタンから
-         * 上へ伸びる位置。
+         * 下端を下ボタンの少し上へ揃える。
          */
-        this.x = 635;
-        this._baseY = 395;
-        this.y = this._baseY;
+        this._baseY =
+            635 -
+            this._menuHeight;
+
+        this.y =
+            this._baseY;
 
         this._animationDuration = 6;
         this._animationCount = 0;
         this._animationType = null;
 
         this._pendingAction = null;
-
-        this._menuWidth = 260;
-        this._menuHeight =
-            CHARACTER_CHANGE_ITEMS.length *
-            48;
 
         this.visible = false;
         this._openedThisFrame = false;
@@ -639,20 +1108,11 @@ class Sprite_CharacterChangeMenu
 
     createBackground() {
         this._background =
-            new Sprite(
-                new Bitmap(
-                    this._menuWidth,
-                    this._menuHeight
-                )
+            createNineSlicePanel(
+                MENU_UI.panelImage,
+                this._menuWidth,
+                this._menuHeight
             );
-
-        this._background.bitmap.fillRect(
-            0,
-            0,
-            this._menuWidth,
-            this._menuHeight,
-            "rgba(0, 0, 0, 0.75)"
-        );
 
         this.addChild(
             this._background
@@ -664,7 +1124,10 @@ class Sprite_CharacterChangeMenu
 
         CHARACTER_CHANGE_ITEMS
             .forEach(
-                (item, index) => {
+                (
+                    item,
+                    index
+                ) => {
                     const sprite =
                         new Sprite_CharacterChangeItem(
                             item,
@@ -679,66 +1142,65 @@ class Sprite_CharacterChangeMenu
     }
 
     open() {
-    if (!areButtonsEnabled()) {
-        return;
+        if (!areButtonsEnabled()) {
+            return;
+        }
+
+        this._pendingAction = null;
+
+        this.visible = true;
+        this._openedThisFrame = true;
+
+        this._animationType = "open";
+        this._animationCount = 0;
+
+        this.y =
+            this._baseY + 12;
+
+        this.opacity = 0;
     }
 
-    this._pendingAction = null;
+    cancelPendingActionAndClose() {
+        this._pendingAction = null;
+        this._openedThisFrame = false;
 
-    this.visible = true;
-    this._openedThisFrame = true;
+        this.close();
+    }
 
-    this._animationType = "open";
-    this._animationCount = 0;
-
-    /*
-     * 少し下から開始。
-     */
-    this.y =
-        this._baseY + 12;
-
-    this.opacity = 0;
-}
-cancelPendingActionAndClose() {
-    /*
-     * 外部理由で閉じる場合は、
-     * 閉じたあとに実行予定だった処理を破棄する。
-     */
-    this._pendingAction = null;
-    this._openedThisFrame = false;
-
-    this.close();
-}
     close() {
-    if (
-        !this.visible ||
-        this._animationType === "close"
-    ) {
-        return;
+        if (
+            !this.visible ||
+            this._animationType ===
+                "close"
+        ) {
+            return;
+        }
+
+        this._animationType = "close";
+        this._animationCount = 0;
     }
 
-    this._animationType = "close";
-    this._animationCount = 0;
-}
-canSelectItem() {
-    return (
-        this.visible &&
-        this._animationType !== "close" &&
-        !this._pendingAction
-    );
-}
-
-closeWithAction(action) {
-    if (!this.canSelectItem()) {
-        return;
+    canSelectItem() {
+        return (
+            this.visible &&
+            this._animationType !==
+                "close" &&
+            !this._pendingAction
+        );
     }
 
-    this._pendingAction = action;
+    closeWithAction(action) {
+        if (!this.canSelectItem()) {
+            return;
+        }
 
-    TouchInput.clear();
+        this._pendingAction =
+            action;
 
-    this.close();
-}
+        TouchInput.clear();
+
+        this.close();
+    }
 
     toggle() {
         if (this.visible) {
@@ -746,6 +1208,20 @@ closeWithAction(action) {
         } else {
             this.open();
         }
+    }
+
+    getAccentColor() {
+        return (
+            CHARACTER_CHANGE_MENU_COLORS
+                .normal
+        );
+    }
+
+    getHoverAccentColor() {
+        return (
+            CHARACTER_CHANGE_MENU_COLORS
+                .hover
+        );
     }
 
     isPointerInside() {
@@ -772,9 +1248,6 @@ closeWithAction(action) {
             return;
         }
 
-        /*
-         * UI全体が無効になったら閉じる。
-         */
         if (
             !buttonsVisible ||
             !areButtonsEnabled()
@@ -783,18 +1256,11 @@ closeWithAction(action) {
             return;
         }
 
-        /*
-         * 開いたフレームでは
-         * 外クリック判定を行わない。
-         */
         if (this._openedThisFrame) {
             this._openedThisFrame = false;
             return;
         }
 
-        /*
-         * メニュー外クリックで閉じる。
-         */
         if (
             TouchInput.isTriggered() &&
             !this.isPointerInside()
@@ -803,90 +1269,82 @@ closeWithAction(action) {
             TouchInput.clear();
         }
     }
+
     updateAnimation() {
-    if (!this._animationType) {
-        return;
-    }
-
-    this._animationCount++;
-
-    const rate =
-        Math.min(
-            this._animationCount /
-            this._animationDuration,
-            1
-        );
-
-    if (
-        this._animationType ===
-        "open"
-    ) {
-        /*
-         * 下から上へ。
-         */
-        this.y =
-            this._baseY +
-            12 * (1 - rate);
-
-        this.opacity =
-            Math.floor(
-                255 * rate
-            );
-
-        if (rate >= 1) {
-            this.y =
-                this._baseY;
-
-            this.opacity = 255;
-            this._animationType = null;
+        if (!this._animationType) {
+            return;
         }
 
-        return;
-    }
+        this._animationCount++;
 
-    if (
-        this._animationType ===
-        "close"
-    ) {
-        /*
-         * 上から下へ。
-         */
-        this.y =
-            this._baseY +
-            12 * rate;
-
-        this.opacity =
-            Math.floor(
-                255 * (1 - rate)
+        const rate =
+            Math.min(
+                this._animationCount /
+                    this._animationDuration,
+                1
             );
 
-        if (rate >= 1) {
-    this.visible = false;
-    this.opacity = 255;
-    this.y =
-        this._baseY;
+        if (
+            this._animationType ===
+            "open"
+        ) {
+            this.y =
+                this._baseY +
+                12 * (1 - rate);
 
-    this._animationType = null;
-    this._openedThisFrame = false;
+            this.opacity =
+                Math.floor(
+                    255 * rate
+                );
 
-    /*
-     * 完全に閉じてから、
-     * 予約されていた会話を開始。
-     */
-    const action =
-        this._pendingAction;
+            if (rate >= 1) {
+                this.y =
+                    this._baseY;
 
-    this._pendingAction = null;
+                this.opacity = 255;
+                this._animationType = null;
+            }
 
-    TouchInput.clear();
+            return;
+        }
 
-    if (action) {
-        action();
+        if (
+            this._animationType ===
+            "close"
+        ) {
+            this.y =
+                this._baseY +
+                12 * rate;
+
+            this.opacity =
+                Math.floor(
+                    255 * (1 - rate)
+                );
+
+            if (rate >= 1) {
+                this.visible = false;
+                this.opacity = 255;
+                this.y =
+                    this._baseY;
+
+                this._animationType = null;
+                this._openedThisFrame = false;
+
+                const action =
+                    this._pendingAction;
+
+                this._pendingAction = null;
+
+                TouchInput.clear();
+
+                if (action) {
+                    action();
+                }
+            }
+        }
     }
 }
-    }
-}
-}
+
     function createDenOButtons(scene) {
         if (!scene._spriteset) {
             return;
@@ -957,6 +1415,26 @@ for (const data of BUTTON_DATA) {
         for (const data of BUTTON_DATA) {
             ImageManager.loadPicture(data.image);
         }
+
+        ImageManager.loadPicture(
+            MENU_UI.panelImage
+        );
+
+        ImageManager.loadPicture(
+            MENU_UI.possessionItemImage
+        );
+
+        ImageManager.loadPicture(
+            MENU_UI.possessionItemHoverImage
+        );
+
+        ImageManager.loadPicture(
+            MENU_UI.characterChangeItemImage
+        );
+
+        ImageManager.loadPicture(
+            MENU_UI.characterChangeItemHoverImage
+        );
     };
 
     /*
@@ -1013,18 +1491,32 @@ class Sprite_PossessionMenu
     constructor() {
         super();
 
-        /*
-         * 憑依ボタンの上。
-         *
-         * 交代メニューと同じ高さ。
-         */
-        this.x = 390;
+        this._menuWidth =
+            MENU_UI.itemWidth +
+            MENU_UI.panelPaddingX * 2;
+
+        const buttonData =
+            BUTTON_DATA.find(
+                data =>
+                    data.id ===
+                    "possess"
+            );
+
+        const centerX =
+            buttonData
+                ? buttonData.x
+                : 520;
+
+        this.x =
+            Math.round(
+                centerX -
+                this._menuWidth / 2
+            );
 
         this._baseY = 395;
         this.y = this._baseY;
 
-        this._menuWidth = 260;
-        this._itemHeight = 48;
+        this._menuHeight = 0;
 
         this._animationDuration = 6;
         this._animationCount = 0;
@@ -1037,35 +1529,36 @@ class Sprite_PossessionMenu
 
         this.visible = false;
     }
-    canSelectItem() {
-    return (
-        this.visible &&
-        this._animationType !== "close" &&
-        !this._pendingAction
-    );
-}
 
-closeWithAction(action) {
-    if (!this.canSelectItem()) {
-        return;
+    canSelectItem() {
+        return (
+            this.visible &&
+            this._animationType !==
+                "close" &&
+            !this._pendingAction
+        );
     }
 
-    this._pendingAction = action;
+    closeWithAction(action) {
+        if (!this.canSelectItem()) {
+            return;
+        }
 
-    TouchInput.clear();
+        this._pendingAction =
+            action;
 
-    this.close();
-}
-cancelPendingActionAndClose() {
-    /*
-     * 外部理由で閉じる場合は、
-     * 閉じたあとに実行予定だった処理を破棄する。
-     */
-    this._pendingAction = null;
-    this._openedThisFrame = false;
+        TouchInput.clear();
 
-    this.close();
-}
+        this.close();
+    }
+
+    cancelPendingActionAndClose() {
+        this._pendingAction = null;
+        this._openedThisFrame = false;
+
+        this.close();
+    }
+
     makeItemData() {
         if (
             !window.MamiDenOTalk ||
@@ -1140,7 +1633,7 @@ cancelPendingActionAndClose() {
 
         /*
          * イマジン本人なら、
-         * その本人の憑依項目だけ。
+         * 本人の憑依項目だけ。
          */
         if (names[speaker]) {
             return [
@@ -1178,36 +1671,31 @@ cancelPendingActionAndClose() {
         const itemData =
             this.makeItemData();
 
-        this._menuHeight =
-            itemData.length *
-            this._itemHeight;
-
         if (itemData.length === 0) {
             return false;
         }
 
-        this._background =
-            new Sprite(
-                new Bitmap(
-                    this._menuWidth,
-                    this._menuHeight
-                )
+        this._menuHeight =
+            calcMenuHeight(
+                itemData.length
             );
 
-        this._background.bitmap.fillRect(
-            0,
-            0,
-            this._menuWidth,
-            this._menuHeight,
-            "rgba(0, 0, 0, 0.75)"
-        );
+        this._background =
+            createNineSlicePanel(
+                MENU_UI.panelImage,
+                this._menuWidth,
+                this._menuHeight
+            );
 
         this.addChild(
             this._background
         );
 
         itemData.forEach(
-            (item, index) => {
+            (
+                item,
+                index
+            ) => {
                 const sprite =
                     new Sprite_PossessionMenuItem(
                         item,
@@ -1225,9 +1713,11 @@ cancelPendingActionAndClose() {
          * 下端の位置を揃える。
          */
         this._baseY =
-            635 - this._menuHeight;
+            635 -
+            this._menuHeight;
 
-        this.y = this._baseY;
+        this.y =
+            this._baseY;
 
         return true;
     }
@@ -1256,16 +1746,17 @@ cancelPendingActionAndClose() {
     }
 
     close() {
-    if (
-        !this.visible ||
-        this._animationType === "close"
-    ) {
-        return;
-    }
+        if (
+            !this.visible ||
+            this._animationType ===
+                "close"
+        ) {
+            return;
+        }
 
-    this._animationType = "close";
-    this._animationCount = 0;
-}
+        this._animationType = "close";
+        this._animationCount = 0;
+    }
 
     toggle() {
         if (this.visible) {
@@ -1273,6 +1764,20 @@ cancelPendingActionAndClose() {
         } else {
             this.open();
         }
+    }
+
+    getAccentColor() {
+        return (
+            POSSESSION_MENU_COLORS
+                .normal
+        );
+    }
+
+    getHoverAccentColor() {
+        return (
+            POSSESSION_MENU_COLORS
+                .hover
+        );
     }
 
     isPointerInside() {
@@ -1300,7 +1805,7 @@ cancelPendingActionAndClose() {
         const rate =
             Math.min(
                 this._animationCount /
-                this._animationDuration,
+                    this._animationDuration,
                 1
             );
 
@@ -1318,7 +1823,9 @@ cancelPendingActionAndClose() {
                 );
 
             if (rate >= 1) {
-                this.y = this._baseY;
+                this.y =
+                    this._baseY;
+
                 this.opacity = 255;
                 this._animationType = null;
             }
@@ -1340,24 +1847,25 @@ cancelPendingActionAndClose() {
                 );
 
             if (rate >= 1) {
-    this.visible = false;
-    this.opacity = 255;
-    this.y = this._baseY;
+                this.visible = false;
+                this.opacity = 255;
+                this.y =
+                    this._baseY;
 
-    this._animationType = null;
-    this._openedThisFrame = false;
+                this._animationType = null;
+                this._openedThisFrame = false;
 
-    const action =
-        this._pendingAction;
+                const action =
+                    this._pendingAction;
 
-    this._pendingAction = null;
+                this._pendingAction = null;
 
-    TouchInput.clear();
+                TouchInput.clear();
 
-    if (action) {
-        action();
-    }
-}
+                if (action) {
+                    action();
+                }
+            }
         }
     }
 
@@ -1412,61 +1920,151 @@ class Sprite_PossessionMenuItem
         this._parentMenu = parentMenu;
         this._hovered = false;
 
-        this.bitmap =
-            new Bitmap(260, 48);
+        this.x =
+            MENU_UI.panelPaddingX;
 
-        this.x = 0;
-        this.y = index * 48;
+        this.y =
+            calcMenuItemY(index);
+
+        /*
+         * 通常画像とホバー画像を両方保持。
+         */
+        this._normalBitmap =
+            ImageManager.loadPicture(
+                MENU_UI
+                    .possessionItemImage
+            );
+
+        this._hoverBitmap =
+            ImageManager.loadPicture(
+                MENU_UI
+                    .possessionItemHoverImage
+            );
+
+        /*
+         * 画像部分。
+         */
+        this._background =
+            new Sprite(
+                this._normalBitmap
+            );
+
+        this._background.x =
+            MENU_UI.itemVisualInsetX;
+
+        this._background.y =
+            MENU_UI.itemVisualInsetY;
+
+        this.updateBackgroundBitmap();
+
+        this.addChild(
+            this._background
+        );
+
+        /*
+         * 文字部分。
+         */
+        this._overlay =
+            new Sprite(
+                new Bitmap(
+                    MENU_UI.itemWidth,
+                    MENU_UI.itemHeight
+                )
+            );
+
+        this.addChild(
+            this._overlay
+        );
 
         this.refresh();
     }
 
-    refresh() {
-        this.bitmap.clear();
+    hitTest(
+        x,
+        y
+    ) {
+        return (
+            x >= 0 &&
+            y >= 0 &&
+            x < MENU_UI.itemWidth &&
+            y < MENU_UI.itemHeight
+        );
+    }
 
-        const background =
+    updateBackgroundBitmap() {
+        this._background.bitmap =
             this._hovered
-                ? "rgba(70, 55, 90, 0.95)"
-                : "rgba(15, 15, 20, 0.92)";
+                ? this._hoverBitmap
+                : this._normalBitmap;
 
-        this.bitmap.fillRect(
-            0,
-            0,
-            260,
-            46,
-            background
+        fitSpriteToSize(
+            this._background,
+            MENU_UI.itemWidth -
+                MENU_UI.itemVisualInsetX * 2,
+            MENU_UI.itemHeight -
+                MENU_UI.itemVisualInsetY * 2
         );
+    }
 
-        this.bitmap.fillRect(
-            0,
-            0,
-            260,
-            2,
-            "rgba(210, 190, 255, 0.8)"
-        );
+    refresh() {
+        this.updateBackgroundBitmap();
 
-        this.bitmap.fillRect(
-            0,
-            44,
-            260,
-            2,
-            "rgba(100, 80, 140, 0.8)"
-        );
+        const overlay =
+            this._overlay.bitmap;
 
-        this.bitmap.fontSize = 23;
-        this.bitmap.textColor = "#ffffff";
-        this.bitmap.outlineColor =
-            "rgba(0, 0, 0, 0.9)";
-        this.bitmap.outlineWidth = 4;
+        overlay.clear();
 
-        this.bitmap.drawText(
+        const accentColor =
+            this._hovered
+                ? this._parentMenu
+                    .getHoverAccentColor()
+                : this._parentMenu
+                    .getAccentColor();
+
+        overlay.fontSize =
+            MENU_UI.fontSize;
+
+        overlay.textColor =
+            "#ffffff";
+
+        overlay.outlineColor =
+            "rgba(0, 0, 0, 0.95)";
+
+        overlay.outlineWidth = 4;
+
+        overlay.drawText(
             this._item.label,
-            16,
+            MENU_UI.textLeft,
             0,
-            228,
-            46,
+            MENU_UI.itemWidth -
+                MENU_UI.textLeft -
+                MENU_UI.textRight,
+            MENU_UI.itemHeight,
             "left"
         );
+
+        /*
+         * 右端の小さな選択マーク。
+         */
+        overlay.fontSize = 20;
+        overlay.textColor =
+            accentColor;
+        overlay.outlineWidth = 3;
+
+        overlay.drawText(
+            "＞",
+            MENU_UI.itemWidth - 50,
+            0,
+            18,
+            MENU_UI.itemHeight,
+            "center"
+        );
+
+        /*
+         * 画像側で通常/ホバー差を出すので、
+         * 不透明度は固定。
+         */
+        this._background.opacity = 255;
     }
 
     onMouseEnter() {
@@ -1480,59 +2078,53 @@ class Sprite_PossessionMenuItem
     }
 
     onClick() {
-    if (
-        !this._parentMenu
-            .canSelectItem()
-    ) {
-        TouchInput.clear();
-        return;
-    }
+        if (
+            !this._parentMenu
+                .canSelectItem()
+        ) {
+            TouchInput.clear();
+            return;
+        }
 
-    const item =
-        this._item;
+        const item =
+            this._item;
 
-    this._parentMenu
-        .closeWithAction(
-            function() {
-                if (
-                    !window.MamiDenOTalk
-                ) {
-                    return;
-                }
-
-                /*
-                 * 憑依解除。
-                 */
-                if (
-                    item.action ===
-                    "release"
-                ) {
+        this._parentMenu
+            .closeWithAction(
+                function() {
                     if (
-                        window.MamiDenOTalk
-                            .requestPossessionReleaseFromUi
+                        !window.MamiDenOTalk
                     ) {
-                        window.MamiDenOTalk
-                            .requestPossessionReleaseFromUi();
+                        return;
                     }
 
-                    return;
-                }
+                    if (
+                        item.action ===
+                        "release"
+                    ) {
+                        if (
+                            window.MamiDenOTalk
+                                .requestPossessionReleaseFromUi
+                        ) {
+                            window.MamiDenOTalk
+                                .requestPossessionReleaseFromUi();
+                        }
 
-                /*
-                 * 憑依開始。
-                 */
-                if (
-                    window.MamiDenOTalk
-                        .requestPossessionFromUi
-                ) {
-                    window.MamiDenOTalk
-                        .requestPossessionFromUi(
-                            item.imagin
-                        );
+                        return;
+                    }
+
+                    if (
+                        window.MamiDenOTalk
+                            .requestPossessionFromUi
+                    ) {
+                        window.MamiDenOTalk
+                            .requestPossessionFromUi(
+                                item.imagin
+                            );
+                    }
                 }
-            }
-        );
-}
+            );
+    }
 }
 /*
  * ─────────────────────────────

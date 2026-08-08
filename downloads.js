@@ -72,7 +72,9 @@ document.addEventListener("DOMContentLoaded", () => {
 };
 
   document.querySelectorAll(".detail-button").forEach(button => {
-    button.addEventListener("click", () => {
+    button.addEventListener("click", event => {
+      event.preventDefault();
+
       const item = detailData[button.dataset.detail];
       if (!item) return;
 

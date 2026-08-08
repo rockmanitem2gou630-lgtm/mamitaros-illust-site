@@ -121550,6 +121550,1337 @@ tags: [
         "imagin_form"
     ]
 },
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            text:
+                "モモタロスって子供だよね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "はぁ！？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "テメェにだけは\n言われたくねぇよ！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "僕は子供じゃないもん！"
+        },
+        {
+            speaker: "momotaros",
+            text:
+                "じゃあ俺も子供じゃねぇ！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "その言い合いしてる時点で\n二人とも同じくらいに見えるけど……。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "一緒にすんな良太郎！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "一緒じゃない！"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "ほら、そこも一緒だよ。"
+        },
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro",
+        "momotaros",
+        "ryutaros",
+        "three_person",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "クソガキ！\nさっきからうるせぇんだよ！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "モモタロスの方がうるさい！"
+        },
+        {
+            speaker: "momotaros",
+            text:
+                "俺はうるさくねぇ！"
+        },
+        {
+            speaker: "ryutaros",
+            text:
+                "今もうるさい！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "お前が言うからだろ！！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "ほら、もっと大きくなった！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "二人とも……。\nちょっと静かにしようよ。"
+        },
+        {
+            speaker: "momotaros",
+            text:
+                "良太郎、どっちがうるせぇ！？"
+        },
+        {
+            speaker: "ryutaros",
+            text:
+                "どっち！？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "今は二人ともかな……。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "俺まで入れんな！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "やっぱりモモタロスうるさい！"
+        },
+        {
+            speaker: "momotaros",
+            text:
+                "テメェもだ！！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "静かにしてほしいって\n言ったんだけどな……。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro",
+        "momotaros",
+        "ryutaros",
+        "three_person",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "モモタロス、僕より遅い！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "あぁ！？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "モモタロス、乗らなくていいからね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "上等だ！\n表出ろクソガキ！"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "乗っちゃった……。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "競走するの！？\nやる！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "泣いて謝っても知らねぇぞ！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "僕の方が速いもん！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "二人とも、デンライナーの中で\n競走しないでよ……。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "じゃあどこでやんだよ！"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "やらないって選択肢はないの？"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "ない！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "ねぇな！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "こういう時だけ\n意見合うんだね……。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro",
+        "momotaros",
+        "ryutaros",
+        "three_person",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryotaro",
+            text:
+                "今日の戦い、二人ともありがとう。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "おう！\n最後に決めたのは俺だけどな！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "僕がいっぱい撃ったからでしょ！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "数の話じゃねぇ！\n最後が大事なんだよ！"
+        },
+        {
+            speaker: "ryutaros",
+            text:
+                "じゃあ僕が最後やりたかった！"
+        },
+        {
+            speaker: "momotaros",
+            text:
+                "先に言え！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_surprised",
+            text:
+                "次は僕が最後ね！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "予約制じゃねぇ！！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "反省会したかったんだけど……。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "じゃあ反省する！\n次は僕が最後！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "それ反省じゃねぇだろ！"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "モモタロスも似たようなこと\n言ってたよ……。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "俺も！？"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "やっぱり一緒！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "一緒じゃねぇ！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "battle",
+        "battle_talk",
+        "ryotaro",
+        "momotaros",
+        "ryutaros",
+        "three_person",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            text:
+                "良太郎、モモタロスと僕だったら\nどっちと遊びたい？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "えっ。\nなんで急に？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "そりゃ俺だろ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "モモタロスには聞いてない！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "なんだと！？"
+        },
+        {
+            speaker: "ryutaros",
+            text:
+                "良太郎、どっち？"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "三人で遊べばいいんじゃないかな。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "だめ！\nどっちか選んで！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "ほら小僧、言ってやれ！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "モモタロスまで\n参加しないでよ……。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "俺は最初から\n参加させられてんだろ！？"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "じゃあモモタロスも聞く？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "おう。"
+        },
+        {
+            speaker: "ryutaros",
+            text:
+                "僕と良太郎、どっちと遊びたい？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "なんで俺まで答えるんだよ！？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "モモタロス、さっき僕に\n答えさせようとしてたよね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "……。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "答えて！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "ああもう！\n三人で遊びゃいいだろ！！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "僕と同じ答えだね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "うるせぇ！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro",
+        "momotaros",
+        "ryutaros",
+        "three_person",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            text:
+                "ねえ熊ちゃん。\n良太郎って怒ることある？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_surprised",
+            text:
+                "僕？"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "そら、あるやろ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "でも怒っても怖くないよ。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "それはそれで\nちょっと複雑だな……。"
+        },
+        {
+            speaker: "ryutaros",
+            text:
+                "熊ちゃんもあんまり怖くない！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "そうか。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "モモタロスはすぐ怒る！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "そこでモモタロスが\n出てくるんだ……。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "まあ、桃の字は\nよう怒っとるな。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "だからおもしろい！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "本人には言わない方が\nいいと思うよ。"
+        },
+        {
+            speaker: "ryutaros",
+            text:
+                "なんで？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "また怒るからや。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "じゃあやっぱりおもしろい！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "止める理由にならなかった……。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro",
+        "kintaros",
+        "ryutaros",
+        "three_person",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            text:
+                "熊ちゃんの隣、座る！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "おう。座り。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "……狭い。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "キンタロス、大きいからね。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "ほな、もうちぃと\nそっち寄るわ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "広くなった！"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "よかったね。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "良太郎も座る？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_surprised",
+            text:
+                "えっ、僕も？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "詰めたら座れるやろ。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "じゃあ、お邪魔しようかな。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "三人で座れた！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "ちぃと狭いけどな。"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "でも、なんだか落ち着くね。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "うん！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro",
+        "kintaros",
+        "ryutaros",
+        "three_person",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryotaro",
+            text:
+                "リュウタロス。\n今日の戦いなんだけど。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_surprised",
+            text:
+                "なに？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "人がいる方には撃たなかったよね。"
+        },
+        {
+            speaker: "ryutaros",
+            text:
+                "うん。\n良太郎が危ないって言ったから。"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "ちゃんと止めてくれて\nありがとう。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "僕、えらい？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "偉いで。\nよう見て戦っとった。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "熊ちゃんも見てた！？"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "おう。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "良太郎も熊ちゃんも\n僕のこと褒めた！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "だって、本当に\nいい判断だったからね。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "じゃあ次もいっぱい撃つ！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "そこはいっぱいじゃなくて\nいいからね……。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "撃つ時と撃たん時を\nちゃんと見たらええ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "分かった！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "うん。それなら安心かな。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "battle",
+        "battle_aftermath",
+        "ryotaro",
+        "kintaros",
+        "ryutaros",
+        "three_person",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            text:
+                "お菓子食べよ！"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "もうすぐ飯やで。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "ちょっとだけ！"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "ご飯食べられなくなるから、\nあとにした方がいいんじゃないかな。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "良太郎も食べる？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "僕を仲間にしようとしてる？"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "うん！"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "正直だね……。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "飯食うてから三人で食べたらええやろ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_surprised",
+            text:
+                "熊ちゃんも食べるの？"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "甘いもんも嫌いやないで。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "じゃあ待つ！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_surprised",
+            text:
+                "早いね。"
+        },
+        {
+            speaker: "ryutaros",
+            text:
+                "三人で食べる方がいいもん！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "そっか。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "ほな、先に飯やな。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro",
+        "kintaros",
+        "ryutaros",
+        "three_person",
+        "food",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_sleep"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            text:
+                "熊ちゃん寝てる。"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "うん。\n起こさないであげよう。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "……熊ちゃん。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "リュウタロス。"
+        },
+        {
+            speaker: "ryutaros",
+            text:
+                "小さい声だから大丈夫！"
+        },
+        {
+            speaker: "ryotaro",
+            text:
+                "そういう問題かな……。"
+        },
+        {
+            speaker: "ryutaros",
+            text:
+                "……熊ちゃーん。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_sleep",
+            text:
+                "……なんや。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_surprised",
+            text:
+                "起きてた！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_surprised",
+            text:
+                "起きてたの？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_sleep",
+            text:
+                "寝とるで。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "寝てるのに喋れるの？"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "できるで。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "すごい！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "それ、たぶん寝てないよ……。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_sleep",
+            text:
+                "…………ぐぅ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_surprised",
+            text:
+                "寝た！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "もうそっとしておこうか。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro",
+        "kintaros",
+        "ryutaros",
+        "three_person",
+        "sleep",
+        "imagin_form"
+    ]
+},
+
 
     /*
      *↑通常会話追加ここまで↑

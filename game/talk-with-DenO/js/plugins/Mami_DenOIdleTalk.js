@@ -302,6 +302,136 @@
             expression:
                 "portrait_urataros_base_default_smile"
         }
+    ],
+
+    kintaros: [
+        // キンちゃん用
+        {
+            text:
+                "お嬢、どうしたんや。\n考え事か？",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            text:
+                "眠いんやったら、\n無理せんでええで。",
+            expression:
+                "portrait_kintaros_base_default_smile"
+        },
+        {
+            text:
+                "静かやなぁ……。\nたまには、こういうんもええな。",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            text:
+                "……返事ないな。\n寝てしもうたか？",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            text:
+                "お嬢、腹減ってへんか？\nなんか食うか？",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            text:
+                "疲れとるんちゃうか？\n休むんも大事やで。",
+            expression:
+                "portrait_kintaros_base_default_smile"
+        },
+        {
+            text:
+                "……俺もちょっと、\n寝よかな。",
+            expression:
+                "portrait_kintaros_base_default_sleep"
+        },
+        {
+            text:
+                "起きとるか？\n……まあ、ゆっくりしとき。",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            text:
+                "話したなったら、\nいつでも聞くで。",
+            expression:
+                "portrait_kintaros_base_default_smile"
+        },
+        {
+            text:
+                "こうして何もせん時間も、\n悪ないな。",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        }
+    ],
+
+    ryutaros: [
+        // リュウタ用
+        {
+            text:
+                "お姉ちゃん？\nなにしてるの？",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        },
+        {
+            text:
+                "ねえねえ、まだー？",
+            expression:
+                "portrait_ryutaros_base_default_smile"
+        },
+        {
+            text:
+                "お姉ちゃん、寝ちゃった？",
+            expression:
+                "portrait_ryutaros_base_default_surprised"
+        },
+        {
+            text:
+                "ひまー！\n遊ぼうよー！",
+            expression:
+                "portrait_ryutaros_base_default_smile"
+        },
+        {
+            text:
+                "ねえ、僕のこと見てる？",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        },
+        {
+            text:
+                "返事してよー！",
+            expression:
+                "portrait_ryutaros_base_default_angry"
+        },
+        {
+            text:
+                "お姉ちゃん、\nどこか行っちゃった？",
+            expression:
+                "portrait_ryutaros_base_default_surprised"
+        },
+        {
+            text:
+                "僕、待つの飽きた！",
+            expression:
+                "portrait_ryutaros_base_default_angry"
+        },
+        {
+            text:
+                "お姉ちゃん、ぎゅー！",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            distance:
+                "close"
+        },
+        {
+            text:
+                "起きたら遊ぼうね！",
+            expression:
+                "portrait_ryutaros_base_default_smile"
+        }
     ]
 };
 
@@ -392,7 +522,8 @@
  */
 function showExpression(
     speakerId,
-    filename
+    filename,
+    distance = ""
 ) {
     if (
         !speakerId ||
@@ -413,7 +544,8 @@ function showExpression(
     window.MamiDenOTalk
         .showIdleExpression(
             speakerId,
-            filename
+            filename,
+            distance
         );
 }
 
@@ -562,9 +694,10 @@ function showIdleTalk() {
         }
 
         showExpression(
-    talk.speaker,
-    talk.expression
-);
+            talk.speaker,
+            talk.expression,
+            talk.distance || ""
+        );
 
         const lines =
             String(talk.text).split("\n");

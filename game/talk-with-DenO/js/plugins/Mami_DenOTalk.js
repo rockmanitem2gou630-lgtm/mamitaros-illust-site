@@ -116268,7 +116268,7 @@ tags: [
         {
             speaker: "urataros",
             expression:
-                "portrait_urataros_base_default_smile"
+                "portrait_urataros_base_default_normal"
         },
         {
             speaker: "mio"
@@ -122880,7 +122880,1934 @@ tags: [
         "imagin_form"
     ]
 },
+{
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
 
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "あとでナオミちゃんの買い出し\n手伝ってくるね。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "ほな、俺も行くわ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "キンタロスも？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "荷物多なるんやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "持ってくれるの？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "その方が早いやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "私は手ぶらになりそうだね。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "ええやないか。\n買うもん忘れんように見といてくれ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "じゃあ役割分担だね。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "そういうこっちゃ。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "shopping",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "キンタロス、はい。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_surprised",
+            text:
+                "俺だけ多ないか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "何回一緒に食べてると思ってるの。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "それもそうやな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "足りなかったらまだあるよ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "ほな、遠慮せんともらうわ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。そうすると思ってた。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "……ほんま、よう分かっとるな。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "meal",
+        "imagin_form"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "キンタロス、今日一回\nまともに攻撃受けたでしょ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "見とったんか。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "見てたよ。\n大丈夫？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "あれくらい何ともない。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "キンタロスの『何ともない』も\nあんまり信用できないな。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_surprised",
+            text:
+                "俺もか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "良太郎くんと同じ。\n無理するから。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "必要やったら無茶もする。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "それは分かってるよ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "だから終わったあとは\nちゃんと休んで。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "……しゃあないな。\nお嬢が言うなら休むわ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。そうして。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "battle",
+        "battle_aftermath",
+        "kintaros_mio",
+        "care",
+        "imagin_form"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "キンタロス、何見てるの？"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "外や。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "それは見れば分かるよ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "ほな、一緒に見るか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……不思議だね。\nここから色んな時間に行けるって。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "せやな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "慣れたつもりだったけど、\nたまに変な感じする。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "慣れんでもええんちゃうか。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "そうかな。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "不思議やと思えるうちは、\n見とったらええ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……うん。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "キンタロス、お腹空いた？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_surprised",
+            text:
+                "なんで分かったんや。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "さっきからカウンターの方\n見てるから。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "そんな見とったか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "結構。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "お嬢には敵わんな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "何か食べる？"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "お嬢も食うんやったら。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "また私に合わせる。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "一人で食うよりええやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "じゃあ食べようか。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "おう。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "meal",
+        "imagin_form"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "キンタロス、これ開けて。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "ん？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "蓋が固くて開かない。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "貸してみ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "ほら。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "早い。ありがとう。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "お嬢、最初から\n俺んとこ持ってきたやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。\nキンタロスなら開けられると思って。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "よう頼るようになったやないか。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "頼るのも大事なんでしょ？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_surprised",
+            text:
+                "……覚えとったんか。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "キンタロスが言ったんでしょ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "せやったな。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "imagin_form"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "kintaros",
+            text:
+                "お嬢、寒いんか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ちょっとだけ。\nなんで分かったの？"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "さっきから手ぇ擦っとる。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "見てたんだ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "膝掛けかなんか\n持ってきたるわ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "そこまでしなくても大丈夫だよ。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "寒いんやろ？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……うん。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "ほな待っとき。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ありがとう。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "礼は温もってからでええ。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "care",
+        "imagin_form"
+    ]
+},
+{
+    time: "night",
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_sleepy"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "キンタロス、眠いなら寝ていいよ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_sleepy",
+            text:
+                "まだええ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "さっきから目閉じてるけど。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "休めとるだけや。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "それ寝る直前の人が言うやつだよ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "お嬢、もうすぐ帰るんやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。あと少ししたら。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "ほな、それまでは起きとる。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "別に見送ってくれなくてもいいよ？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "俺がそうしたいだけや。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……じゃあ、もう少し付き合って。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "おう。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "sleep",
+        "imagin_form"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "今日の戦い、見られなかったんだよね。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "そうやったんか。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "どうだった？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "無事終わったで。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "それは分かってるよ。\nキンタロスはどうだったの？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_surprised",
+            text:
+                "俺か？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。\n何したの？"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "前出て、敵止めて、\n殴ったくらいやな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "だいぶ省略したね。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "終わったんやから\n細かいことはええやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "私は聞きたいの。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_surprised",
+            text:
+                "……そうか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "見られなかったからね。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "ほな最初から話すか。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。聞かせて。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "battle",
+        "battle_talk",
+        "kintaros_mio",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "キンタロス、ちょっと肩借りていい？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_surprised",
+            text:
+                "肩？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "少し疲れた。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "なんや。\nそんなん好きに使うたらええ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "じゃあ遠慮なく。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "おう。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……硬いね。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "今さら気づいたんか。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "知ってたけど、改めて。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "文句あるなら返してもええで。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "返さない。\nこのままでいい。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "ほな、好きにし。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "rest",
+        "care",
+        "imagin_form"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "kintaros",
+            text:
+                "お嬢、これでええやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "私の分？"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "おう。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "頼んでないのに\nちゃんといつものだ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "毎回同じやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "まあね。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "違うんがよかったか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "これがよかった。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "ほな問題ないな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……私も今度、キンタロスの分\n勝手に決めようかな。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "お嬢が選ぶんなら\n何でもええで。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "それだと選びがいないなあ。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "meal",
+        "imagin_form"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "ごちそうさま。\n洗い物してくるね。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "ほな俺もやるわ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "いいよ。\nキンタロスは座ってて。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "二人でやった方が早いやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "じゃあ私が洗うから、\nキンタロス拭いてくれる？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "おう。任せぇ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "カップ割らないでね。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_surprised",
+            text:
+                "俺をなんやと思っとるんや。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "その手で持ってると\nちょっと心配になる。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "加減くらいできるわ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "じゃあこれもお願い。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "おう。次よこし。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "meal",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "kintaros",
+            text:
+                "戻ったで。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "おかえり、キンタロス。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "おう。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "怪我は？"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "ない。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "本当に？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "ほんまや。\n今日は何ともない。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "じゃあよかった。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "待っとったんか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。\n帰ってくるまではね。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_surprised",
+            text:
+                "そうか。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "無事なの見たし、もう安心。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "ほな次からも、\nちゃんと帰ってこんとな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。\nそうして。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "battle",
+        "battle_aftermath",
+        "kintaros_mio",
+        "care",
+        "imagin_form"
+    ]
+},
+{
+    possessedBy: "kintaros",
+    possessionOutfitOwner: "kintaros",
+
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "キンタロス、ちょっと待って。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "なんや？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "衿、少し曲がってる。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "どこや？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "じっとしてて。\n直すから。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "ほな頼むわ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……はい。これでいいよ。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "おおきに。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "いつもキンタロスに\n世話焼かれてるからね。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_surprised",
+            text:
+                "お返しか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "そんなところ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "ほな今度から、\nたまには世話焼かれるんもええな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "たまにね。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "possessed"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "kintaros",
+            text:
+                "お嬢。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ん？"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "それ、冷めるで。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "あ。忘れてた。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "さっきから全然飲んどらん。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "考え事してたから。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "飲んでから考えたらええ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "そんな単純な。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "冷めたらうまないやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……それはそうだね。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "キンタロスは飲まないの？"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "お嬢が飲んだら飲む。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "なんで待ってるの。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "一緒の方がええやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……じゃあ飲もうか。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "おう。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "imagin_form"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "kintaros",
+            text:
+                "お嬢、傘持ったか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "持ってるよ。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "ほんまか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "そこまで疑わなくても。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "この前も大丈夫言うて\n忘れとったやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……今日は持ってる。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "見せてみ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "はい。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "よし。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "確認厳しいなあ。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "濡れて帰ってきたら\n困るやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "誰が？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "俺が。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……そっか。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "care",
+        "imagin_form"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "あ、最後の一個だ。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "お嬢、食べ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "キンタロス食べたいんじゃないの？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "別に一個くらいええ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "じゃあ半分にしよう。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "お嬢が全部食うたらええやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "私も半分でいい。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "ほな半分こやな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "はい、こっち。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "そっちの方が大きないか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "キンタロスの方が\nいっぱい食べるでしょ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "……よう見とるな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "今さらだね。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "food",
+        "imagin_form"
+    ]
+},
+{
+    possessedBy: "kintaros",
+    possessionOutfitOwner: "kintaros",
+
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "キンタロス、袖。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "ん？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "少し変になってる。\nこっち向いて。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "こうか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。\nちょっと待ってね。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "……。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "はい、直った。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "おおきに。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "着物って気になるところ多いね。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "お嬢が直してくれるんなら\n別にかまへんけどな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "毎回は自分で直して。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "あかんか。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "possessed"
+    ]
+},
+{
+     participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "kintaros",
+            text:
+                "お嬢、その時計\nなんで内側向いとるんや？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "これ？\n昔からこうなの。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "見にくないんか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "私はこっちの方が見やすいよ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "ほな、それでええな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "納得早いね。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "本人が使いやすいんが\n一番やろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "そういうところ、キンタロスらしい。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_surprised",
+            text:
+                "そうか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。\n変えろって言わないところ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "困っとらんなら\n変える必要ないやろ。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "imagin_form"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_sleepy"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "それでね、今日ちょっと\n変なことがあって。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_sleepy",
+            text:
+                "んー。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……キンタロス、聞いてる？"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "聞いとるで。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ほんとかな。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "店出たところで声かけられて、\n道聞かれたんやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "聞いてた。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "せやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "目閉じてたから寝てるのかと思った。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "目ぇ閉じても耳は開いとる。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "便利だね。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "ほな続き聞かせぇ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。それでね……。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "sleep",
+        "imagin_form"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "みんなが戦ってる時、\n私にも何かできたらいいのに。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "無理にせんでええ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "でも、見てるだけなのも\n少しもどかしくて。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "お嬢に戦えとは言わん。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "分かってる。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "俺らが戻ってきた時に、\nいつも通りおったらそれでええ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "それだけで？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "それがええんや。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……そっか。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "帰る場所まで一緒に\n戦わんでええやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "じゃあ、ちゃんと待ってる。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "おう。\nそれで十分や。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "battle_talk",
+        "kintaros_mio",
+        "imagin_form"
+    ]
+},
 
     /*
      *↑通常会話追加ここまで↑

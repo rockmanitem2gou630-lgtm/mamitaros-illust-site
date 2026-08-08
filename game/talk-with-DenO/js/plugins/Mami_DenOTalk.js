@@ -142359,25 +142359,55 @@ window.MamiDenOTalk.startPossession =
             String(outfit || "normal");
     };
 /*
+ * 放置台詞中に接近したキャラ。
+ * 放置終了時に通常距離へ戻すため保存する。
+ */
+let idleDistanceSpeakerId = null;
+
+/*
  * 放置台詞用の一時表情を表示する。
  *
  * currentSoloPortraitは変更しないため、
  * 通常のメインキャラクター設定は維持される。
+ *
+ * distance:
+ *   ""       = 距離変更なし
+ *   "close"  = 接近
+ *   "normal" = 通常距離
  */
 window.MamiDenOTalk.showIdleExpression =
     function(
         speakerId,
-        expression
+        expression,
+        distance = ""
     ) {
+        const id =
+            String(
+                speakerId || ""
+            );
+
         showSoloPortrait(
-            speakerId,
+            id,
             expression,
             false
         );
 
         showNamePlate(
-            speakerId
+            id
         );
+
+        if (distance) {
+            idleDistanceSpeakerId =
+                id;
+
+            fadePortraitDistance(
+                id,
+                distance
+            );
+        } else {
+            idleDistanceSpeakerId =
+                null;
+        }
     };
 
 /*
@@ -142386,11 +142416,51 @@ window.MamiDenOTalk.showIdleExpression =
  */
 window.MamiDenOTalk.restoreIdlePortrait =
     function() {
+        const idleSpeaker =
+            idleDistanceSpeakerId;
+
+        const returnSpeaker =
+            String(
+                currentSoloPortrait.speaker ||
+                ""
+            );
+
+        /*
+         * 放置中に接近したキャラから
+         * 別キャラへ戻る場合は、
+         * 非表示になる前に内部距離を通常へ戻す。
+         */
+        if (
+            idleSpeaker &&
+            idleSpeaker !== returnSpeaker
+        ) {
+            currentPortraitDistance[
+                idleSpeaker
+            ] = "normal";
+        }
+
         showSoloPortrait(
             currentSoloPortrait.speaker,
             currentSoloPortrait.expression,
             false
         );
+
+        /*
+         * 同じキャラへ戻る場合は、
+         * 表情を戻してから滑らかに後退する。
+         */
+        if (
+            idleSpeaker &&
+            idleSpeaker === returnSpeaker
+        ) {
+            fadePortraitDistance(
+                idleSpeaker,
+                "normal"
+            );
+        }
+
+        idleDistanceSpeakerId =
+            null;
 
         eraseNamePlate();
     };

@@ -8,9 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const detailData = {
     "dq10-assets": {
       title: "ドラクエ10 勇者御一行 素材",
-      text: "立ち絵・顔グラのサンプルです。。",
+      text: "立ち絵・顔グラのサンプルです。",
       images: [
         { src: "sample/dq10_sample.png", alt: "サンプル", className: "wide-sample", wide: true },
+     ]
+  },
+
+  "SkipTitle_sample": {
+      title: "タイトルスキップ",
+      text: "タイトルを飛ばして、初期位置に設定されたマップに飛びます。",
+      images: [
+        { src: "SkipTitle_sample.webp", alt: "サンプル", className: "wide-sample", wide: false },
      ]
   },
 

@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       title: "タイトルスキップ",
       text: "タイトルを飛ばして、初期位置に設定されたマップに飛びます。",
       images: [
-        { src: "SkipTitle_sample.webp", alt: "サンプル", className: "wide-sample", wide: false },
+        { src: "sample/SkipTitle_sample.webp", alt: "サンプル", className: "wide-sample", wide: false },
      ]
   },
 

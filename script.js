@@ -26,6 +26,8 @@ const modalPrevArt = document.getElementById("modalPrevArt");
 const modalNextArt = document.getElementById("modalNextArt");
 const mangaPrevArt = document.getElementById("mangaPrevArt");
 const mangaNextArt = document.getElementById("mangaNextArt");
+const modalGameArea = document.getElementById("modalGameArea");
+const modalGameButton = document.getElementById("modalGameButton");
 
 const backToTop = document.getElementById("backToTop");
 
@@ -257,15 +259,6 @@ ${art.type === "manga" && art.pages ? `<div class="art-page-count">📖 ${art.pa
           return;
         }
 
-        /*
-         * ゲーム作品だけは画像モーダルを開かず、
-         * 登録された作品ページへ移動します。
-         */
-        if (isGameArtwork(art)) {
-          window.location.href = art.url;
-          return;
-        }
-
         currentArtIndex = currentArtList.indexOf(art);
         openArtworkByIndex(currentArtIndex);
       });
@@ -410,6 +403,14 @@ function openModal(art) {
   modalDate.textContent = art.date;
   modalTags.innerHTML = art.tags.map(tag => `<span>${tag}</span>`).join("");
   modalComment.textContent = art.comment || "";
+
+  if (isGameArtwork(art)) {
+    modalGameArea.hidden = false;
+    modalGameButton.href = art.url;
+  } else {
+    modalGameArea.hidden = true;
+    modalGameButton.removeAttribute("href");
+  }
 
   modal.classList.add("show");
   document.body.classList.add("modal-open");

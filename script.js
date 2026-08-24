@@ -92,6 +92,16 @@ document.addEventListener("keydown", event => {
   const isMangaModalOpen = mangaModal.classList.contains("show");
 
   if (!isModalOpen && !isMangaModalOpen) return;
+  // ゲーム作品は単独表示
+if (
+  isModalOpen &&
+  isGameArtwork(currentArtList[currentArtIndex])
+) {
+  if (event.key === "Escape") {
+    closeModal();
+  }
+  return;
+}
 
   if (event.key === "Escape") {
     if (isMangaModalOpen) {
@@ -133,6 +143,13 @@ function handleTouchEnd(event) {
 
   if (!isModalOpen && !isMangaModalOpen) return;
   if (event.changedTouches.length !== 1) return;
+  // ゲーム紹介モーダルでは作品間スワイプを無効化
+if (
+  isModalOpen &&
+  isGameArtwork(currentArtList[currentArtIndex])
+) {
+  return;
+}
 
   const touchEndX = event.changedTouches[0].clientX;
   const touchEndY = event.changedTouches[0].clientY;
@@ -318,6 +335,19 @@ function preloadAroundArtwork() {
 
 
 function updateArtNavButtons() {
+  const currentArt = currentArtList[currentArtIndex];
+
+  // ゲーム作品は単独表示
+  if (isGameArtwork(currentArt)) {
+    modalPrevArt.style.display = "none";
+    modalNextArt.style.display = "none";
+    return;
+  }
+
+  // 通常作品ではボタンを戻す
+  modalPrevArt.style.display = "";
+  modalNextArt.style.display = "";
+
   const previousIndex =
     findPreviousViewableArtworkIndex(currentArtIndex);
 

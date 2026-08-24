@@ -1110,3 +1110,21 @@ body:has(.norimune-game-section) main {
   }
 }
 }
+.modal-game-area {
+  margin-top: 20px;
+  padding: 18px;
+  background: #f0e7df;
+  border-radius: 14px;
+  text-align: center;
+}
+
+.modal-game-area[hidden] {
+  display: none;
+}
+
+.modal-game-note {
+  margin: 0 0 14px;
+  color: #6f625c;
+  font-size: 13px;
+  line-height: 1.7;
+}

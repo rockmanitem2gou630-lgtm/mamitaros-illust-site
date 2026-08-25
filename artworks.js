@@ -1117,7 +1117,7 @@ const artworks = [
   type: "game",
   url: "game/talk-with-DenO.html",
   tags: ["電王", "ゲーム"],
-  comment: "ほぼ乙女ゲー。",
+  comment: "ほぼ乙女ゲー。　製作期間7月～……8月現在制作中。",
   dream: true,
   draft: false
 },

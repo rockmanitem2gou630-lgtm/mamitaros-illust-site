@@ -151,6 +151,110 @@
     const EPISODE_BUTTON_HOVER_SCALE = 1.035;
     const EPISODE_BUTTON_PRESS_SCALE = 0.97;
 
+    /*
+     * ─────────────────────────────
+     * Story UI プリロード
+     * ─────────────────────────────
+     *
+     * ブラウザ版で初回表示時に画像が順番に出るのを防ぐため、
+     * UI素材だけを先に ImageManager のキャッシュへ入れる。
+     *
+     * Boot時：
+     *   ルート選択画面 + 話数選択背景 + 共通戻る
+     *
+     * Storyを開いた時：
+     *   01～12駅ボタン + 選択枠 + 開始 + EXIT
+     *
+     * スチルや本編背景はここでは読まない。
+     */
+
+    const STORY_UI_BOOT_PRELOAD_PICTURES = [
+        ROUTE_SELECT_BACKGROUND,
+        "ui_story_pass_momo",
+        "ui_story_pass_ura",
+        "ui_story_pass_kin",
+        "ui_story_pass_ryuta",
+        "bg_episode_select_momo",
+        "bg_episode_select_ura",
+        "bg_episode_select_kin",
+        "bg_episode_select_ryu",
+        "ui_episode_back"
+    ];
+
+    function makeStoryEpisodeUiPreloadPictures() {
+        const pictures = [
+            "btn_story_exit"
+        ];
+
+        for (const routeId of MAIN_ROUTE_IDS) {
+            pictures.push(
+                `ui_episode_start_${routeId}`,
+                `ui_episode_selected_${routeId}`
+            );
+
+            for (let number = 1; number <= 12; number++) {
+                pictures.push(
+                    `ui_episode_${routeId}_${String(number).padStart(2, "0")}`
+                );
+            }
+        }
+
+        return pictures;
+    }
+
+    const STORY_UI_EPISODE_PRELOAD_PICTURES =
+        makeStoryEpisodeUiPreloadPictures();
+
+    function preloadStoryPictures(
+        pictureNames
+    ) {
+        if (
+            !Array.isArray(pictureNames) ||
+            typeof ImageManager === "undefined" ||
+            !ImageManager ||
+            typeof ImageManager.loadPicture !== "function"
+        ) {
+            return;
+        }
+
+        for (const pictureName of pictureNames) {
+            if (!pictureName) {
+                continue;
+            }
+
+            ImageManager.loadPicture(
+                String(pictureName)
+            );
+        }
+    }
+
+    function preloadStoryBootUi() {
+        preloadStoryPictures(
+            STORY_UI_BOOT_PRELOAD_PICTURES
+        );
+    }
+
+    function preloadStoryEpisodeUi() {
+        preloadStoryPictures(
+            STORY_UI_EPISODE_PRELOAD_PICTURES
+        );
+    }
+
+    /*
+     * 起動中に、最初に見えるStory UIを先読み。
+     * 元のloadSystemImagesを必ず呼んでから追加分を読む。
+     */
+    const _Scene_Boot_loadSystemImages_DenOStoryPreload =
+        Scene_Boot.prototype.loadSystemImages;
+
+    Scene_Boot.prototype.loadSystemImages =
+        function() {
+            _Scene_Boot_loadSystemImages_DenOStoryPreload
+                .call(this);
+
+            preloadStoryBootUi();
+        };
+
     let storyActive = false;
 
     /*
@@ -4412,6 +4516,12 @@ function updateStoryEpisodePlayback() {
         if (storyActive) {
             return;
         }
+
+        /*
+         * ルート選択中の数秒を使って、
+         * 次の話数選択UIをバックグラウンドで先読みする。
+         */
+        preloadStoryEpisodeUi();
 
         if (
             $gameMessage &&

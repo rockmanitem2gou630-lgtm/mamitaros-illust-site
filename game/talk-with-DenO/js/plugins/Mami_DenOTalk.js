@@ -149535,6 +149535,20 @@ window.MamiDenOTalk
         pendingTalkPossessionTone = null;
 
         /*
+         * Story中に close へ移動した立ち絵がある状態で
+         * 中断・終了した場合でも、通常画面へ距離を持ち越さない。
+         *
+         * currentPortraitDistance の記録だけでなく、
+         * 現在表示中のピクチャ座標・拡大率も即座に normal へ戻す。
+         *
+         * これを showSoloPortrait() より先に行うことで、
+         * Story開始前と同じキャラ・同じ表情へ戻る場合に
+         * 「同じ画像なので再表示不要」と判定されても、
+         * close の見た目だけが残る事故を防ぐ。
+         */
+        resetPortraitDistancesOnStoryBlack();
+
+        /*
          * 通常画面へ戻る時は環境光も解除する。
          * 既存立ち絵にも即時反映する。
          */

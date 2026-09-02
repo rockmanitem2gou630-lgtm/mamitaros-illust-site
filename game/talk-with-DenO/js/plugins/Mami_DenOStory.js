@@ -1892,15 +1892,25 @@ class Sprite_StoryExitButton
             const pictureName =
                 `bg_episode_select_${routeId}`;
 
+            /*
+             * 別ルートへ切り替える瞬間、
+             * 新しいBitmapのデコードが終わるまで
+             * Spriteが直前のテクスチャを保持する場合がある。
+             *
+             * 先に非表示へ落としてから新しいBitmapを渡し、
+             * 読み込み完了後にだけ表示することで、
+             * モモ→ウラ等で前ルートが一瞬残るのを防ぐ。
+             */
+            background.visible = false;
+
             const bitmap =
                 ImageManager.loadPicture(
                     pictureName
                 );
 
             background.bitmap = bitmap;
-            background.visible = true;
 
-            const fit = () => {
+            const reveal = () => {
                 if (
                     background.bitmap !== bitmap ||
                     !bitmap ||
@@ -1920,14 +1930,24 @@ class Sprite_StoryExitButton
                     scale,
                     scale
                 );
+
+                /*
+                 * このBitmapがまだ現在の背景なら表示。
+                 * 途中で別ルートへ移動していた場合は出さない。
+                 */
+                if (
+                    background.bitmap === bitmap
+                ) {
+                    background.visible = true;
+                }
             };
 
             if (bitmap.isReady()) {
-                fit();
+                reveal();
             }
             else {
                 bitmap.addLoadListener(
-                    fit
+                    reveal
                 );
             }
         }

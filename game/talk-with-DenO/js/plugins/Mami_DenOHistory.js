@@ -14,12 +14,13 @@
     "use strict";
 
     const BUTTON = {
-        image: "btn_history",
-        x: 1165,
-        y: 472,
-        hitWidth: 120,
-        hitHeight: 70
-    };
+    image: "btn_history",
+    x: 1165,
+    y: 472,
+    storyY: 520,
+    hitWidth: 120,
+    hitHeight: 70
+};
 /*
  * ─────────────────────────────
  * 履歴画面の画像設定
@@ -485,7 +486,8 @@ function addHistory(page) {
         speakerId: String(page.speakerId || ""),
         speakerName: nameOf(page.speakerId),
         text: String(page.text || ""),
-        innerVoice: page.innerVoice === true
+        innerVoice: page.innerVoice === true,
+        hideName: page.hideName === true
     });
 
     trimHistory();
@@ -545,6 +547,9 @@ function addHistory(page) {
             innerVoice:
                 page.innerVoice,
 
+            hideName:
+                page.hideName === true,
+
             text:
                 page.lines.join("\n")
         });
@@ -585,15 +590,44 @@ function addHistory(page) {
                     /\\MWIN\[([^\]]*)\]/
                 );
 
+            /*
+             * MSPKは
+             *   speakerId
+             *   speakerId|noname
+             * の両方を受け付ける。
+             *
+             * |noname はネームプレート非表示の印。
+             * 履歴には内部指定を出さず、
+             * 話者IDだけを保存する。
+             */
+            const speakerToken =
+                String(
+                    speaker[1] || ""
+                );
+
+            const speakerParts =
+                speakerToken.split("|");
+
+            const speakerId =
+                String(
+                    speakerParts.shift() || ""
+                );
+
+            const hideName =
+                speakerParts.some(
+                    flag =>
+                        String(flag || "")
+                            .toLowerCase() ===
+                        "noname"
+                );
+
             message._mamiLogPending = {
                 topicId:
                     message
                         ._mamiLogTopicId,
 
                 speakerId:
-                    String(
-                        speaker[1] || ""
-                    ),
+                    speakerId,
 
                 innerVoice:
                     !!(
@@ -601,6 +635,9 @@ function addHistory(page) {
                         frame[1] ===
                             "inner"
                     ),
+
+                hideName:
+                    hideName,
 
                 lines: [
                     stripControls(
@@ -741,6 +778,22 @@ function addHistory(page) {
                 .isHistoryOpen()
         );
     }
+    function isStoryActive() {
+    return !!(
+        window.MamiDenOStory &&
+        typeof window.MamiDenOStory
+            .isActive ===
+            "function" &&
+        window.MamiDenOStory
+            .isActive()
+    );
+}
+
+function currentHistoryButtonY() {
+    return isStoryActive()
+        ? BUTTON.storyY
+        : BUTTON.y;
+}
 
     function pointOnButton(
         x,
@@ -752,7 +805,7 @@ function addHistory(page) {
             ) <=
                 BUTTON.hitWidth / 2 &&
             Math.abs(
-                y - BUTTON.y
+                y - currentHistoryButtonY()
             ) <=
                 BUTTON.hitHeight / 2
         );
@@ -1080,18 +1133,20 @@ drawItem(index) {
         speakerColor
     );
 
-    this.drawText(
-        page.speakerName +
-            (
-                page.innerVoice
-                    ? "（内側）"
-                    : ""
-            ),
-        cardX + 70,
-        cardY + 6,
-        cardWidth - 94,
-        "left"
-    );
+    if (!page.hideName) {
+        this.drawText(
+            page.speakerName +
+                (
+                    page.innerVoice
+                        ? "（内側）"
+                        : ""
+                ),
+            cardX + 70,
+            cardY + 6,
+            cardWidth - 94,
+            "left"
+        );
+    }
 
     /*
      * 本文。
@@ -1190,7 +1245,7 @@ this.changeTextColor(
 
             this.position.set(
                 BUTTON.x,
-                BUTTON.y
+                currentHistoryButtonY()
             );
 
             this.visible = false;
@@ -1214,6 +1269,9 @@ this.changeTextColor(
 
         update() {
             super.update();
+
+            this.y =
+                currentHistoryButtonY();
 
             this.visible =
                 history.length > 0 &&

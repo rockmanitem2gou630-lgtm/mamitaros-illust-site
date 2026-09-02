@@ -331,7 +331,14 @@
             scene._randomPossessionButton,
             "up"
         );
-
+        /*
+         * ストーリー再生中のEXITボタン。
+         * 右上UIなので上へ退避。
+         */
+        addTarget(
+            scene._denOStoryExitButton,
+            "up"
+        );
         addTarget(
             scene._DenOButtonContainer,
             "down",

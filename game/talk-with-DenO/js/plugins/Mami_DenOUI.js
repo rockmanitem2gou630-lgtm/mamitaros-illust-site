@@ -205,47 +205,6 @@ const CHARACTER_CHANGE_MENU_COLORS = {
 };
     let manuallyEnabled = true;
     let buttonsVisible = true;
-    /*
- * ─────────────────────────────
- * ストーリーデバッグ公開設定
- * ─────────────────────────────
- *
- * テストプレイ中は自動で有効。
- *
- * ブラウザ上ではlocalStorageで
- * 手動切替できる。
- */
-const STORY_DEBUG_STORAGE_KEY =
-    "MamiDenOStoryDebug";
-
-function isStoryDebugEnabled() {
-    /*
-     * RPGツクールからの
-     * テストプレイ中。
-     */
-    if (
-        Utils &&
-        Utils.isOptionValid &&
-        Utils.isOptionValid("test")
-    ) {
-        return true;
-    }
-
-    /*
-     * ブラウザ作業環境での
-     * 手動デバッグ設定。
-     */
-    try {
-        return (
-            localStorage.getItem(
-                STORY_DEBUG_STORAGE_KEY
-            ) === "1"
-        );
-    } catch (error) {
-        return false;
-    }
-}
-
     function areButtonsEnabled() {
     if (!manuallyEnabled) {
         return false;
@@ -775,15 +734,6 @@ if (
     this._buttonData.action ===
     "story"
 ) {
-    /*
-     * 公開版ではボタンだけ残し、
-     * 中身は開かない。
-     */
-    if (!isStoryDebugEnabled()) {
-        TouchInput.clear();
-        return;
-    }
-
     /*
      * 開いているメニューを閉じる。
      */
@@ -2205,36 +2155,5 @@ Input.clear();
 window.MamiDenOUI.areButtonsVisible =
     function() {
         return buttonsVisible;
-    };
-    /*
- * ─────────────────────────────
- * ストーリーデバッグ手動切替
- * ─────────────────────────────
- */
-window.MamiDenOUI =
-    window.MamiDenOUI || {};
-
-window.MamiDenOUI
-    .setStoryDebugEnabled =
-    function(enabled) {
-        try {
-            localStorage.setItem(
-                STORY_DEBUG_STORAGE_KEY,
-                enabled ? "1" : "0"
-            );
-        } catch (error) {
-            console.warn(
-                "ストーリーデバッグ設定を保存できませんでした。",
-                error
-            );
-        }
-
-        return isStoryDebugEnabled();
-    };
-
-window.MamiDenOUI
-    .isStoryDebugEnabled =
-    function() {
-        return isStoryDebugEnabled();
     };
 })();

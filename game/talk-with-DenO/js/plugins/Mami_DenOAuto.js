@@ -22,12 +22,13 @@
 (() => {
     "use strict";
 
-    const AUTO_BUTTON = {
+const AUTO_BUTTON = {
     imageOff: "btn_auto_off",
     imageOn: "btn_auto_on",
 
     x: 1045,
     y: 472,
+    storyY: 520,
 
     hitWidth: 120,
     hitHeight: 70
@@ -77,6 +78,11 @@
                 .isActive()
         );
     }
+    function currentAutoButtonY() {
+    return isStoryActive()
+        ? AUTO_BUTTON.storyY
+        : AUTO_BUTTON.y;
+}
 
     function hasChoiceInput() {
         return !!(
@@ -235,7 +241,7 @@
 
             this.position.set(
                 AUTO_BUTTON.x,
-                AUTO_BUTTON.y
+                currentAutoButtonY()
             );
 
             this.scale.set(
@@ -273,6 +279,9 @@
 
         update() {
             super.update();
+
+            this.y =
+                currentAutoButtonY();
 
             /*
              * OFF中は会話中だけ表示。
@@ -357,7 +366,7 @@
                 AUTO_BUTTON
                     .hitWidth / 2 &&
             Math.abs(
-                y - AUTO_BUTTON.y
+                y - currentAutoButtonY()
             ) <=
                 AUTO_BUTTON
                     .hitHeight / 2

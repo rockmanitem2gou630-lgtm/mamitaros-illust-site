@@ -393,8 +393,35 @@ Scene_Map.prototype.start = function() {
         mio: {
             namePlate:
                 "name_mio"
+        },
+
+        naomi: {
+            namePlate:
+                "name_naomi"
+        },
+
+        hana: {
+            namePlate:
+                "name_hana"
+        },
+
+        owner: {
+            namePlate:
+                "name_owner"
+        },
+
+        /*
+         * 名無しの通行人。
+         *
+         * 立ち絵なし・ネームプレートなし。
+         * StoryDataでは
+         * speaker: "passerby"
+         * だけで使える。
+         */
+        passerby: {
+            namePlate: ""
         }
-    };     
+};     
     /*
  * キャラクターごとの通常立ち絵を返す。
  */
@@ -471,13 +498,161 @@ const PORTRAIT_DISTANCE_DURATION = 18;
  */
 let currentPortraitDistance = {};
 
+/*
+ * 距離状態を保存している実体側の話者IDを取得する。
+ *
+ * pagePossession中は、
+ * 画面上の話者がryutaros等でも
+ * 距離状態は良太郎の身体側へ保存されるため、
+ * 表示名と距離状態の所有者をここで揃える。
+ */
+function getPortraitDistanceStateSpeakerId(
+    speakerId
+) {
+    const id =
+        String(speakerId || "");
+
+    if (!id) {
+        return "";
+    }
+
+    const resolved =
+        getTalkPossessionDistanceSpeakerId(
+            id
+        );
+
+    return String(
+        resolved || id
+    );
+}
+
+/*
+ * 距離状態の所有者に対応する、
+ * 現在画面上の立ち絵スロットを取得する。
+ *
+ * 例：
+ *   距離状態：ryotaro
+ *   表示中　：ryutaros（R良太郎）
+ *
+ * の場合でも、ryutarosのスロットを返す。
+ */
+function getPortraitSlotForDistanceSpeaker(
+    speakerId
+) {
+    const ownerId =
+        getPortraitDistanceStateSpeakerId(
+            speakerId
+        );
+
+    if (
+        ownerId &&
+        currentPortraitSlots[
+            ownerId
+        ]
+    ) {
+        return Number(
+            currentPortraitSlots[
+                ownerId
+            ]
+        );
+    }
+
+    const temporaryId =
+        String(
+            temporaryTalkPossession || ""
+        );
+
+    if (temporaryId) {
+        const temporaryOwnerId =
+            getPortraitDistanceStateSpeakerId(
+                temporaryId
+            );
+
+        if (
+            temporaryOwnerId ===
+                ownerId &&
+            currentPortraitSlots[
+                temporaryId
+            ]
+        ) {
+            return Number(
+                currentPortraitSlots[
+                    temporaryId
+                ]
+            );
+        }
+    }
+
+    return 0;
+}
+
+/*
+ * 距離状態の所有者に対応する、
+ * 現在画面上の話者IDを取得する。
+ *
+ * 前面化など、currentPortraitSlotsのキーが必要な処理用。
+ */
+function getPortraitDisplaySpeakerForDistance(
+    speakerId
+) {
+    const ownerId =
+        getPortraitDistanceStateSpeakerId(
+            speakerId
+        );
+
+    if (
+        ownerId &&
+        currentPortraitSlots[
+            ownerId
+        ]
+    ) {
+        return ownerId;
+    }
+
+    const temporaryId =
+        String(
+            temporaryTalkPossession || ""
+        );
+
+    if (temporaryId) {
+        const temporaryOwnerId =
+            getPortraitDistanceStateSpeakerId(
+                temporaryId
+            );
+
+        if (
+            temporaryOwnerId ===
+                ownerId &&
+            currentPortraitSlots[
+                temporaryId
+            ]
+        ) {
+            return temporaryId;
+        }
+    }
+
+    return ownerId;
+}
+
 function getPortraitDistanceData(
     speakerId
 ) {
+    const ownerId =
+        getPortraitDistanceStateSpeakerId(
+            speakerId
+        );
+
+    const originalId =
+        String(speakerId || "");
+
     const distance =
         currentPortraitDistance[
-            String(speakerId || "")
-        ] || "normal";
+            ownerId
+        ] ||
+        currentPortraitDistance[
+            originalId
+        ] ||
+        "normal";
 
     return (
         PORTRAIT_DISTANCE_DATA[
@@ -501,6 +676,13 @@ let portraitDistanceFadeStates = [];
  * 立ち絵モーションの進行状態。
  */
 let portraitMotionStates = [];
+
+/*
+ * 表情・小物差分を
+ * 「いったん消す → 差し替える → 再表示」
+ * するための進行状態。
+ */
+let portraitExpressionFadeState = null;
 
 /*
  * 距離フェード終了後に、
@@ -536,6 +718,207 @@ const INACTIVE_PORTRAIT_TONE =
     [-50, -50, -50, 0];
 
 /*
+ * ─────────────────────────────
+ * Story用・立ち絵の環境光
+ * ─────────────────────────────
+ *
+ * normal:
+ *   通常の明るさ。
+ *
+ * night:
+ *   夜の背景に馴染ませるため、
+ *   少しだけ暗くして青みを残す。
+ *
+ * 発話者／非発話者の明暗とは別に加算するため、
+ * 夜でも「話している人は少し明るい」状態を維持する。
+ */
+const PORTRAIT_LIGHTING_TONES = {
+    normal: [0, 0, 0, 0],
+    night: [-24, -20, -8, 0]
+};
+
+let currentPortraitLighting =
+    "normal";
+
+function normalizePortraitLighting(
+    value
+) {
+    const key =
+        String(value || "normal")
+            .toLowerCase();
+
+    return Object.prototype.hasOwnProperty.call(
+        PORTRAIT_LIGHTING_TONES,
+        key
+    )
+        ? key
+        : "normal";
+}
+
+function clampPortraitToneValue(
+    value,
+    isGray = false
+) {
+    const number =
+        Number(value || 0);
+
+    if (isGray) {
+        return Math.max(
+            0,
+            Math.min(255, number)
+        );
+    }
+
+    return Math.max(
+        -255,
+        Math.min(255, number)
+    );
+}
+
+/*
+ * 発話状態の色調へ環境光を加算する。
+ */
+function applyPortraitLightingToTone(
+    tone
+) {
+    const base =
+        Array.isArray(tone)
+            ? tone
+            : ACTIVE_PORTRAIT_TONE;
+
+    const lighting =
+        PORTRAIT_LIGHTING_TONES[
+            currentPortraitLighting
+        ] ||
+        PORTRAIT_LIGHTING_TONES.normal;
+
+    return [
+        clampPortraitToneValue(
+            Number(base[0] || 0) +
+            Number(lighting[0] || 0)
+        ),
+        clampPortraitToneValue(
+            Number(base[1] || 0) +
+            Number(lighting[1] || 0)
+        ),
+        clampPortraitToneValue(
+            Number(base[2] || 0) +
+            Number(lighting[2] || 0)
+        ),
+        clampPortraitToneValue(
+            Number(base[3] || 0) +
+            Number(lighting[3] || 0),
+            true
+        )
+    ];
+}
+
+/*
+ * 環境光だけを変更する。
+ *
+ * すでに表示中の立ち絵には、
+ * 旧環境光との差分だけを加える。
+ * これにより発話者／非発話者の明暗を壊さない。
+ */
+function setPortraitLighting(
+    value,
+    duration = PORTRAIT_TONE_DURATION
+) {
+    const nextLighting =
+        normalizePortraitLighting(
+            value
+        );
+
+    if (
+        nextLighting ===
+        currentPortraitLighting
+    ) {
+        return;
+    }
+
+    const oldTone =
+        PORTRAIT_LIGHTING_TONES[
+            currentPortraitLighting
+        ] ||
+        PORTRAIT_LIGHTING_TONES.normal;
+
+    const newTone =
+        PORTRAIT_LIGHTING_TONES[
+            nextLighting
+        ] ||
+        PORTRAIT_LIGHTING_TONES.normal;
+
+    const delta = [
+        Number(newTone[0] || 0) -
+            Number(oldTone[0] || 0),
+        Number(newTone[1] || 0) -
+            Number(oldTone[1] || 0),
+        Number(newTone[2] || 0) -
+            Number(oldTone[2] || 0),
+        Number(newTone[3] || 0) -
+            Number(oldTone[3] || 0)
+    ];
+
+    currentPortraitLighting =
+        nextLighting;
+
+    for (
+        let slotNumber = 1;
+        slotNumber <= MAX_PORTRAIT_COUNT;
+        slotNumber++
+    ) {
+        const pictureId =
+            getPortraitPictureId(
+                slotNumber
+            );
+
+        const picture =
+            $gameScreen.picture(
+                pictureId
+            );
+
+        if (!picture) {
+            continue;
+        }
+
+        const currentTone =
+            typeof picture.tone ===
+                "function"
+                ? picture.tone()
+                : ACTIVE_PORTRAIT_TONE;
+
+        const targetTone = [
+            clampPortraitToneValue(
+                Number(currentTone[0] || 0) +
+                delta[0]
+            ),
+            clampPortraitToneValue(
+                Number(currentTone[1] || 0) +
+                delta[1]
+            ),
+            clampPortraitToneValue(
+                Number(currentTone[2] || 0) +
+                delta[2]
+            ),
+            clampPortraitToneValue(
+                Number(currentTone[3] || 0) +
+                delta[3],
+                true
+            )
+        ];
+
+        $gameScreen.tintPicture(
+            pictureId,
+            targetTone,
+            Math.max(
+                0,
+                Number(duration || 0)
+            )
+        );
+    }
+}
+
+/*
  * 色調変化時間
  *
  * 0なら即時。
@@ -557,6 +940,48 @@ const PAGE_PARTICIPANTS_FADE_DURATION = 12;
  * 10～12程度なら軽く自然。
  */
 const PORTRAIT_FADE_DURATION = 10;
+
+/*
+ * StoryDataのportraitAppearFade用。
+ *
+ * 未指定なら通常の登場フェード時間を使う。
+ * 0以上の数値が指定された場合だけ、そのフレーム数で上書きする。
+ */
+function resolvePortraitAppearFadeDuration(
+    value
+) {
+    if (
+        value === null ||
+        value === undefined ||
+        value === ""
+    ) {
+        return PORTRAIT_FADE_DURATION;
+    }
+
+    const number =
+        Number(value);
+
+    if (
+        !Number.isFinite(number) ||
+        number < 0
+    ) {
+        return PORTRAIT_FADE_DURATION;
+    }
+
+    return Math.round(number);
+}
+
+/*
+ * 表情・小物差分の
+ * フェードアウト → フェードイン時間。
+ *
+ * 10フレームずつ。
+ * 完全に消える瞬間を挟み、
+ * 小物を外す・衣装差分を切り替える等の
+ * 「動作した間」を少し長めに見せる。
+ */
+const PORTRAIT_EXPRESSION_FADE_DURATION = 10;
+
 /*
  * 転倒後の復帰専用フェード時間。
  */
@@ -798,13 +1223,30 @@ function consumePageParticipants(
  * 完全に消えたあとで新しいparticipantsへ変更する。
  */
 function startPageParticipantsTransition(
-    participants
+    participants,
+    appearFadeDuration = null
 ) {
     if (
         !Array.isArray(participants)
     ) {
-        return false;
+        return 0;
     }
+
+    const hasCustomAppearFadeDuration =
+        appearFadeDuration !== null &&
+        appearFadeDuration !== undefined &&
+        appearFadeDuration !== "" &&
+        Number.isFinite(
+            Number(appearFadeDuration)
+        ) &&
+        Number(appearFadeDuration) >= 0;
+
+    const resolvedAppearFadeDuration =
+        hasCustomAppearFadeDuration
+            ? resolvePortraitAppearFadeDuration(
+                appearFadeDuration
+            )
+            : null;
 /*
  * MPOSSから渡された色は、
  * 今回の切り替えだけで使い切る。
@@ -829,6 +1271,63 @@ const visibleParticipants =
                 participant.speaker &&
                 participant.speaker !== "mio"
         );
+
+/*
+ * 現在とまったく同じ立ち絵構成への
+ * pageParticipants指定は、
+ * フェード切り替えを行わない。
+ *
+ * 同じ画像をフェードアウトした直後に
+ * showPortraitInSlot()が
+ * 「同じ画像だから再表示不要」と判断すると、
+ * opacity 0 のまま残ってしまうため。
+ *
+ * 表情指定だけ違う場合は
+ * showParticipants()でその場で更新する。
+ *
+ * 憑依色付きの切り替えは演出自体が必要なので
+ * この省略対象にはしない。
+ */
+if (
+    !Array.isArray(
+        possessionTone
+    ) &&
+    visibleParticipants.length > 0
+) {
+    const targetLayout =
+        PORTRAIT_LAYOUT[
+            visibleParticipants.length
+        ] ||
+        PORTRAIT_LAYOUT[5];
+
+    const sameComposition =
+        Object.keys(
+            currentPortraitSlots
+        ).length ===
+            visibleParticipants.length &&
+        visibleParticipants.every(
+            (
+                participant,
+                index
+            ) =>
+                currentPortraitSlots[
+                    participant.speaker
+                ] ===
+                    targetLayout[index]
+        );
+
+    if (sameComposition) {
+        showParticipants(
+            participants,
+            resolvedAppearFadeDuration
+        );
+
+        pageParticipantsTransitionState =
+            null;
+
+        return 0;
+    }
+}
 
 if (visibleParticipants.length === 0) {
     let hasVisiblePortrait = false;
@@ -861,7 +1360,9 @@ if (visibleParticipants.length === 0) {
         ) {
             $gameScreen.tintPicture(
                 targetPictureId,
-                possessionTone,
+                applyPortraitLightingToTone(
+                    possessionTone
+                ),
                 PAGE_PARTICIPANTS_FADE_DURATION
             );
         }
@@ -888,7 +1389,7 @@ if (visibleParticipants.length === 0) {
      */
     if (!hasVisiblePortrait) {
         eraseAllPortraits();
-        return false;
+        return 0;
     }
 
     /*
@@ -901,7 +1402,10 @@ if (visibleParticipants.length === 0) {
         participants: []
     };
 
-    return true;
+    return (
+        PAGE_PARTICIPANTS_FADE_DURATION *
+        2
+    );
 }
 
     /*
@@ -918,7 +1422,10 @@ if (visibleParticipants.length === 0) {
         participants,
 
     possessionTone:
-        possessionTone
+        possessionTone,
+
+    appearFadeDuration:
+        resolvedAppearFadeDuration
 };
 
     let hasVisiblePortrait = false;
@@ -960,7 +1467,9 @@ if (visibleParticipants.length === 0) {
         ) {
             $gameScreen.tintPicture(
                 pictureId,
-                possessionTone,
+                applyPortraitLightingToTone(
+                    possessionTone
+                ),
                 PAGE_PARTICIPANTS_FADE_DURATION
             );
         }
@@ -984,17 +1493,110 @@ if (visibleParticipants.length === 0) {
      */
     if (!hasVisiblePortrait) {
         showParticipants(
-            participants
+            participants,
+            resolvedAppearFadeDuration
         );
+
+        if (
+            hasCustomAppearFadeDuration &&
+            resolvedAppearFadeDuration > 0
+        ) {
+            pageParticipantsTransitionState = {
+                phase: "appearOnly",
+                wait:
+                    resolvedAppearFadeDuration,
+                participants: []
+            };
+
+            return resolvedAppearFadeDuration;
+        }
 
         pageParticipantsTransitionState =
             null;
 
-        return false;
+        return 0;
     }
 
-    return true;
+    return (
+        PAGE_PARTICIPANTS_FADE_DURATION +
+        (
+            resolvedAppearFadeDuration !== null
+                ? resolvedAppearFadeDuration
+                : PAGE_PARTICIPANTS_FADE_DURATION
+        )
+    );
 }
+/*
+ * Storyの黒フェード中に使う
+ * 立ち絵構成の即時切り替え。
+ *
+ * 通常のMPARTのように
+ * 「旧立ち絵を見せながら消す → 新立ち絵を見せながら出す」
+ * のではなく、完全な黒画面の裏で構成だけを入れ替える。
+ *
+ * 新しい立ち絵側の軽いフェードインは黒保持中に進むので、
+ * 黒が開く頃には新しい場面の立ち絵が完成している。
+ */
+function applyPageParticipantsOnStoryBlack(
+    participants
+) {
+    if (!Array.isArray(participants)) {
+        return;
+    }
+
+    isPageParticipantsSwitched =
+        makeParticipantsSignature(
+            participants
+        ) !==
+        initialTalkParticipantsSignature;
+
+    /*
+     * 以前のMPART演出が残っていたら破棄。
+     */
+    pageParticipantsTransitionState =
+        null;
+
+    pendingTalkPossessionTone =
+        null;
+
+    const visibleParticipants =
+        participants
+            .map(normalizeParticipant)
+            .filter(
+                participant =>
+                    participant.speaker &&
+                    participant.speaker !==
+                        "mio"
+            );
+
+    /*
+     * 誰も表示しない場面。
+     */
+    if (
+        visibleParticipants.length === 0
+    ) {
+        eraseAllPortraits();
+
+        currentPortraitSlots = {};
+        currentPortraitCount = 0;
+
+        return;
+    }
+
+    /*
+     * 黒の裏で旧構成を完全に捨て、
+     * 新構成を作る。
+     */
+    eraseAllPortraits();
+
+    currentPortraitSlots = {};
+    currentPortraitCount = 0;
+
+    showParticipants(
+        participants
+    );
+}
+
 /*
  * ページ単位の立ち絵切り替えを
  * 毎フレーム進行する。
@@ -1030,6 +1632,17 @@ if (state.phase === "eraseOnly") {
     return;
 }
 
+/*
+ * 何もいない画面へ新しく登場する時の
+ * フェードイン待機専用。
+ */
+if (state.phase === "appearOnly") {
+    pageParticipantsTransitionState =
+        null;
+
+    return;
+}
+
     /*
      * 古い立ち絵のフェードアウト完了。
      *
@@ -1047,10 +1660,14 @@ if (state.phase === "eraseOnly") {
             "fadeIn";
 
         state.wait =
-            PAGE_PARTICIPANTS_FADE_DURATION;
+            state.appearFadeDuration !== null &&
+            state.appearFadeDuration !== undefined
+                ? state.appearFadeDuration
+                : PAGE_PARTICIPANTS_FADE_DURATION;
 
         showParticipants(
-            participants
+            participants,
+            state.appearFadeDuration
         );
 
         /*
@@ -1348,6 +1965,20 @@ const DEBUG_FORCE_TALK_ENABLED = true;
  * darkenPortraits: true,
  *   → このページだけ全員の立ち絵を暗くする
  *
+ * storyFlash: "ryutaros",
+ *   → Storyページ開始時に担当色の短い画面フラッシュを出す
+ *   → momotaros / urataros / kintaros / ryutaros に対応
+ *   → 本文表示は止めず、フラッシュと同時に台詞を表示する
+ *
+ * startPortraitLighting: "night",
+ *   → Story開始時から夜の環境光を立ち絵へ加える
+ *
+ * portraitLighting: "night",
+ *   → このページから夜の環境光へ切り替え、以降も維持
+ *
+ * portraitLighting: "normal",
+ *   → 環境光を通常へ戻す
+ *
  * 本当に身体の内側から話す場合は、
  * 両方を一緒に指定する。
  *
@@ -1377,6 +2008,15 @@ const DEBUG_FORCE_TALK_ENABLED = true;
  *
  * motion: "recover",
  *   → 転倒状態から起き上がる
+ *
+ * expressionTransition: "fadeOutIn",
+ *   → 現在の立ち絵を一度消してから
+ *     expressionへ差し替えて再表示する
+ *
+ * portraitAppearFade: 18,
+ *   → pageParticipantsで新しく登場する立ち絵の
+ *     フェードイン時間をフレーム指定する
+ *   → 未指定なら従来どおり
  *
  *
  * 【基本構造】
@@ -12496,6 +13136,15 @@ tags: [
             speaker: "mio",
             text:
                 "はいはい。"
+        },
+        {
+        speaker: "momotaros",
+        expression: "portrait_momotaros_base_default_angry",
+        text: "はいは一回！"
+        },
+        {
+        speaker: "mio",
+        text: "はい。"
         },
         {
             speaker: "urataros",
@@ -42860,6 +43509,15 @@ tags: [
                 "……はいはい。"
         },
         {
+        speaker: "momotaros",
+        expression: "portrait_momotaros_base_default_angry",
+        text: "はいは一回！"
+        },
+        {
+        speaker: "mio",
+        text: "はい。"
+        },        
+        {
             speaker: "momotaros",
             expression:
                 "portrait_momotaros_base_default_grin",
@@ -46999,7 +47657,16 @@ tags: [
             speaker: "mio",
             text:
                 "はいはい。"
-        }
+        },
+        {
+        speaker: "momotaros",
+        expression: "portrait_momotaros_base_default_angry",
+        text: "はいは一回！"
+        },
+        {
+        speaker: "mio",
+        text: "はい。"
+        },        
     ],
 
     tags: [
@@ -67298,6 +67965,15 @@ tags: [
                 "はいはい。"
         },
         {
+        speaker: "momotaros",
+        expression: "portrait_momotaros_base_default_angry",
+        text: "はいは一回！"
+        },
+        {
+        speaker: "mio",
+        text: "はい。"
+        },        
+        {
             speaker: "momotaros",
             expression:
                 "portrait_momotaros_base_default_normal",
@@ -68727,6 +69403,15 @@ tags: [
                 "はいはい。"
         },
         {
+        speaker: "momotaros",
+        expression: "portrait_momotaros_base_default_angry",
+        text: "はいは一回！"
+        },
+        {
+        speaker: "mio",
+        text: "はい。"
+        },        
+        {
             speaker: "momotaros",
             expression:
                 "portrait_momotaros_base_default_angryshy",
@@ -68809,7 +69494,16 @@ tags: [
             speaker: "mio",
             text:
                 "はいはい。"
-        }
+        },
+        {
+        speaker: "momotaros",
+        expression: "portrait_momotaros_base_default_angry",
+        text: "はいは一回！"
+        },
+        {
+        speaker: "mio",
+        text: "はい。"
+        },        
     ],
 
     tags: [
@@ -80256,7 +80950,7 @@ tags: [
         {
             speaker: "mio",
             text:
-                "はいはい。動かないでね。"
+                "はい。動かないでね。"
         },
         {
             speaker: "momotaros",
@@ -82061,6 +82755,16 @@ tags: [
             text:
                 "はいはい。"
         },
+        {
+        speaker: "momotaros",
+        darkenPortraits: true,
+        innerWindow: true,
+        text: "はいは一回！"
+        },
+        {
+        speaker: "mio",
+        text: "はい。"
+        },        
         {
             speaker: "mio",
             text:
@@ -94496,7 +95200,7 @@ tags: [
             darkenPortraits: true,
             innerWindow: true,
             text:
-                "ナオミちゃんに嘘は\n通じないと思うけど……。"
+                "ナオミさんに嘘は\n通じないと思うけど……。"
         },
         {
             speaker: "ryutaros",
@@ -120906,6 +121610,15 @@ tags: [
                 "はいはい。\n作るから待っててね。"
         },
         {
+        speaker: "momotaros",
+        expression: "portrait_momotaros_base_default_angry",
+        text: "はいは一回！"
+        },
+        {
+        speaker: "mio",
+        text: "はい。"
+        }, 
+        {
             speaker: "momotaros",
             expression:
                 "portrait_momotaros_base_default_shy",
@@ -126156,7 +126869,6 @@ tags: [
         "unpossessed"
     ]
 },
-
 
     /*
      *↑通常会話追加ここまで↑
@@ -139166,7 +139878,6 @@ function replaceTalkPossessionPortrait(
 
     return true;
 }
-
 /*
  * 会話内憑依演出を開始する。
  *
@@ -139279,7 +139990,63 @@ fadeTalkPossessionPortrait(
 
     return true;
 }
+/*
+ * ─────────────────────────────
+ * Story用・本物の憑依横取り
+ * ─────────────────────────────
+ *
+ * 通常のpagePossessionと違い、
+ * 見た目だけではなく
+ * possessionStateも実際に変更する。
+ */
+function startStoryPossessionStealEffect(
+    speakerId,
+    expression
+) {
+    /*
+     * 横取り前の憑依者を保存。
+     *
+     * 第4話ならurataros。
+     */
+    const previousImagin =
+        possessionState.active
+            ? String(
+                possessionState.imagin ||
+                ""
+            )
+            : "ryotaro";
 
+    /*
+     * 見た目の演出自体は、
+     * 既存pagePossessionと同じものを使う。
+     */
+    const started =
+        startTalkPossessionEffect(
+            speakerId,
+            expression
+        );
+
+    if (
+        !started ||
+        !talkPossessionEffectState
+    ) {
+        return false;
+    }
+
+    /*
+     * この演出だけは
+     * 「一時的な横取り」ではなく
+     * 本物の横取りとして扱う。
+     */
+    talkPossessionEffectState
+        .storyCommit = true;
+
+    talkPossessionEffectState
+        .previousImagin =
+            previousImagin;
+
+    return true;
+}
 /*
  * 会話内憑依演出を進行する。
  */
@@ -139327,16 +140094,134 @@ function updateTalkPossessionEffect() {
             TALK_POSSESSION_TINT_IN
         ) {
             /*
-             * 色が最も濃い瞬間に、
-             * 同じピクチャの画像だけ交換。
-             */
-            temporaryTalkPossession =
-                effect.target;
+ * 色が最も濃い瞬間に、
+ * 身体の主導権を切り替える。
+ */
+if (effect.storyCommit) {
+    const previousImagin =
+        String(
+            effect.previousImagin ||
+            (
+                possessionState.active
+                    ? possessionState.imagin
+                    : "ryotaro"
+            ) ||
+            ""
+        );
 
-            replaceTalkPossessionPortrait(
-                effect.pictureId,
-                effect.filename
-            );
+    /*
+     * この時点ではまだ旧憑依者なので、
+     * 良太郎の身体がいるスロットを
+     * 正しく取得できる。
+     */
+    const bodySlot =
+        getTalkPossessionBodySlot();
+
+    /*
+     * U良太郎がcloseだった場合、
+     * その距離も身体ごとM良太郎へ渡す。
+     */
+    const bodyDistance =
+        currentPortraitDistance[
+            previousImagin
+        ] || "normal";
+
+    /*
+     * 実際の憑依者を変更。
+     *
+     * outfit / outfitOwnerは変更しない。
+     * 横取りなので同じ服のまま。
+     */
+    possessionState.active = true;
+
+    possessionState.host =
+        "ryotaro";
+
+    possessionState.imagin =
+        effect.target;
+
+    /*
+     * 立ち絵スロットの所有者も
+     * 旧憑依者 → 新憑依者へ移す。
+     */
+    if (
+        previousImagin &&
+        previousImagin !==
+            effect.target
+    ) {
+        if (bodySlot) {
+            delete currentPortraitSlots[
+                previousImagin
+            ];
+
+            currentPortraitSlots[
+                effect.target
+            ] =
+                Number(bodySlot);
+        }
+
+        delete currentPortraitDistance[
+            previousImagin
+        ];
+
+        currentPortraitDistance[
+            effect.target
+        ] =
+            bodyDistance;
+
+        /*
+         * 会話終了時の距離復帰対象も
+         * 新しい身体側へ引き継ぐ。
+         */
+        activeTalkDistanceSpeakers =
+            [
+                ...new Set(
+                    activeTalkDistanceSpeakers
+                        .map(
+                            id =>
+                                id ===
+                                    previousImagin
+                                    ? effect.target
+                                    : id
+                        )
+                )
+            ];
+    }
+
+    /*
+     * 一時横取りではないので、
+     * temporaryTalkPossessionは使わない。
+     */
+    temporaryTalkPossession =
+        null;
+
+    currentSoloPortrait = {
+        speaker:
+            effect.target,
+
+        expression:
+            getDefaultExpressionForSpeaker(
+                effect.target
+            )
+    };
+} else {
+    /*
+     * 従来のpagePossession。
+     *
+     * こちらは今まで通り
+     * 会話内だけの一時横取り。
+     */
+    temporaryTalkPossession =
+        effect.target;
+}
+
+/*
+ * 同じ身体の画像を交換。
+ */
+replaceTalkPossessionPortrait(
+    effect.pictureId,
+    effect.filename
+);
             /*
              * 新しい姿を、
              * 色膜が消えるのと一緒に
@@ -139532,7 +140417,9 @@ function fadeCurrentPortraitsFromTone(
              */
             $gameScreen.tintPicture(
                 pictureId,
-                tone,
+                applyPortraitLightingToTone(
+                    tone
+                ),
                 0
             );
 
@@ -139541,7 +140428,9 @@ function fadeCurrentPortraitsFromTone(
              */
             $gameScreen.tintPicture(
                 pictureId,
-                ACTIVE_PORTRAIT_TONE,
+                applyPortraitLightingToTone(
+                    ACTIVE_PORTRAIT_TONE
+                ),
                 PAGE_PARTICIPANTS_FADE_DURATION
             );
         }
@@ -139724,7 +140613,8 @@ function getPortraitPictureId(
 function showPortraitInSlot(
     slotNumber,
     filename,
-    speakerId
+    speakerId,
+    appearFadeDuration = null
 ) {
     if (
     !filename ||
@@ -139772,6 +140662,11 @@ if (speakerId) {
             targetPictureId
         );
 
+    const effectiveAppearFadeDuration =
+        resolvePortraitAppearFadeDuration(
+            appearFadeDuration
+        );
+
     /*
      * 同じ画像がすでに表示されているなら、
      * 表示し直さない。
@@ -139791,8 +140686,25 @@ if (speakerId) {
     /*
      * すでにその場所にキャラがいる場合。
      * 表情だけ差し替える。
+     *
+     * showPicture() はピクチャの色調を初期化するため、
+     * 夜の環境光中に表情を変えると一瞬だけ通常色へ戻る。
+     * 差し替え前の色調を保存し、新画像へ即時で引き継ぐ。
      */
     if (currentPicture) {
+        const currentTone =
+            typeof currentPicture.tone ===
+                "function"
+                ? currentPicture.tone()
+                : null;
+
+        const previousTone =
+            Array.isArray(currentTone)
+                ? currentTone.slice()
+                : applyPortraitLightingToTone(
+                    ACTIVE_PORTRAIT_TONE
+                );
+
         $gameScreen.showPicture(
             targetPictureId,
             filename,
@@ -139804,6 +140716,16 @@ if (speakerId) {
             distanceData.scale,
             distanceData.scale,
             255,
+            0
+        );
+
+        /*
+         * 表情差し替え直後に、
+         * 直前までの環境光＋発話明暗をそのまま復元する。
+         */
+        $gameScreen.tintPicture(
+            targetPictureId,
+            previousTone,
             0
         );
 
@@ -139839,7 +140761,7 @@ if (speakerId) {
         distanceData.scale,
         255,
         0,
-        PORTRAIT_FADE_DURATION
+        effectiveAppearFadeDuration
     );
 }
 /*
@@ -139853,7 +140775,9 @@ function tintPortraitSlot(
         getPortraitPictureId(
             slotNumber
         ),
-        tone,
+        applyPortraitLightingToTone(
+            tone
+        ),
         PORTRAIT_TONE_DURATION
     );
 }
@@ -139949,15 +140873,27 @@ function bringClosePortraitsToFront() {
     Object.keys(
         currentPortraitSlots
     ).forEach(speakerId => {
+        const ownerId =
+            getPortraitDistanceStateSpeakerId(
+                speakerId
+            );
+
         const distance =
             currentPortraitDistance[
+                ownerId
+            ] ||
+            currentPortraitDistance[
                 speakerId
-            ] || "normal";
+            ] ||
+            "normal";
 
         if (distance !== "close") {
             return;
         }
 
+        /*
+         * 前面化は現在画面に出ている話者IDで行う。
+         */
         bringPortraitToFront(
             speakerId
         );
@@ -140075,6 +141011,9 @@ function eraseAllPortraits() {
 
     portraitDistanceFadeStates = [];
 
+    portraitExpressionFadeState =
+        null;
+
     pendingRestoreAfterDistanceFade =
         false;
 
@@ -140107,10 +141046,31 @@ function playPortraitMotion(
     const motion =
         String(motionName || "");
 
-    const slotNumber =
+    /*
+     * pagePossessionで良太郎へ身体を返した直後など、
+     * 表示上の話者IDと身体スロットの所有者が
+     * 一時的に一致しない場合がある。
+     *
+     * その場合は、既存の憑依身体スロットを使って
+     * tripFall / recover を実行する。
+     */
+    const directSlotNumber =
         currentPortraitSlots[
             speaker
         ];
+
+    const possessionBodySlotNumber =
+        !directSlotNumber &&
+        (
+            speaker === "ryotaro" ||
+            temporaryTalkPossession === speaker
+        )
+            ? getTalkPossessionBodySlot()
+            : 0;
+
+    const slotNumber =
+        directSlotNumber ||
+        possessionBodySlotNumber;
 
     if (!slotNumber) {
         return;
@@ -140482,10 +141442,14 @@ function movePortraitDistance(
     distance
 ) {
     const id =
-        String(speakerId || "");
+        getPortraitDistanceStateSpeakerId(
+            speakerId
+        );
 
     const slotNumber =
-        currentPortraitSlots[id];
+        getPortraitSlotForDistanceSpeaker(
+            id
+        );
 
     if (!slotNumber) {
         return;
@@ -140499,13 +141463,18 @@ function movePortraitDistance(
             : "normal";
 
     currentPortraitDistance[id] =
-    distanceName;
+        distanceName;
 
-if (distanceName === "close") {
-    bringPortraitToFront(
-        id
-    );
-}
+    if (distanceName === "close") {
+        const displaySpeakerId =
+            getPortraitDisplaySpeakerForDistance(
+                id
+            );
+
+        bringPortraitToFront(
+            displaySpeakerId
+        );
+    }
 
 const distanceData =
     PORTRAIT_DISTANCE_DATA[
@@ -140533,10 +141502,14 @@ function fadePortraitDistance(
     distance
 ) {
     const id =
-        String(speakerId || "");
+        getPortraitDistanceStateSpeakerId(
+            speakerId
+        );
 
     const slotNumber =
-        currentPortraitSlots[id];
+        getPortraitSlotForDistanceSpeaker(
+            id
+        );
 
     if (!slotNumber) {
         return false;
@@ -140593,6 +141566,18 @@ portraitDistanceFadeStates =
             state.speakerId !== id
     );
 
+const distanceCurrentTone =
+    typeof picture.tone === "function"
+        ? picture.tone()
+        : null;
+
+const distanceTone =
+    Array.isArray(distanceCurrentTone)
+        ? distanceCurrentTone.slice()
+        : applyPortraitLightingToTone(
+            ACTIVE_PORTRAIT_TONE
+        );
+
 portraitDistanceFadeStates.push({
     speakerId:
         id,
@@ -140605,6 +141590,9 @@ portraitDistanceFadeStates.push({
 
     filename:
         picture.name(),
+
+    tone:
+        distanceTone,
 
     distance:
         distanceName,
@@ -140722,6 +141710,19 @@ $gameScreen.showPicture(
     0,
     picture.blendMode()
 );
+
+/*
+ * showPicture() で色調が初期化されるため、
+ * 透明なうちに距離変更前の色調を即時復元する。
+ * 夜の環境光や発話明暗を保ったままフェードインできる。
+ */
+if (Array.isArray(state.tone)) {
+    $gameScreen.tintPicture(
+        state.pictureId,
+        state.tone,
+        0
+    );
+}
 
             /*
              * 新しいサイズのまま、
@@ -140857,12 +141858,14 @@ function talkIncludesSpeaker(
     /*
      * participantsが指定されている場合は、
      * 会話開始時のparticipantsだけを見る。
+     *
+     * 空配列も「開始時は誰も表示しない」という
+     * 明示指定として扱う。
      */
     if (
         Array.isArray(
             talk.participants
-        ) &&
-        talk.participants.length > 0
+        )
     ) {
         return talk.participants.some(
             participant => {
@@ -141138,7 +142141,8 @@ function isTalkAvailableForMainCharacter(
  * 一度消してフェードインさせる。
  */
 function showParticipants(
-    participants
+    participants,
+    appearFadeDuration = null
 ) {
     const normalized =
         normalizeArray(
@@ -141161,6 +142165,11 @@ function showParticipants(
     if (
         normalized.length === 0
     ) {
+        /*
+         * 明示的に表示参加者が0人なら、
+         * 直前の立ち絵を残さず全消去する。
+         */
+        eraseAllPortraits();
         return;
     }
 
@@ -141230,7 +142239,8 @@ if (!sameLayout) {
                         participant.expression
                     ),
 
-                    participant.speaker
+                    participant.speaker,
+                    appearFadeDuration
                 );
             }
         }
@@ -141270,7 +142280,8 @@ if (
                 centerParticipant.expression
             ),
 
-            centerParticipant.speaker
+            centerParticipant.speaker,
+            appearFadeDuration
         );
 
         /*
@@ -142454,6 +143465,254 @@ function getPossessionFlashColor(
 }
 
 /*
+ * Story専用の短い担当色フラッシュ。
+ *
+ * 憑依演出とは独立しており、
+ * 身体・憑依状態・立ち絵には一切触れない。
+ */
+const STORY_FLASH_DURATION = 18;
+
+function getStoryFlashColor(
+    effectId
+) {
+    switch (
+        String(effectId || "")
+    ) {
+        case "momotaros":
+        case "urataros":
+        case "kintaros":
+        case "ryutaros":
+            return getPossessionFlashColor(
+                effectId
+            );
+
+        default:
+            return null;
+    }
+}
+
+/*
+ * Story専用・担当色スチルフェード。
+ *
+ * storyStillColorFade: "ryutaros" と
+ * storyStill / storyStillClear を組み合わせる。
+ *
+ * 色幕を完全不透明まで上げた裏で
+ * スチルの表示／解除を完了させてから、
+ * 同じ色幕を抜く。
+ */
+let storyStillColorFadeState = null;
+
+const STORY_STILL_COLOR_FADE_IN = 14;
+const STORY_STILL_COLOR_FADE_HOLD = 2;
+const STORY_STILL_COLOR_FADE_OUT = 18;
+
+function getStoryStillColorFadeColor(
+    effectId
+) {
+    switch (String(effectId || "")) {
+        case "momotaros":
+        case "urataros":
+        case "kintaros":
+        case "ryutaros":
+            return getTalkPossessionOverlayColor(
+                effectId
+            );
+
+        default:
+            return null;
+    }
+}
+
+function startStoryStillColorFade(
+    effectId,
+    mode,
+    filename
+) {
+    if (storyStillColorFadeState) {
+        return false;
+    }
+
+    const color =
+        getStoryStillColorFadeColor(
+            effectId
+        );
+
+    if (!color) {
+        return false;
+    }
+
+    if (
+        mode !== "show" &&
+        mode !== "clear"
+    ) {
+        return false;
+    }
+
+    if (
+        mode === "show" &&
+        !String(filename || "")
+    ) {
+        return false;
+    }
+
+    const overlay =
+        getTalkPossessionOverlaySprite();
+
+    if (!overlay) {
+        return false;
+    }
+
+    overlay.setColor(
+        color[0],
+        color[1],
+        color[2]
+    );
+    overlay.opacity = 0;
+    overlay.visible = true;
+
+    storyStillColorFadeState = {
+        phase: "fadeIn",
+        frame: 0,
+        mode: mode,
+        filename: String(filename || ""),
+        actionStarted: false
+    };
+
+    return true;
+}
+
+function isStoryStillColorFading() {
+    return !!storyStillColorFadeState;
+}
+
+function updateStoryStillColorFade() {
+    if (!storyStillColorFadeState) {
+        return;
+    }
+
+    const effect =
+        storyStillColorFadeState;
+
+    const overlay =
+        getTalkPossessionOverlaySprite();
+
+    if (!overlay) {
+        storyStillColorFadeState = null;
+        return;
+    }
+
+    if (effect.phase === "fadeIn") {
+        effect.frame++;
+
+        const rate = Math.min(
+            1,
+            effect.frame /
+                STORY_STILL_COLOR_FADE_IN
+        );
+
+        overlay.opacity = Math.round(
+            255 * rate
+        );
+
+        if (
+            effect.frame >=
+            STORY_STILL_COLOR_FADE_IN
+        ) {
+            overlay.opacity = 255;
+            effect.phase = "switch";
+            effect.frame = 0;
+        }
+
+        return;
+    }
+
+    if (effect.phase === "switch") {
+        if (!effect.actionStarted) {
+            effect.actionStarted = true;
+
+            if (
+                window.MamiDenOStory
+            ) {
+                if (
+                    effect.mode === "show" &&
+                    typeof window.MamiDenOStory
+                        .showStillTransition ===
+                        "function"
+                ) {
+                    window.MamiDenOStory
+                        .showStillTransition(
+                            effect.filename
+                        );
+                }
+                else if (
+                    effect.mode === "clear" &&
+                    typeof window.MamiDenOStory
+                        .hideStillTransition ===
+                        "function"
+                ) {
+                    window.MamiDenOStory
+                        .hideStillTransition();
+                }
+            }
+        }
+
+        const stillBusy = !!(
+            window.MamiDenOStory &&
+            typeof window.MamiDenOStory
+                .isStillTransitioning ===
+                "function" &&
+            window.MamiDenOStory
+                .isStillTransitioning()
+        );
+
+        if (stillBusy) {
+            return;
+        }
+
+        effect.phase = "hold";
+        effect.frame = 0;
+        return;
+    }
+
+    if (effect.phase === "hold") {
+        effect.frame++;
+
+        if (
+            effect.frame >=
+            STORY_STILL_COLOR_FADE_HOLD
+        ) {
+            effect.phase = "fadeOut";
+            effect.frame = 0;
+        }
+
+        return;
+    }
+
+    if (effect.phase === "fadeOut") {
+        effect.frame++;
+
+        const rate = Math.min(
+            1,
+            effect.frame /
+                STORY_STILL_COLOR_FADE_OUT
+        );
+
+        overlay.opacity = Math.round(
+            255 * (1 - rate)
+        );
+
+        if (
+            effect.frame >=
+            STORY_STILL_COLOR_FADE_OUT
+        ) {
+            overlay.opacity = 0;
+            storyStillColorFadeState = null;
+        }
+    }
+}
+
+/*
  * 憑依開始演出を予約する。
  */
 function startPossessionVisualEffect(
@@ -142738,6 +143997,207 @@ if (action.type === "steal") {
     );
 }
 }
+
+/*
+ * 表情・小物差分を、
+ * いったん完全に消してから差し替え、
+ * 同じ位置へフェードインする。
+ *
+ * クロスフェードではないため、
+ * メガネなどの小物が
+ * 「自然消滅した」ように見えにくい。
+ */
+function startSpeakerExpressionFadeOutIn(
+    speakerId,
+    filename
+) {
+    if (!filename) {
+        return false;
+    }
+
+    const id =
+        String(
+            speakerId ||
+            defaultSpeaker
+        );
+
+    /*
+     * pagePossession中など、
+     * 表示上の話者IDと身体スロットの所有者が
+     * 一時的に一致しない場合にも対応する。
+     */
+    const slotNumber =
+        currentPortraitSlots[id] ||
+        (
+            temporaryTalkPossession === id
+                ? getTalkPossessionBodySlot()
+                : null
+        );
+
+    if (!slotNumber) {
+        return false;
+    }
+
+    const targetPictureId =
+        getPortraitPictureId(
+            Number(slotNumber)
+        );
+
+    const picture =
+        $gameScreen.picture(
+            targetPictureId
+        );
+
+    if (!picture) {
+        return false;
+    }
+
+    const displayFilename =
+        getDisplayExpression(
+            id,
+            filename
+        );
+
+    if (!displayFilename) {
+        return false;
+    }
+
+    if (
+        typeof picture.name === "function" &&
+        picture.name() === displayFilename
+    ) {
+        return false;
+    }
+
+    const currentTone =
+        typeof picture.tone === "function"
+            ? picture.tone()
+            : null;
+
+    const savedTone =
+        Array.isArray(currentTone)
+            ? currentTone.slice()
+            : applyPortraitLightingToTone(
+                ACTIVE_PORTRAIT_TONE
+            );
+
+    /*
+     * StoryData側の通常プリロードでも対象画像は読まれるが、
+     * 念のためここでもキャッシュへ要求しておく。
+     */
+    ImageManager.loadPicture(
+        displayFilename
+    );
+
+    portraitExpressionFadeState = {
+        speakerId: id,
+        pictureId: targetPictureId,
+        filename: displayFilename,
+
+        origin: picture.origin(),
+        x: picture.x(),
+        y: picture.y(),
+        scaleX: picture.scaleX(),
+        scaleY: picture.scaleY(),
+        opacity: picture.opacity(),
+        blendMode: picture.blendMode(),
+        tone: savedTone,
+
+        phase: "fadeOut",
+        wait:
+            PORTRAIT_EXPRESSION_FADE_DURATION
+    };
+
+    /*
+     * まず今の立ち絵を完全に消す。
+     */
+    $gameScreen.movePicture(
+        targetPictureId,
+        picture.origin(),
+        picture.x(),
+        picture.y(),
+        picture.scaleX(),
+        picture.scaleY(),
+        0,
+        picture.blendMode(),
+        PORTRAIT_EXPRESSION_FADE_DURATION
+    );
+
+    return true;
+}
+
+/*
+ * 表情・小物差分の
+ * フェードアウト → 差し替え → フェードインを進行する。
+ */
+function updatePortraitExpressionFade() {
+    const state =
+        portraitExpressionFadeState;
+
+    if (!state) {
+        return;
+    }
+
+    state.wait--;
+
+    if (state.wait > 0) {
+        return;
+    }
+
+    if (state.phase === "fadeOut") {
+        /*
+         * 完全に消えた瞬間にだけ画像を交換。
+         * ここでは透明度0なので、
+         * メガネ等がクロスフェードで消えるようには見えない。
+         */
+        $gameScreen.showPicture(
+            state.pictureId,
+            state.filename,
+            state.origin,
+            state.x,
+            state.y,
+            state.scaleX,
+            state.scaleY,
+            0,
+            state.blendMode
+        );
+
+        /*
+         * 夜の環境光や話者の明暗をそのまま引き継ぐ。
+         */
+        if (Array.isArray(state.tone)) {
+            $gameScreen.tintPicture(
+                state.pictureId,
+                state.tone,
+                0
+            );
+        }
+
+        $gameScreen.movePicture(
+            state.pictureId,
+            state.origin,
+            state.x,
+            state.y,
+            state.scaleX,
+            state.scaleY,
+            state.opacity,
+            state.blendMode,
+            PORTRAIT_EXPRESSION_FADE_DURATION
+        );
+
+        state.phase = "fadeIn";
+        state.wait =
+            PORTRAIT_EXPRESSION_FADE_DURATION;
+
+        return;
+    }
+
+    /*
+     * 再表示完了。
+     */
+    portraitExpressionFadeState = null;
+}
+
 function showSpeakerExpression(
     speakerId,
     filename
@@ -142910,11 +144370,17 @@ function getTalkParticipants(talk) {
         return [];
     }
 
+    /*
+     * participantsが配列として明示されていれば、
+     * 空配列も含めてその指定を最優先する。
+     *
+     * [] は「参加者指定なし」ではなく、
+     * 「開始時は立ち絵を出さない」の意味。
+     */
     if (
         Array.isArray(
             talk.participants
-        ) &&
-        talk.participants.length > 0
+        )
     ) {
         return talk.participants;
     }
@@ -143181,6 +144647,195 @@ Window_Message.prototype
 
         return motionName;
     };
+/*
+ * ─────────────────────────────
+ * UI黒幕保持中の場面転換用
+ * 浮遊操作ボタン退避／復帰
+ * ─────────────────────────────
+ *
+ * 対象：
+ *   EXIT    = _denOStoryExitButton
+ *   AUTO    = _mamiAutoButton
+ *   LOG     = _dialogueHistoryButton
+ *   UI隠し  = _mamiUiHideButton
+ *
+ * EXIT / LOG / UI隠しは各プラグイン側のupdate()で
+ * visibleを毎フレーム再計算するため、
+ * 一度visible=falseにするだけでは足りない。
+ *
+ * 黒だけの「間」では毎フレーム強制的に隠し、
+ * 次場面でメッセージUIが戻る時に
+ * 元の状態へ復元する。
+ */
+function getStoryHeldTransitionControlButtons(
+    scene
+) {
+    if (!scene) {
+        return [];
+    }
+
+    return [
+        scene._denOStoryExitButton,
+        scene._mamiAutoButton,
+        scene._dialogueHistoryButton,
+        scene._mamiUiHideButton
+    ].filter(Boolean);
+}
+
+function hideStoryHeldTransitionControls(
+    messageWindow
+) {
+    const scene =
+        SceneManager._scene;
+
+    if (
+        !scene ||
+        !messageWindow
+    ) {
+        return;
+    }
+
+    /*
+     * 二重保存すると、
+     * すでに隠した状態を「元の状態」として
+     * 上書きしてしまうので一度だけ保存する。
+     */
+    if (
+        !Array.isArray(
+            messageWindow
+                ._mamiStoryHeldTransitionControlStates
+        )
+    ) {
+        messageWindow
+            ._mamiStoryHeldTransitionControlStates =
+            getStoryHeldTransitionControlButtons(
+                scene
+            ).map(
+                button => ({
+                    button: button,
+                    visible:
+                        button.visible,
+                    renderable:
+                        button.renderable,
+                    opacity:
+                        typeof button.opacity ===
+                            "number"
+                            ? button.opacity
+                            : null
+                })
+            );
+    }
+
+    /*
+     * visibleだけでなくrenderableも止める。
+     *
+     * LOG / EXITのupdate()がvisible=trueへ
+     * 戻しても描画されないようにする。
+     */
+    for (
+        const button of
+            getStoryHeldTransitionControlButtons(
+                scene
+            )
+    ) {
+        button.visible = false;
+        button.renderable = false;
+
+        if (
+            typeof button.opacity ===
+                "number"
+        ) {
+            button.opacity = 0;
+        }
+    }
+}
+
+function keepStoryHeldTransitionControlsHidden(
+    scene
+) {
+    if (!scene) {
+        return;
+    }
+
+    const messageWindow =
+        scene._messageWindow;
+
+    if (
+        !messageWindow ||
+        !messageWindow
+            ._mamiStoryMessageUiHiddenByHeldTransition
+    ) {
+        return;
+    }
+
+    /*
+     * 各ボタン自身のupdate()が終わった後に
+     * 毎フレームもう一度隠す。
+     */
+    for (
+        const button of
+            getStoryHeldTransitionControlButtons(
+                scene
+            )
+    ) {
+        button.visible = false;
+        button.renderable = false;
+
+        if (
+            typeof button.opacity ===
+                "number"
+        ) {
+            button.opacity = 0;
+        }
+    }
+}
+
+function restoreStoryHeldTransitionControls(
+    messageWindow
+) {
+    if (!messageWindow) {
+        return;
+    }
+
+    const states =
+        messageWindow
+            ._mamiStoryHeldTransitionControlStates;
+
+    if (!Array.isArray(states)) {
+        return;
+    }
+
+    for (const state of states) {
+        const button =
+            state &&
+            state.button;
+
+        if (!button) {
+            continue;
+        }
+
+        button.visible =
+            state.visible;
+
+        button.renderable =
+            state.renderable !== false;
+
+        if (
+            state.opacity !== null &&
+            typeof button.opacity ===
+                "number"
+        ) {
+            button.opacity =
+                state.opacity;
+        }
+    }
+
+    messageWindow
+        ._mamiStoryHeldTransitionControlStates =
+        null;
+}
+
+
     const _Window_Message_processEscapeCharacter =
         Window_Message.prototype
             .processEscapeCharacter;
@@ -143237,8 +144892,965 @@ if (code === "MPOSS") {
     }
 
     return;
-}       
+}    
+/*
+ * Story用・実憑依横取り。
+ *
+ * \MSTORYSTEAL[
+ *   キャラクターID|表情画像名
+ * ]
+ */
+if (code === "MSTORYSTEAL") {
+    const value =
+        this.obtainMamiSpeakerId(
+            textState
+        );
+
+    const separatorIndex =
+        value.indexOf("|");
+
+    const target =
+        normalizeTalkPossessionTarget(
+            separatorIndex >= 0
+                ? value.substring(
+                    0,
+                    separatorIndex
+                )
+                : value
+        );
+
+    const expression =
+        separatorIndex >= 0
+            ? value.substring(
+                separatorIndex + 1
+            )
+            : "";
+
+    if (
+        startStoryPossessionStealEffect(
+            target,
+            expression
+        )
+    ) {
+        this.startWait(
+            TALK_POSSESSION_TINT_IN +
+            TALK_POSSESSION_TINT_HOLD +
+            TALK_POSSESSION_TINT_OUT
+        );
+    }
+
+    return;
+}
+
+/*
+ * Story専用・短い担当色フラッシュ。
+ *
+ * \MSTORYFLASH[ryutaros]
+ *
+ * 憑依状態は変更せず、
+ * 画面全体へ担当色を短く重ねるだけ。
+ * 本文と同時に見せるため、メッセージ待機は入れない。
+ */
+if (code === "MSTORYFLASH") {
+    const effectId =
+        this.obtainMamiSpeakerId(
+            textState
+        );
+
+    const flashColor =
+        getStoryFlashColor(
+            effectId
+        );
+
+    if (flashColor) {
+        $gameScreen.startFlash(
+            flashColor,
+            STORY_FLASH_DURATION
+        );
+    } else {
+        console.warn(
+            `[${pluginName}] Storyフラッシュ指定が不正です: ${effectId}`
+        );
+    }
+
+    return;
+}
+
+/*
+ * Story専用・担当色でのスチル表示／解除。
+ *
+ * \MSTORYSTILLFADE[ryutaros|show|CG_xxx.png]
+ * \MSTORYSTILLFADE[ryutaros|clear]
+ */
+if (code === "MSTORYSTILLFADE") {
+    const value =
+        this.obtainMamiSpeakerId(
+            textState
+        );
+
+    const parts =
+        String(value || "").split("|");
+
+    const effectId =
+        String(parts[0] || "");
+
+    const mode =
+        String(parts[1] || "");
+
+    const filename =
+        String(parts[2] || "");
+
+    if (
+        startStoryStillColorFade(
+            effectId,
+            mode,
+            filename
+        )
+    ) {
+        this._mamiStoryStillColorFadeWait =
+            true;
+        this.startWait(1);
+    } else {
+        console.warn(
+            `[${pluginName}] Story色フェード指定が不正です: ${value}`
+        );
+    }
+
+    return;
+}
+
+/*
+ * ─────────────────────────────
+ * UI黒幕保持中の場面転換用
+ * メッセージUI退避／復帰
+ * ─────────────────────────────
+ *
+ * \MSTORYMSGHIDEIFHELD[秒数]
+ *   UI黒幕が完全な黒で保持されている時だけ、
+ *   Window_Messageとネームプレートを隠し、
+ *   指定秒数だけ黒画面のまま待つ。
+ *
+ * \MSTORYMSGSHOWIFHIDDEN
+ *   上記コマンドで隠した場合だけ、
+ *   Window_Messageを次の場面で復帰する。
+ *
+ * 場面転換コマンドの前後へ自動挿入するため、
+ * StoryData側で個別指定する必要はない。
+ */
+if (code === "MSTORYMSGHIDEIFHELD") {
+    /*
+     * \MSTORYMSGHIDEIFHELD[秒数]
+     *
+     * UI黒幕保持中だけ、
+     * メッセージUIを消したあと
+     * 黒画面だけの「間」を入れる。
+     */
+    const value =
+        this.obtainMamiSpeakerId(
+            textState
+        );
+
+    const seconds =
+        Number(value || 0);
+
+    const isHeld =
+        !!(
+            window.MamiDenOStory &&
+            typeof window.MamiDenOStory
+                .isUiBlackHeld ===
+                "function" &&
+            window.MamiDenOStory
+                .isUiBlackHeld()
+        );
+
+    if (isHeld) {
         /*
+         * このフラグが立っている時だけ、
+         * 後続のSHOWで復帰する。
+         *
+         * 通常の場面転換では何もしない。
+         */
+        this._mamiStoryMessageUiHiddenByHeldTransition =
+            true;
+
+        /*
+         * Window_Message自体は破棄せず、
+         * 中のメッセージ処理は継続できるようにする。
+         *
+         * opennessだけ0へ落とすことで、
+         * 黒画面上からウィンドウを完全に消す。
+         */
+        this.visible = true;
+        this.openness = 0;
+        this._opening = false;
+        this._closing = false;
+
+        /*
+         * 前の話者のネームプレートも同時に消す。
+         */
+        eraseNamePlate();
+
+        /*
+         * 黒だけの「間」では、
+         * EXIT / AUTO / LOG / UI隠しボタンも一緒に退避する。
+         *
+         * 暗闇の会話中はここへ来ないため、
+         * その間は従来どおり操作ボタンを使える。
+         */
+        hideStoryHeldTransitionControls(
+            this
+        );
+
+        /*
+         * UIが消えた黒画面だけを少し保持する。
+         * このwaitが終わるまで、
+         * 後ろに続くMSTORYBG等は処理されない。
+         */
+        const waitFrames =
+            Math.max(
+                0,
+                Math.round(
+                    (
+                        Number.isFinite(
+                            seconds
+                        ) &&
+                        seconds > 0
+                            ? seconds
+                            : 0
+                    ) * 60
+                )
+            );
+
+        if (waitFrames > 0) {
+            this.startWait(
+                waitFrames
+            );
+        }
+    }
+
+    return;
+}
+
+if (code === "MSTORYMSGSHOWIFHIDDEN") {
+    if (
+        this._mamiStoryMessageUiHiddenByHeldTransition
+    ) {
+        this._mamiStoryMessageUiHiddenByHeldTransition =
+            false;
+
+        /*
+         * 場面転換が完了したあと、
+         * 次のページ本文を描く直前に復帰する。
+         *
+         * 直後のMSPKで新しい話者の
+         * ネームプレートが表示される。
+         */
+        this.visible = true;
+        this.openness = 255;
+        this._opening = false;
+        this._closing = false;
+
+        /*
+         * 次場面のメッセージUI復帰と同時に、
+         * EXIT / AUTO / LOG / UI隠しボタンも元の状態へ戻す。
+         */
+        restoreStoryHeldTransitionControls(
+            this
+        );
+    }
+
+    return;
+}
+
+/*
+ * ─────────────────────────────
+ * Story背景変更・時間経過
+ * ─────────────────────────────
+ *
+ * \MSTORYBG[画像名|秒数]
+ * \MSTORYBGCLEAR[秒数]
+ * \MSTORYFADE[秒数]
+ *
+ * \MSTORYUIFADE[秒数]
+ *   → UIを残して黒くなり、そのまま保持。
+ *
+ * \MSTORYUIOUT[秒数]
+ *   → 保持中のUI黒幕だけをフェードアウト。
+ */
+/*
+ * Storyの黒画面中に、
+ * 現在の接近状態をすべて通常距離へ戻す。
+ *
+ * 黒画面の裏で即時処理するため、
+ * 距離変更用のフェードは使わない。
+ * 次のpageParticipants再配置にも
+ * close状態を持ち越さない。
+ */
+function resetPortraitDistancesOnStoryBlack() {
+    portraitDistanceFadeStates = [];
+    pendingRestoreAfterDistanceFade = false;
+
+    const normalData =
+        PORTRAIT_DISTANCE_DATA.normal;
+
+    /*
+     * 現在記録されている距離状態を
+     * すべてnormalへ戻す。
+     */
+    for (
+        const speakerId of
+            Object.keys(
+                currentPortraitDistance
+            )
+    ) {
+        currentPortraitDistance[
+            speakerId
+        ] =
+            "normal";
+    }
+
+    /*
+     * 会話終了時の距離復帰対象にも
+     * 残さない。
+     */
+    activeTalkDistanceSpeakers = [];
+
+    /*
+     * pageParticipantsを伴わない場面転換でも
+     * 正しい位置へ戻るよう、
+     * 現在表示中のピクチャも即時補正する。
+     */
+    for (
+        const [speakerId, slotValue] of
+            Object.entries(
+                currentPortraitSlots
+            )
+    ) {
+        const slotNumber =
+            Number(slotValue || 0);
+
+        if (!slotNumber) {
+            continue;
+        }
+
+        const pictureId =
+            getPortraitPictureId(
+                slotNumber
+            );
+
+        const picture =
+            $gameScreen.picture(
+                pictureId
+            );
+
+        if (!picture) {
+            continue;
+        }
+
+        $gameScreen.movePicture(
+            pictureId,
+            picture.origin(),
+            getPortraitSlotX(
+                slotNumber
+            ),
+            normalData.y,
+            normalData.scale,
+            normalData.scale,
+            picture.opacity(),
+            picture.blendMode(),
+            0
+        );
+    }
+}
+
+/*
+ * Story場面転換の追加指定を読む。
+ *
+ * 例:
+ *   reset|表情|part|登録番号
+ *   part|登録番号
+ *   distreset|1
+ */
+function parseStorySceneModifiers(
+    parts,
+    startIndex
+) {
+    let resetOnBlack = false;
+    let resetExpression = "";
+    let participantsRegistryId = 0;
+    let portraitLighting = "";
+    let resetDistanceOnBlack = false;
+    let possessionOnBlack = "";
+    let possessionOutfitOnBlack = "normal";
+    let stillClearOnBlack = false;
+
+    let index =
+        Number(startIndex || 0);
+
+    while (index < parts.length) {
+        const token =
+            String(parts[index] || "");
+
+        if (token === "reset") {
+            resetOnBlack = true;
+            resetExpression =
+                String(
+                    parts[index + 1] || ""
+                );
+            index += 2;
+            continue;
+        }
+
+        if (token === "part") {
+            participantsRegistryId =
+                Number(
+                    parts[index + 1] || 0
+                );
+            index += 2;
+            continue;
+        }
+
+        if (token === "light") {
+            portraitLighting =
+                normalizePortraitLighting(
+                    parts[index + 1]
+                );
+            index += 2;
+            continue;
+        }
+
+        if (token === "distreset") {
+            resetDistanceOnBlack =
+                String(
+                    parts[index + 1] || ""
+                ) === "1";
+            index += 2;
+            continue;
+        }
+
+        if (token === "possess") {
+            possessionOnBlack =
+                normalizeTalkPossessionTarget(
+                    parts[index + 1]
+                );
+
+            possessionOutfitOnBlack =
+                String(
+                    parts[index + 2] ||
+                    "normal"
+                ) === "imagin_preference"
+                    ? "imagin_preference"
+                    : "normal";
+
+            index += 3;
+            continue;
+        }
+
+        if (token === "stillclear") {
+            stillClearOnBlack =
+                String(
+                    parts[index + 1] || ""
+                ) === "1";
+            index += 2;
+            continue;
+        }
+
+        index++;
+    }
+
+    return {
+        resetOnBlack:
+            resetOnBlack,
+        resetExpression:
+            resetExpression,
+        participantsRegistryId:
+            participantsRegistryId,
+        portraitLighting:
+            portraitLighting,
+        resetDistanceOnBlack:
+            resetDistanceOnBlack,
+        possessionOnBlack:
+            possessionOnBlack,
+        possessionOutfitOnBlack:
+            possessionOutfitOnBlack,
+        stillClearOnBlack:
+            stillClearOnBlack
+    };
+}
+
+/*
+ * 黒画面になった瞬間に実行する処理をまとめる。
+ *
+ * ・場面外で済ませる憑依解除
+ * ・pageParticipantsの場面切り替え
+ */
+function makeStorySceneOnBlack(
+    modifiers
+) {
+    if (!modifiers) {
+        return null;
+    }
+
+    const needsReset =
+        modifiers.resetOnBlack === true;
+
+    const registryId =
+        Number(
+            modifiers.participantsRegistryId ||
+            0
+        );
+
+    const portraitLighting =
+        String(
+            modifiers.portraitLighting ||
+            ""
+        );
+
+    const resetDistance =
+        modifiers.resetDistanceOnBlack ===
+            true;
+
+    const possessionOnBlack =
+        normalizeTalkPossessionTarget(
+            modifiers.possessionOnBlack
+        );
+
+    const possessionOutfitOnBlack =
+        String(
+            modifiers.possessionOutfitOnBlack ||
+            "normal"
+        ) === "imagin_preference"
+            ? "imagin_preference"
+            : "normal";
+
+    const stillClearOnBlack =
+        modifiers.stillClearOnBlack === true;
+
+    if (
+        !needsReset &&
+        !registryId &&
+        !portraitLighting &&
+        !resetDistance &&
+        !possessionOnBlack &&
+        !stillClearOnBlack
+    ) {
+        return null;
+    }
+
+    return () => {
+        /*
+         * 黒画面になった瞬間にStoryスチルを片付ける。
+         * フェードアウト自体は黒の裏で進むため、
+         * 次の場面が開く頃にはCGが残らない。
+         */
+        if (
+            stillClearOnBlack &&
+            window.MamiDenOStory &&
+            typeof window.MamiDenOStory
+                .hideStillTransition === "function"
+        ) {
+            window.MamiDenOStory
+                .hideStillTransition();
+        }
+
+        /*
+         * 先に距離状態を戻す。
+         * このあとpageParticipantsがある場合も、
+         * normal距離で再配置される。
+         */
+        if (resetDistance) {
+            resetPortraitDistancesOnStoryBlack();
+        }
+
+        if (portraitLighting) {
+            /*
+             * 背景変更の黒画面中に
+             * 環境光も同時に切り替える。
+             */
+            setPortraitLighting(
+                portraitLighting,
+                0
+            );
+        }
+
+        if (needsReset) {
+            resetStoryPossessionOnBlack(
+                modifiers.resetExpression
+            );
+        }
+
+        if (possessionOnBlack) {
+            MamiDenOTalk.startPossession(
+                possessionOnBlack,
+                possessionOutfitOnBlack
+            );
+
+            currentSoloPortrait = {
+                speaker: possessionOnBlack,
+                expression:
+                    getDefaultExpressionForSpeaker(
+                        possessionOnBlack
+                    )
+            };
+        }
+
+        if (registryId) {
+            const participants =
+                consumePageParticipants(
+                    registryId
+                );
+
+            if (participants) {
+                applyPageParticipantsOnStoryBlack(
+                    participants
+                );
+            }
+        }
+    };
+}
+
+if (code === "MSTORYBG") {
+    const value =
+        this.obtainMamiSpeakerId(
+            textState
+        );
+
+    const parts =
+        String(value || "")
+            .split("|");
+
+    const filename =
+        String(parts[0] || "");
+
+    const seconds =
+        parts[1]
+            ? Number(parts[1])
+            : null;
+
+    const modifiers =
+        parseStorySceneModifiers(
+            parts,
+            2
+        );
+
+    const onBlack =
+        makeStorySceneOnBlack(
+            modifiers
+        );
+
+    let started = false;
+
+    if (
+        filename &&
+        window.MamiDenOStory &&
+        typeof window.MamiDenOStory
+            .showBackgroundTransition ===
+            "function"
+    ) {
+        started =
+            window.MamiDenOStory
+                .showBackgroundTransition(
+                    filename,
+                    seconds,
+                    onBlack
+                ) === true;
+    }
+
+    if (started) {
+        this._mamiStorySceneWait = true;
+        this.startWait(1);
+    }
+
+    return;
+}
+
+if (code === "MSTORYBGCLEAR") {
+    const value =
+        this.obtainMamiSpeakerId(
+            textState
+        );
+
+    const parts =
+        String(value || "")
+            .split("|");
+
+    const seconds =
+        parts[0]
+            ? Number(parts[0])
+            : null;
+
+    const modifiers =
+        parseStorySceneModifiers(
+            parts,
+            1
+        );
+
+    const onBlack =
+        makeStorySceneOnBlack(
+            modifiers
+        );
+
+    let started = false;
+
+    if (
+        window.MamiDenOStory &&
+        typeof window.MamiDenOStory
+            .clearBackgroundTransition ===
+            "function"
+    ) {
+        started =
+            window.MamiDenOStory
+                .clearBackgroundTransition(
+                    seconds,
+                    onBlack
+                ) === true;
+    }
+
+    if (started) {
+        this._mamiStorySceneWait = true;
+        this.startWait(1);
+    }
+
+    return;
+}
+
+if (code === "MSTORYFADE") {
+    const value =
+        this.obtainMamiSpeakerId(
+            textState
+        );
+
+    const parts =
+        String(value || "")
+            .split("|");
+
+    const seconds =
+        Number(parts[0] || 0);
+
+    const modifiers =
+        parseStorySceneModifiers(
+            parts,
+            1
+        );
+
+    const onBlack =
+        makeStorySceneOnBlack(
+            modifiers
+        );
+
+    let started = false;
+
+    if (
+        seconds > 0 &&
+        window.MamiDenOStory &&
+        typeof window.MamiDenOStory
+            .startBlackFade ===
+            "function"
+    ) {
+        started =
+            window.MamiDenOStory
+                .startBlackFade(
+                    seconds,
+                    onBlack
+                ) === true;
+    }
+
+    if (started) {
+        this._mamiStorySceneWait = true;
+        this.startWait(1);
+    }
+
+    return;
+}
+
+
+/*
+ * ─────────────────────────────
+ * UIを残すStory黒フェード
+ * ─────────────────────────────
+ *
+ * \MSTORYUIFADE[秒数|...]
+ *
+ * 立ち絵・スチルより前、
+ * メッセージウィンドウ・ネームプレートより後ろ。
+ */
+if (code === "MSTORYUIFADE") {
+    const value =
+        this.obtainMamiSpeakerId(
+            textState
+        );
+
+    const parts =
+        String(value || "")
+            .split("|");
+
+    const seconds =
+        Number(parts[0] || 0);
+
+    const modifiers =
+        parseStorySceneModifiers(
+            parts,
+            1
+        );
+
+    const onBlack =
+        makeStorySceneOnBlack(
+            modifiers
+        );
+
+    let started = false;
+
+    if (
+        window.MamiDenOStory &&
+        typeof window.MamiDenOStory
+            .startUiBlackFade ===
+            "function"
+    ) {
+        started =
+            window.MamiDenOStory
+                .startUiBlackFade(
+                    seconds,
+                    onBlack
+                ) === true;
+    }
+
+    if (started) {
+        this._mamiStorySceneWait = true;
+        this.startWait(1);
+    }
+
+    return;
+}
+
+
+/*
+ * ─────────────────────────────
+ * 保持中のUI黒幕を解除
+ * ─────────────────────────────
+ *
+ * \MSTORYUIOUT[秒数|...]
+ */
+if (code === "MSTORYUIOUT") {
+    const value =
+        this.obtainMamiSpeakerId(
+            textState
+        );
+
+    const parts =
+        String(value || "")
+            .split("|");
+
+    const seconds =
+        Number(parts[0] || 0);
+
+    const modifiers =
+        parseStorySceneModifiers(
+            parts,
+            1
+        );
+
+    const onBlack =
+        makeStorySceneOnBlack(
+            modifiers
+        );
+
+    let started = false;
+
+    if (
+        window.MamiDenOStory &&
+        typeof window.MamiDenOStory
+            .startUiBlackFadeOut ===
+            "function"
+    ) {
+        started =
+            window.MamiDenOStory
+                .startUiBlackFadeOut(
+                    seconds,
+                    onBlack
+                ) === true;
+    }
+
+    if (started) {
+        this._mamiStorySceneWait = true;
+        this.startWait(1);
+    }
+
+    return;
+}
+
+/*
+ * ─────────────────────────────
+ * Storyスチル表示
+ * ─────────────────────────────
+ *
+ * \MSTILL[画像名]
+ */
+if (code === "MSTILL") {
+    const filename =
+        this.obtainMamiSpeakerId(
+            textState
+        );
+
+    let started = false;
+
+    if (
+        filename &&
+        window.MamiDenOStory &&
+        typeof window.MamiDenOStory
+            .showStillTransition ===
+            "function"
+    ) {
+        started =
+            window.MamiDenOStory
+                .showStillTransition(
+                    filename
+                ) === true;
+    }
+
+    if (started) {
+        /*
+         * この1フレーム待機で、
+         * 同じupdateMessage内の本文描画を
+         * いったん確実に止める。
+         *
+         * 次フレーム以降はupdateWait側で
+         * スチル演出の実終了まで待つ。
+         */
+        this._mamiStoryStillWait = true;
+        this.startWait(1);
+    }
+
+    return;
+}
+
+/*
+ * Storyスチル終了。
+ *
+ * \MSTILLOUT
+ */
+if (code === "MSTILLOUT") {
+    let started = false;
+
+    if (
+        window.MamiDenOStory &&
+        typeof window.MamiDenOStory
+            .hideStillTransition ===
+            "function"
+    ) {
+        started =
+            window.MamiDenOStory
+                .hideStillTransition() ===
+            true;
+    }
+
+    if (started) {
+        this._mamiStoryStillWait = true;
+        this.startWait(1);
+    }
+
+    return;
+}
+/*
  * ページ単位の立ち絵切り替え。
  *
  * \MPART[登録番号]
@@ -143250,10 +145862,28 @@ if (code === "MPOSS") {
  * 新しい立ち絵をフェードインする。
  */
 if (code === "MPART") {
-    const registryId =
+    const value =
         this.obtainMamiSpeakerId(
             textState
         );
+
+    const parts =
+        String(value || "")
+            .split("|");
+
+    const registryId =
+        parts[0];
+
+    const appearFadeRaw =
+        parts.length >= 2
+            ? Number(parts[1])
+            : NaN;
+
+    const appearFadeDuration =
+        Number.isFinite(appearFadeRaw) &&
+        appearFadeRaw >= 0
+            ? Math.round(appearFadeRaw)
+            : null;
 
     const participants =
         consumePageParticipants(
@@ -143271,18 +145901,23 @@ if (code === "MPART") {
         ) !==
         initialTalkParticipantsSignature;
 
-    const started =
+    const waitFrames =
         startPageParticipantsTransition(
-            participants
+            participants,
+            appearFadeDuration
         );
+
         /*
          * フェードアウト＋フェードインが
          * 完了するまで本文表示を待つ。
+         *
+         * 無人状態からの登場でも、
+         * portraitAppearFade指定時は
+         * 登場フェードが終わるまで待つ。
          */
-        if (started) {
+        if (waitFrames > 0) {
             this.startWait(
-                PAGE_PARTICIPANTS_FADE_DURATION *
-                    2
+                waitFrames
             );
         }
     }
@@ -143311,6 +145946,45 @@ if (code === "MWIN") {
     return;
 }
         /*
+         * 表情・小物差分の
+         * フェードアウト → 差し替え → フェードイン。
+         */
+        if (code === "MEXPF") {
+            const filename =
+                this.obtainMamiExpressionName(
+                    textState
+                );
+
+            if (filename) {
+                const started =
+                    startSpeakerExpressionFadeOutIn(
+                        this._mamiCurrentSpeakerId ||
+                            defaultSpeaker,
+                        filename
+                    );
+
+                /*
+                 * 対象立ち絵が見つからない場合は、
+                 * 通常の表情変更へフォールバック。
+                 */
+                if (!started) {
+                    showSpeakerExpression(
+                        this._mamiCurrentSpeakerId ||
+                            defaultSpeaker,
+                        filename
+                    );
+                } else {
+                    this.startWait(
+                        PORTRAIT_EXPRESSION_FADE_DURATION *
+                            2
+                    );
+                }
+            }
+
+            return;
+        }
+
+        /*
          * 表情変更
          */
         if (code === "MEXP") {
@@ -143334,30 +146008,79 @@ if (code === "MWIN") {
          * 話者変更
          */
         if (code === "MSPK") {
-            const speakerId =
+            const value =
                 this.obtainMamiSpeakerId(
                     textState
                 );
 
+            const separatorIndex =
+                value.indexOf("|");
+
+            const speakerId =
+                separatorIndex >= 0
+                    ? value.substring(
+                        0,
+                        separatorIndex
+                    )
+                    : value;
+
+            const option =
+                separatorIndex >= 0
+                    ? value.substring(
+                        separatorIndex + 1
+                    )
+                    : "";
+
             if (speakerId) {
-    this._mamiCurrentSpeakerId =
-        speakerId;
+                this._mamiCurrentSpeakerId =
+                    speakerId;
 
-    showNamePlate(
-        speakerId
-    );
+                /*
+                 * hideNamePlate: true のページ。
+                 *
+                 * showNamePlate()を一度も呼ばず、
+                 * 現在のネームプレートを消す。
+                 */
+                if (option === "noname") {
+                    eraseNamePlate();
+                } else {
+                    showNamePlate(
+                        speakerId
+                    );
+                }
 
-    /*
-     * 話者が変わった時点で、
-     * 立ち絵の明暗も更新する。
-     */
-    highlightSpeaker(
-        speakerId
-    );
-}
+                /*
+                 * 話者が変わった時点で、
+                 * 立ち絵の明暗も更新する。
+                 *
+                 * passerbyのように立ち絵がない話者は、
+                 * 既存の「画面外の声」と同じ扱いになる。
+                 */
+                highlightSpeaker(
+                    speakerId
+                );
+            }
 
             return;
         }
+
+    /*
+     * Story用・立ち絵の環境光。
+     *
+     * \MLIGHT[night]
+     * \MLIGHT[normal]
+     */
+    if (code === "MLIGHT") {
+        const lighting =
+            this.obtainMamiSpeakerId(
+                textState
+            );
+
+        setPortraitLighting(
+            lighting
+        );
+        return;
+    }
 
     /*
      * 表示中の立ち絵を強制的に全員暗くする。
@@ -143473,6 +146196,70 @@ if (code === "MDIST") {
             );
     };
 
+/*
+ * Storyスチル／場面フェード演出中は、
+ * 固定フレーム数ではなく
+ * 「実際に演出が完了するまで」
+ * Window_Messageを待機させる。
+ *
+ * 高解像度CGの読み込みが遅れても、
+ * 黒画面の途中やクロスフェード途中で
+ * 次のページへ進まない。
+ */
+const _Window_Message_updateWait_StoryStill =
+    Window_Message.prototype.updateWait;
+
+Window_Message.prototype.updateWait =
+    function() {
+        if (this._mamiStorySceneWait) {
+            const sceneBusy =
+                !!(
+                    window.MamiDenOStory &&
+                    typeof window.MamiDenOStory
+                        .isSceneTransitioning ===
+                        "function" &&
+                    window.MamiDenOStory
+                        .isSceneTransitioning()
+                );
+
+            if (sceneBusy) {
+                return true;
+            }
+
+            this._mamiStorySceneWait = false;
+        }
+
+        if (this._mamiStoryStillWait) {
+            const stillBusy =
+                !!(
+                    window.MamiDenOStory &&
+                    typeof window.MamiDenOStory
+                        .isStillTransitioning ===
+                        "function" &&
+                    window.MamiDenOStory
+                        .isStillTransitioning()
+                );
+
+            if (stillBusy) {
+                return true;
+            }
+
+            this._mamiStoryStillWait = false;
+        }
+
+        if (this._mamiStoryStillColorFadeWait) {
+            if (isStoryStillColorFading()) {
+                return true;
+            }
+
+            this._mamiStoryStillColorFadeWait =
+                false;
+        }
+
+        return _Window_Message_updateWait_StoryStill
+            .call(this);
+    };
+
 function requestExpressionReset(
     resetPortrait = true
 ) {
@@ -143485,6 +146272,25 @@ function requestExpressionReset(
         resetPortrait;
 }
 /*
+ * 新しい会話・新しいStory話数を始める前に、
+ * 前の会話のclose等を完全に破棄する。
+ *
+ * 同一会話内ではcurrentPortraitDistanceを維持するため、
+ * ページをまたいだclose継続には影響しない。
+ *
+ * startDistancesがある会話は、
+ * この初期化後に改めて指定距離へ変更される。
+ */
+function resetPortraitDistancesForNewTalk() {
+    currentPortraitDistance = {};
+    activeTalkDistanceSpeakers = [];
+    portraitDistanceFadeStates = [];
+
+    pendingRestoreAfterDistanceFade =
+        false;
+}
+
+/*
  * 会話本文を開始せず、
  * 参加者の立ち絵配置だけを準備する。
  *
@@ -143496,6 +146302,11 @@ function prepareTalkPortraits(
     if (!talk) {
         return;
     }
+
+    /*
+     * 前の会話のcloseを持ち込まない。
+     */
+    resetPortraitDistancesForNewTalk();
 
     const participants =
         getTalkParticipants(
@@ -143625,6 +146436,31 @@ function collectTalkPreloadNames(talk) {
         };
     }
 
+    /*
+     * Story話数開始時の外背景。
+     * debugStartが途中位置なら、Story側が
+     * startBackgroundへ現在背景を復元してくる。
+     */
+    const startStoryBackground =
+        String(
+            talk.startBackground ||
+            ""
+        )
+            .replace(
+                /\.png$/i,
+                ""
+            );
+
+    if (startStoryBackground) {
+        blocking.add(
+            startStoryBackground
+        );
+
+        background.add(
+            startStoryBackground
+        );
+    }
+
     const participants =
     resolveTalkParticipantsForDisplay(
         getTalkParticipants(
@@ -143653,13 +146489,71 @@ function collectTalkPreloadNames(talk) {
  *
  * その状態をプリロード時にも追跡する。
  */
-let preloadTalkPossession = null;
+let preloadTalkPossession =
+    possessionState.active
+        ? String(
+            possessionState.imagin || ""
+        )
+        : null;
         talk.pages.forEach(
             (page, pageIndex) => {
                 if (!page) {
                     return;
                 }
+/*
+ * Story背景も会話開始時から先読みする。
+ */
+const storyBackgroundName =
+    String(
+        page.storyBackground ||
+        ""
+    )
+        .replace(
+            /\.png$/i,
+            ""
+        );
 
+if (storyBackgroundName) {
+    background.add(
+        storyBackgroundName
+    );
+
+    if (pageIndex === 0) {
+        blocking.add(
+            storyBackgroundName
+        );
+    }
+}
+
+/*
+ * Storyスチルも会話開始時から
+ * バックグラウンドで先読みする。
+ */
+const storyStillName =
+    String(
+        page.storyStill ||
+        ""
+    )
+        .replace(
+            /\.png$/i,
+            ""
+        );
+
+if (storyStillName) {
+    background.add(
+        storyStillName
+    );
+
+    /*
+     * 万一1ページ目からスチルなら、
+     * 会話開始前にロード完了を待つ。
+     */
+    if (pageIndex === 0) {
+        blocking.add(
+            storyStillName
+        );
+    }
+}
                 const speaker =
                     String(
                         page.speaker ||
@@ -143667,11 +146561,21 @@ let preloadTalkPossession = null;
                         defaultSpeaker
                     );
 
+                const storyPossessionOnBlack =
+                    normalizeTalkPossessionTarget(
+                        page.storyPossessionOnBlack
+                    );
+
+                if (storyPossessionOnBlack) {
+                    preloadTalkPossession =
+                        storyPossessionOnBlack;
+                }
+
                 const isInnerRyotaro =
-                    possessionState.active &&
                     talk.allowHostWhilePossessed ===
                         true &&
-                    speaker === possessionState.host &&
+                    speaker === "ryotaro" &&
+                    !!preloadTalkPossession &&
                     preloadTalkPossession !==
                         "ryotaro";
 
@@ -143692,7 +146596,14 @@ let preloadTalkPossession = null;
                         pagePossession === "ryotaro"
                             ? null
                             : pagePossession;
-                }    
+                }
+
+                if (
+                    page.storyResetPossessionOnBlack ===
+                        true
+                ) {
+                    preloadTalkPossession = null;
+                }
 
                 if (!isInnerVoicePage) {
                   /*
@@ -143943,11 +146854,59 @@ function updateTalkPreload() {
             0
         );
 
+        /*
+         * 会話・Story話数をまたいで
+         * close等の距離状態を引き継がない。
+         *
+         * このあとstartDistancesがある場合だけ、
+         * 指定距離へ改めて変更する。
+         */
+        resetPortraitDistancesForNewTalk();
+
+        /*
+         * 万一、前の会話が場面転換中に終了しても
+         * 次の会話へメッセージUI退避状態を持ち越さない。
+         */
+        const currentScene =
+            SceneManager._scene;
+
+        if (
+            currentScene &&
+            currentScene._messageWindow
+        ) {
+            /*
+             * 中断等で退避状態が残っていた場合は、
+             * 新しい会話開始前に必ず操作ボタンを戻す。
+             */
+            restoreStoryHeldTransitionControls(
+                currentScene._messageWindow
+            );
+
+            currentScene._messageWindow
+                ._mamiStoryMessageUiHiddenByHeldTransition =
+                false;
+        }
+
+
         const talkSpeaker =
             String(
                 talk.speaker ||
                 defaultSpeaker
             );
+
+        /*
+         * Story開始時の環境光。
+         * 指定がなければ必ずnormalへ戻す。
+         *
+         * 変数だけでなく、すでに画面に残っている立ち絵にも
+         * 0フレームで即時反映してからparticipantsを配置する。
+         */
+        setPortraitLighting(
+            talk.startPortraitLighting ||
+                "normal",
+            0
+        );
+
         /*
          * 会話開始時に参加者全員を配置する。
          */
@@ -143958,7 +146917,7 @@ function updateTalkPreload() {
         ),
         talk
     );
-    /*
+/*
  * 会話開始時の距離指定を取得する。
  *
  * 例：
@@ -144057,36 +147016,252 @@ activeTalkDistanceSpeakers.forEach(
                         pageIndex
                     ] || {};
 
-                /*
-                 * このページで演出横取りがある場合、
-                 * メッセージ上の憑依者を更新する。
-                 */
-                const pagePossessionTarget =
-                    String(
-                        page.pagePossession ||
-                        ""
-                    );
+/*
+ * このページの憑依演出指定を、
+ * 先に全部取得する。
+ */
+const pagePossession =
+    normalizeTalkPossessionTarget(
+        page.pagePossession
+    );
 
-                if (pagePossessionTarget) {
-                    messageTalkPossession =
-                        pagePossessionTarget;
-                }    
+const storyPossessionSteal =
+    normalizeTalkPossessionTarget(
+        page.storyPossessionSteal
+    );
 
-                const speaker =
-                    String(
-                        page.speaker ||
-                        talkSpeaker
-                    );
+const storyPossessionOnBlack =
+    normalizeTalkPossessionTarget(
+        page.storyPossessionOnBlack
+    );
 
-                const expression =
-                    String(
-                        page.expression ||
-                        ""
-                    );
-                const pagePossession =
-                    normalizeTalkPossessionTarget(
-                        page.pagePossession
-                    );    
+const storyPossessionOutfitOnBlack =
+    String(
+        page.storyPossessionOutfitOnBlack ||
+        "normal"
+    ) === "imagin_preference"
+        ? "imagin_preference"
+        : "normal";
+/*
+ * Story用背景・場面転換。
+ */
+const storyBackground =
+    String(
+        page.storyBackground ||
+        ""
+    );
+
+const storyBackgroundClear =
+    page.storyBackgroundClear === true;
+
+const storyResetPossessionOnBlack =
+    page.storyResetPossessionOnBlack ===
+        true;
+
+/*
+ * Storyの黒画面中に、
+ * close等の立ち絵距離をnormalへ戻す。
+ */
+const storyResetDistanceOnBlack =
+    page.storyResetDistanceOnBlack ===
+        true;
+
+const storyBlackFadeValue =
+    Number(
+        page.storyBlackFade
+    );
+
+/*
+ * メッセージウィンドウとネームプレートを
+ * 残したまま行う黒フェード。
+ */
+const storyUiBlackFadeValue =
+    Number(
+        page.storyUiBlackFade
+    );
+
+const hasStoryUiBlackFade =
+    Number.isFinite(
+        storyUiBlackFadeValue
+    ) &&
+    storyUiBlackFadeValue > 0;
+
+/*
+ * 保持中のUI黒幕だけを解除する。
+ */
+const storyUiBlackFadeOutValue =
+    Number(
+        page.storyUiBlackFadeOut
+    );
+
+const hasStoryUiBlackFadeOut =
+    Number.isFinite(
+        storyUiBlackFadeOutValue
+    ) &&
+    storyUiBlackFadeOutValue > 0;
+
+/*
+ * UI黒幕保持中から次の場面へ移る時、
+ * メッセージUIを消したあとに置く黒画面だけの間。
+ *
+ * 未指定なら0.5秒。
+ */
+const storyUiBlackSceneWaitRaw =
+    Number(
+        page.storyUiBlackSceneWait
+    );
+
+const storyUiBlackSceneWait =
+    Number.isFinite(
+        storyUiBlackSceneWaitRaw
+    ) &&
+    storyUiBlackSceneWaitRaw >= 0
+        ? storyUiBlackSceneWaitRaw
+        : 0.5;
+
+const hasStoryBlackFade =
+    Number.isFinite(
+        storyBlackFadeValue
+    ) &&
+    storyBlackFadeValue > 0;
+
+/*
+ * Story用スチル。
+ */
+const storyStill =
+    String(
+        page.storyStill ||
+        ""
+    );
+
+const storyStillClear =
+    page.storyStillClear === true;
+
+/*
+ * スチルの表示／解除を、
+ * 指定イマジンの担当色フェードで行う。
+ */
+const storyStillColorFade =
+    String(
+        page.storyStillColorFade ||
+        ""
+    );
+
+/*
+ * 通常のMSTILLOUTではなく、
+ * 場面転換の黒画面中にスチルを片付ける。
+ */
+const storyStillClearOnBlack =
+    page.storyStillClearOnBlack === true;
+/*
+ * このページで憑依者が変わる場合、
+ * 以降のメッセージ上の憑依者も更新する。
+ */
+if (storyPossessionSteal) {
+    /*
+     * Story用の本物の横取り。
+     */
+    messageTalkPossession =
+        storyPossessionSteal;
+}
+else if (storyPossessionOnBlack) {
+    /*
+     * 黒画面中の通常憑依。
+     */
+    messageTalkPossession =
+        storyPossessionOnBlack;
+}
+else if (pagePossession) {
+    /*
+     * 従来の一時的な演出横取り。
+     */
+    messageTalkPossession =
+        pagePossession;
+}
+
+/*
+ * このページの黒画面中に憑依解除する場合、
+ * 本文が始まる時点では良太郎本人として扱う。
+ */
+if (storyResetPossessionOnBlack) {
+    messageTalkPossession =
+        "ryotaro";
+}
+
+const speaker =
+    String(
+        page.speaker ||
+        talkSpeaker
+    );
+
+const expression =
+    String(
+        page.expression ||
+        ""
+    );
+
+/*
+ * Story専用・担当色の短い画面フラッシュ。
+ *
+ * 例:
+ *   storyFlash: "ryutaros"
+ */
+const storyFlash =
+    String(
+        page.storyFlash ||
+        ""
+    );
+
+/*
+ * 表情・小物差分の切り替え方法。
+ *
+ * fadeOutIn:
+ *   一度完全に消してから差し替え、
+ *   同じ位置へフェードインする。
+ */
+const expressionTransition =
+    String(
+        page.expressionTransition ||
+        ""
+    );
+
+/*
+ * このページでpageParticipantsにより
+ * 新しく登場する立ち絵のフェード時間。
+ *
+ * フレーム指定。
+ * 未指定なら従来どおりの速度。
+ */
+const portraitAppearFadeRaw =
+    page.portraitAppearFade;
+
+const portraitAppearFadeNumber =
+    Number(
+        portraitAppearFadeRaw
+    );
+
+const portraitAppearFade =
+    portraitAppearFadeRaw !== undefined &&
+    portraitAppearFadeRaw !== null &&
+    portraitAppearFadeRaw !== "" &&
+    Number.isFinite(
+        portraitAppearFadeNumber
+    ) &&
+    portraitAppearFadeNumber >= 0
+        ? Math.round(
+            portraitAppearFadeNumber
+        )
+        : null;
+
+/*
+ * このページだけ
+ * ネームプレートを表示しない。
+ *
+ * 通行人以外にも、
+ * 正体不明の声・名無しモブなどで使える。
+ */
+const hideNamePlate =
+    page.hideNamePlate === true;
 
                 const distance =
                     String(
@@ -144100,7 +147275,20 @@ activeTalkDistanceSpeakers.forEach(
                         );
                 
                 const darkenPortraits =
-                    page.darkenPortraits === true;        
+                    page.darkenPortraits === true;
+
+                /*
+                 * Story用の持続する環境光。
+                 * night / normal
+                 */
+                const portraitLighting =
+                    page.portraitLighting !==
+                        undefined
+                        ? normalizePortraitLighting(
+                            page.portraitLighting
+                        )
+                        : "";
+
                 /*
                  * このページだけ、
                  * 内側の声用の灰色ウィンドウを使う。
@@ -144127,7 +147315,6 @@ activeTalkDistanceSpeakers.forEach(
                  * 今までどおり自動で灰色。
                  */
                 const isInnerRyotaro =
-                    possessionState.active &&
                     speaker === "ryotaro" &&
                     messageTalkPossession !==
                         "ryotaro";
@@ -144141,27 +147328,237 @@ activeTalkDistanceSpeakers.forEach(
                     isInnerRyotaro ||
                    innerWindow;
 
+                /*
+                 * Storyの黒フェードとpageParticipantsが
+                 * 同じページにある場合、
+                 * 立ち絵変更は黒画面の裏で行う。
+                 *
+                 * これで
+                 *   暗転終了
+                 *   ↓
+                 *   旧立ち絵が見える
+                 *   ↓
+                 *   MPARTで切り替わる
+                 * という「目隠し失敗」を防ぐ。
+                 */
+                let storySceneParticipantsRegistryId =
+                    0;
+
+                const hasStorySceneTransition =
+                    !!storyBackground ||
+                    storyBackgroundClear ||
+                    hasStoryBlackFade;
+
+                /*
+                 * UIを残す黒フェードも、
+                 * 黒幕の裏でpageParticipants等を
+                 * 切り替えられる。
+                 */
+                const hasStoryMaskedTransition =
+                    hasStorySceneTransition ||
+                    hasStoryUiBlackFade ||
+                    hasStoryUiBlackFadeOut;
+
+                if (
+                    hasStoryMaskedTransition &&
+                    Array.isArray(
+                        page.pageParticipants
+                    )
+                ) {
+                    const storySceneParticipants =
+                        resolveTalkParticipantsForDisplay(
+                            page.pageParticipants,
+                            talk
+                        );
+
+                    storySceneParticipantsRegistryId =
+                        registerPageParticipants(
+                            storySceneParticipants
+                        );
+                }
+
                 let controlText =
                     `\\MWIN[${
                         isInnerVoicePage
                             ? "inner"
                             : "normal"
                     }]`;
-                        
-                if (pagePossession) {
+                /*
+                 * Story背景変更・時間経過。
+                 *
+                 * storyBackground / Clear と
+                 * storyBlackFade が同じページにある場合は、
+                 * 二重暗転にせず、その秒数で背景転換する。
+                 */
+                const storyResetSuffix =
+                    storyResetPossessionOnBlack
+                        ? `|reset|${expression}`
+                        : "";
+
+                const storyParticipantsSuffix =
+                    storySceneParticipantsRegistryId
+                        ? `|part|${storySceneParticipantsRegistryId}`
+                        : "";
+
+                /*
+                 * 背景転換と同じページで環境光が変わる場合は、
+                 * 黒画面の裏で同時に切り替える。
+                 */
+                const storyLightingSuffix =
+                    portraitLighting &&
+                    hasStoryMaskedTransition
+                        ? `|light|${portraitLighting}`
+                        : "";
+
+                /*
+                 * 黒画面中の距離リセット。
+                 * 場面転換のonBlack内で実行する。
+                 */
+                const storyDistanceResetSuffix =
+                    storyResetDistanceOnBlack &&
+                    hasStoryMaskedTransition
+                        ? "|distreset|1"
+                        : "";
+
+                const storyPossessionOnBlackSuffix =
+                    storyPossessionOnBlack &&
+                    hasStoryMaskedTransition
+                        ? `|possess|${
+                            storyPossessionOnBlack
+                        }|${
+                            storyPossessionOutfitOnBlack
+                        }`
+                        : "";
+
+                const storyStillClearOnBlackSuffix =
+                    storyStillClearOnBlack &&
+                    hasStoryMaskedTransition
+                        ? "|stillclear|1"
+                        : "";
+
+                /*
+                 * UI黒幕を保持したまま次の場面へ進む場合だけ、
+                 * 前の台詞を送り終えたこのタイミングで
+                 * メッセージウィンドウとネームプレートを退避する。
+                 *
+                 * 黒幕を保持していない通常の場面転換では
+                 * コマンド側が何もしない。
+                 */
+                if (hasStorySceneTransition) {
+                    controlText +=
+                        `\\MSTORYMSGHIDEIFHELD[${
+                            storyUiBlackSceneWait
+                        }]`;
+                }
+
+                if (storyBackground) {
+                    controlText +=
+                        `\\MSTORYBG[${
+                            storyBackground
+                        }|${
+                            hasStoryBlackFade
+                                ? storyBlackFadeValue
+                                : ""
+                        }${storyResetSuffix}${storyParticipantsSuffix}${storyLightingSuffix}${storyDistanceResetSuffix}${storyPossessionOnBlackSuffix}${storyStillClearOnBlackSuffix}]`;
+                }
+                else if (storyBackgroundClear) {
+                    controlText +=
+                        `\\MSTORYBGCLEAR[${
+                            hasStoryBlackFade
+                                ? storyBlackFadeValue
+                                : ""
+                        }${storyResetSuffix}${storyParticipantsSuffix}${storyLightingSuffix}${storyDistanceResetSuffix}${storyPossessionOnBlackSuffix}${storyStillClearOnBlackSuffix}]`;
+                }
+                else if (hasStoryBlackFade) {
+                    controlText +=
+                        `\\MSTORYFADE[${
+                            storyBlackFadeValue
+                        }${storyResetSuffix}${storyParticipantsSuffix}${storyLightingSuffix}${storyDistanceResetSuffix}${storyPossessionOnBlackSuffix}${storyStillClearOnBlackSuffix}]`;
+                }
+
+                /*
+                 * MSTORYBG / BGCLEAR / FADE が
+                 * 実際の場面転換完了までWindow_Messageを待たせる。
+                 *
+                 * その待機が解けてからこのコードが処理されるため、
+                 * 新しい場面が見える直前にだけ
+                 * メッセージウィンドウを復帰できる。
+                 */
+                if (hasStorySceneTransition) {
+                    controlText +=
+                        "\\MSTORYMSGSHOWIFHIDDEN";
+                }
+
+                /*
+                 * UIを残す黒フェードだけは、
+                 * 話者変更（MSPK）のあとで開始する。
+                 *
+                 * これによりフェード中も
+                 * このページのネームプレートが表示される。
+                 *
+                 * 通常のstoryBackground / storyBlackFadeと
+                 * 同時指定された場合は通常フェードを優先する。
+                 */
+                const storyUiBlackFadeControl =
+                    hasStoryUiBlackFade &&
+                    !hasStorySceneTransition
+                        ? `\\MSTORYUIFADE[${
+                            storyUiBlackFadeValue
+                        }${storyResetSuffix}${storyParticipantsSuffix}${storyLightingSuffix}${storyDistanceResetSuffix}]`
+                        : "";
+
+                const storyUiBlackFadeOutControl =
+                    hasStoryUiBlackFadeOut &&
+                    !hasStorySceneTransition &&
+                    !hasStoryUiBlackFade
+                        ? `\\MSTORYUIOUT[${
+                            storyUiBlackFadeOutValue
+                        }${storyResetSuffix}${storyParticipantsSuffix}${storyLightingSuffix}${storyDistanceResetSuffix}]`
+                        : "";
+
+                /*
+                 * Storyスチル。
+                 *
+                 * 表示中でなければフェードイン。
+                 * 表示中ならクロスフェード。
+                 */
+                if (
+                    storyStill &&
+                    !storyStillColorFade
+                ) {
+                   controlText +=
+                        `\\MSTILL[${storyStill}]`;
+                }
+                else if (
+                    storyStillClear &&
+                    !storyStillColorFade
+                ) {
+                    controlText +=
+                        "\\MSTILLOUT";
+                }                        
+                if (storyPossessionSteal) {
                     /*
-                     * 参加者構成は変えない。
-                     *
-                     * 同じ中央ピクチャの画像だけ、
-                     * 担当色の中で交換する。
+                     * Story用・本物の横取り。
                      */
                     controlText +=
-                        `\\MPOSS[${pagePossession}|${expression}]`;
+                        `\\MSTORYSTEAL[${
+                            storyPossessionSteal
+                        }|${expression}]`;
+                }
+                else if (pagePossession) {
+                    /*
+                     * 従来の一時的な演出横取り。
+                     */
+                    controlText +=
+                        `\\MPOSS[${
+                            pagePossession
+                        }|${expression}]`;
                 }
                 /*
                  * 通常のページ内参加者変更。
                  */
                 else if (
+                    !storySceneParticipantsRegistryId &&
                     Array.isArray(
                         page.pageParticipants
                     )
@@ -144178,10 +147575,63 @@ activeTalkDistanceSpeakers.forEach(
                         );
 
                     controlText +=
-                        `\\MPART[${registryId}]`;
+                        `\\MPART[${registryId}${
+                            portraitAppearFade !== null
+                                ? `|${portraitAppearFade}`
+                                : ""
+                        }]`;
                 }
+                /*
+                 * 背景転換を伴わない環境光変更。
+                 * 背景転換ありの場合は黒画面の裏で処理済み。
+                 */
+                if (
+                    portraitLighting &&
+                    !hasStoryMaskedTransition
+                ) {
+                    controlText +=
+                        `\\MLIGHT[${portraitLighting}]`;
+                }
+
+                /*
+                 * 話者変更。
+                 *
+                 * hideNamePlate: true のページでは
+                 * MSPK側へ noname 指定を渡し、
+                 * 一瞬も別キャラのプレートを出さない。
+                 */
                 controlText +=
-                    `\\MSPK[${speaker}]`;
+                    `\\MSPK[${speaker}${
+                        hideNamePlate
+                            ? "|noname"
+                            : ""
+                    }]`;
+
+                /*
+                 * Story専用の短い担当色フラッシュ。
+                 *
+                 * 話者を切り替えた直後、本文描画前に開始する。
+                 * waitは入れないため、台詞と同時に薄く色が抜ける。
+                 */
+                if (storyFlash) {
+                    controlText +=
+                        `\\MSTORYFLASH[${storyFlash}]`;
+                }
+
+                /*
+                 * UIを残す黒フェード。
+                 * MSPK後なのでネームプレートを残したまま暗転する。
+                 */
+                if (storyUiBlackFadeControl) {
+                    controlText +=
+                        storyUiBlackFadeControl;
+                }
+                else if (
+                    storyUiBlackFadeOutControl
+                ) {
+                    controlText +=
+                        storyUiBlackFadeOutControl;
+                }
 
                 /*
                  * 通常の話者判定を行ったあと、
@@ -144203,10 +147653,19 @@ activeTalkDistanceSpeakers.forEach(
                 if (
                     expression &&
                     !isInnerVoicePage &&
-                    !pagePossession
+                    !pagePossession &&
+                    !storyPossessionSteal
                 ) {
-                    controlText +=
-                        `\\MEXP[${expression}]`;
+                    if (
+                        expressionTransition ===
+                            "fadeOutIn"
+                    ) {
+                        controlText +=
+                            `\\MEXPF[${expression}]`;
+                    } else {
+                        controlText +=
+                            `\\MEXP[${expression}]`;
+                    }
                 }
 
                 /*
@@ -144219,6 +147678,29 @@ activeTalkDistanceSpeakers.forEach(
                 ) {
                     controlText +=
                         `\\MMOT[${motion}]`;
+                }
+
+                /*
+                 * 担当色スチルフェードは、
+                 * 表情・モーション変更のあとに開始する。
+                 *
+                 * 色幕が最大不透明の間に
+                 * スチルを切り替えるため、
+                 * 解除後の立ち絵も先に整えておける。
+                 */
+                if (storyStillColorFade) {
+                    if (storyStill) {
+                        controlText +=
+                            `\\MSTORYSTILLFADE[${
+                                storyStillColorFade
+                            }|show|${storyStill}]`;
+                    }
+                    else if (storyStillClear) {
+                        controlText +=
+                            `\\MSTORYSTILLFADE[${
+                                storyStillColorFade
+                            }|clear]`;
+                    }
                 }
 
                 lines[0] =
@@ -145022,10 +148504,22 @@ PluginManager.registerCommand(
             _Scene_Map_update.call(
                 this
             );
+
+            /*
+             * EXIT / AUTO / LOG自身のupdate()が
+             * visibleを戻した後で、黒だけの場面転換中なら
+             * 再度まとめて非表示にする。
+             */
+            keepStoryHeldTransitionControlsHidden(
+                this
+            );
+
             updatePortraitDistanceFade();
             updatePortraitMotions();
+            updatePortraitExpressionFade();
             updatePageParticipantsTransition();
             updateTalkPossessionEffect();
+            updateStoryStillColorFade();
 
             /*
              * 抽選済み会話の初期立ち絵プリロード待ち。
@@ -145608,6 +149102,505 @@ window.MamiDenOTalk.isInteractionLocked =
     function() {
         return isInteractionLocked();
     };
+
+
+/*
+ * Storyの黒画面中に、憑依状態を即時解除する。
+ *
+ * 通常のpagePossession解除演出は出さず、
+ * 黒の裏で良太郎の姿へ戻す。
+ * storyPossessionSteal等で実憑依状態になっている場合も
+ * 同時に未憑依へ戻す。
+ */
+function resetStoryPossessionOnBlack(
+    expression
+) {
+    const oldActualSpeaker =
+        possessionState.active
+            ? String(
+                possessionState.imagin ||
+                "ryotaro"
+            )
+            : "ryotaro";
+
+    const bodySlot =
+        getTalkPossessionBodySlot();
+
+    const bodyPictureId =
+        bodySlot
+            ? getPortraitPictureId(
+                Number(bodySlot)
+            )
+            : 0;
+
+    const ryotaroExpression =
+        String(
+            expression ||
+            getDefaultExpressionForSpeaker(
+                "ryotaro"
+            )
+        );
+
+    /*
+     * 実憑依中なら、身体スロットの所有者も
+     * 良太郎へ戻す。
+     */
+    if (
+        bodySlot &&
+        oldActualSpeaker !== "ryotaro"
+    ) {
+        delete currentPortraitSlots[
+            oldActualSpeaker
+        ];
+
+        currentPortraitSlots.ryotaro =
+            Number(bodySlot);
+
+        const oldDistance =
+            currentPortraitDistance[
+                oldActualSpeaker
+            ] || "normal";
+
+        delete currentPortraitDistance[
+            oldActualSpeaker
+        ];
+
+        currentPortraitDistance.ryotaro =
+            oldDistance;
+
+        activeTalkDistanceSpeakers =
+            [
+                ...new Set(
+                    activeTalkDistanceSpeakers
+                        .map(
+                            id =>
+                                id === oldActualSpeaker
+                                    ? "ryotaro"
+                                    : id
+                        )
+                )
+            ];
+    }
+
+    possessionState.active = false;
+    possessionState.host = "ryotaro";
+    possessionState.imagin = null;
+    possessionState.outfit = "normal";
+    possessionState.outfitOwner =
+        "ryotaro";
+
+    temporaryTalkPossession = null;
+    talkPossessionEffectState = null;
+    pendingTalkPossessionTone = null;
+
+    hideTalkPossessionOverlay();
+
+    currentSoloPortrait = {
+        speaker: "ryotaro",
+        expression: ryotaroExpression
+    };
+
+    /*
+     * 画面に良太郎の身体が出ている場合だけ、
+     * 同じ位置・大きさのまま画像を交換する。
+     * 黒画面の裏なので交換過程は見えない。
+     */
+    if (
+        bodyPictureId &&
+        $gameScreen.picture(
+            bodyPictureId
+        )
+    ) {
+        replaceTalkPossessionPortrait(
+            bodyPictureId,
+            ryotaroExpression
+        );
+    }
+}
+
+/*
+ * ─────────────────────────────
+ * ストーリー用・状態保存と復元
+ * ─────────────────────────────
+ *
+ * Mami_DenOStory から呼び出す外部API。
+ * 以前の版に存在していた処理を復元。
+ */
+
+/*
+ * 通常モードへ戻すために、
+ * 憑依状態と一人表示状態をまとめて取得する。
+ */
+window.MamiDenOTalk
+    .createStoryStateSnapshot =
+    function() {
+        return {
+            possession: {
+                active:
+                    !!possessionState.active,
+
+                host:
+                    String(
+                        possessionState.host ||
+                        "ryotaro"
+                    ),
+
+                imagin:
+                    possessionState.imagin
+                        ? String(
+                            possessionState.imagin
+                        )
+                        : null,
+
+                outfit:
+                    String(
+                        possessionState.outfit ||
+                        "normal"
+                    ),
+
+                outfitOwner:
+                    String(
+                        possessionState.outfitOwner ||
+                        "ryotaro"
+                    )
+            },
+
+            soloPortrait: {
+                speaker:
+                    String(
+                        currentSoloPortrait.speaker ||
+                        defaultSpeaker
+                    ),
+
+                expression:
+                    String(
+                        currentSoloPortrait.expression ||
+                        defaultExpression
+                    )
+            }
+        };
+    };
+
+/*
+ * ストーリー開始時に、
+ * 憑依状態を未憑依へリセットする。
+ *
+ * 立ち絵はストーリー側のparticipantsから
+ * 配置されるため、ここでは表示し直さない。
+ */
+window.MamiDenOTalk
+    .resetPossessionForStory =
+    function() {
+        /*
+         * 前のStory話数でcloseのまま終わっても、
+         * 次話へ距離を持ち越さない。
+         */
+        resetPortraitDistancesForNewTalk();
+
+        possessionState.active = false;
+        possessionState.host =
+            "ryotaro";
+        possessionState.imagin =
+            null;
+        possessionState.outfit =
+            "normal";
+        possessionState.outfitOwner =
+            "ryotaro";
+
+        /*
+         * 話数間で夜の環境光を持ち越さない。
+         * 既存立ち絵にも即時反映する。
+         */
+        setPortraitLighting(
+            "normal",
+            0
+        );
+
+        currentSoloPortrait = {
+            speaker:
+                "ryotaro",
+
+            expression:
+                getDefaultExpressionForSpeaker(
+                    "ryotaro"
+                )
+        };
+
+        returnSoloPortrait = null;
+        isTemporaryGroupTalk = false;
+
+        pendingPossessionAction = null;
+        pendingPossessionTalk = null;
+        pendingPostReleaseTalk = null;
+        pendingPostStealTalk = null;
+        changeClothesReturnState = null;
+
+        temporaryTalkPossession = null;
+        talkPossessionEffectState = null;
+        pendingTalkPossessionTone = null;
+    };
+/*
+ * ─────────────────────────────
+ * ストーリー開始時の憑依状態
+ * ─────────────────────────────
+ *
+ * StoryData側で、
+ *
+ * startPossessedBy: "urataros"
+ *
+ * のように指定すると、
+ * 会話開始前からそのイマジンが
+ * 良太郎へ憑依した状態にする。
+ *
+ * startPossessionOutfit:
+ *   "normal"
+ *   "imagin_preference"
+ */
+function prepareStoryStartPossession(
+    talk
+) {
+    /*
+     * 毎話いったん完全に
+     * 未憑依状態へ戻す。
+     *
+     * 前の話が憑依開始だった場合でも、
+     * 次の話へ状態を持ち越さないため。
+     */
+    window.MamiDenOTalk
+        .resetPossessionForStory();
+
+    if (!talk) {
+        return;
+    }
+
+    /*
+     * 開始時の憑依者。
+     */
+    const startPossessedBy =
+        normalizeTalkPossessionTarget(
+            talk.startPossessedBy
+        );
+
+    /*
+     * 指定なし、
+     * または良太郎指定なら
+     * 未憑依のまま開始。
+     */
+    if (
+        !startPossessedBy ||
+        startPossessedBy === "ryotaro"
+    ) {
+        return;
+    }
+
+    /*
+     * 服装。
+     *
+     * 指定なしなら
+     * 良太郎の普段着。
+     */
+    const requestedOutfit =
+        String(
+            talk.startPossessionOutfit ||
+            "normal"
+        );
+
+    const outfit =
+        requestedOutfit ===
+            "imagin_preference"
+            ? "imagin_preference"
+            : "normal";
+
+    /*
+     * 実際の憑依状態として設定。
+     */
+    possessionState.active = true;
+
+    possessionState.host =
+        "ryotaro";
+
+    possessionState.imagin =
+        startPossessedBy;
+
+    possessionState.outfit =
+        outfit;
+
+    /*
+     * 専用服なら、
+     * 憑依した本人の服。
+     *
+     * normalなら良太郎の服。
+     */
+    possessionState.outfitOwner =
+        outfit ===
+            "imagin_preference"
+            ? startPossessedBy
+            : "ryotaro";
+
+    /*
+     * Story内の基準話者も
+     * 憑依者に合わせておく。
+     *
+     * 実際の表示はparticipants側で行う。
+     */
+    currentSoloPortrait = {
+        speaker:
+            startPossessedBy,
+
+        expression:
+            getDefaultExpressionForSpeaker(
+                startPossessedBy
+            )
+    };
+}
+/*
+ * ストーリー終了時に、
+ * 通常モード開始前の状態へ戻す。
+ */
+window.MamiDenOTalk
+    .restoreStoryStateSnapshot =
+    function(snapshot) {
+        if (!snapshot) {
+            return;
+        }
+
+        const savedPossession =
+            snapshot.possession || {};
+
+        const savedSolo =
+            snapshot.soloPortrait || {};
+
+        possessionState.active =
+            !!savedPossession.active;
+
+        possessionState.host =
+            String(
+                savedPossession.host ||
+                "ryotaro"
+            );
+
+        possessionState.imagin =
+            savedPossession.imagin
+                ? String(
+                    savedPossession.imagin
+                )
+                : null;
+
+        possessionState.outfit =
+            String(
+                savedPossession.outfit ||
+                "normal"
+            );
+
+        possessionState.outfitOwner =
+            String(
+                savedPossession.outfitOwner ||
+                (
+                    possessionState.outfit ===
+                        "imagin_preference"
+                        ? possessionState.imagin
+                        : "ryotaro"
+                ) ||
+                "ryotaro"
+            );
+
+        currentSoloPortrait = {
+            speaker:
+                String(
+                    savedSolo.speaker ||
+                    defaultSpeaker
+                ),
+
+            expression:
+                String(
+                    savedSolo.expression ||
+                    getDefaultExpressionForSpeaker(
+                        savedSolo.speaker ||
+                        defaultSpeaker
+                    )
+                )
+        };
+
+        returnSoloPortrait = null;
+        isTemporaryGroupTalk = false;
+
+        pendingPossessionAction = null;
+        pendingPossessionTalk = null;
+        pendingPostReleaseTalk = null;
+        pendingPostStealTalk = null;
+        changeClothesReturnState = null;
+
+        temporaryTalkPossession = null;
+        talkPossessionEffectState = null;
+        pendingTalkPossessionTone = null;
+
+        /*
+         * 通常画面へ戻る時は環境光も解除する。
+         * 既存立ち絵にも即時反映する。
+         */
+        setPortraitLighting(
+            "normal",
+            0
+        );
+
+        showSoloPortrait(
+            currentSoloPortrait.speaker,
+            currentSoloPortrait.expression,
+            true
+        );
+
+        eraseNamePlate();
+    };
+
+/*
+ * ─────────────────────────────
+ * 外部ストーリー再生用
+ * ─────────────────────────────
+ */
+window.MamiDenOTalk.playExternalTalk =
+    function(
+        talk,
+        options = {}
+    ) {
+        if (!talk) {
+            return false;
+        }
+
+        if ($gameMessage.isBusy()) {
+            return false;
+        }
+        /*
+         * StoryDataに指定された
+         * 開始時憑依状態を適用してから
+         * メッセージを組み立てる。
+         */
+        prepareStoryStartPossession(
+            talk
+        );
+
+        /*
+         * 通常会話と同じ経路へ流す。
+         * 最新版のプリロードやpageParticipantsも
+         * そのまま利用できる。
+         */
+        enqueueTalkMessage(talk);
+
+        /*
+         * restoreAfter:
+         * trueなら通常立ち絵へ戻す。
+         * falseなら会話終了時の表示を維持する。
+         * Story側ではfalseを指定している。
+         */
+        const restoreAfter =
+            options.restoreAfter !==
+            false;
+
+        requestExpressionReset(
+            restoreAfter
+        );
+
+        return true;
+    };
 /*
  * 憑依を開始する。
  *
@@ -145633,6 +149626,11 @@ window.MamiDenOTalk.startPossession =
             String(imaginId || "");
         possessionState.outfit =
             String(outfit || "normal");
+        possessionState.outfitOwner =
+            possessionState.outfit ===
+                "imagin_preference"
+                ? possessionState.imagin
+                : "ryotaro";
     };
 /*
  * 放置台詞中に接近したキャラ。

@@ -265,6 +265,17 @@
     const GALLERY_SCROLL_EASING = 0.22;
 
     /*
+     * スマホ / タブレット用スワイプ。
+     *
+     * 指を置いただけのタップと、
+     * スクロール目的のスワイプを区別するため、
+     * 10px以上動いた時点でドラッグ扱いにする。
+     *
+     * スワイプ開始位置はサムネの上でもOK。
+     */
+    const GALLERY_TOUCH_DRAG_THRESHOLD = 10;
+
+    /*
      * 右端のサムネへ被らないよう、
      * レールとつまみを描画領域の外側へ寄せる。
      * サムネ領域右端は X=1204。
@@ -3378,6 +3389,22 @@ class Sprite_StoryExitButton
             this._galleryScrollThumb = null;
 
             /*
+             * PC用スクロールバー操作。
+             * つまみドラッグ＋レールクリックに使用。
+             */
+            this._galleryScrollbarDragging = false;
+            this._galleryScrollbarDragOffsetY = 0;
+
+            /*
+             * スマホ用スワイプ状態。
+             */
+            this._galleryTouchActive = false;
+            this._galleryTouchDragging = false;
+            this._galleryTouchStartY = 0;
+            this._galleryTouchLastY = 0;
+            this._galleryTouchSuppressClickFrames = 0;
+
+            /*
              * ギャラリーの戻るボタン。
              * サムネより上に見えていても、
              * 下側サムネのSprite_Clickableが先に入力を拾う場合があるため
@@ -3969,6 +3996,16 @@ class Sprite_StoryExitButton
             this._galleryContentHeight = 0;
             this._galleryScrollTrack = null;
             this._galleryScrollThumb = null;
+
+            this._galleryScrollbarDragging = false;
+            this._galleryScrollbarDragOffsetY = 0;
+
+            this._galleryTouchActive = false;
+            this._galleryTouchDragging = false;
+            this._galleryTouchStartY = 0;
+            this._galleryTouchLastY = 0;
+            this._galleryTouchSuppressClickFrames = 0;
+
             this._galleryBackButton = null;
             this._galleryResetButton = null;
 
@@ -4405,6 +4442,19 @@ class Sprite_StoryExitButton
          * 戻るボタンの上ではサムネを絶対に反応させない。
          */
         isPointerInsideGalleryThumbnailClickArea() {
+            /*
+             * スワイプと判定した指操作では、
+             * 指を離した瞬間にサムネを開かない。
+             */
+            if (
+                this._galleryScrollbarDragging ||
+                this._galleryTouchDragging ||
+                this._galleryTouchSuppressClickFrames > 0 ||
+                this.isPointerInsideGalleryScrollbarArea()
+            ) {
+                return false;
+            }
+
             if (
                 !this.isPointerInsideGalleryView()
             ) {
@@ -4432,6 +4482,424 @@ class Sprite_StoryExitButton
             }
 
             return true;
+        }
+
+        isPointerInsideGalleryScrollbarArea() {
+            if (
+                !this._galleryScrollTrack ||
+                !this._galleryScrollTrack.visible ||
+                this._galleryMaxScroll <= 0
+            ) {
+                return false;
+            }
+
+            const x =
+                Number(
+                    TouchInput.x || 0
+                );
+
+            const y =
+                Number(
+                    TouchInput.y || 0
+                );
+
+            return (
+                x >=
+                    GALLERY_SCROLL_TRACK_X &&
+                x <=
+                    GALLERY_SCROLL_TRACK_X +
+                    GALLERY_SCROLL_TRACK_WIDTH &&
+                y >=
+                    GALLERY_SCROLL_TRACK_Y &&
+                y <=
+                    GALLERY_SCROLL_TRACK_Y +
+                    GALLERY_SCROLL_TRACK_HEIGHT
+            );
+        }
+
+        isPointerInsideGalleryScrollThumb() {
+            const thumb =
+                this._galleryScrollThumb;
+
+            if (
+                !thumb ||
+                !thumb.visible ||
+                this._galleryMaxScroll <= 0
+            ) {
+                return false;
+            }
+
+            const x =
+                Number(
+                    TouchInput.x || 0
+                );
+
+            const y =
+                Number(
+                    TouchInput.y || 0
+                );
+
+            return (
+                x >= thumb.x &&
+                x <=
+                    thumb.x +
+                    GALLERY_SCROLL_THUMB_WIDTH &&
+                y >= thumb.y &&
+                y <=
+                    thumb.y +
+                    GALLERY_SCROLL_THUMB_HEIGHT
+            );
+        }
+
+        setGalleryScrollFromThumbTop(
+            thumbTop
+        ) {
+            const movableHeight =
+                Math.max(
+                    0,
+                    GALLERY_SCROLL_TRACK_HEIGHT -
+                        GALLERY_SCROLL_THUMB_HEIGHT
+                );
+
+            if (
+                movableHeight <= 0 ||
+                this._galleryMaxScroll <= 0
+            ) {
+                return;
+            }
+
+            const clampedThumbTop =
+                Math.max(
+                    GALLERY_SCROLL_TRACK_Y,
+                    Math.min(
+                        GALLERY_SCROLL_TRACK_Y +
+                            movableHeight,
+                        Number(thumbTop) ||
+                            GALLERY_SCROLL_TRACK_Y
+                    )
+                );
+
+            const rate =
+                (
+                    clampedThumbTop -
+                    GALLERY_SCROLL_TRACK_Y
+                ) /
+                movableHeight;
+
+            this._galleryScrollY =
+                this.clampGalleryScrollY(
+                    this._galleryMaxScroll *
+                        rate
+                );
+
+            /*
+             * ドラッグ中は指/マウスへ直接追従。
+             * 離した後にイージングでズレないよう
+             * targetも同じ値へ揃える。
+             */
+            this._galleryScrollTargetY =
+                this._galleryScrollY;
+
+            this.applyGalleryScrollPosition();
+            this.updateGalleryScrollbar();
+        }
+
+        updateGalleryScrollbarInputBeforeChildren() {
+            if (
+                storyConfirmOpen ||
+                this._galleryViewer ||
+                !this._galleryBackground ||
+                !this._galleryBackground.visible ||
+                this._galleryMaxScroll <= 0
+            ) {
+                this._galleryScrollbarDragging =
+                    false;
+
+                return false;
+            }
+
+            /*
+             * つまみを押した場合：
+             * つまみ内の掴んだ位置を維持したままドラッグ。
+             *
+             * レール部分を押した場合：
+             * その位置へつまみ中央を移動して、
+             * そのままドラッグ開始できる。
+             */
+            if (
+                TouchInput.isTriggered() &&
+                this.isPointerInsideGalleryScrollbarArea()
+            ) {
+                const pointerY =
+                    Number(
+                        TouchInput.y || 0
+                    );
+
+                if (
+                    this.isPointerInsideGalleryScrollThumb()
+                ) {
+                    this._galleryScrollbarDragOffsetY =
+                        pointerY -
+                        this._galleryScrollThumb.y;
+                }
+                else {
+                    this._galleryScrollbarDragOffsetY =
+                        GALLERY_SCROLL_THUMB_HEIGHT /
+                        2;
+
+                    this.setGalleryScrollFromThumbTop(
+                        pointerY -
+                        this._galleryScrollbarDragOffsetY
+                    );
+                }
+
+                this._galleryScrollbarDragging =
+                    true;
+
+                /*
+                 * 右端の数pxはサムネ描画領域と重なるので、
+                 * 背後カードの押下状態を必ず解除する。
+                 */
+                this.cancelGalleryThumbnailPresses();
+
+                /*
+                 * スクロールバー操作を始めたフレームは
+                 * スワイプ開始として扱わない。
+                 */
+                this.resetGalleryTouchScrollState();
+            }
+
+            if (
+                !this._galleryScrollbarDragging
+            ) {
+                return false;
+            }
+
+            if (TouchInput.isPressed()) {
+                const pointerY =
+                    Number(
+                        TouchInput.y || 0
+                    );
+
+                this.setGalleryScrollFromThumbTop(
+                    pointerY -
+                    this._galleryScrollbarDragOffsetY
+                );
+
+                return true;
+            }
+
+            /*
+             * マウス/指を離してドラッグ終了。
+             * releaseを背後サムネのクリックにしない。
+             */
+            this._galleryScrollbarDragging =
+                false;
+
+            this._galleryTouchSuppressClickFrames =
+                Math.max(
+                    this._galleryTouchSuppressClickFrames,
+                    2
+                );
+
+            this.cancelGalleryThumbnailPresses();
+
+            return true;
+        }
+
+        clampGalleryScrollY(
+            value
+        ) {
+            return Math.max(
+                0,
+                Math.min(
+                    this._galleryMaxScroll,
+                    Number(value) || 0
+                )
+            );
+        }
+
+        cancelGalleryThumbnailPresses() {
+            const container =
+                this._galleryThumbnailContainer;
+
+            if (!container) {
+                return;
+            }
+
+            /*
+             * Sprite_Clickableはタッチ開始時に
+             * _pressed=trueを持つ。
+             *
+             * そのままスワイプ後に指を離すと
+             * onClickへ流れる可能性があるので、
+             * ドラッグ判定になった瞬間に全カードの
+             * 押下状態をキャンセルする。
+             */
+            for (
+                const child of
+                container.children
+            ) {
+                if (
+                    child &&
+                    child instanceof
+                        Sprite_GalleryThumbnailCard
+                ) {
+                    child._pressed = false;
+                }
+            }
+        }
+
+        resetGalleryTouchScrollState() {
+            this._galleryTouchActive = false;
+            this._galleryTouchDragging = false;
+            this._galleryTouchStartY = 0;
+            this._galleryTouchLastY = 0;
+        }
+
+        updateGalleryTouchScrollBeforeChildren() {
+            /*
+             * 子Spriteのクリック処理より先に呼ぶ。
+             *
+             * これで、
+             *   サムネ上で指を置く
+             *   ↓
+             *   そのまま上下へスワイプ
+             *   ↓
+             *   指を離す
+             *
+             * としてもサムネクリックにならない。
+             */
+            if (
+                this._galleryScrollbarDragging ||
+                storyConfirmOpen ||
+                this._galleryViewer ||
+                !this._galleryThumbnailContainer ||
+                !this._galleryBackground ||
+                !this._galleryBackground.visible ||
+                this._galleryMaxScroll <= 0
+            ) {
+                this.resetGalleryTouchScrollState();
+                return;
+            }
+
+            /*
+             * スワイプ開始。
+             * サムネの上からでも開始できる。
+             */
+            if (
+                TouchInput.isTriggered() &&
+                this.isPointerInsideGalleryView() &&
+                !this.isPointerInsideGalleryScrollbarArea()
+            ) {
+                this._galleryTouchActive = true;
+                this._galleryTouchDragging = false;
+
+                this._galleryTouchStartY =
+                    Number(
+                        TouchInput.y || 0
+                    );
+
+                this._galleryTouchLastY =
+                    this._galleryTouchStartY;
+            }
+
+            if (
+                !this._galleryTouchActive
+            ) {
+                return;
+            }
+
+            const currentY =
+                Number(
+                    TouchInput.y || 0
+                );
+
+            /*
+             * 指を置いたまま移動。
+             */
+            if (TouchInput.isPressed()) {
+                const totalMove =
+                    currentY -
+                    this._galleryTouchStartY;
+
+                if (
+                    !this._galleryTouchDragging &&
+                    Math.abs(totalMove) >=
+                        GALLERY_TOUCH_DRAG_THRESHOLD
+                ) {
+                    this._galleryTouchDragging =
+                        true;
+
+                    /*
+                     * ここから先は「タップ」ではなく
+                     * 「スクロール」。
+                     */
+                    this.cancelGalleryThumbnailPresses();
+                }
+
+                if (
+                    this._galleryTouchDragging
+                ) {
+                    const deltaY =
+                        currentY -
+                        this._galleryTouchLastY;
+
+                    /*
+                     * 指を上へ動かす：
+                     *   deltaY < 0
+                     *   → scrollYを増やす
+                     *   → 下のCGが見える
+                     *
+                     * 指に一覧が付いてくる感覚にするため、
+                     * タッチ中はイージングを挟まず直接追従。
+                     */
+                    this._galleryScrollY =
+                        this.clampGalleryScrollY(
+                            this._galleryScrollY -
+                            deltaY
+                        );
+
+                    this._galleryScrollTargetY =
+                        this._galleryScrollY;
+
+                    this.applyGalleryScrollPosition();
+                    this.updateGalleryScrollbar();
+                }
+
+                this._galleryTouchLastY =
+                    currentY;
+
+                return;
+            }
+
+            /*
+             * 指を離した。
+             */
+            if (
+                this._galleryTouchDragging
+            ) {
+                /*
+                 * releaseフレーム＋次フレームだけ
+                 * サムネクリックを禁止して、
+                 * スワイプ終了をタップとして拾わせない。
+                 */
+                this._galleryTouchSuppressClickFrames =
+                    2;
+
+                this.cancelGalleryThumbnailPresses();
+            }
+
+            this.resetGalleryTouchScrollState();
+        }
+
+        updateGalleryTouchScrollAfterChildren() {
+            if (
+                this._galleryTouchSuppressClickFrames >
+                0
+            ) {
+                this._galleryTouchSuppressClickFrames--;
+            }
         }
 
         updateGalleryScroll() {
@@ -5727,15 +6195,36 @@ update() {
     this.processGalleryStillViewerInput();
 
     /*
+     * PCのスクロールバー操作を最優先で判定。
+     * つまみドラッグ / レールクリックを
+     * スマホ用スワイプに奪わせない。
+     */
+    this.updateGalleryScrollbarInputBeforeChildren();
+
+    /*
+     * スマホのスワイプ判定は
+     * サムネ等のSprite_Clickableより先に処理する。
+     *
+     * タップなら何もしないので通常クリックへ流れ、
+     * 10px以上動いた時だけスクロールへ切り替わる。
+     */
+    this.updateGalleryTouchScrollBeforeChildren();
+
+    /*
      * その後で通常の子Spriteを更新する。
      */
     super.update();
 
     /*
      * ギャラリー表示中だけ、
-     * ホイール入力と滑らかな縦移動を処理する。
+     * PCのホイール入力と滑らかな縦移動を処理する。
      */
     this.updateGalleryScroll();
+
+    /*
+     * スワイプ後の誤クリック防止カウンタ。
+     */
+    this.updateGalleryTouchScrollAfterChildren();
 
     /*
      * サムネクリックで予約されたCGビューアを、

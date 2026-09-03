@@ -1201,7 +1201,6 @@
                 {
                     "speaker": "hana",
                     "text": "結局みんな食べるんだ。",
-                    "expression": "portrait_hana_base_default_normal"
                 },
                 {
                     "speaker": "naomi",
@@ -1349,7 +1348,6 @@
                 {
                     "speaker": "hana",
                     "text": "うるさい！",
-                    "expression": "portrait_hana_base_default_angry"
                 }
             ]
         },

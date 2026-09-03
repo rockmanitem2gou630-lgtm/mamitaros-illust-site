@@ -130987,7 +130987,7 @@ tags: [
             expression:
                 "portrait_urataros_base_default_smile",
             text:
-                "了解。\n先輩、キンちゃん、リュウタ。\nちょっと向こう行ってて。"
+                "了解。\n先輩、キンちゃん、リュウタ。ちょっと向こう行ってて。"
         },
         {
             speaker: "momotaros",

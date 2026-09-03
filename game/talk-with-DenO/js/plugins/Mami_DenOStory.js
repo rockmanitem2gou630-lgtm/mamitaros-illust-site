@@ -81,6 +81,251 @@
         "bg_story_route_select";
 
     /*
+     * ギャラリー入口・背景。
+     * img/pictures/button_gallery.png
+     * img/pictures/bg_gallery.png
+     */
+    const GALLERY_BUTTON_PICTURE =
+        "button_gallery";
+
+    const GALLERY_BACKGROUND =
+        "bg_gallery";
+
+    /*
+     * ギャラリー進行状況リセット。
+     *
+     * 消去系の操作なので主張は弱め。
+     * 素材そのものは正方形PNGで作ればOK。
+     * JS側で48×48へ収めるので、
+     * 128×128など大きめに描いても問題ない。
+     *
+     * 円形 / 角丸四角はPNGの透過形状で自由に作れる。
+     */
+    const GALLERY_RESET_BUTTON_PICTURE =
+        "button_progress_reset";
+
+    const GALLERY_RESET_BUTTON_SIZE = 48;
+
+    /*
+     * 右下フレーム内の空きスペースへ。
+     * 48×48なので x=1228 なら、
+     * おおよそ X=1204～1252 に収まる。
+     */
+    const GALLERY_RESET_BUTTON_POSITION = [
+        1228,
+        679
+    ];
+
+    /*
+     * 汎用確認画面の「はい / いいえ」。
+     * ストーリー中断確認と進行状況リセットで共用する。
+     *
+     * 画像サイズは180×58を想定。
+     */
+    const CONFIRM_YES_PICTURE =
+        "ui_confirm_yes";
+
+    const CONFIRM_NO_PICTURE =
+        "ui_confirm_no";
+
+    const CONFIRM_YES_POSITION = [
+        520,
+        409
+    ];
+
+    const CONFIRM_NO_POSITION = [
+        760,
+        409
+    ];
+
+    /*
+     * 戻るボタンと左右対称の位置。
+     */
+    const GALLERY_BUTTON_POSITION = [
+        SCREEN_WIDTH - 118,
+        679
+    ];
+
+    /*
+     * ─────────────────────────────
+     * ギャラリー・キャラ絞り込みタブ
+     * ─────────────────────────────
+     *
+     * 画像サイズ：
+     *   170×46
+     *
+     * 通常 / 選択中の2枚を用意する。
+     * ホバー差分は使わず、JS側で軽く拡大する。
+     */
+    const GALLERY_TAB_WIDTH = 170;
+    const GALLERY_TAB_HEIGHT = 46;
+    const GALLERY_TAB_GAP = 14;
+    const GALLERY_TAB_CENTER_Y = 132;
+
+    const GALLERY_TAB_IDS = [
+        "all",
+        "momo",
+        "ura",
+        "kin",
+        "ryu"
+    ];
+
+    const GALLERY_TAB_PICTURES = {
+        all: {
+            normal: "gallery_tab_all",
+            active: "gallery_tab_all_active"
+        },
+        momo: {
+            normal: "gallery_tab_momo",
+            active: "gallery_tab_momo_active"
+        },
+        ura: {
+            normal: "gallery_tab_ura",
+            active: "gallery_tab_ura_active"
+        },
+        kin: {
+            normal: "gallery_tab_kin",
+            active: "gallery_tab_kin_active"
+        },
+        ryu: {
+            normal: "gallery_tab_ryu",
+            active: "gallery_tab_ryu_active"
+        }
+    };
+
+
+    /*
+     * ─────────────────────────────
+     * ギャラリー・サムネイル一覧
+     * ─────────────────────────────
+     *
+     * まずは1画面ぶん、横4×縦2を描画する。
+     * スクロールは次段階で追加する。
+     *
+     * 内側フレームの角がサムネへ少しかぶるデザインなので、
+     * サムネイル群のさらに上へ
+     * gallery_frame_overlay.png を重ねる。
+     */
+    const GALLERY_VIEW_X = 76;
+    const GALLERY_VIEW_Y = 175;
+    const GALLERY_VIEW_WIDTH = 1128;
+
+    /*
+     * 上端はタブを避けるため175のまま。
+     * 下端だけフレームの裏まで伸ばす。
+     *
+     * 175 + 500 = 675
+     *
+     * gallery_frame_overlay がサムネより上にあるため、
+     * 実際には下側フレームへ潜り込んだところで
+     * 自然に隠れて見える。
+     */
+    const GALLERY_VIEW_HEIGHT = 500;
+
+    const GALLERY_GRID_COLUMNS = 4;
+    const GALLERY_GRID_ROWS = 2;
+    const GALLERY_VISIBLE_LIMIT =
+        GALLERY_GRID_COLUMNS *
+        GALLERY_GRID_ROWS;
+
+    const GALLERY_CARD_WIDTH = 260;
+    const GALLERY_CARD_HEIGHT = 175;
+
+    const GALLERY_THUMB_WIDTH = 250;
+    const GALLERY_THUMB_HEIGHT = 141;
+    /*
+     * サムネイルはカード左上基準ではなく、
+     * 260×175のフレーム中央へ配置する。
+     *
+     * 250×141の場合：
+     *   X = (260 - 250) / 2 = 5
+     *   Y = (175 - 141) / 2 = 17
+     */
+    const GALLERY_THUMB_X =
+        (GALLERY_CARD_WIDTH -
+            GALLERY_THUMB_WIDTH) / 2;
+
+    const GALLERY_THUMB_Y =
+        (GALLERY_CARD_HEIGHT -
+            GALLERY_THUMB_HEIGHT) / 2;
+
+    const GALLERY_CARD_GAP_X = 18;
+    const GALLERY_CARD_GAP_Y = 22;
+
+    /*
+     * 1行目の位置は今までの4×2配置とほぼ同じ。
+     * ALLで行数が増えても上端位置は変えない。
+     */
+    const GALLERY_GRID_PADDING_Y = 34;
+
+    /*
+     * 縦スクロール。
+     */
+    const GALLERY_SCROLL_SPEED = 2.5;
+    const GALLERY_SCROLL_EASING = 0.22;
+
+    /*
+     * 右端のサムネへ被らないよう、
+     * レールとつまみを描画領域の外側へ寄せる。
+     * サムネ領域右端は X=1204。
+     */
+    const GALLERY_SCROLL_TRACK_X = 1200;
+    const GALLERY_SCROLL_TRACK_Y = 180;
+    const GALLERY_SCROLL_TRACK_WIDTH = 12;
+
+    /*
+     * 描画領域を下へ伸ばしたぶん、
+     * スクロールレールも少し長くする。
+     * 下端はフレームの裏へ入る。
+     */
+    const GALLERY_SCROLL_TRACK_HEIGHT = 470;
+
+    const GALLERY_SCROLL_THUMB_WIDTH = 12;
+    const GALLERY_SCROLL_THUMB_HEIGHT = 80;
+
+    const GALLERY_SCROLL_TRACK_PICTURE =
+        "gallery_scroll_track";
+
+    const GALLERY_SCROLL_THUMB_PICTURE =
+        "gallery_scroll_thumb";
+
+    /*
+     * ─────────────────────────────
+     * ギャラリー・スチル閲覧
+     * ─────────────────────────────
+     *
+     * 1枚目：
+     *   サムネクリック → 軽くフェードイン
+     *
+     * 差分：
+     *   現在画像255固定
+     *   ＋次画像0→255のクロスフェード
+     *
+     * 最後：
+     *   もう一度クリック → 軽くフェードアウトして閉じる
+     *
+     * 画面上には閉じるボタン等を一切置かない。
+     */
+    const GALLERY_VIEWER_FADE_FRAMES = 12;
+    const GALLERY_VIEWER_CROSSFADE_FRAMES = 12;
+
+    const GALLERY_CG_FRAME_PICTURE =
+        "gallery_cg_frame";
+
+    const GALLERY_CG_LOCKED_PICTURE =
+        "gallery_cg_frame_locked";
+
+    /*
+     * 1280×720の透過PNG。
+     * bg_gallery と同じ位置のフレーム部分だけを残す。
+     * サムネの上、タブ・戻るボタンの下へ重ねる。
+     */
+    const GALLERY_FRAME_OVERLAY_PICTURE =
+        "gallery_frame_overlay";
+
+    let galleryCatalogCache = null;
+
+    /*
      * ─────────────────────────────
      * 話数選択画面
      * ─────────────────────────────
@@ -170,6 +415,26 @@
 
     const STORY_UI_BOOT_PRELOAD_PICTURES = [
         ROUTE_SELECT_BACKGROUND,
+        GALLERY_BACKGROUND,
+        GALLERY_BUTTON_PICTURE,
+        GALLERY_RESET_BUTTON_PICTURE,
+        CONFIRM_YES_PICTURE,
+        CONFIRM_NO_PICTURE,
+        "gallery_tab_all",
+        "gallery_tab_all_active",
+        "gallery_tab_momo",
+        "gallery_tab_momo_active",
+        "gallery_tab_ura",
+        "gallery_tab_ura_active",
+        "gallery_tab_kin",
+        "gallery_tab_kin_active",
+        "gallery_tab_ryu",
+        "gallery_tab_ryu_active",
+        GALLERY_CG_FRAME_PICTURE,
+        GALLERY_CG_LOCKED_PICTURE,
+        GALLERY_FRAME_OVERLAY_PICTURE,
+        GALLERY_SCROLL_TRACK_PICTURE,
+        GALLERY_SCROLL_THUMB_PICTURE,
         "ui_story_pass_momo",
         "ui_story_pass_ura",
         "ui_story_pass_kin",
@@ -343,7 +608,7 @@
     let currentEpisode = null;
     let currentPageIndex = 0;
 
-    let storyExitConfirmOpen = false;
+    let storyConfirmOpen = false;
 
     /*
      * ─────────────────────────────
@@ -614,138 +879,405 @@
 
     /*
      * ─────────────────────────────
-     * 共通ボタン
+     * 汎用確認ボタン
      * ─────────────────────────────
+     *
+     * ui_confirm_yes.png / ui_confirm_no.png を共用する。
+     * ストーリー中断・進行状況リセットなど、
+     * 確認画面の種類に依存しない。
      */
-
-    class Sprite_StoryButton
+    class Sprite_StoryConfirmButton
         extends Sprite_Clickable {
 
         constructor(
-            width,
-            height,
-            label,
-            onClick
+            pictureName,
+            onClick,
+            soundType = "ok"
         ) {
             super();
 
-            this._width = width;
-            this._height = height;
-            this._label = label;
             this._clickHandler =
                 onClick;
 
+            this._soundType =
+                soundType;
+
             this._hovered = false;
 
+            /*
+             * 汎用processTouch側で、
+             * 確認画面中も反応してよいボタンとして識別する。
+             */
+            this._denOConfirmButton =
+                true;
+
+            this.anchor.set(
+                0.5,
+                0.5
+            );
+
             this.bitmap =
-                new Bitmap(
-                    width,
-                    height
+                ImageManager.loadPicture(
+                    String(
+                        pictureName || ""
+                    )
                 );
 
-            this.refresh();
+            this.opacity = 248;
         }
 
-        refresh() {
-            this.bitmap.clear();
+        update() {
+            /*
+             * 重要：
+             * Sprite_Clickable.update() 内でクリックが成立すると、
+             * onClick → closeStoryConfirm() によって
+             * このボタン自身がdestroyされる場合がある。
+             *
+             * destroy後は this.scale が null になるため、
+             * super.update() の「後」でscaleへ触ると
+             *
+             *   Cannot read property 'scale' of null
+             *
+             * が発生する。
+             *
+             * そのため見た目の更新を先に済ませ、
+             * クリック判定を行う super.update() は
+             * 必ず最後に呼ぶ。
+             */
+            const targetScale =
+                this.isPressed()
+                    ? EPISODE_BUTTON_PRESS_SCALE
+                    : this._hovered
+                        ? EPISODE_BUTTON_HOVER_SCALE
+                        : 1;
 
-            const background =
+            this.scale.x +=
+                (
+                    targetScale -
+                    this.scale.x
+                ) * 0.24;
+
+            this.scale.y +=
+                (
+                    targetScale -
+                    this.scale.y
+                ) * 0.24;
+
+            const targetOpacity =
                 this._hovered
-                    ? "rgba(75, 65, 90, 0.98)"
-                    : "rgba(25, 25, 32, 0.95)";
+                    ? 255
+                    : 248;
 
-            this.bitmap.fillRect(
-                0,
-                0,
-                this._width,
-                this._height,
-                background
-            );
+            this.opacity +=
+                (
+                    targetOpacity -
+                    this.opacity
+                ) * 0.24;
 
             /*
-             * 外枠。
+             * クリック成立後にdestroyされても、
+             * この行より後では自身へ触らない。
              */
-            this.bitmap.strokeRect(
-                1,
-                1,
-                this._width - 2,
-                this._height - 2,
-                "rgba(220, 205, 255, 0.9)",
-                2
-            );
-
-            this.bitmap.fontSize = 25;
-            this.bitmap.textColor =
-                "#ffffff";
-
-            this.bitmap.outlineColor =
-                "rgba(0, 0, 0, 0.9)";
-
-            this.bitmap.outlineWidth = 4;
-
-            this.bitmap.drawText(
-                this._label,
-                12,
-                0,
-                this._width - 24,
-                this._height,
-                "center"
-            );
+            super.update();
         }
 
         onMouseEnter() {
             this._hovered = true;
-            this.refresh();
         }
 
         onMouseExit() {
             this._hovered = false;
-            this.refresh();
+        }
+
+        playClickSound() {
+            if (
+                this._soundType ===
+                "cancel"
+            ) {
+                SoundManager.playCancel();
+                return;
+            }
+
+            if (
+                this._soundType ===
+                "none"
+            ) {
+                return;
+            }
+
+            SoundManager.playOk();
         }
 
         onClick() {
             TouchInput.clear();
 
             if (
-                typeof this._clickHandler ===
+                typeof this._clickHandler !==
                 "function"
             ) {
-                this._clickHandler();
+                return;
             }
+
+            this.playClickSound();
+
+            this._clickHandler();
         }
     }
+
 /*
  * ─────────────────────────────
  * ストーリー再生中 EXIT
  * ─────────────────────────────
  */
 
-function closeStoryExitConfirm() {
+function closeStoryConfirm() {
     const scene =
         getScene();
 
     if (!scene) {
+        storyConfirmOpen = false;
         return;
     }
 
-    if (scene._denOStoryExitConfirm) {
+    if (scene._denOStoryConfirm) {
         scene.removeChild(
-            scene._denOStoryExitConfirm
+            scene._denOStoryConfirm
         );
 
-        scene._denOStoryExitConfirm
+        scene._denOStoryConfirm
             .destroy({
                 children: true
             });
 
-        scene._denOStoryExitConfirm =
+        scene._denOStoryConfirm =
             null;
     }
 
-    storyExitConfirmOpen = false;
+    storyConfirmOpen = false;
 
     TouchInput.clear();
     Input.clear();
+}
+
+/*
+ * 旧関数名は内部互換用に残す。
+ */
+function closeStoryExitConfirm() {
+    closeStoryConfirm();
+}
+
+/*
+ * 汎用確認画面。
+ *
+ * message:
+ *   文字列。\nで2行程度まで表示可能。
+ *
+ * onYes / onNo:
+ *   処理内容は呼び出し側に任せる。
+ *   「はい」で自動的に閉じないのは、
+ *   ストーリー中断時に黒フェード完了まで
+ *   確認画面を残す必要があるため。
+ */
+function openStoryConfirm(
+    message,
+    onYes,
+    onNo = null,
+    options = {}
+) {
+    if (storyConfirmOpen) {
+        return false;
+    }
+
+    const scene =
+        getScene();
+
+    if (!scene) {
+        return false;
+    }
+
+    if (
+        options.pauseAuto &&
+        window.MamiDenOAuto &&
+        typeof window.MamiDenOAuto
+            .setEnabled ===
+            "function"
+    ) {
+        window.MamiDenOAuto
+            .setEnabled(false);
+    }
+
+    storyConfirmOpen = true;
+
+    const container =
+        new Sprite();
+
+    /*
+     * 画面全体を暗くする。
+     */
+    const dimmer =
+        new Sprite(
+            new Bitmap(
+                SCREEN_WIDTH,
+                SCREEN_HEIGHT
+            )
+        );
+
+    dimmer.bitmap.fillRect(
+        0,
+        0,
+        SCREEN_WIDTH,
+        SCREEN_HEIGHT,
+        "rgba(0, 0, 0, 0.55)"
+    );
+
+    container.addChild(
+        dimmer
+    );
+
+    /*
+     * 確認文。
+     * \nで最大2行を自然に中央配置する。
+     */
+    const textSprite =
+        new Sprite(
+            new Bitmap(
+                760,
+                120
+            )
+        );
+
+    textSprite.x = 260;
+    textSprite.y = 245;
+
+    textSprite.bitmap.fontSize = 30;
+    textSprite.bitmap.textColor =
+        "#ffffff";
+
+    textSprite.bitmap.outlineColor =
+        "rgba(0, 0, 0, 0.95)";
+
+    textSprite.bitmap.outlineWidth = 5;
+
+    const lines =
+        String(
+            message || ""
+        )
+            .split("\n")
+            .slice(
+                0,
+                2
+            );
+
+    const lineHeight = 42;
+
+    const totalTextHeight =
+        Math.max(
+            1,
+            lines.length
+        ) *
+        lineHeight;
+
+    const startTextY =
+        Math.round(
+            (
+                120 -
+                totalTextHeight
+            ) / 2
+        );
+
+    lines.forEach(
+        (
+            line,
+            index
+        ) => {
+            textSprite.bitmap.drawText(
+                line,
+                0,
+                startTextY +
+                    index *
+                    lineHeight,
+                760,
+                lineHeight,
+                "center"
+            );
+        }
+    );
+
+    container.addChild(
+        textSprite
+    );
+
+    /*
+     * はい。
+     */
+    const yesButton =
+        new Sprite_StoryConfirmButton(
+            CONFIRM_YES_PICTURE,
+            () => {
+                if (
+                    typeof onYes ===
+                    "function"
+                ) {
+                    onYes();
+                }
+            },
+            "ok"
+        );
+
+    yesButton.x =
+        CONFIRM_YES_POSITION[0];
+
+    yesButton.y =
+        CONFIRM_YES_POSITION[1];
+
+    container.addChild(
+        yesButton
+    );
+
+    /*
+     * いいえ。
+     */
+    const noButton =
+        new Sprite_StoryConfirmButton(
+            CONFIRM_NO_PICTURE,
+            () => {
+                if (
+                    typeof onNo ===
+                    "function"
+                ) {
+                    onNo();
+                }
+                else {
+                    closeStoryConfirm();
+                }
+            },
+            "cancel"
+        );
+
+    noButton.x =
+        CONFIRM_NO_POSITION[0];
+
+    noButton.y =
+        CONFIRM_NO_POSITION[1];
+
+    container.addChild(
+        noButton
+    );
+
+    scene._denOStoryConfirm =
+        container;
+
+    /*
+     * Scene_Map最前面。
+     */
+    scene.addChild(
+        container
+    );
+
+    TouchInput.clear();
+    Input.clear();
+
+    return true;
 }
 
 
@@ -785,7 +1317,7 @@ function abortCurrentStoryEpisode() {
             /*
              * 黒画面の裏で確認画面を閉じる。
              */
-            closeStoryExitConfirm();
+            closeStoryConfirm();
 
             /*
              * 残りのストーリー本文を破棄。
@@ -859,146 +1391,26 @@ function abortCurrentStoryEpisode() {
 
 function openStoryExitConfirm() {
     if (
-        storyExitConfirmOpen ||
+        storyConfirmOpen ||
         !storyPlaying
     ) {
         return;
     }
 
-    const scene =
-        getScene();
-
-    if (!scene) {
-        return;
-    }
-
-    /*
-     * 確認中にAUTOで先へ進まないよう停止。
-     */
-    if (
-        window.MamiDenOAuto &&
-        typeof window.MamiDenOAuto
-            .setEnabled ===
-            "function"
-    ) {
-        window.MamiDenOAuto
-            .setEnabled(false);
-    }
-
-    storyExitConfirmOpen = true;
-
-    const container =
-        new Sprite();
-
-    /*
-     * 画面全体を少し暗くする。
-     */
-    const dimmer =
-        new Sprite(
-            new Bitmap(
-                SCREEN_WIDTH,
-                SCREEN_HEIGHT
-            )
-        );
-
-    dimmer.bitmap.fillRect(
-        0,
-        0,
-        SCREEN_WIDTH,
-        SCREEN_HEIGHT,
-        "rgba(0, 0, 0, 0.55)"
-    );
-
-    container.addChild(
-        dimmer
-    );
-
-    /*
-     * 確認文。
-     */
-    const textSprite =
-        new Sprite(
-            new Bitmap(
-                640,
-                90
-            )
-        );
-
-    textSprite.x = 320;
-    textSprite.y = 260;
-
-    textSprite.bitmap.fontSize = 30;
-    textSprite.bitmap.textColor =
-        "#ffffff";
-
-    textSprite.bitmap.outlineColor =
-        "rgba(0, 0, 0, 0.95)";
-
-    textSprite.bitmap.outlineWidth = 5;
-
-    textSprite.bitmap.drawText(
+    openStoryConfirm(
         "ストーリーを終了しますか？",
-        0,
-        0,
-        640,
-        90,
-        "center"
+        () => {
+            abortCurrentStoryEpisode();
+        },
+        () => {
+            closeStoryConfirm();
+        },
+        {
+            pauseAuto: true
+        }
     );
-
-    container.addChild(
-        textSprite
-    );
-
-    /*
-     * はい。
-     */
-    const yesButton =
-        new Sprite_StoryButton(
-            180,
-            58,
-            "はい",
-            () => {
-                abortCurrentStoryEpisode();
-            }
-        );
-
-    yesButton.x = 430;
-    yesButton.y = 380;
-
-    container.addChild(
-        yesButton
-    );
-
-    /*
-     * いいえ。
-     */
-    const noButton =
-        new Sprite_StoryButton(
-            180,
-            58,
-            "いいえ",
-            () => {
-                closeStoryExitConfirm();
-            }
-        );
-
-    noButton.x = 670;
-    noButton.y = 380;
-
-    container.addChild(
-        noButton
-    );
-
-    scene._denOStoryExitConfirm =
-        container;
-
-    scene.addChild(
-        container
-    );
-
-    TouchInput.clear();
-    Input.clear();
 }
+
 class Sprite_StoryExitButton
     extends Sprite_Clickable {
 
@@ -1086,7 +1498,7 @@ class Sprite_StoryExitButton
          */
         this.visible =
             storyPlaying &&
-            !storyExitConfirmOpen;
+            !storyConfirmOpen;
 
         if (!this.visible) {
             return;
@@ -1141,7 +1553,7 @@ class Sprite_StoryExitButton
     onClick() {
         if (
             !this.visible ||
-            storyExitConfirmOpen
+            storyConfirmOpen
         ) {
             return;
         }
@@ -1376,13 +1788,38 @@ class Sprite_StoryExitButton
         constructor(
             pictureName,
             onClick,
-            soundType = "ok"
+            soundType = "ok",
+            displayWidth = null,
+            displayHeight = null,
+            idleOpacity = 248
         ) {
             super();
 
             this._clickHandler = onClick;
             this._soundType = soundType;
             this._hovered = false;
+
+            this._displayWidth =
+                Number(displayWidth) > 0
+                    ? Number(displayWidth)
+                    : null;
+
+            this._displayHeight =
+                Number(displayHeight) > 0
+                    ? Number(displayHeight)
+                    : null;
+
+            this._baseScaleX = 1;
+            this._baseScaleY = 1;
+
+            this._idleOpacity =
+                Math.max(
+                    0,
+                    Math.min(
+                        255,
+                        Number(idleOpacity) || 0
+                    )
+                );
 
             this.anchor.set(0.5, 0.5);
 
@@ -1391,30 +1828,86 @@ class Sprite_StoryExitButton
                     String(pictureName || "")
                 );
 
-            this.opacity = 248;
+            const applyDisplaySize = () => {
+                if (
+                    !this.bitmap ||
+                    this.bitmap.width <= 0 ||
+                    this.bitmap.height <= 0
+                ) {
+                    return;
+                }
+
+                this._baseScaleX =
+                    this._displayWidth
+                        ? this._displayWidth /
+                            this.bitmap.width
+                        : 1;
+
+                this._baseScaleY =
+                    this._displayHeight
+                        ? this._displayHeight /
+                            this.bitmap.height
+                        : 1;
+
+                this.scale.set(
+                    this._baseScaleX,
+                    this._baseScaleY
+                );
+            };
+
+            if (this.bitmap.isReady()) {
+                applyDisplaySize();
+            }
+            else {
+                this.bitmap.addLoadListener(
+                    applyDisplaySize
+                );
+            }
+
+            this.opacity =
+                this._idleOpacity;
         }
 
         update() {
             super.update();
 
-            const targetScale =
+            const zoom =
                 this.isPressed()
                     ? EPISODE_BUTTON_PRESS_SCALE
                     : this._hovered
                         ? EPISODE_BUTTON_HOVER_SCALE
                         : 1;
 
+            const targetScaleX =
+                this._baseScaleX *
+                zoom;
+
+            const targetScaleY =
+                this._baseScaleY *
+                zoom;
+
             this.scale.x +=
-                (targetScale - this.scale.x) * 0.24;
+                (
+                    targetScaleX -
+                    this.scale.x
+                ) * 0.24;
 
             this.scale.y +=
-                (targetScale - this.scale.y) * 0.24;
+                (
+                    targetScaleY -
+                    this.scale.y
+                ) * 0.24;
 
             const targetOpacity =
-                this._hovered ? 255 : 248;
+                this._hovered
+                    ? 255
+                    : this._idleOpacity;
 
             this.opacity +=
-                (targetOpacity - this.opacity) * 0.24;
+                (
+                    targetOpacity -
+                    this.opacity
+                ) * 0.24;
         }
 
         onMouseEnter() {
@@ -1455,6 +1948,1114 @@ class Sprite_StoryExitButton
 
             this.playClickSound();
             this._clickHandler();
+        }
+    }
+
+    /*
+     * ─────────────────────────────
+     * ギャラリー用・CG一覧生成
+     * ─────────────────────────────
+     *
+     * StoryDataの storyStill を読み取り、
+     *
+     *   CG_momotaros_ep04_01.png
+     *   CG_momotaros_ep04_02.png
+     *   CG_momotaros_ep04_03.png
+     *
+     * を1つのCG枠
+     *
+     *   CG_momotaros_ep04
+     *
+     * としてまとめる。
+     *
+     * _01 が必ずサムネイル。
+     */
+    function collectStoryStillNames(
+        value,
+        output
+    ) {
+        if (!value) {
+            return;
+        }
+
+        if (Array.isArray(value)) {
+            for (const item of value) {
+                collectStoryStillNames(
+                    item,
+                    output
+                );
+            }
+
+            return;
+        }
+
+        if (
+            typeof value !==
+            "object"
+        ) {
+            return;
+        }
+
+        for (
+            const key of
+            Object.keys(value)
+        ) {
+            const child =
+                value[key];
+
+            if (
+                key === "storyStill" &&
+                typeof child === "string" &&
+                child
+            ) {
+                output.push(
+                    child
+                );
+
+                continue;
+            }
+
+            if (
+                child &&
+                (
+                    Array.isArray(child) ||
+                    typeof child ===
+                        "object"
+                )
+            ) {
+                collectStoryStillNames(
+                    child,
+                    output
+                );
+            }
+        }
+    }
+
+    function normalizeGalleryStillName(
+        filename
+    ) {
+        return String(
+            filename || ""
+        )
+            .trim()
+            .replace(/^.*[\\/]/, "");
+    }
+
+    function getGalleryStillGroupId(
+        filename
+    ) {
+        return normalizeGalleryStillName(
+            filename
+        )
+            .replace(/\.png$/i, "")
+            .replace(
+                /_\d{2}$/,
+                ""
+            );
+    }
+
+    function getGalleryStillVariantNumber(
+        filename
+    ) {
+        const match =
+            normalizeGalleryStillName(
+                filename
+            ).match(
+                /_(\d{2})\.png$/i
+            );
+
+        return match
+            ? Number(match[1])
+            : 9999;
+    }
+
+    function makeGalleryCatalog() {
+        if (galleryCatalogCache) {
+            return galleryCatalogCache;
+        }
+
+        const data =
+            window.MamiDenOStoryData;
+
+        if (
+            !data ||
+            typeof data.getRoutes !==
+                "function"
+        ) {
+            galleryCatalogCache = [];
+            return galleryCatalogCache;
+        }
+
+        const allRoutes =
+            data.getRoutes();
+
+        const catalog = [];
+
+        for (
+            const routeId of
+            MAIN_ROUTE_IDS
+        ) {
+            const route =
+                allRoutes.find(
+                    item =>
+                        String(
+                            item &&
+                            item.id ||
+                            ""
+                        ) ===
+                        routeId
+                );
+
+            if (!route) {
+                continue;
+            }
+
+            const stillNames = [];
+
+            collectStoryStillNames(
+                route,
+                stillNames
+            );
+
+            const groups =
+                new Map();
+
+            for (
+                const filename of
+                stillNames
+            ) {
+                const normalized =
+                    normalizeGalleryStillName(
+                        filename
+                    );
+
+                const groupId =
+                    getGalleryStillGroupId(
+                        normalized
+                    );
+
+                if (
+                    !normalized ||
+                    !groupId
+                ) {
+                    continue;
+                }
+
+                if (!groups.has(groupId)) {
+                    groups.set(
+                        groupId,
+                        {
+                            id: groupId,
+                            character: routeId,
+                            variants: []
+                        }
+                    );
+                }
+
+                const group =
+                    groups.get(
+                        groupId
+                    );
+
+                if (
+                    !group.variants.includes(
+                        normalized
+                    )
+                ) {
+                    group.variants.push(
+                        normalized
+                    );
+                }
+            }
+
+            for (
+                const group of
+                groups.values()
+            ) {
+                group.variants.sort(
+                    (
+                        a,
+                        b
+                    ) =>
+                        getGalleryStillVariantNumber(
+                            a
+                        ) -
+                        getGalleryStillVariantNumber(
+                            b
+                        )
+                );
+
+                const firstStill =
+                    group.variants.find(
+                        filename =>
+                            /_01\.png$/i
+                                .test(filename)
+                    ) ||
+                    group.variants[0] ||
+                    "";
+
+                group.thumbnail =
+                    firstStill;
+
+                catalog.push(
+                    group
+                );
+            }
+        }
+
+        galleryCatalogCache =
+            catalog;
+
+        return galleryCatalogCache;
+    }
+
+    function isGalleryEntryUnlocked(
+        entry,
+        debugUnlockAll = false
+    ) {
+        if (
+            !entry ||
+            !entry.thumbnail
+        ) {
+            return false;
+        }
+
+        /*
+         * デバッグ全開放は表示上だけ。
+         * localStorageへは一切書き込まない。
+         */
+        if (debugUnlockAll) {
+            return true;
+        }
+
+        if (
+            !window.MamiDenOProgress ||
+            typeof window.MamiDenOProgress
+                .isStillUnlocked !==
+                "function"
+        ) {
+            return false;
+        }
+
+        return !!window.MamiDenOProgress
+            .isStillUnlocked(
+                entry.thumbnail
+            );
+    }
+
+    /*
+     * ギャラリー閲覧では、
+     * 実際に本編で見た差分だけを順番に表示する。
+     * 未見差分は先回りして見せない。
+     */
+    function getUnlockedGalleryVariants(
+        entry,
+        debugUnlockAll = false
+    ) {
+        if (
+            !entry ||
+            !Array.isArray(
+                entry.variants
+            )
+        ) {
+            return [];
+        }
+
+        /*
+         * デバッグ時だけ、
+         * StoryDataに登録されている全差分を閲覧可能にする。
+         * Progressには記録しない。
+         */
+        if (debugUnlockAll) {
+            return entry.variants.slice();
+        }
+
+        if (
+            !window.MamiDenOProgress ||
+            typeof window.MamiDenOProgress
+                .isStillUnlocked !==
+                "function"
+        ) {
+            return [];
+        }
+
+        return entry.variants.filter(
+            filename =>
+                window.MamiDenOProgress
+                    .isStillUnlocked(
+                        filename
+                    )
+        );
+    }
+
+    function fitGalleryViewerSprite(
+        sprite
+    ) {
+        if (
+            !sprite ||
+            !sprite.bitmap
+        ) {
+            return;
+        }
+
+        const bitmap =
+            sprite.bitmap;
+
+        const applyFit = () => {
+            if (
+                sprite.bitmap !== bitmap ||
+                bitmap.width <= 0 ||
+                bitmap.height <= 0
+            ) {
+                return;
+            }
+
+            /*
+             * 全画面内へcontain。
+             * 1280×720CGならそのまま全面表示。
+             * 異なるサイズでも縦横比は絶対に崩さない。
+             */
+            const scale =
+                Math.min(
+                    SCREEN_WIDTH /
+                        bitmap.width,
+                    SCREEN_HEIGHT /
+                        bitmap.height
+                );
+
+            sprite.anchor.set(
+                0.5,
+                0.5
+            );
+
+            sprite.x =
+                SCREEN_WIDTH / 2;
+
+            sprite.y =
+                SCREEN_HEIGHT / 2;
+
+            sprite.scale.set(
+                scale,
+                scale
+            );
+        };
+
+        if (bitmap.isReady()) {
+            applyFit();
+        }
+        else {
+            bitmap.addLoadListener(
+                applyFit
+            );
+        }
+    }
+
+    function fitGalleryFrameSprite(
+        sprite,
+        width,
+        height
+    ) {
+        if (
+            !sprite ||
+            !sprite.bitmap
+        ) {
+            return;
+        }
+
+        const applyFit = () => {
+            if (
+                !sprite.bitmap ||
+                sprite.bitmap.width <= 0 ||
+                sprite.bitmap.height <= 0
+            ) {
+                return;
+            }
+
+            sprite.scale.set(
+                width /
+                    sprite.bitmap.width,
+                height /
+                    sprite.bitmap.height
+            );
+        };
+
+        if (sprite.bitmap.isReady()) {
+            applyFit();
+        }
+        else {
+            sprite.bitmap.addLoadListener(
+                applyFit
+            );
+        }
+    }
+
+    /*
+     * ─────────────────────────────
+     * 高品質サムネイル生成
+     * ─────────────────────────────
+     *
+     * 元CGをSpriteのscaleだけで1280×720 → 250×141へ
+     * 一気に縮小すると、細い線や髪・輪郭などが
+     * チリチリ / モアレっぽく見えることがある。
+     *
+     * そこでギャラリー用だけ、
+     * 読み込み時にCanvasへ高品質縮小した
+     * 250×141のBitmapを1枚生成し、
+     * その後はscale=1のまま表示する。
+     *
+     * ・縦横比は維持
+     * ・中央基準でごく僅かにcrop
+     * ・imageSmoothingQuality = "high"
+     * ・大きな画像は段階縮小してエイリアシングを抑える
+     */
+    function drawHighQualityGalleryThumbnail(
+        targetBitmap,
+        sourceBitmap
+    ) {
+        if (
+            !targetBitmap ||
+            !sourceBitmap ||
+            sourceBitmap.width <= 0 ||
+            sourceBitmap.height <= 0
+        ) {
+            return;
+        }
+
+        const targetWidth =
+            GALLERY_THUMB_WIDTH;
+
+        const targetHeight =
+            GALLERY_THUMB_HEIGHT;
+
+        const targetRatio =
+            targetWidth /
+            targetHeight;
+
+        const sourceRatio =
+            sourceBitmap.width /
+            sourceBitmap.height;
+
+        let sx = 0;
+        let sy = 0;
+        let sw =
+            sourceBitmap.width;
+        let sh =
+            sourceBitmap.height;
+
+        /*
+         * coverで中央crop。
+         * 縦横を別倍率にしないので歪まない。
+         */
+        if (
+            sourceRatio >
+            targetRatio
+        ) {
+            sw =
+                sourceBitmap.height *
+                targetRatio;
+
+            sx =
+                (
+                    sourceBitmap.width -
+                    sw
+                ) / 2;
+        }
+        else if (
+            sourceRatio <
+            targetRatio
+        ) {
+            sh =
+                sourceBitmap.width /
+                targetRatio;
+
+            sy =
+                (
+                    sourceBitmap.height -
+                    sh
+                ) / 2;
+        }
+
+        /*
+         * Bitmap.canvas はMZ側でCanvasを保証してくれる。
+         * ブラウザ版 / NW.js版どちらでも使える。
+         */
+        const sourceCanvas =
+            sourceBitmap.canvas;
+
+        if (!sourceCanvas) {
+            return;
+        }
+
+        /*
+         * 最初はcrop範囲をそのまま扱い、
+         * 半分ずつ段階的に縮小する。
+         * 一発のbilinear縮小より細線が安定しやすい。
+         */
+        let currentSource =
+            sourceCanvas;
+
+        let currentSx = sx;
+        let currentSy = sy;
+        let currentWidth = sw;
+        let currentHeight = sh;
+
+        while (
+            currentWidth >
+                targetWidth * 2 ||
+            currentHeight >
+                targetHeight * 2
+        ) {
+            const nextWidth =
+                Math.max(
+                    targetWidth,
+                    Math.round(
+                        currentWidth / 2
+                    )
+                );
+
+            const nextHeight =
+                Math.max(
+                    targetHeight,
+                    Math.round(
+                        currentHeight / 2
+                    )
+                );
+
+            const tempCanvas =
+                document.createElement(
+                    "canvas"
+                );
+
+            tempCanvas.width =
+                nextWidth;
+
+            tempCanvas.height =
+                nextHeight;
+
+            const tempContext =
+                tempCanvas.getContext(
+                    "2d"
+                );
+
+            if (!tempContext) {
+                break;
+            }
+
+            tempContext.imageSmoothingEnabled =
+                true;
+
+            if (
+                "imageSmoothingQuality" in
+                tempContext
+            ) {
+                tempContext.imageSmoothingQuality =
+                    "high";
+            }
+
+            tempContext.drawImage(
+                currentSource,
+                currentSx,
+                currentSy,
+                currentWidth,
+                currentHeight,
+                0,
+                0,
+                nextWidth,
+                nextHeight
+            );
+
+            currentSource =
+                tempCanvas;
+
+            currentSx = 0;
+            currentSy = 0;
+            currentWidth =
+                nextWidth;
+
+            currentHeight =
+                nextHeight;
+        }
+
+        const context =
+            targetBitmap.context;
+
+        if (!context) {
+            return;
+        }
+
+        context.clearRect(
+            0,
+            0,
+            targetWidth,
+            targetHeight
+        );
+
+        context.imageSmoothingEnabled =
+            true;
+
+        if (
+            "imageSmoothingQuality" in
+            context
+        ) {
+            context.imageSmoothingQuality =
+                "high";
+        }
+
+        context.drawImage(
+            currentSource,
+            currentSx,
+            currentSy,
+            currentWidth,
+            currentHeight,
+            0,
+            0,
+            targetWidth,
+            targetHeight
+        );
+
+        /*
+         * Canvasへ直接描いたのでPIXIテクスチャへ反映。
+         */
+        if (targetBitmap.baseTexture) {
+            targetBitmap.baseTexture.update();
+        }
+        else if (
+            targetBitmap._baseTexture
+        ) {
+            targetBitmap._baseTexture.update();
+        }
+    }
+
+    function createGalleryThumbnailSprite(
+        filename
+    ) {
+        const thumbnailBitmap =
+            new Bitmap(
+                GALLERY_THUMB_WIDTH,
+                GALLERY_THUMB_HEIGHT
+            );
+
+        /*
+         * MZ側のBitmapも滑らか補間を明示。
+         */
+        thumbnailBitmap.smooth =
+            true;
+
+        const thumbnail =
+            new Sprite(
+                thumbnailBitmap
+            );
+
+        thumbnail.x =
+            GALLERY_THUMB_X;
+
+        thumbnail.y =
+            GALLERY_THUMB_Y;
+
+        const pictureName =
+            String(
+                filename || ""
+            ).replace(
+                /\.png$/i,
+                ""
+            );
+
+        const sourceBitmap =
+            ImageManager.loadPicture(
+                pictureName
+            );
+
+        /*
+         * 元テクスチャ側もLINEARを明示。
+         */
+        sourceBitmap.smooth =
+            true;
+
+        const draw = () => {
+            drawHighQualityGalleryThumbnail(
+                thumbnailBitmap,
+                sourceBitmap
+            );
+        };
+
+        if (sourceBitmap.isReady()) {
+            draw();
+        }
+        else {
+            sourceBitmap.addLoadListener(
+                draw
+            );
+        }
+
+        return thumbnail;
+    }
+
+    class Sprite_GalleryThumbnailCard
+        extends Sprite_Clickable {
+
+        constructor(
+            entry,
+            unlocked,
+            onClick = null,
+            pointerGuard = null
+        ) {
+            super();
+
+            this._entry = entry;
+            this._unlocked =
+                !!unlocked;
+
+            this._clickHandler =
+                onClick;
+
+            /*
+             * PIXIのmaskは見た目を切り抜くが、
+             * RPGツクールMZのSprite_Clickable側の
+             * クリック判定までは自動で切られない。
+             *
+             * スクロールで上へ隠れたカードが
+             * タブの上に透明な当たり判定として残らないよう、
+             * 「現在ポインタがギャラリー表示枠内か」を
+             * 別途チェックする。
+             */
+            this._pointerGuard =
+                pointerGuard;
+
+            /*
+             * 透明Bitmapをカード全体のクリック判定に使う。
+             * 見た目は子Spriteのサムネ＋フレーム。
+             */
+            this.bitmap =
+                new Bitmap(
+                    GALLERY_CARD_WIDTH,
+                    GALLERY_CARD_HEIGHT
+                );
+
+            if (this._unlocked) {
+                this.createUnlockedCard();
+            }
+            else {
+                this.createLockedCard();
+            }
+        }
+
+        createUnlockedCard() {
+            const thumbSprite =
+                createGalleryThumbnailSprite(
+                    this._entry.thumbnail
+                );
+
+            this.addChild(
+                thumbSprite
+            );
+
+            /*
+             * CG専用フレームは
+             * 必ずサムネより上へ。
+             * 内側の角が画像へかぶるデザインを
+             * そのまま見せる。
+             */
+            const frame =
+                new Sprite(
+                    ImageManager.loadPicture(
+                        GALLERY_CG_FRAME_PICTURE
+                    )
+                );
+
+            fitGalleryFrameSprite(
+                frame,
+                GALLERY_CARD_WIDTH,
+                GALLERY_CARD_HEIGHT
+            );
+
+            this.addChild(
+                frame
+            );
+        }
+
+        createLockedCard() {
+            /*
+             * LOCKED画像そのものはサムネと同じ250×141。
+             *
+             * 以前はカード全体260×175へ強制変形していたため、
+             * 250×141 → 260×175 となり、
+             * 縦だけ約1.24倍に伸びて見えていた。
+             *
+             * ここでは元画像の比率を保ったまま
+             * サムネ領域250×141へ置く。
+             */
+            const locked =
+                new Sprite(
+                    ImageManager.loadPicture(
+                        GALLERY_CG_LOCKED_PICTURE
+                    )
+                );
+
+            locked.x =
+                GALLERY_THUMB_X;
+
+            locked.y =
+                GALLERY_THUMB_Y;
+
+            const fitLocked = () => {
+                if (
+                    !locked.bitmap ||
+                    locked.bitmap.width <= 0 ||
+                    locked.bitmap.height <= 0
+                ) {
+                    return;
+                }
+
+                const scale =
+                    Math.min(
+                        GALLERY_THUMB_WIDTH /
+                            locked.bitmap.width,
+                        GALLERY_THUMB_HEIGHT /
+                            locked.bitmap.height
+                    );
+
+                locked.scale.set(
+                    scale,
+                    scale
+                );
+
+                const drawWidth =
+                    locked.bitmap.width *
+                    scale;
+
+                const drawHeight =
+                    locked.bitmap.height *
+                    scale;
+
+                locked.x =
+                    GALLERY_THUMB_X +
+                    (
+                        GALLERY_THUMB_WIDTH -
+                        drawWidth
+                    ) / 2;
+
+                locked.y =
+                    GALLERY_THUMB_Y +
+                    (
+                        GALLERY_THUMB_HEIGHT -
+                        drawHeight
+                    ) / 2;
+            };
+
+            if (locked.bitmap.isReady()) {
+                fitLocked();
+            }
+            else {
+                locked.bitmap.addLoadListener(
+                    fitLocked
+                );
+            }
+
+            this.addChild(
+                locked
+            );
+
+            /*
+             * LOCKED状態でも通常と同じ外枠を上に重ねる。
+             * フレームの内側の角が画像へかぶるデザインを維持。
+             */
+            const frame =
+                new Sprite(
+                    ImageManager.loadPicture(
+                        GALLERY_CG_FRAME_PICTURE
+                    )
+                );
+
+            fitGalleryFrameSprite(
+                frame,
+                GALLERY_CARD_WIDTH,
+                GALLERY_CARD_HEIGHT
+            );
+
+            this.addChild(
+                frame
+            );
+        }
+
+        isClickEnabled() {
+            if (!this._unlocked) {
+                return false;
+            }
+
+            if (
+                typeof this._pointerGuard ===
+                    "function" &&
+                !this._pointerGuard()
+            ) {
+                return false;
+            }
+
+            return super.isClickEnabled();
+        }
+
+        onClick() {
+            if (
+                !this._unlocked ||
+                typeof this._clickHandler !==
+                    "function"
+            ) {
+                return;
+            }
+
+            /*
+             * 実際のビューア生成は
+             * StoryScreen.update末尾へ預ける。
+             * クリック中のSpriteツリー変更を避けるため。
+             */
+            this._clickHandler(
+                this._entry
+            );
+
+            TouchInput.clear();
+        }
+    }
+
+    /*
+     * ─────────────────────────────
+     * ギャラリー絞り込みタブ
+     * ─────────────────────────────
+     *
+     * 通常画像 / active画像を切り替える。
+     * ホバー差分画像は使わず、拡大だけJS側で行う。
+     */
+    class Sprite_GalleryTabButton
+        extends Sprite_Clickable {
+
+        constructor(
+            tabId,
+            onClick
+        ) {
+            super();
+
+            this._tabId =
+                String(tabId || "all");
+
+            this._clickHandler =
+                onClick;
+
+            this._hovered = false;
+            this._active = false;
+
+            const pictures =
+                GALLERY_TAB_PICTURES[
+                    this._tabId
+                ] ||
+                GALLERY_TAB_PICTURES.all;
+
+            this._normalBitmap =
+                ImageManager.loadPicture(
+                    pictures.normal
+                );
+
+            this._activeBitmap =
+                ImageManager.loadPicture(
+                    pictures.active
+                );
+
+            this.bitmap =
+                this._normalBitmap;
+
+            this.anchor.set(
+                0.5,
+                0.5
+            );
+
+            this.opacity = 248;
+        }
+
+        get tabId() {
+            return this._tabId;
+        }
+
+        setActive(
+            active
+        ) {
+            const nextActive =
+                !!active;
+
+            if (
+                this._active ===
+                nextActive
+            ) {
+                return;
+            }
+
+            this._active =
+                nextActive;
+
+            this.bitmap =
+                this._active
+                    ? this._activeBitmap
+                    : this._normalBitmap;
+        }
+
+        update() {
+            super.update();
+
+            const targetScale =
+                this.isPressed()
+                    ? 0.97
+                    : this._hovered
+                        ? 1.035
+                        : this._active
+                            ? 1.01
+                            : 1;
+
+            this.scale.x +=
+                (
+                    targetScale -
+                    this.scale.x
+                ) * 0.24;
+
+            this.scale.y +=
+                (
+                    targetScale -
+                    this.scale.y
+                ) * 0.24;
+
+            const targetOpacity =
+                (
+                    this._hovered ||
+                    this._active
+                )
+                    ? 255
+                    : 248;
+
+            this.opacity +=
+                (
+                    targetOpacity -
+                    this.opacity
+                ) * 0.24;
+        }
+
+        onMouseEnter() {
+            this._hovered = true;
+        }
+
+        onMouseExit() {
+            this._hovered = false;
+        }
+
+        onClick() {
+            TouchInput.clear();
+
+            if (
+                typeof this._clickHandler !==
+                "function"
+            ) {
+                return;
+            }
+
+            SoundManager.playCursor();
+
+            this._clickHandler(
+                this._tabId
+            );
         }
     }
 
@@ -1737,6 +3338,8 @@ class Sprite_StoryExitButton
              * 話数一覧へ切り替える。
              */
             this._pendingRouteSelection = null;
+            this._pendingOpenGallery = false;
+            this._pendingGalleryDebugUnlockAll = false;
             this._pendingReturnToRouteList = false;
             this._pendingCloseStory = false;
 
@@ -1749,6 +3352,45 @@ class Sprite_StoryExitButton
             this._episodeSelectedOverlay = null;
             this._episodeNumberSprite = null;
             this._episodeTitleSprite = null;
+
+            /*
+             * ギャラリー絞り込み。
+             * 画面を開いた時はALLから開始する。
+             */
+            this._galleryFilter = "all";
+
+            /*
+             * Shiftを押しながらGALLERYを開いた時だけtrue。
+             * 保存データは変更しない一時的なデバッグ表示。
+             */
+            this._galleryDebugUnlockAll = false;
+
+            this._galleryTabButtons = [];
+            this._galleryThumbnailContainer = null;
+            this._galleryClipMask = null;
+            this._galleryFrameOverlay = null;
+
+            this._galleryScrollY = 0;
+            this._galleryScrollTargetY = 0;
+            this._galleryMaxScroll = 0;
+            this._galleryContentHeight = 0;
+            this._galleryScrollTrack = null;
+            this._galleryScrollThumb = null;
+
+            /*
+             * ギャラリーの戻るボタン。
+             * サムネより上に見えていても、
+             * 下側サムネのSprite_Clickableが先に入力を拾う場合があるため
+             * サムネ側の当たり判定除外にも使う。
+             */
+            this._galleryBackButton = null;
+            this._galleryResetButton = null;
+
+            /*
+             * ギャラリー全画面スチル閲覧。
+             */
+            this._galleryViewer = null;
+            this._pendingGalleryViewerEntry = null;
 
             this.createBackground();
             this.showRouteList();
@@ -1868,6 +3510,71 @@ class Sprite_StoryExitButton
             this.addChild(
                 this._episodeSelectBackground
             );
+
+            /*
+             * ギャラリー専用背景。
+             * ルート選択と同じく1280×720前提だが、
+             * サイズが違っても画面いっぱいにcoverする。
+             */
+            this._galleryBackground =
+                new Sprite();
+
+            this._galleryBackground
+                .anchor.set(0.5, 0.5);
+
+            this._galleryBackground.x =
+                SCREEN_WIDTH / 2;
+
+            this._galleryBackground.y =
+                SCREEN_HEIGHT / 2;
+
+            this._galleryBackground.visible =
+                false;
+
+            this.addChild(
+                this._galleryBackground
+            );
+
+            const galleryBitmap =
+                ImageManager.loadPicture(
+                    GALLERY_BACKGROUND
+                );
+
+            this._galleryBackground.bitmap =
+                galleryBitmap;
+
+            const fitGalleryBackground = () => {
+                if (
+                    !galleryBitmap ||
+                    galleryBitmap.width <= 0 ||
+                    galleryBitmap.height <= 0
+                ) {
+                    return;
+                }
+
+                const scale =
+                    Math.max(
+                        SCREEN_WIDTH /
+                            galleryBitmap.width,
+                        SCREEN_HEIGHT /
+                            galleryBitmap.height
+                    );
+
+                this._galleryBackground
+                    .scale.set(
+                        scale,
+                        scale
+                    );
+            };
+
+            if (galleryBitmap.isReady()) {
+                fitGalleryBackground();
+            }
+            else {
+                galleryBitmap.addLoadListener(
+                    fitGalleryBackground
+                );
+            }
         }
 
         setRouteSelectBackgroundVisible(
@@ -1961,6 +3668,15 @@ class Sprite_StoryExitButton
             }
         }
 
+        setGalleryBackgroundVisible(
+            visible
+        ) {
+            if (this._galleryBackground) {
+                this._galleryBackground.visible =
+                    !!visible;
+            }
+        }
+
         clearContent() {
             for (
                 const sprite of
@@ -1974,6 +3690,14 @@ class Sprite_StoryExitButton
             }
 
             this._contentSprites = [];
+
+            /*
+             * 画面切替で全コンテンツを消した場合、
+             * ビューア状態も必ず破棄する。
+             */
+            this._galleryViewer = null;
+            this._pendingGalleryViewerEntry =
+                null;
         }
 
         addContent(sprite) {
@@ -1981,6 +3705,42 @@ class Sprite_StoryExitButton
 
             this._contentSprites
                 .push(sprite);
+        }
+
+        removeContent(
+            sprite,
+            destroy = true
+        ) {
+            if (!sprite) {
+                return;
+            }
+
+            const index =
+                this._contentSprites
+                    .indexOf(sprite);
+
+            if (index >= 0) {
+                this._contentSprites
+                    .splice(
+                        index,
+                        1
+                    );
+            }
+
+            if (sprite.parent === this) {
+                this.removeChild(
+                    sprite
+                );
+            }
+
+            if (
+                destroy &&
+                sprite.destroy
+            ) {
+                sprite.destroy({
+                    children: true
+                });
+            }
         }
 
         createTitle(text) {
@@ -2021,6 +3781,10 @@ class Sprite_StoryExitButton
             this._currentRoute = null;
 
             this.setEpisodeSelectBackgroundVisible(
+                false
+            );
+
+            this.setGalleryBackgroundVisible(
                 false
             );
 
@@ -2128,12 +3892,1346 @@ class Sprite_StoryExitButton
                 EPISODE_BACK_POSITION[1];
 
             this.addContent(backButton);
+
+            /*
+             * ギャラリーを開く。
+             * 戻るボタンと左右対称の右下へ配置する。
+             *
+             * クリック中にこの画面の子Spriteを即destroyしないよう、
+             * 実際の切り替えはupdate末尾で行う。
+             */
+            const galleryButton =
+                new Sprite_StoryImageButton(
+                    GALLERY_BUTTON_PICTURE,
+                    () => {
+                        /*
+                         * 公開ブラウザ版でも残す隠しデバッグ。
+                         *
+                         * Shiftを押しながらGALLERYをクリック：
+                         *   その回だけ全CG・全差分を表示
+                         *
+                         * 通常クリック：
+                         *   保存済み解放状況どおり
+                         *
+                         * 一時表示なのでlocalStorageは変更しない。
+                         */
+                        this._pendingGalleryDebugUnlockAll =
+                            Input.isPressed(
+                                "shift"
+                            );
+
+                        this._pendingOpenGallery = true;
+                    },
+                    "ok"
+                );
+
+            galleryButton.x =
+                GALLERY_BUTTON_POSITION[0];
+
+            galleryButton.y =
+                GALLERY_BUTTON_POSITION[1];
+
+            this.addContent(
+                galleryButton
+            );
+        }
+
+        showGallery(
+            debugUnlockAll = false
+        ) {
+            this.clearContent();
+            this._currentRoute = null;
+
+            this._galleryDebugUnlockAll =
+                !!debugUnlockAll;
+
+            this.setRouteSelectBackgroundVisible(
+                false
+            );
+
+            this.setEpisodeSelectBackgroundVisible(
+                false
+            );
+
+            this.setGalleryBackgroundVisible(
+                true
+            );
+
+            this._galleryFilter = "all";
+            this._galleryTabButtons = [];
+            this._galleryThumbnailContainer = null;
+            this._galleryClipMask = null;
+            this._galleryFrameOverlay = null;
+
+            this._galleryScrollY = 0;
+            this._galleryScrollTargetY = 0;
+            this._galleryMaxScroll = 0;
+            this._galleryContentHeight = 0;
+            this._galleryScrollTrack = null;
+            this._galleryScrollThumb = null;
+            this._galleryBackButton = null;
+            this._galleryResetButton = null;
+
+            this._galleryViewer = null;
+            this._pendingGalleryViewerEntry = null;
+
+            /*
+             * レイヤー順：
+             *
+             * bg_gallery
+             *   ↓
+             * サムネイル
+             *   ↓
+             * gallery_frame_overlay
+             *   ↓
+             * タブ / 戻る
+             *
+             * 内側フレームの角が
+             * サムネへ自然にかぶる。
+             */
+            this.createGalleryThumbnailLayer();
+
+            this.createGalleryFrameOverlay();
+
+            /*
+             * フレームより上へスクロールバーを置く。
+             * サムネだけがフレームの下を通る。
+             */
+            this.createGalleryScrollbar();
+
+            this.createGalleryTabs();
+
+            const backButton =
+                new Sprite_StoryImageButton(
+                    "ui_episode_back",
+                    () => {
+                        this._pendingReturnToRouteList = true;
+                    },
+                    "cancel"
+                );
+
+            backButton.x =
+                EPISODE_BACK_POSITION[0];
+
+            backButton.y =
+                EPISODE_BACK_POSITION[1];
+
+            this._galleryBackButton =
+                backButton;
+
+            this.addContent(
+                backButton
+            );
+
+            /*
+             * 進行状況リセット。
+             * 「はい / いいえ」はストーリー中断確認と共通。
+             */
+            const resetButton =
+                new Sprite_StoryImageButton(
+                    GALLERY_RESET_BUTTON_PICTURE,
+                    () => {
+                        this.openGalleryProgressResetConfirm();
+                    },
+                    "ok",
+                    GALLERY_RESET_BUTTON_SIZE,
+                    GALLERY_RESET_BUTTON_SIZE,
+                    210
+                );
+
+            resetButton.x =
+                GALLERY_RESET_BUTTON_POSITION[0];
+
+            resetButton.y =
+                GALLERY_RESET_BUTTON_POSITION[1];
+
+            this._galleryResetButton =
+                resetButton;
+
+            this.addContent(
+                resetButton
+            );
+        }
+
+        openGalleryProgressResetConfirm() {
+            if (
+                this._galleryViewer ||
+                storyConfirmOpen
+            ) {
+                return;
+            }
+
+            openStoryConfirm(
+                "進行状況をリセットしますか？\nこの操作は取り消せません。",
+                () => {
+                    let succeeded = false;
+
+                    if (
+                        window.MamiDenOProgress &&
+                        typeof window.MamiDenOProgress
+                            .reset ===
+                            "function"
+                    ) {
+                        succeeded =
+                            window.MamiDenOProgress
+                                .reset() !==
+                            false;
+                    }
+
+                    if (!succeeded) {
+                        SoundManager.playBuzzer();
+                        closeStoryConfirm();
+                        return;
+                    }
+
+                    /*
+                     * Shift+GALLERYの一時全開放中でも、
+                     * リセット後は通常表示へ戻して
+                     * 実際にLOCK状態になったことを確認できるようにする。
+                     */
+                    this._galleryDebugUnlockAll =
+                        false;
+
+                    this._galleryScrollY = 0;
+                    this._galleryScrollTargetY = 0;
+
+                    this.refreshGalleryThumbnails();
+
+                    closeStoryConfirm();
+                },
+                () => {
+                    closeStoryConfirm();
+                }
+            );
+        }
+
+        createGalleryThumbnailLayer() {
+            const container =
+                new Sprite();
+
+            container.x =
+                GALLERY_VIEW_X;
+
+            container.y =
+                GALLERY_VIEW_Y;
+
+            this._galleryThumbnailContainer =
+                container;
+
+            this.addContent(
+                container
+            );
+
+            /*
+             * 今はまだスクロールさせないが、
+             * 次段階でそのまま使えるよう
+             * 先にクリッピング領域を作っておく。
+             */
+            const mask =
+                new PIXI.Graphics();
+
+            mask.beginFill(
+                0xffffff
+            );
+
+            mask.drawRect(
+                GALLERY_VIEW_X,
+                GALLERY_VIEW_Y,
+                GALLERY_VIEW_WIDTH,
+                GALLERY_VIEW_HEIGHT
+            );
+
+            mask.endFill();
+
+            this._galleryClipMask =
+                mask;
+
+            container.mask =
+                mask;
+
+            this.addContent(
+                mask
+            );
+
+            this.refreshGalleryThumbnails();
+        }
+
+        clearGalleryThumbnailCards() {
+            const container =
+                this._galleryThumbnailContainer;
+
+            if (!container) {
+                return;
+            }
+
+            const children =
+                container.removeChildren();
+
+            for (
+                const child of
+                children
+            ) {
+                if (
+                    child &&
+                    child.destroy
+                ) {
+                    child.destroy({
+                        children: true
+                    });
+                }
+            }
+        }
+
+        getFilteredGalleryEntries() {
+            const catalog =
+                makeGalleryCatalog();
+
+            if (
+                this._galleryFilter ===
+                "all"
+            ) {
+                return catalog.slice();
+            }
+
+            return catalog.filter(
+                entry =>
+                    entry.character ===
+                    this._galleryFilter
+            );
+        }
+
+        refreshGalleryThumbnails() {
+            const container =
+                this._galleryThumbnailContainer;
+
+            if (!container) {
+                return;
+            }
+
+            this.clearGalleryThumbnailCards();
+
+            const entries =
+                this.getFilteredGalleryEntries();
+
+            const rowCount =
+                entries.length > 0
+                    ? Math.ceil(
+                        entries.length /
+                        GALLERY_GRID_COLUMNS
+                    )
+                    : 0;
+
+            const gridWidth =
+                GALLERY_GRID_COLUMNS *
+                    GALLERY_CARD_WIDTH +
+                (
+                    GALLERY_GRID_COLUMNS -
+                    1
+                ) *
+                    GALLERY_CARD_GAP_X;
+
+            const gridHeight =
+                rowCount > 0
+                    ? rowCount *
+                        GALLERY_CARD_HEIGHT +
+                        (
+                            rowCount - 1
+                        ) *
+                            GALLERY_CARD_GAP_Y
+                    : 0;
+
+            const startX =
+                Math.round(
+                    (
+                        GALLERY_VIEW_WIDTH -
+                        gridWidth
+                    ) / 2
+                );
+
+            /*
+             * 行数が増えても1行目は固定。
+             * ALLだけ下へ伸びていく。
+             */
+            const startY =
+                GALLERY_GRID_PADDING_Y;
+
+            entries.forEach(
+                (
+                    entry,
+                    index
+                ) => {
+                    const column =
+                        index %
+                        GALLERY_GRID_COLUMNS;
+
+                    const row =
+                        Math.floor(
+                            index /
+                            GALLERY_GRID_COLUMNS
+                        );
+
+                    const unlocked =
+                        isGalleryEntryUnlocked(
+                            entry,
+                            this._galleryDebugUnlockAll
+                        );
+
+                    const card =
+                        new Sprite_GalleryThumbnailCard(
+                            entry,
+                            unlocked,
+                            selectedEntry => {
+                                if (
+                                    !unlocked ||
+                                    this._galleryViewer
+                                ) {
+                                    return;
+                                }
+
+                                /*
+                                 * 子Spriteのクリック処理中には
+                                 * まだビューアを生成しない。
+                                 */
+                                this._pendingGalleryViewerEntry =
+                                    selectedEntry;
+                            },
+                            () =>
+                                this.isPointerInsideGalleryThumbnailClickArea()
+                        );
+
+                    card.x =
+                        startX +
+                        column * (
+                            GALLERY_CARD_WIDTH +
+                            GALLERY_CARD_GAP_X
+                        );
+
+                    card.y =
+                        startY +
+                        row * (
+                            GALLERY_CARD_HEIGHT +
+                            GALLERY_CARD_GAP_Y
+                        );
+
+                    container.addChild(
+                        card
+                    );
+                }
+            );
+
+            /*
+             * 上下に同じ余白を持たせた高さ。
+             */
+            this._galleryContentHeight =
+                rowCount > 0
+                    ? GALLERY_GRID_PADDING_Y +
+                        gridHeight +
+                        GALLERY_GRID_PADDING_Y
+                    : GALLERY_VIEW_HEIGHT;
+
+            this._galleryMaxScroll =
+                Math.max(
+                    0,
+                    this._galleryContentHeight -
+                        GALLERY_VIEW_HEIGHT
+                );
+
+            this._galleryScrollTargetY =
+                Math.min(
+                    this._galleryScrollTargetY,
+                    this._galleryMaxScroll
+                );
+
+            this._galleryScrollY =
+                Math.min(
+                    this._galleryScrollY,
+                    this._galleryMaxScroll
+                );
+
+            this.applyGalleryScrollPosition();
+            this.updateGalleryScrollbar();
+        }
+
+        applyGalleryScrollPosition() {
+            const container =
+                this._galleryThumbnailContainer;
+
+            if (!container) {
+                return;
+            }
+
+            container.x =
+                GALLERY_VIEW_X;
+
+            /*
+             * 縮小画像を小数px位置へ置くと、
+             * スクロール中にサンプリング位置が毎フレーム変わり
+             * 細線がチリつくことがある。
+             *
+             * 内部スクロール値は小数のまま滑らかに計算し、
+             * 実際の描画位置だけ1px単位へ丸める。
+             */
+            container.y =
+                Math.round(
+                    GALLERY_VIEW_Y -
+                    this._galleryScrollY
+                );
+        }
+
+        isPointerInsideGalleryView() {
+            const x =
+                Number(TouchInput.x || 0);
+
+            const y =
+                Number(TouchInput.y || 0);
+
+            return (
+                x >= GALLERY_VIEW_X &&
+                x <=
+                    GALLERY_VIEW_X +
+                    GALLERY_VIEW_WIDTH &&
+                y >= GALLERY_VIEW_Y &&
+                y <=
+                    GALLERY_VIEW_Y +
+                    GALLERY_VIEW_HEIGHT
+            );
+        }
+
+        /*
+         * 見た目の描画領域と、
+         * サムネをクリックしてよい領域は分ける。
+         *
+         * 下側はフレーム裏まで描画する一方、
+         * 戻るボタンの上ではサムネを絶対に反応させない。
+         */
+        isPointerInsideGalleryThumbnailClickArea() {
+            if (
+                !this.isPointerInsideGalleryView()
+            ) {
+                return false;
+            }
+
+            const protectedButtons = [
+                this._galleryBackButton,
+                this._galleryResetButton
+            ];
+
+            for (
+                const button of
+                protectedButtons
+            ) {
+                if (
+                    button &&
+                    button.visible &&
+                    typeof button.isBeingTouched ===
+                        "function" &&
+                    button.isBeingTouched()
+                ) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        updateGalleryScroll() {
+            if (
+                storyConfirmOpen ||
+                this._galleryViewer ||
+                !this._galleryThumbnailContainer ||
+                !this._galleryBackground ||
+                !this._galleryBackground.visible
+            ) {
+                return;
+            }
+
+            if (
+                this._galleryMaxScroll > 0 &&
+                this.isPointerInsideGalleryView()
+            ) {
+                const wheelY =
+                    Number(
+                        TouchInput.wheelY || 0
+                    );
+
+                if (wheelY !== 0) {
+                    this._galleryScrollTargetY +=
+                        wheelY *
+                        GALLERY_SCROLL_SPEED;
+
+                    this._galleryScrollTargetY =
+                        Math.max(
+                            0,
+                            Math.min(
+                                this._galleryMaxScroll,
+                                this._galleryScrollTargetY
+                            )
+                        );
+                }
+            }
+
+            const difference =
+                this._galleryScrollTargetY -
+                this._galleryScrollY;
+
+            if (
+                Math.abs(difference) <
+                0.1
+            ) {
+                this._galleryScrollY =
+                    this._galleryScrollTargetY;
+            }
+            else {
+                this._galleryScrollY +=
+                    difference *
+                    GALLERY_SCROLL_EASING;
+            }
+
+            this.applyGalleryScrollPosition();
+            this.updateGalleryScrollbar();
+        }
+
+        createGalleryScrollbar() {
+            const track =
+                new Sprite(
+                    ImageManager.loadPicture(
+                        GALLERY_SCROLL_TRACK_PICTURE
+                    )
+                );
+
+            track.x =
+                GALLERY_SCROLL_TRACK_X;
+
+            track.y =
+                GALLERY_SCROLL_TRACK_Y;
+
+            fitGalleryFrameSprite(
+                track,
+                GALLERY_SCROLL_TRACK_WIDTH,
+                GALLERY_SCROLL_TRACK_HEIGHT
+            );
+
+            this._galleryScrollTrack =
+                track;
+
+            this.addContent(
+                track
+            );
+
+            const thumb =
+                new Sprite(
+                    ImageManager.loadPicture(
+                        GALLERY_SCROLL_THUMB_PICTURE
+                    )
+                );
+
+            thumb.x =
+                GALLERY_SCROLL_TRACK_X;
+
+            thumb.y =
+                GALLERY_SCROLL_TRACK_Y;
+
+            fitGalleryFrameSprite(
+                thumb,
+                GALLERY_SCROLL_THUMB_WIDTH,
+                GALLERY_SCROLL_THUMB_HEIGHT
+            );
+
+            this._galleryScrollThumb =
+                thumb;
+
+            this.addContent(
+                thumb
+            );
+
+            this.updateGalleryScrollbar();
+        }
+
+        updateGalleryScrollbar() {
+            const track =
+                this._galleryScrollTrack;
+
+            const thumb =
+                this._galleryScrollThumb;
+
+            if (
+                !track ||
+                !thumb
+            ) {
+                return;
+            }
+
+            const scrollable =
+                this._galleryMaxScroll > 0;
+
+            track.visible =
+                scrollable;
+
+            thumb.visible =
+                scrollable;
+
+            if (!scrollable) {
+                return;
+            }
+
+            const movableHeight =
+                Math.max(
+                    0,
+                    GALLERY_SCROLL_TRACK_HEIGHT -
+                        GALLERY_SCROLL_THUMB_HEIGHT
+                );
+
+            const rate =
+                this._galleryMaxScroll > 0
+                    ? this._galleryScrollY /
+                        this._galleryMaxScroll
+                    : 0;
+
+            thumb.x =
+                GALLERY_SCROLL_TRACK_X;
+
+            thumb.y =
+                GALLERY_SCROLL_TRACK_Y +
+                movableHeight *
+                    Math.max(
+                        0,
+                        Math.min(
+                            1,
+                            rate
+                        )
+                    );
+        }
+
+        openGalleryStillViewer(
+            entry
+        ) {
+            if (
+                this._galleryViewer ||
+                !entry
+            ) {
+                return false;
+            }
+
+            const variants =
+                getUnlockedGalleryVariants(
+                    entry,
+                    this._galleryDebugUnlockAll
+                );
+
+            if (variants.length <= 0) {
+                return false;
+            }
+
+            const container =
+                new Sprite();
+
+            /*
+             * 画像2枚だけ。
+             * 閉じるボタン、矢印、テキスト等は置かない。
+             */
+            const current =
+                new Sprite();
+
+            const next =
+                new Sprite();
+
+            current.visible = false;
+            current.opacity = 0;
+
+            next.visible = false;
+            next.opacity = 0;
+
+            container.addChild(
+                current
+            );
+
+            container.addChild(
+                next
+            );
+
+            /*
+             * addContentは末尾へaddChildするので、
+             * ギャラリーUIすべての上へ表示される。
+             */
+            this.addContent(
+                container
+            );
+
+            const firstFilename =
+                variants[0];
+
+            const firstBitmap =
+                ImageManager.loadPicture(
+                    String(firstFilename)
+                        .replace(
+                            /\.png$/i,
+                            ""
+                        )
+                );
+
+            this._galleryViewer = {
+                container: container,
+                current: current,
+                next: next,
+                variants: variants,
+                index: 0,
+
+                phase: "waitEnter",
+                frame: 0,
+
+                bitmap: firstBitmap
+            };
+
+            /*
+             * サムネクリックの残り入力を
+             * ビューアへ持ち越さない。
+             */
+            TouchInput.clear();
+            Input.clear();
+
+            return true;
+        }
+
+        beginGalleryViewerNextVariant() {
+            const state =
+                this._galleryViewer;
+
+            if (
+                !state ||
+                state.phase !== "idle"
+            ) {
+                return false;
+            }
+
+            const nextIndex =
+                state.index + 1;
+
+            if (
+                nextIndex >=
+                state.variants.length
+            ) {
+                return false;
+            }
+
+            const filename =
+                state.variants[
+                    nextIndex
+                ];
+
+            const bitmap =
+                ImageManager.loadPicture(
+                    String(filename)
+                        .replace(
+                            /\.png$/i,
+                            ""
+                        )
+                );
+
+            state.next.bitmap =
+                bitmap;
+
+            state.next.visible =
+                false;
+
+            state.next.opacity = 0;
+
+            state.bitmap =
+                bitmap;
+
+            state.phase =
+                "waitCrossfade";
+
+            state.frame = 0;
+
+            return true;
+        }
+
+        beginGalleryViewerClose() {
+            const state =
+                this._galleryViewer;
+
+            if (
+                !state ||
+                state.phase !== "idle"
+            ) {
+                return false;
+            }
+
+            state.phase =
+                "fadeOut";
+
+            state.frame = 0;
+
+            return true;
+        }
+
+        advanceGalleryStillViewer() {
+            const state =
+                this._galleryViewer;
+
+            if (
+                !state ||
+                state.phase !== "idle"
+            ) {
+                return;
+            }
+
+            if (
+                state.index + 1 <
+                state.variants.length
+            ) {
+                this.beginGalleryViewerNextVariant();
+            }
+            else {
+                this.beginGalleryViewerClose();
+            }
+        }
+
+        finishGalleryStillViewerClose() {
+            const state =
+                this._galleryViewer;
+
+            if (!state) {
+                return;
+            }
+
+            const container =
+                state.container;
+
+            this._galleryViewer =
+                null;
+
+            this.removeContent(
+                container,
+                true
+            );
+
+            TouchInput.clear();
+            Input.clear();
+        }
+
+        updateGalleryStillViewer() {
+            const state =
+                this._galleryViewer;
+
+            if (!state) {
+                return;
+            }
+
+            /*
+             * ─────────────────────────────
+             * 1枚目の読み込み → 軽いフェードイン
+             * ─────────────────────────────
+             */
+            if (
+                state.phase ===
+                "waitEnter"
+            ) {
+                if (
+                    !state.bitmap ||
+                    !state.bitmap.isReady()
+                ) {
+                    return;
+                }
+
+                state.current.bitmap =
+                    state.bitmap;
+
+                fitGalleryViewerSprite(
+                    state.current
+                );
+
+                state.current.visible =
+                    true;
+
+                state.current.opacity = 0;
+
+                state.phase =
+                    "fadeIn";
+
+                state.frame = 0;
+
+                return;
+            }
+
+            if (
+                state.phase ===
+                "fadeIn"
+            ) {
+                state.frame++;
+
+                const rate =
+                    Math.min(
+                        1,
+                        state.frame /
+                            Math.max(
+                                1,
+                                GALLERY_VIEWER_FADE_FRAMES
+                            )
+                    );
+
+                state.current.opacity =
+                    Math.round(
+                        255 * rate
+                    );
+
+                if (rate >= 1) {
+                    state.current.opacity =
+                        255;
+
+                    state.phase =
+                        "idle";
+
+                    state.frame = 0;
+                }
+
+                return;
+            }
+
+            /*
+             * ─────────────────────────────
+             * 差分
+             * ─────────────────────────────
+             *
+             * 下の現在画像は255固定。
+             * 上の次画像だけ0→255。
+             */
+            if (
+                state.phase ===
+                "waitCrossfade"
+            ) {
+                if (
+                    !state.bitmap ||
+                    !state.bitmap.isReady()
+                ) {
+                    return;
+                }
+
+                fitGalleryViewerSprite(
+                    state.next
+                );
+
+                state.current.opacity =
+                    255;
+
+                state.next.visible =
+                    true;
+
+                state.next.opacity = 0;
+
+                state.phase =
+                    "crossfade";
+
+                state.frame = 0;
+
+                return;
+            }
+
+            if (
+                state.phase ===
+                "crossfade"
+            ) {
+                state.frame++;
+
+                const rate =
+                    Math.min(
+                        1,
+                        state.frame /
+                            Math.max(
+                                1,
+                                GALLERY_VIEWER_CROSSFADE_FRAMES
+                            )
+                    );
+
+                state.current.opacity =
+                    255;
+
+                state.next.opacity =
+                    Math.round(
+                        255 * rate
+                    );
+
+                if (rate >= 1) {
+                    /*
+                     * 上画像が完全に255になった瞬間、
+                     * 同じBitmapを土台へ渡して上側を消す。
+                     * 見た目は一切変化しない。
+                     */
+                    state.current.bitmap =
+                        state.next.bitmap;
+
+                    state.current.visible =
+                        true;
+
+                    state.current.opacity =
+                        255;
+
+                    fitGalleryViewerSprite(
+                        state.current
+                    );
+
+                    state.next.visible =
+                        false;
+
+                    state.next.opacity = 0;
+                    state.next.bitmap = null;
+
+                    state.index++;
+
+                    state.bitmap = null;
+                    state.phase = "idle";
+                    state.frame = 0;
+                }
+
+                return;
+            }
+
+            /*
+             * ─────────────────────────────
+             * 最後のクリック → 軽いフェードアウト
+             * ─────────────────────────────
+             */
+            if (
+                state.phase ===
+                "fadeOut"
+            ) {
+                state.frame++;
+
+                const rate =
+                    Math.min(
+                        1,
+                        state.frame /
+                            Math.max(
+                                1,
+                                GALLERY_VIEWER_FADE_FRAMES
+                            )
+                    );
+
+                state.current.opacity =
+                    Math.round(
+                        255 * (1 - rate)
+                    );
+
+                if (rate >= 1) {
+                    this.finishGalleryStillViewerClose();
+                }
+            }
+        }
+
+        processGalleryStillViewerInput() {
+            const state =
+                this._galleryViewer;
+
+            if (!state) {
+                return false;
+            }
+
+            /*
+             * ビューア表示中は、
+             * 背後のタブ・戻る・サムネへ
+             * クリックを絶対に通さない。
+             *
+             * StoryScreenのsuper.update()より先に
+             * ここで入力を消費する。
+             */
+            if (TouchInput.isTriggered()) {
+                if (
+                    state.phase ===
+                    "idle"
+                ) {
+                    this.advanceGalleryStillViewer();
+                }
+
+                TouchInput.clear();
+                Input.clear();
+
+                return true;
+            }
+
+            return false;
+        }
+
+        createGalleryFrameOverlay() {
+            const overlay =
+                new Sprite(
+                    ImageManager.loadPicture(
+                        GALLERY_FRAME_OVERLAY_PICTURE
+                    )
+                );
+
+            overlay.anchor.set(
+                0.5,
+                0.5
+            );
+
+            overlay.x =
+                SCREEN_WIDTH / 2;
+
+            overlay.y =
+                SCREEN_HEIGHT / 2;
+
+            const applyFit = () => {
+                if (
+                    !overlay.bitmap ||
+                    overlay.bitmap.width <= 0 ||
+                    overlay.bitmap.height <= 0
+                ) {
+                    return;
+                }
+
+                const scale =
+                    Math.max(
+                        SCREEN_WIDTH /
+                            overlay.bitmap.width,
+                        SCREEN_HEIGHT /
+                            overlay.bitmap.height
+                    );
+
+                overlay.scale.set(
+                    scale,
+                    scale
+                );
+            };
+
+            if (overlay.bitmap.isReady()) {
+                applyFit();
+            }
+            else {
+                overlay.bitmap.addLoadListener(
+                    applyFit
+                );
+            }
+
+            this._galleryFrameOverlay =
+                overlay;
+
+            this.addContent(
+                overlay
+            );
+        }
+
+        createGalleryTabs() {
+            this._galleryTabButtons = [];
+
+            const tabCount =
+                GALLERY_TAB_IDS.length;
+
+            const totalWidth =
+                tabCount *
+                    GALLERY_TAB_WIDTH +
+                Math.max(
+                    0,
+                    tabCount - 1
+                ) *
+                    GALLERY_TAB_GAP;
+
+            const startCenterX =
+                Math.round(
+                    (
+                        SCREEN_WIDTH -
+                        totalWidth
+                    ) / 2 +
+                    GALLERY_TAB_WIDTH / 2
+                );
+
+            GALLERY_TAB_IDS.forEach(
+                (
+                    tabId,
+                    index
+                ) => {
+                    const tab =
+                        new Sprite_GalleryTabButton(
+                            tabId,
+                            selectedTabId => {
+                                this.setGalleryFilter(
+                                    selectedTabId
+                                );
+                            }
+                        );
+
+                    tab.x =
+                        startCenterX +
+                        index * (
+                            GALLERY_TAB_WIDTH +
+                            GALLERY_TAB_GAP
+                        );
+
+                    tab.y =
+                        GALLERY_TAB_CENTER_Y;
+
+                    this._galleryTabButtons.push(
+                        tab
+                    );
+
+                    this.addContent(
+                        tab
+                    );
+                }
+            );
+
+            this.refreshGalleryTabs();
+        }
+
+        setGalleryFilter(
+            tabId
+        ) {
+            const nextFilter =
+                GALLERY_TAB_IDS.includes(
+                    String(tabId || "")
+                )
+                    ? String(tabId)
+                    : "all";
+
+            if (
+                this._galleryFilter ===
+                nextFilter
+            ) {
+                return;
+            }
+
+            this._galleryFilter =
+                nextFilter;
+
+            this._galleryScrollY = 0;
+            this._galleryScrollTargetY = 0;
+
+            this.refreshGalleryTabs();
+
+            /*
+             * 絞り込み変更で一覧を即更新し、
+             * 必ず先頭へ戻す。
+             */
+            this.refreshGalleryThumbnails();
+        }
+
+        refreshGalleryTabs() {
+            for (
+                const tab of
+                this._galleryTabButtons
+            ) {
+                if (
+                    !tab ||
+                    typeof tab.setActive !==
+                        "function"
+                ) {
+                    continue;
+                }
+
+                tab.setActive(
+                    tab.tabId ===
+                        this._galleryFilter
+                );
+            }
         }
 
         showEpisodeList(route) {
             this.clearContent();
 
             this.setRouteSelectBackgroundVisible(
+                false
+            );
+
+            this.setGalleryBackgroundVisible(
                 false
             );
 
@@ -2618,9 +5716,48 @@ startEpisode(
 }
 update() {
     /*
-     * 先に全子Spriteのクリック処理を完了させる。
+     * 全画面CGビューアは、
+     * 背後UIより先に入力を受け取る。
+     *
+     * これによりCG上のどこをクリックしても
+     * 下にある「戻る」やタブへ入力が抜けない。
+     */
+    this.updateGalleryStillViewer();
+
+    this.processGalleryStillViewerInput();
+
+    /*
+     * その後で通常の子Spriteを更新する。
      */
     super.update();
+
+    /*
+     * ギャラリー表示中だけ、
+     * ホイール入力と滑らかな縦移動を処理する。
+     */
+    this.updateGalleryScroll();
+
+    /*
+     * サムネクリックで予約されたCGビューアを、
+     * クリック処理がすべて終わった後に生成する。
+     */
+    if (this._pendingGalleryViewerEntry) {
+        const selectedEntry =
+            this._pendingGalleryViewerEntry;
+
+        this._pendingGalleryViewerEntry =
+            null;
+
+        if (
+            this.openGalleryStillViewer(
+                selectedEntry
+            )
+        ) {
+            SoundManager.playOk();
+        }
+
+        return;
+    }
 
     /*
      * そのフレームのクリック処理が終わったあとで
@@ -2637,6 +5774,20 @@ update() {
 
         this.showEpisodeList(
             selectedRoute
+        );
+
+        return;
+    }
+
+    if (this._pendingOpenGallery) {
+        const debugUnlockAll =
+            this._pendingGalleryDebugUnlockAll;
+
+        this._pendingOpenGallery = false;
+        this._pendingGalleryDebugUnlockAll = false;
+
+        this.showGallery(
+            debugUnlockAll
         );
 
         return;
@@ -3920,6 +7071,29 @@ function clearStorySceneTransition() {
     resetStorySceneBlackOverlay();
 }
 
+/*
+ * Story本編で実際に表示したスチルを
+ * ギャラリー解放情報として保存する。
+ *
+ * Progressプラグイン未導入時でも
+ * Story本編だけはそのまま動く。
+ */
+function unlockStoryStillProgress(
+    filename
+) {
+    if (
+        !filename ||
+        !window.MamiDenOProgress ||
+        typeof window.MamiDenOProgress
+            .unlockStill !== "function"
+    ) {
+        return;
+    }
+
+    window.MamiDenOProgress
+        .unlockStill(filename);
+}
+
 function showStoryStill(
     filename
 ) {
@@ -3934,6 +7108,14 @@ function showStoryStill(
     ) {
         return;
     }
+
+    /*
+     * 表示可能なStoryレイヤーが存在する時だけ
+     * 解放済みとして記録する。
+     */
+    unlockStoryStillProgress(
+        filename
+    );
 
     setStorySpriteImage(
         scene._denOStoryStill,
@@ -4079,6 +7261,16 @@ function showStoryStillTransition(
     ) {
         return false;
     }
+
+    /*
+     * Story本編でこの差分を表示しようとした時点で
+     * ギャラリー解放情報へ保存する。
+     *
+     * 同じ差分を何度見てもProgress側で重複保存されない。
+     */
+    unlockStoryStillProgress(
+        filename
+    );
 
     const pictureName =
         String(filename)
@@ -4793,9 +7985,9 @@ previousRandomPossessionEnabled =
         /*
          * EXIT確認画面が残っていたら削除。
          */
-        closeStoryExitConfirm();
+        closeStoryConfirm();
 
-        storyExitConfirmOpen = false;
+        storyConfirmOpen = false;
 
         TouchInput.clear();
         Input.clear();
@@ -4866,6 +8058,19 @@ Sprite_Clickable.prototype.processTouch =
             return;
         }
 
+        /*
+         * 汎用確認画面が開いている間は、
+         * はい / いいえ以外のクリックを遮断する。
+         * ギャラリーのサムネや戻るボタンへの
+         * クリック貫通もここで止める。
+         */
+        if (
+            storyConfirmOpen &&
+            !this._denOConfirmButton
+        ) {
+            return;
+        }
+
         _Sprite_Clickable_processTouch_StoryTransition
             .call(this);
     };
@@ -4890,7 +8095,7 @@ Window_Message.prototype.isTriggered =
         /*
          * 確認画面を開いている間。
          */
-        if (storyExitConfirmOpen) {
+        if (storyConfirmOpen) {
             return false;
         }
 

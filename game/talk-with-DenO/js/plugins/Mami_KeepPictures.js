@@ -20,6 +20,7 @@
  * @requiredAssets img/pictures/bg_episode_select_momo
  * @requiredAssets img/pictures/bg_episode_select_ryu
  * @requiredAssets img/pictures/bg_episode_select_ura
+ * @requiredAssets img/pictures/bg_gallery
  * @requiredAssets img/pictures/bg_story_route_select
  * @requiredAssets img/pictures/blackfade
  * @requiredAssets img/pictures/btn_auto_off
@@ -31,6 +32,8 @@
  * @requiredAssets img/pictures/btn_story_exit
  * @requiredAssets img/pictures/btn_talk
  * @requiredAssets img/pictures/btn_ui_hide
+ * @requiredAssets img/pictures/button_gallery
+ * @requiredAssets img/pictures/button_progress_reset
  * @requiredAssets img/pictures/button_random_possession_off
  * @requiredAssets img/pictures/button_random_possession_on
  * @requiredAssets img/pictures/CG_kintaros_ep01_01
@@ -72,6 +75,21 @@
  * @requiredAssets img/pictures/CG_urataros_ep08_03
  * @requiredAssets img/pictures/CG_urataros_ep11_01
  * @requiredAssets img/pictures/CGtest
+ * @requiredAssets img/pictures/gallery_cg_frame
+ * @requiredAssets img/pictures/gallery_cg_frame_locked
+ * @requiredAssets img/pictures/gallery_frame_overlay
+ * @requiredAssets img/pictures/gallery_scroll_thumb
+ * @requiredAssets img/pictures/gallery_scroll_track
+ * @requiredAssets img/pictures/gallery_tab_all
+ * @requiredAssets img/pictures/gallery_tab_all_active
+ * @requiredAssets img/pictures/gallery_tab_kin
+ * @requiredAssets img/pictures/gallery_tab_kin_active
+ * @requiredAssets img/pictures/gallery_tab_momo
+ * @requiredAssets img/pictures/gallery_tab_momo_active
+ * @requiredAssets img/pictures/gallery_tab_ryu
+ * @requiredAssets img/pictures/gallery_tab_ryu_active
+ * @requiredAssets img/pictures/gallery_tab_ura
+ * @requiredAssets img/pictures/gallery_tab_ura_active
  * @requiredAssets img/pictures/menu_console_panel
  * @requiredAssets img/pictures/menu_item_change
  * @requiredAssets img/pictures/menu_item_change_hover
@@ -258,6 +276,8 @@
  * @requiredAssets img/pictures/portrait_urataros_base_default_smile
  * @requiredAssets img/pictures/portrait_urataros_base_default_surprised
  * @requiredAssets img/pictures/portrait_urataros_base_default_wrysmile
+ * @requiredAssets img/pictures/ui_confirm_no
+ * @requiredAssets img/pictures/ui_confirm_yes
  * @requiredAssets img/pictures/ui_episode_back
  * @requiredAssets img/pictures/ui_episode_kin_01
  * @requiredAssets img/pictures/ui_episode_kin_02

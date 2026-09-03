@@ -1,4 +1,4 @@
 [
 null,
-{"id":1,"displayType":0,"effectName":"","flashTimings":[{"frame":0,"duration":30,"color":[255,255,255,255]}],"name":"打撃/物理","offsetX":0,"offsetY":0,"rotation":{"x":0,"y":0,"z":0},"scale":50,"soundTimings":[{"frame":0,"se":null}],"speed":100,"timings":[]}
+{"id":1,"displayType":0,"effectName":"","flashTimings":[{"frame":0,"duration":30,"color":[255,255,255,255]}],"name":"打撃/物理","offsetX":0,"offsetY":0,"rotation":{"x":0,"y":0,"z":0},"scale":50,"soundTimings":[{"frame":0,"se":{"name":"Blow2","pan":0,"pitch":100,"volume":90}}],"speed":100}
 ]

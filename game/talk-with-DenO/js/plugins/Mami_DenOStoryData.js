@@ -66573,7 +66573,7 @@
         {
             speaker: "ryutaros",
             expression:
-                "portrait_ryutaros_base_default_grin",
+                "portrait_ryutaros_base_default_angry",
             text: "困って！"
         }
     ]

@@ -123,7 +123,7 @@
  * @requiredAssets img/pictures/portrait_ryotaro_kintaros_kintaros_smile
  * @requiredAssets img/pictures/portrait_ryotaro_kintaros_kintaros_smileshy
  * @requiredAssets img/pictures/portrait_ryotaro_kintaros_momotaros_angry
- * @requiredAssets img/pictures/portrait_ryotaro_kintaros_momotaros_crypng
+ * @requiredAssets img/pictures/portrait_ryotaro_kintaros_momotaros_cry
  * @requiredAssets img/pictures/portrait_ryotaro_kintaros_momotaros_normal
  * @requiredAssets img/pictures/portrait_ryotaro_kintaros_momotaros_sleep
  * @requiredAssets img/pictures/portrait_ryotaro_kintaros_momotaros_smile

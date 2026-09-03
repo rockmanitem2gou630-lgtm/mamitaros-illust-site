@@ -28,6 +28,9 @@ const mangaPrevArt = document.getElementById("mangaPrevArt");
 const mangaNextArt = document.getElementById("mangaNextArt");
 const modalGameArea = document.getElementById("modalGameArea");
 const modalGameButton = document.getElementById("modalGameButton");
+const modalGameCharacterImages = document.getElementById("modalGameCharacterImages");
+const modalGameHistorySection = document.getElementById("modalGameHistorySection");
+const modalGameHistory = document.getElementById("modalGameHistory");
 
 const backToTop = document.getElementById("backToTop");
 
@@ -426,6 +429,45 @@ function openNextArtwork() {
     openArtworkAfterPreload(nextIndex);
   }
 }
+function renderGameDetails(art) {
+  const characterImages = Array.isArray(art.gameCharacterImages)
+    ? art.gameCharacterImages
+    : [];
+
+  modalGameCharacterImages.innerHTML = characterImages
+    .map(image => `
+      <figure class="modal-game-character-card">
+        <img
+          src="${image.src}"
+          alt="${image.alt || art.title}"
+          loading="lazy">
+      </figure>
+    `)
+    .join("");
+
+  const history = Array.isArray(art.gameHistory)
+    ? art.gameHistory
+    : [];
+
+  if (history.length > 0) {
+    modalGameHistorySection.hidden = false;
+    modalGameHistory.innerHTML = history
+      .map(entry => `
+        <div class="modal-game-history-item">
+          <dt>${entry.date}</dt>
+          ${(Array.isArray(entry.items) ? entry.items : [entry.items])
+            .filter(Boolean)
+            .map(item => `<dd>${item}</dd>`)
+            .join("")}
+        </div>
+      `)
+      .join("");
+  } else {
+    modalGameHistorySection.hidden = true;
+    modalGameHistory.innerHTML = "";
+  }
+}
+
 function openModal(art) {
   modalImage.src = art.image;
   modalImage.alt = art.title;
@@ -437,9 +479,13 @@ function openModal(art) {
   if (isGameArtwork(art)) {
     modalGameArea.hidden = false;
     modalGameButton.href = art.url;
+    renderGameDetails(art);
   } else {
     modalGameArea.hidden = true;
     modalGameButton.removeAttribute("href");
+    modalGameCharacterImages.innerHTML = "";
+    modalGameHistorySection.hidden = true;
+    modalGameHistory.innerHTML = "";
   }
 
   modal.classList.add("show");

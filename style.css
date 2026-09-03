@@ -1128,3 +1128,119 @@ body:has(.norimune-game-section) main {
   font-size: 13px;
   line-height: 1.7;
 }
+
+/* ========================================
+   ゲーム作品 詳細モーダル
+   紹介画像 + キャラ紹介 + 更新履歴
+======================================== */
+
+.modal-game-area {
+  margin-top: 24px;
+}
+
+.modal-game-area .game-fullscreen-button {
+  margin: 0 auto;
+}
+
+.modal-game-character-images {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 22px;
+  margin-top: 28px;
+}
+
+.modal-game-character-images:empty {
+  display: none;
+}
+
+.modal-game-character-card {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 14px;
+  background: transparent;
+}
+
+.modal-content .modal-game-character-card img {
+  display: block;
+  width: 100%;
+  max-height: none;
+  height: auto;
+  object-fit: contain;
+  border-radius: 14px;
+  background: transparent;
+}
+
+.modal-game-history-section {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid #d8cbc2;
+  text-align: left;
+}
+
+.modal-game-history-section[hidden] {
+  display: none;
+}
+
+.modal-game-history-section h3 {
+  margin: 0 0 14px;
+  font-size: 18px;
+}
+
+.modal-game-history-scroll {
+  max-height: 320px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 4px 12px 4px 4px;
+  border: 1px solid #d8cbc2;
+  border-radius: 12px;
+  background: #fffaf5;
+  scrollbar-gutter: stable;
+}
+
+.modal-game-history {
+  margin: 0;
+}
+
+.modal-game-history-item {
+  padding: 14px 10px;
+  border-bottom: 1px solid #e7ddd6;
+}
+
+.modal-game-history-item:last-child {
+  border-bottom: none;
+}
+
+.modal-game-history-item dt {
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: #3a302b;
+}
+
+.modal-game-history-item dd {
+  margin: 4px 0 0;
+  color: #6f625c;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+@media (max-width: 700px) {
+  .modal-game-area {
+    padding: 14px;
+  }
+
+  .modal-game-character-images {
+    gap: 16px;
+    margin-top: 22px;
+  }
+
+  .modal-game-history-section {
+    margin-top: 24px;
+    padding-top: 20px;
+  }
+
+  .modal-game-history-scroll {
+    max-height: 260px;
+    padding-right: 8px;
+  }
+}

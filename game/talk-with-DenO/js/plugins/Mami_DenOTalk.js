@@ -150781,16 +150781,6 @@ function updatePortraitMotions() {
             "stumble"
         ) {
     /*
-     * 転倒音。
-     */
-    AudioManager.playSe({
-        name: "Blow2",
-        volume: 15,
-        pitch: 100,
-        pan: 0
-    });
-
-    /*
      * 軽い画面揺れ。
      *
      * power:

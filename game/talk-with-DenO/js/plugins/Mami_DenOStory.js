@@ -4416,7 +4416,20 @@ class Sprite_StoryExitButton
 
         createGalleryThumbnailLayer() {
             const container =
-                new Sprite();
+                new Sprite(
+                    new Bitmap(
+                        SCREEN_WIDTH,
+                        SCREEN_HEIGHT
+                    )
+                );
+
+            container.bitmap.fillRect(
+                0,
+                0,
+                SCREEN_WIDTH,
+                SCREEN_HEIGHT,
+                "#000000"
+            );
 
             container.x =
                 GALLERY_VIEW_X;
@@ -5368,8 +5381,8 @@ class Sprite_StoryExitButton
                 new Sprite();
 
             /*
-             * 画像2枚だけ。
-             * 閉じるボタン、矢印、テキスト等は置かない。
+             * 表示用Spriteは現在画像と次画像の2枚だけ。
+             * 全差分の先読み中だけLOADING...を表示する。
              */
             const current =
                 new Sprite();
@@ -5383,12 +5396,51 @@ class Sprite_StoryExitButton
             next.visible = false;
             next.opacity = 0;
 
+            const loadingLabel =
+                new Sprite(
+                    new Bitmap(
+                        SCREEN_WIDTH,
+                        60
+                    )
+                );
+
+            loadingLabel.y =
+                Math.round(
+                    SCREEN_HEIGHT / 2 - 30
+                );
+
+            loadingLabel.bitmap.fontSize = 24;
+            loadingLabel.bitmap.textColor =
+                "#ffffff";
+            loadingLabel.bitmap.outlineColor =
+                "rgba(0, 0, 0, 0.95)";
+            loadingLabel.bitmap.outlineWidth = 4;
+
+            loadingLabel.bitmap.drawText(
+                "LOADING...",
+                0,
+                0,
+                SCREEN_WIDTH,
+                60,
+                "center"
+            );
+
+            /*
+             * 一瞬で読み終わる場合は文字を見せない。
+             * 待ち時間が約0.3秒を超えた時だけ表示する。
+             */
+            loadingLabel.visible = false;
+
             container.addChild(
                 current
             );
 
             container.addChild(
                 next
+            );
+
+            container.addChild(
+                loadingLabel
             );
 
             /*
@@ -5399,25 +5451,37 @@ class Sprite_StoryExitButton
                 container
             );
 
-            const firstFilename =
-                variants[0];
-
-            const firstBitmap =
-                loadTransientGalleryPicture(
-                    firstFilename
+            /*
+             * サムネを押した時点で、解放済み差分を全部読む。
+             * ImageManagerの恒久キャッシュには入れず、
+             * ビューアを閉じるまでだけ保持する。
+             */
+            const bitmaps =
+                variants.map(
+                    filename =>
+                        loadTransientGalleryPicture(
+                            filename
+                        )
                 );
+
+            for (const bitmap of bitmaps) {
+                bitmap.smooth = true;
+            }
 
             this._galleryViewer = {
                 container: container,
                 current: current,
                 next: next,
+                loadingLabel: loadingLabel,
                 variants: variants,
+                bitmaps: bitmaps,
                 index: 0,
 
-                phase: "waitEnter",
+                phase: "waitAll",
                 frame: 0,
+                loadingWaitFrames: 0,
 
-                bitmap: firstBitmap
+                bitmap: bitmaps[0]
             };
 
             /*
@@ -5451,15 +5515,10 @@ class Sprite_StoryExitButton
                 return false;
             }
 
-            const filename =
-                state.variants[
+            const bitmap =
+                state.bitmaps[
                     nextIndex
                 ];
-
-            const bitmap =
-                loadTransientGalleryPicture(
-                    filename
-                );
 
             state.next.bitmap =
                 bitmap;
@@ -5558,6 +5617,13 @@ class Sprite_StoryExitButton
             const bitmaps =
                 new Set([
                     state.bitmap,
+                    ...(
+                        Array.isArray(
+                            state.bitmaps
+                        )
+                            ? state.bitmaps
+                            : []
+                    ),
                     state.current &&
                         state.current.bitmap,
                     state.next &&
@@ -5573,6 +5639,7 @@ class Sprite_StoryExitButton
             }
 
             state.bitmap = null;
+            state.bitmaps = [];
 
             for (const bitmap of bitmaps) {
                 destroyTransientGalleryBitmap(
@@ -5591,18 +5658,44 @@ class Sprite_StoryExitButton
 
             /*
              * ─────────────────────────────
-             * 1枚目の読み込み → 軽いフェードイン
+             * 全差分の読み込み完了 → 1枚目を軽くフェードイン
              * ─────────────────────────────
              */
             if (
                 state.phase ===
-                "waitEnter"
+                "waitAll"
             ) {
                 if (
                     !state.bitmap ||
-                    !state.bitmap.isReady()
+                    !Array.isArray(
+                        state.bitmaps
+                    ) ||
+                    !state.bitmaps.every(
+                        bitmap =>
+                            bitmap &&
+                            bitmap.isReady()
+                    )
                 ) {
+                    state.loadingWaitFrames =
+                        Number(
+                            state.loadingWaitFrames ||
+                            0
+                        ) + 1;
+
+                    if (
+                        state.loadingLabel &&
+                        state.loadingWaitFrames >= 18
+                    ) {
+                        state.loadingLabel.visible =
+                            true;
+                    }
+
                     return;
+                }
+
+                if (state.loadingLabel) {
+                    state.loadingLabel.visible =
+                        false;
                 }
 
                 state.current.bitmap =
@@ -5728,9 +5821,6 @@ class Sprite_StoryExitButton
                      * 同じBitmapを土台へ渡して上側を消す。
                      * 見た目は一切変化しない。
                      */
-                    const previousBitmap =
-                        state.current.bitmap;
-
                     state.current.bitmap =
                         state.next.bitmap;
 
@@ -5749,15 +5839,6 @@ class Sprite_StoryExitButton
 
                     state.next.opacity = 0;
                     state.next.bitmap = null;
-
-                    if (
-                        previousBitmap !==
-                        state.current.bitmap
-                    ) {
-                        destroyTransientGalleryBitmap(
-                            previousBitmap
-                        );
-                    }
 
                     state.index++;
 

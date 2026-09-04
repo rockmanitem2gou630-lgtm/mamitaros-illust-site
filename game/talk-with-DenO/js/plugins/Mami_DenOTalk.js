@@ -134812,6 +134812,631 @@ tags: [
 {
     participants: [
         {
+            speaker: "mio"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "お姉ちゃん、遊ぼ！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "今日はもう無理かな。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_surprised",
+            text:
+                "なんで？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "疲れたし、眠いし、寝るし。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "全部するの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "最後は寝るだけじゃねぇか。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。だから寝るね。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "じゃあ明日は遊んで！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "明日ね。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "mio",
+        "ryutaros",
+        "momotaros",
+        "sleep",
+        "tired",
+        "rider_heroine_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "mio"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "お姉ちゃんのお仕事って\n何するの？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "いろいろするよ。\n書類作ったり、連絡したり。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_worried",
+            text:
+                "それ楽しい？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "楽しいことばっかりでは\nないかな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "仕事っていうのはね、\n知らない誰かの役に立つことよ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "僕の役にも立つ？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "リュウタの役には、\n仕事じゃなくても立つよ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "じゃあ遊んで！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "急に具体的になったね。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "mio",
+        "ryutaros",
+        "work",
+        "older_sister",
+        "rider_heroine_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "mio"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "澪ちゃんも、もう少し\n僕みたいに器用に立ち回ったら？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ウラタロスみたいに？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "人生、楽になるかもよ？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "私は私だから。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "そう言うと思った。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "亀みてぇになる必要ねぇだろ！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "モモみたいになるとも\n言ってないよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "俺も！？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "澪ちゃんは澪ちゃんで\nいいってことだね。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "そういうこと。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "mio",
+        "urataros",
+        "momotaros",
+        "personality",
+        "rider_heroine_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "mio"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "あっ！\nそこ取られた！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "大丈夫。\nこっちを取ればまだ勝てるよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "おっ、マジか！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "これで逆転。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "やるじゃねぇか澪！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "当然のことをしたまでです。\nだって私、あなたのバディですから。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "バ、バディ……？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "二人一組だからね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "わ、分かってる！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "先輩、そこだけ\n妙に気に入ったみたいだね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "うるせぇ亀！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "mio",
+        "momotaros",
+        "urataros",
+        "game",
+        "team",
+        "buddy",
+        "rider_heroine_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "mio"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_worried"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_worried",
+            text:
+                "お姉ちゃん、これ動かない！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ちょっと見せて。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "電池が逆になってるね。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "直る？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "科学の力でイチコロよ！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "すごい！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "電池を入れ直しただけだよね？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "でも直った！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "科学の力だね。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "スゲー！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "間違ってはいないけど……。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "mio",
+        "ryutaros",
+        "ryotaro",
+        "toy",
+        "science",
+        "repair",
+        "rider_heroine_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "mio"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "澪ちゃん、今日も\nブラックコーヒー？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "たまには砂糖とか\n入れてみたら？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "私は変わらない。\n変わらなくてもいい。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_surprised",
+            text:
+                "……コーヒーの話だよね？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "ずいぶん強い意志で\nブラック飲んでるんだね。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "いつものが好きなだけ。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "mio",
+        "urataros",
+        "coffee",
+        "black_coffee",
+        "rider_heroine_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "mio"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "だから俺のやり方が\n正しいっつってんだ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "勝てなかったのに？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "やり方は正しかった！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "結果が間違ってた、と。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "バカね。\n正しいか間違ってるかなんてどうでもいいの。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "澪！？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "もう一回やるか\nやらないかでしょ？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "やる！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "結局そこなんだ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "モモだからね。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "mio",
+        "momotaros",
+        "urataros",
+        "game",
+        "argument",
+        "retry",
+        "rider_heroine_parody"
+    ]
+},
+{
+    participants: [
+        {
             speaker: "momotaros",
             expression:
                 "portrait_momotaros_base_default_angry"

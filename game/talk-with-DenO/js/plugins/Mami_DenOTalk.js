@@ -136372,6 +136372,522 @@ tags: [
         "imagin_catchphrase"
     ]
 },
+{
+    participants: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "リュウタ、その棒どうしたの？"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "魔法使い！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "杖なんだ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "シャバドゥビタッチ\nヘンシーン！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "長い呪文だね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "なんだよそれ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "変身する呪文！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "呪文で変身すんな！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "モモも変身するでしょ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "俺は呪文じゃねぇ！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryutaros",
+        "momotaros",
+        "mio",
+        "magic",
+        "pretend_play",
+        "wizard_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "お姉ちゃん、これ剣！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "それ、割り箸だよ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "心に剣！\n輝く勇気！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "心にあるなら、\n割り箸はいらないんじゃない？"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "……。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "いる！\n剣だもん！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "いいじゃねぇか！\n剣に見立ててんだろ！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "モモは分かってくれたね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "ただし振り回すなよ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "えー！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryutaros",
+        "momotaros",
+        "mio",
+        "sword",
+        "pretend_play",
+        "blade_parody"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "良太郎、僕に代わって！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "何するの？"
+        },
+        {
+            speaker: "ryutaros",
+            darkenPortraits: true,
+            "text": 
+                    "超変身！\n仮面ライダー電王！",
+            "pageParticipants": [
+                        {
+                            "speaker": "ryotaro",
+                            "expression": "portrait_ryotaro_base_ryotaro_surprised"
+                        },
+                        {
+                            "speaker": "momotaros",
+                            "expression": "portrait_momotaros_base_default_normal"
+                        }
+                    ]
+        },    
+        {
+            pagePossession: "ryutaros",
+
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "変身！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "憑依しただけだね。"
+        },
+        {
+            speaker: "ryotaro",
+            darkenPortraits: true,
+            innerWindow: true,
+            text:
+                "まだ仮面ライダーにも\nなってないよ……。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "勝手に電王名乗んな、小僧！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "これからなるの！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "順番が逆だったんだ。"
+        },
+        {
+            pagePossession: "ryotaro",
+
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "変身しないよ……。"
+        },
+    ],
+
+    tags: [
+        "normal",
+        "ryutaros",
+        "ryotaro",
+        "momotaros",
+        "mio",
+        "unpossessed",
+        "temporary_possession_steal",
+        "inner_voice",
+        "transformation",
+        "kuuga_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_grin",
+            text:
+                "見て！\n僕が一位！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "本当だ。\nハイスコア更新したんだね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "小僧が一位だと！？"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "モモタロスより上！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "上等だ！\n頂上疾走！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "オレが変えてやる！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ランキングを？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "当たり前だ！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "僕がまた変える！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "今日はずっと\n変わり続けそうだね。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros",
+        "ryutaros",
+        "mio",
+        "video_game",
+        "high_score",
+        "ranking",
+        "rider_song_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "もうちょっと……！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "リュウタ、取ろうか？"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "僕が取る！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "じゃあ取れよ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "……っ！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "……。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "なぜ見てるんです！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "自分で取るっつったの\nお前だろ！！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "応援してほしかった？"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "……うん。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "先に言えよ……。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "じゃあ頑張れ、リュウタ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "頑張る！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryutaros",
+        "momotaros",
+        "mio",
+        "reaching",
+        "shelf",
+        "encouragement",
+        "blade_parody"
+    ]
+},
 
     /*
      *↑通常会話追加ここまで↑

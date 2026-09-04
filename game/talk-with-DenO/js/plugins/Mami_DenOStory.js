@@ -984,16 +984,13 @@
 
         constructor(
             pictureName,
-            onClick,
-            soundType = "ok"
+            onClick
         ) {
             super();
 
             this._clickHandler =
                 onClick;
 
-            this._soundType =
-                soundType;
 
             this._hovered = false;
 
@@ -1082,24 +1079,6 @@
             this._hovered = false;
         }
 
-        playClickSound() {
-            if (
-                this._soundType ===
-                "cancel"
-            ) {
-                SoundManager.playCancel();
-                return;
-            }
-
-            if (
-                this._soundType ===
-                "none"
-            ) {
-                return;
-            }
-
-            SoundManager.playOk();
-        }
 
         onClick() {
             TouchInput.clear();
@@ -1110,8 +1089,6 @@
             ) {
                 return;
             }
-
-            this.playClickSound();
 
             this._clickHandler();
         }
@@ -1313,8 +1290,7 @@ function openStoryConfirm(
                 ) {
                     onYes();
                 }
-            },
-            "ok"
+            }
         );
 
     yesButton.x =
@@ -1343,8 +1319,7 @@ function openStoryConfirm(
                 else {
                     closeStoryConfirm();
                 }
-            },
-            "cancel"
+            }
         );
 
     noButton.x =
@@ -1858,8 +1833,6 @@ class Sprite_StoryExitButton
                 typeof this._clickHandler ===
                 "function"
             ) {
-                SoundManager.playOk();
-
                 this._clickHandler(
                     this._route
                 );
@@ -1881,7 +1854,6 @@ class Sprite_StoryExitButton
         constructor(
             pictureName,
             onClick,
-            soundType = "ok",
             displayWidth = null,
             displayHeight = null,
             idleOpacity = 248
@@ -1889,7 +1861,6 @@ class Sprite_StoryExitButton
             super();
 
             this._clickHandler = onClick;
-            this._soundType = soundType;
             this._hovered = false;
 
             this._displayWidth =
@@ -2011,23 +1982,6 @@ class Sprite_StoryExitButton
             this._hovered = false;
         }
 
-        playClickSound() {
-            if (this._soundType === "cursor") {
-                SoundManager.playCursor();
-                return;
-            }
-
-            if (this._soundType === "cancel") {
-                SoundManager.playCancel();
-                return;
-            }
-
-            if (this._soundType === "none") {
-                return;
-            }
-
-            SoundManager.playOk();
-        }
 
         onClick() {
             TouchInput.clear();
@@ -2039,7 +1993,6 @@ class Sprite_StoryExitButton
                 return;
             }
 
-            this.playClickSound();
             this._clickHandler();
         }
     }
@@ -3326,8 +3279,6 @@ class Sprite_StoryExitButton
                 return;
             }
 
-            SoundManager.playCursor();
-
             this._clickHandler(
                 this._tabId
             );
@@ -3359,8 +3310,7 @@ class Sprite_StoryExitButton
                             episode
                         );
                     }
-                },
-                "cursor"
+                }
             );
 
             this._episode = episode;
@@ -4180,8 +4130,7 @@ class Sprite_StoryExitButton
                          * update末尾で安全に閉じる。
                          */
                         this._pendingCloseStory = true;
-                    },
-                    "cancel"
+                    }
                 );
 
             backButton.x =
@@ -4220,8 +4169,7 @@ class Sprite_StoryExitButton
                             );
 
                         this._pendingOpenGallery = true;
-                    },
-                    "ok"
+                    }
                 );
 
             galleryButton.x =
@@ -4315,8 +4263,7 @@ class Sprite_StoryExitButton
                     "ui_episode_back",
                     () => {
                         this._pendingReturnToRouteList = true;
-                    },
-                    "cancel"
+                    }
                 );
 
             backButton.x =
@@ -4342,7 +4289,6 @@ class Sprite_StoryExitButton
                     () => {
                         this.openGalleryProgressResetConfirm();
                     },
-                    "ok",
                     GALLERY_RESET_BUTTON_SIZE,
                     GALLERY_RESET_BUTTON_SIZE,
                     210
@@ -4388,7 +4334,6 @@ class Sprite_StoryExitButton
                     }
 
                     if (!succeeded) {
-                        SoundManager.playBuzzer();
                         closeStoryConfirm();
                         return;
                     }
@@ -6252,8 +6197,7 @@ class Sprite_StoryExitButton
                          */
                         this._pendingReturnToRouteList =
                             true;
-                    },
-                    "cancel"
+                    }
                 );
 
             backButton.x =
@@ -6277,21 +6221,15 @@ class Sprite_StoryExitButton
                             ];
 
                         if (!episode) {
-                            SoundManager.playBuzzer();
                             return;
                         }
 
                         this.onEpisodeSelected(
                             episode
                         );
-                    },
-                    "none"
+                    }
                 );
 
-            /*
-             * onEpisodeSelected()側でOK音を鳴らすので、
-             * ここでは二重再生しない。
-             */
             startButton.x =
                 EPISODE_START_POSITION[0];
 
@@ -6433,11 +6371,8 @@ class Sprite_StoryExitButton
         !episode.pages ||
         episode.pages.length === 0
     ) {
-        SoundManager.playBuzzer();
         return;
     }
-
-    SoundManager.playOk();
 
     this.startEpisode(
         episode
@@ -6452,10 +6387,6 @@ startEpisode(
         !window.MamiDenOTalk
             .playExternalTalk
     ) {
-        if (!isStoryTransitioning()) {
-            SoundManager.playBuzzer();
-        }
-
         return;
     }
 
@@ -6566,8 +6497,6 @@ startEpisode(
 
                     storyScreen.visible =
                         true;
-
-                    SoundManager.playBuzzer();
                 }
             },
             null,
@@ -6590,7 +6519,6 @@ startEpisode(
 
     if (!transitionStarted) {
         releaseStoryEpisodeStills();
-        SoundManager.playBuzzer();
     }
 }
 update() {
@@ -6648,13 +6576,9 @@ update() {
         this._pendingGalleryViewerEntry =
             null;
 
-        if (
-            this.openGalleryStillViewer(
-                selectedEntry
-            )
-        ) {
-            SoundManager.playOk();
-        }
+        this.openGalleryStillViewer(
+            selectedEntry
+        );
 
         return;
     }

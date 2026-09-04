@@ -337,6 +337,49 @@
     let galleryCatalogCache = null;
 
     /*
+     * ギャラリーの原寸CGはImageManagerの恒久キャッシュへ入れない。
+     * iOSでは原寸CGが増えるほどGPU/画像メモリを圧迫するため、
+     * サムネ生成・全画面表示の間だけ使う一時Bitmapとして読む。
+     */
+    function loadTransientGalleryPicture(
+        filename
+    ) {
+        const pictureName =
+            String(filename || "")
+                .replace(/\.png$/i, "");
+
+        const encodedName =
+            Utils.encodeURI(
+                pictureName
+            );
+
+        return Bitmap.load(
+            `img/pictures/${encodedName}.png`
+        );
+    }
+
+    function destroyTransientGalleryBitmap(
+        bitmap
+    ) {
+        if (
+            bitmap &&
+            typeof bitmap.destroy ===
+                "function"
+        ) {
+            bitmap.destroy();
+        }
+    }
+
+    /*
+     * 原寸CGを一斉にデコードするとスマホで瞬間的な負荷が
+     * 大きくなるため、サムネ生成は最大2枚ずつ行う。
+     */
+    const GALLERY_THUMB_LOAD_LIMIT = 2;
+    let galleryThumbnailLoadQueue = [];
+    let galleryThumbnailLoadCount = 0;
+    let galleryThumbnailLoadGeneration = 0;
+
+    /*
      * ─────────────────────────────
      * 話数選択画面
      * ─────────────────────────────
@@ -2663,42 +2706,116 @@ class Sprite_StoryExitButton
         thumbnail.y =
             GALLERY_THUMB_Y;
 
-        const pictureName =
-            String(
-                filename || ""
-            ).replace(
-                /\.png$/i,
-                ""
-            );
-
-        const sourceBitmap =
-            ImageManager.loadPicture(
-                pictureName
-            );
-
-        /*
-         * 元テクスチャ側もLINEARを明示。
-         */
-        sourceBitmap.smooth =
-            true;
-
-        const draw = () => {
-            drawHighQualityGalleryThumbnail(
-                thumbnailBitmap,
-                sourceBitmap
-            );
-        };
-
-        if (sourceBitmap.isReady()) {
-            draw();
-        }
-        else {
-            sourceBitmap.addLoadListener(
-                draw
-            );
-        }
+        enqueueGalleryThumbnailLoad(
+            filename,
+            thumbnailBitmap
+        );
 
         return thumbnail;
+    }
+
+    function isGalleryThumbnailTargetAlive(
+        bitmap
+    ) {
+        if (!bitmap) {
+            return false;
+        }
+
+        const baseTexture =
+            bitmap.baseTexture ||
+            bitmap._baseTexture;
+
+        return !baseTexture ||
+            !baseTexture.destroyed;
+    }
+
+    function enqueueGalleryThumbnailLoad(
+        filename,
+        targetBitmap
+    ) {
+        galleryThumbnailLoadQueue.push({
+            filename: filename,
+            targetBitmap: targetBitmap,
+            generation:
+                galleryThumbnailLoadGeneration
+        });
+
+        processGalleryThumbnailLoadQueue();
+    }
+
+    function processGalleryThumbnailLoadQueue() {
+        while (
+            galleryThumbnailLoadCount <
+                GALLERY_THUMB_LOAD_LIMIT &&
+            galleryThumbnailLoadQueue.length > 0
+        ) {
+            const job =
+                galleryThumbnailLoadQueue.shift();
+
+            if (
+                !job ||
+                job.generation !==
+                    galleryThumbnailLoadGeneration ||
+                !isGalleryThumbnailTargetAlive(
+                    job.targetBitmap
+                )
+            ) {
+                continue;
+            }
+
+            galleryThumbnailLoadCount++;
+
+            const sourceBitmap =
+                loadTransientGalleryPicture(
+                    job.filename
+                );
+
+            sourceBitmap.smooth = true;
+
+            const finish = () => {
+                if (
+                    job.generation ===
+                        galleryThumbnailLoadGeneration &&
+                    isGalleryThumbnailTargetAlive(
+                        job.targetBitmap
+                    )
+                ) {
+                    drawHighQualityGalleryThumbnail(
+                        job.targetBitmap,
+                        sourceBitmap
+                    );
+                }
+
+                /*
+                 * 250×141へ転写し終えた原寸CGは即解放。
+                 */
+                destroyTransientGalleryBitmap(
+                    sourceBitmap
+                );
+
+                galleryThumbnailLoadCount =
+                    Math.max(
+                        0,
+                        galleryThumbnailLoadCount - 1
+                    );
+
+                processGalleryThumbnailLoadQueue();
+            };
+
+            if (sourceBitmap.isReady()) {
+                finish();
+            }
+            else {
+                sourceBitmap.addLoadListener(
+                    finish
+                );
+            }
+        }
+    }
+
+    function cancelPendingGalleryThumbnailLoads() {
+        galleryThumbnailLoadGeneration++;
+        galleryThumbnailLoadQueue = [];
     }
 
     class Sprite_GalleryThumbnailCard
@@ -3705,6 +3822,14 @@ class Sprite_StoryExitButton
         }
 
         clearContent() {
+            cancelPendingGalleryThumbnailLoads();
+
+            if (this._galleryViewer) {
+                this.disposeGalleryViewerBitmaps(
+                    this._galleryViewer
+                );
+            }
+
             for (
                 const sprite of
                 this._contentSprites
@@ -4196,6 +4321,8 @@ class Sprite_StoryExitButton
         clearGalleryThumbnailCards() {
             const container =
                 this._galleryThumbnailContainer;
+
+            cancelPendingGalleryThumbnailLoads();
 
             if (!container) {
                 return;
@@ -5129,12 +5256,8 @@ class Sprite_StoryExitButton
                 variants[0];
 
             const firstBitmap =
-                ImageManager.loadPicture(
-                    String(firstFilename)
-                        .replace(
-                            /\.png$/i,
-                            ""
-                        )
+                loadTransientGalleryPicture(
+                    firstFilename
                 );
 
             this._galleryViewer = {
@@ -5187,12 +5310,8 @@ class Sprite_StoryExitButton
                 ];
 
             const bitmap =
-                ImageManager.loadPicture(
-                    String(filename)
-                        .replace(
-                            /\.png$/i,
-                            ""
-                        )
+                loadTransientGalleryPicture(
+                    filename
                 );
 
             state.next.bitmap =
@@ -5266,6 +5385,10 @@ class Sprite_StoryExitButton
             const container =
                 state.container;
 
+            this.disposeGalleryViewerBitmaps(
+                state
+            );
+
             this._galleryViewer =
                 null;
 
@@ -5276,6 +5399,39 @@ class Sprite_StoryExitButton
 
             TouchInput.clear();
             Input.clear();
+        }
+
+        disposeGalleryViewerBitmaps(
+            state
+        ) {
+            if (!state) {
+                return;
+            }
+
+            const bitmaps =
+                new Set([
+                    state.bitmap,
+                    state.current &&
+                        state.current.bitmap,
+                    state.next &&
+                        state.next.bitmap
+                ]);
+
+            if (state.current) {
+                state.current.bitmap = null;
+            }
+
+            if (state.next) {
+                state.next.bitmap = null;
+            }
+
+            state.bitmap = null;
+
+            for (const bitmap of bitmaps) {
+                destroyTransientGalleryBitmap(
+                    bitmap
+                );
+            }
         }
 
         updateGalleryStillViewer() {
@@ -5425,6 +5581,9 @@ class Sprite_StoryExitButton
                      * 同じBitmapを土台へ渡して上側を消す。
                      * 見た目は一切変化しない。
                      */
+                    const previousBitmap =
+                        state.current.bitmap;
+
                     state.current.bitmap =
                         state.next.bitmap;
 
@@ -5443,6 +5602,15 @@ class Sprite_StoryExitButton
 
                     state.next.opacity = 0;
                     state.next.bitmap = null;
+
+                    if (
+                        previousBitmap !==
+                        state.current.bitmap
+                    ) {
+                        destroyTransientGalleryBitmap(
+                            previousBitmap
+                        );
+                    }
 
                     state.index++;
 

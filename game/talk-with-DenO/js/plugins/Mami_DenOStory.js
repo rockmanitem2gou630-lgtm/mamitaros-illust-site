@@ -719,9 +719,25 @@
     let storyTransitionOnBlack = null;
     let storyTransitionOnComplete = null;
     let storyTransitionHoldUntil = null;
+    let storyTransitionMasksMessageWindow = false;
 
     function isStoryTransitioning() {
         return storyTransitionPhase !== "none";
+    }
+
+    function setStoryTransitionMessageWindowMasked(
+        masked
+    ) {
+        const scene =
+            getScene();
+
+        const messageWindow =
+            scene && scene._messageWindow;
+
+        if (messageWindow) {
+            messageWindow.visible =
+                !masked;
+        }
     }
 
     function ensureStoryTransitionOverlay() {
@@ -773,7 +789,8 @@
     function startStoryTransition(
         onBlack,
         onComplete = null,
-        holdUntil = null
+        holdUntil = null,
+        options = {}
     ) {
         if (isStoryTransitioning()) {
             return false;
@@ -806,6 +823,16 @@
                 ? holdUntil
                 : null;
 
+        storyTransitionMasksMessageWindow =
+            options &&
+            options.maskMessageWindow === true;
+
+        if (storyTransitionMasksMessageWindow) {
+            setStoryTransitionMessageWindowMasked(
+                true
+            );
+        }
+
         overlay.visible = true;
         overlay.opacity = 0;
 
@@ -834,6 +861,15 @@
         storyTransitionCount = 0;
         storyTransitionOnBlack = null;
         storyTransitionHoldUntil = null;
+
+        if (storyTransitionMasksMessageWindow) {
+            setStoryTransitionMessageWindowMasked(
+                false
+            );
+        }
+
+        storyTransitionMasksMessageWindow =
+            false;
 
         const onComplete =
             storyTransitionOnComplete;
@@ -866,6 +902,16 @@
         if (!overlay) {
             finishStoryTransition();
             return;
+        }
+
+        /*
+         * 話数開始時は黒幕の裏にあるメッセージ窓も隠す。
+         * 他プラグインが更新中にvisibleを戻しても毎フレーム抑える。
+         */
+        if (storyTransitionMasksMessageWindow) {
+            setStoryTransitionMessageWindowMasked(
+                true
+            );
         }
 
         if (
@@ -934,6 +980,17 @@
                 storyTransitionCount >=
                 STORY_TRANSITION_HOLD_FRAMES
             ) {
+                if (
+                    storyTransitionMasksMessageWindow
+                ) {
+                    setStoryTransitionMessageWindowMasked(
+                        false
+                    );
+
+                    storyTransitionMasksMessageWindow =
+                        false;
+                }
+
                 storyTransitionPhase =
                     "fadeIn";
 
@@ -990,7 +1047,6 @@
 
             this._clickHandler =
                 onClick;
-
 
             this._hovered = false;
 
@@ -1078,7 +1134,6 @@
         onMouseExit() {
             this._hovered = false;
         }
-
 
         onClick() {
             TouchInput.clear();
@@ -1981,7 +2036,6 @@ class Sprite_StoryExitButton
         onMouseExit() {
             this._hovered = false;
         }
-
 
         onClick() {
             TouchInput.clear();
@@ -4361,20 +4415,7 @@ class Sprite_StoryExitButton
 
         createGalleryThumbnailLayer() {
             const container =
-                new Sprite(
-                    new Bitmap(
-                        SCREEN_WIDTH,
-                        SCREEN_HEIGHT
-                    )
-                );
-
-            container.bitmap.fillRect(
-                0,
-                0,
-                SCREEN_WIDTH,
-                SCREEN_HEIGHT,
-                "#000000"
-            );
+                new Sprite();
 
             container.x =
                 GALLERY_VIEW_X;
@@ -6229,7 +6270,6 @@ class Sprite_StoryExitButton
                         );
                     }
                 );
-
             startButton.x =
                 EPISODE_START_POSITION[0];
 
@@ -6434,6 +6474,11 @@ startEpisode(
             )
             : null;
 
+    let playbackAttempted = false;
+    let playbackStarted = false;
+    let playbackStartFailed = false;
+    let playbackReadyFrames = 0;
+
     /*
      * 選択画面はまだ消さない。
      *
@@ -6451,8 +6496,6 @@ startEpisode(
                 storyScreen
                     ._episodeWasBusy =
                     false;
-
-                storyPlaying = true;
 
                 /*
                  * 話数開始時背景は、
@@ -6474,30 +6517,6 @@ startEpisode(
 
                 currentEpisode =
                     playbackEpisode;
-
-                const started =
-                    window.MamiDenOTalk
-                        .playExternalTalk(
-                            playbackEpisode,
-                            {
-                                restoreAfter:
-                                    false
-                            }
-                        );
-
-                /*
-                 * 再生開始に失敗した場合も、
-                 * 黒画面の裏で選択画面へ戻す。
-                 */
-                if (!started) {
-                    storyPlaying = false;
-                    currentEpisode = null;
-
-                    releaseStoryEpisodeStills();
-
-                    storyScreen.visible =
-                        true;
-                }
             },
             null,
             () => {
@@ -6508,12 +6527,79 @@ startEpisode(
                     startBackgroundBitmap
                         .isError();
 
-                return (
-                    backgroundReady &&
+                const stillsReady =
                     areStoryEpisodeStillsReady(
                         episodeStillBitmaps
-                    )
-                );
+                    );
+
+                /*
+                 * 画像が揃うまでは本文そのものを開始しない。
+                 * AUTO等が黒幕の裏で先へ進む事故も防ぐ。
+                 */
+                if (
+                    !backgroundReady ||
+                    !stillsReady
+                ) {
+                    return false;
+                }
+
+                if (!playbackAttempted) {
+                    playbackAttempted = true;
+                    storyPlaying = true;
+
+                    playbackStarted =
+                        !!window.MamiDenOTalk
+                            .playExternalTalk(
+                                playbackEpisode,
+                                {
+                                    restoreAfter:
+                                        false
+                                }
+                            );
+
+                    if (!playbackStarted) {
+                        storyPlaying = false;
+                        currentEpisode = null;
+                        playbackStartFailed = true;
+
+                        releaseStoryEpisodeStills();
+
+                        storyScreen.visible =
+                            true;
+
+                    }
+
+                    /*
+                     * 再生開始と同じフレームには黒幕を開けない。
+                     */
+                    return false;
+                }
+
+                if (playbackStartFailed) {
+                    return true;
+                }
+
+                playbackReadyFrames++;
+
+                const firstMessageReady =
+                    !!(
+                        $gameMessage &&
+                        $gameMessage.isBusy()
+                    );
+
+                /*
+                 * 最初のメッセージと立ち絵が反映されてから開幕。
+                 * 特殊な導入でisBusyにならない場合も、
+                 * 30フレームで安全に先へ進める。
+                 */
+                return (
+                    firstMessageReady &&
+                    playbackReadyFrames >= 2
+                ) ||
+                    playbackReadyFrames >= 30;
+            },
+            {
+                maskMessageWindow: true
             }
         );
 
@@ -8981,6 +9067,15 @@ Scene_Map.prototype.update =
             storyTransitionOnComplete =
                 null;
             storyTransitionHoldUntil = null;
+
+            if (storyTransitionMasksMessageWindow) {
+                setStoryTransitionMessageWindowMasked(
+                    false
+                );
+            }
+
+            storyTransitionMasksMessageWindow =
+                false;
 
             clearStorySceneTransition();
 

@@ -358,16 +358,48 @@
         );
     }
 
+    const transientBitmapDestroyPending =
+        new WeakSet();
+
     function destroyTransientGalleryBitmap(
         bitmap
     ) {
         if (
-            bitmap &&
-            typeof bitmap.destroy ===
-                "function"
+            !bitmap ||
+            typeof bitmap.destroy !==
+                "function" ||
+            transientBitmapDestroyPending.has(
+                bitmap
+            )
         ) {
-            bitmap.destroy();
+            return;
         }
+
+        /*
+         * 読み込み途中でdestroyすると、完了時に内部テクスチャが
+         * 作り直されて居残る場合がある。完了後に破棄を予約する。
+         */
+        if (
+            !bitmap.isReady() &&
+            !bitmap.isError()
+        ) {
+            transientBitmapDestroyPending.add(
+                bitmap
+            );
+
+            bitmap.addLoadListener(
+                () => {
+                    transientBitmapDestroyPending.delete(
+                        bitmap
+                    );
+                    bitmap.destroy();
+                }
+            );
+
+            return;
+        }
+
+        bitmap.destroy();
     }
 
     /*
@@ -661,6 +693,13 @@
 
     let currentEpisode = null;
     let currentPageIndex = 0;
+
+    /*
+     * 現在再生中の一話で使う原寸スチルだけを保持する。
+     * 話数終了・中断時にMap内のBitmapをすべて破棄する。
+     */
+    let storyEpisodeStillBitmaps =
+        new Map();
 
     let storyConfirmOpen = false;
 
@@ -2082,6 +2121,114 @@ class Sprite_StoryExitButton
                     output
                 );
             }
+        }
+    }
+
+    /*
+     * ─────────────────────────────
+     * 一話単位のストーリースチル先読み
+     * ─────────────────────────────
+     *
+     * ImageManagerの全体キャッシュには入れず、
+     * 現在の一話専用Mapでだけ保持する。
+     * これにより物語中は即表示でき、終了後は確実に解放できる。
+     */
+    function getStoryStillMemoryKey(
+        filename
+    ) {
+        return String(filename || "")
+            .trim()
+            .replace(/^.*[\\/]/, "")
+            .replace(/\.png$/i, "")
+            .toLowerCase();
+    }
+
+    function getStoryEpisodeStillBitmap(
+        filename
+    ) {
+        const key =
+            getStoryStillMemoryKey(
+                filename
+            );
+
+        if (!key) {
+            return null;
+        }
+
+        if (
+            storyEpisodeStillBitmaps.has(
+                key
+            )
+        ) {
+            return storyEpisodeStillBitmaps.get(
+                key
+            );
+        }
+
+        const bitmap =
+            loadTransientGalleryPicture(
+                filename
+            );
+
+        bitmap.smooth = true;
+
+        storyEpisodeStillBitmaps.set(
+            key,
+            bitmap
+        );
+
+        return bitmap;
+    }
+
+    function preloadStoryEpisodeStills(
+        episode
+    ) {
+        releaseStoryEpisodeStills();
+
+        const filenames = [];
+
+        collectStoryStillNames(
+            episode,
+            filenames
+        );
+
+        for (
+            const filename of
+            new Set(filenames)
+        ) {
+            getStoryEpisodeStillBitmap(
+                filename
+            );
+        }
+
+        return Array.from(
+            storyEpisodeStillBitmaps.values()
+        );
+    }
+
+    function areStoryEpisodeStillsReady(
+        bitmaps
+    ) {
+        return bitmaps.every(
+            bitmap =>
+                !bitmap ||
+                bitmap.isReady() ||
+                bitmap.isError()
+        );
+    }
+
+    function releaseStoryEpisodeStills() {
+        const bitmaps =
+            new Set(
+                storyEpisodeStillBitmaps.values()
+            );
+
+        storyEpisodeStillBitmaps.clear();
+
+        for (const bitmap of bitmaps) {
+            destroyTransientGalleryBitmap(
+                bitmap
+            );
         }
     }
 
@@ -6246,6 +6393,15 @@ startEpisode(
         );
 
     /*
+     * この一話で使うstoryStillだけを、
+     * 開始フェード中にまとめて先読みする。
+     */
+    const episodeStillBitmaps =
+        preloadStoryEpisodeStills(
+            playbackEpisode
+        );
+
+    /*
      * 話数そのものが外背景から始まる場合。
      * 例：第5話 startBackground: "background_town.png"
      *
@@ -6325,6 +6481,8 @@ startEpisode(
                     storyPlaying = false;
                     currentEpisode = null;
 
+                    releaseStoryEpisodeStills();
+
                     storyScreen.visible =
                         true;
 
@@ -6333,20 +6491,24 @@ startEpisode(
             },
             null,
             () => {
-                if (!startBackgroundBitmap) {
-                    return true;
-                }
-
-                return (
+                const backgroundReady =
+                    !startBackgroundBitmap ||
                     startBackgroundBitmap
                         .isReady() ||
                     startBackgroundBitmap
-                        .isError()
+                        .isError();
+
+                return (
+                    backgroundReady &&
+                    areStoryEpisodeStillsReady(
+                        episodeStillBitmaps
+                    )
                 );
             }
         );
 
     if (!transitionStarted) {
+        releaseStoryEpisodeStills();
         SoundManager.playBuzzer();
     }
 }
@@ -6679,7 +6841,8 @@ function fitStorySpriteToScreen(
 
 function setStorySpriteImage(
     sprite,
-    filename
+    filename,
+    preparedBitmap = null
 ) {
     if (!sprite || !filename) {
         return;
@@ -6690,6 +6853,7 @@ function setStorySpriteImage(
             .replace(/\.png$/i, "");
 
     sprite.bitmap =
+        preparedBitmap ||
         ImageManager.loadPicture(
             pictureName
         );
@@ -7776,7 +7940,10 @@ function showStoryStill(
 
     setStorySpriteImage(
         scene._denOStoryStill,
-        filename
+        filename,
+        getStoryEpisodeStillBitmap(
+            filename
+        )
     );
 }
 /*
@@ -7929,13 +8096,9 @@ function showStoryStillTransition(
         filename
     );
 
-    const pictureName =
-        String(filename)
-            .replace(/\.png$/i, "");
-
     const bitmap =
-        ImageManager.loadPicture(
-            pictureName
+        getStoryEpisodeStillBitmap(
+            filename
         );
 
     const current =
@@ -8301,6 +8464,7 @@ function clearAllStoryVisuals() {
     clearStoryUiBlackFade();
     clearStoryBackground();
     clearStoryStill();
+    releaseStoryEpisodeStills();
 }
 /*
  * ─────────────────────────────
@@ -8819,6 +8983,7 @@ Scene_Map.prototype.update =
 
             storyStillTransitionState = null;
             resetStoryStillBlackOverlay();
+            releaseStoryEpisodeStills();
 
             _Scene_Map_terminate.call(
                 this

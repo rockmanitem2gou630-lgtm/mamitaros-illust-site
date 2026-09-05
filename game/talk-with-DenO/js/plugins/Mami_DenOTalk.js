@@ -133396,7 +133396,7 @@ tags: [
             expression:
                 "portrait_ryutaros_base_default_smile",
             text:
-                "じゃあ持って帰る！"
+                "じゃあ大事にする！"
         },
         {
             speaker: "mio",
@@ -136370,6 +136370,362 @@ tags: [
         "ryutaros_mio",
         "wish",
         "imagin_catchphrase"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "モモ、たまにはイマジンらしいことしてみて。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "はぁ？　イマジンらしいこと？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "……ったく。しょうがねぇな。"
+        },
+        {
+            speaker: "mio",
+
+            pageParticipants: [],
+
+            text:
+                "……あ、そこからなんだ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……砂……？"
+        },
+        {
+            speaker: "momotaros",
+            text:
+                "お前の望みを言え。"
+        },
+        {
+            speaker: "momotaros",
+            text:
+                "どんな望みも叶えてやる。"
+        },
+        {
+            speaker: "momotaros",
+            text:
+                "お前が払う代償は、たったひとつ。"
+        },
+        {
+            speaker: "momotaros",
+            text:
+                "お前の望みを言え。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……有給がほしい。"
+        },
+        {
+            speaker: "momotaros",
+            text:
+                "……は？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "有給。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "どんな望みも叶えてくれるんでしょ？"
+        },
+        {
+            speaker: "momotaros",
+
+            pageParticipants: [
+                {
+                    speaker: "momotaros",
+                    expression:
+                        "portrait_momotaros_base_default_angry"
+                }
+            ],
+
+            portraitAppearFade: 10,
+
+            expression:
+                "portrait_momotaros_base_default_angry",
+
+            text:
+                "会社の話は知らねぇよ！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_mio",
+        "imagin_form"
+    ]
+},
+{
+    possessedBy: "urataros",
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "お前の望みを言え。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "澪ちゃんとふたりきりになりたいな。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "却下だ！！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "どんな望みも叶えるのがイマジンだよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "……お前が払う代償はひとつ！！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "どうぞ？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "澪を返せ！！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "私、まだウラタロスのところ行ってないけど。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "じゃあ、これからでもいいよ？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "よくねぇ！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_urataros_mio",
+        "u_ryotaro",
+        "imagin_joke",
+        "wish"
+    ]
+},
+{
+    possessedBy: "ryutaros",
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "お前の望みを言え。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "モモタロス頭良くなって！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "誰がバカだコラァ！！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "モモタロス！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "答えんな！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_ryutaros",
+        "r_ryotaro",
+        "imagin_joke",
+        "wish"
+    ]
+},
+{
+    possessedBy: "kintaros",
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "お前の望みを言え。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "ほな、寝るから静かにしてくれ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "はぁ！？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_sleep",
+            text:
+                "どんな望みも叶えるんがイマジンやろ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "そういう使い方すんな！！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_sleep",
+            text:
+                "……静かにしてくれ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "……チッ。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros_kintaros",
+        "k_ryotaro",
+        "imagin_joke",
+        "wish",
+        "sleep"
     ]
 },
 {

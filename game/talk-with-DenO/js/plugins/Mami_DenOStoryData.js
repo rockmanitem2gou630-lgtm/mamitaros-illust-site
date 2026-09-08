@@ -25585,7 +25585,8 @@
         {
             "speaker": "urataros",
             "text": "今日は良太郎の顔だよ？",
-            "expression": "portrait_urataros_base_default_smile"
+            "expression": "portrait_urataros_base_default_smile",
+            "storyStill": "CG_urataros_ep06_01.png"
         },
         {
             "speaker": "mio",
@@ -25648,7 +25649,8 @@
         {
             "speaker": "urataros",
             "text": "応援されると複雑だなぁ。",
-            "expression": "portrait_urataros_base_default_wrysmile"
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "storyStillClear": true
         },
         {
             "speaker": "mio",

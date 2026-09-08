@@ -74,6 +74,7 @@
  * @requiredAssets img/pictures/CG_urataros_ep04_01
  * @requiredAssets img/pictures/CG_urataros_ep04_02
  * @requiredAssets img/pictures/CG_urataros_ep04_03
+ * @requiredAssets img/pictures/CG_urataros_ep06_01
  * @requiredAssets img/pictures/CG_urataros_ep08_01
  * @requiredAssets img/pictures/CG_urataros_ep08_02
  * @requiredAssets img/pictures/CG_urataros_ep08_03

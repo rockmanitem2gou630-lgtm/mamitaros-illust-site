@@ -1,6 +1,6 @@
 /*:
  * @target MZ
- * @plugindesc 電王会話作品用・ストーリー画面 Ver0.1
+ * @plugindesc 電王会話作品用・ストーリー画面 Ver0.2
  * @author マミタロス
  *
  * @help
@@ -22,6 +22,28 @@
 
     const SCREEN_WIDTH = 1280;
     const SCREEN_HEIGHT = 720;
+
+    /*
+     * PCでスチルを大きく表示した時だけ、
+     * PIXIの描画バッファを最大1920×1080相当まで高解像度化する。
+     *
+     * ゲーム内の座標は従来どおり1280×720のままなので、
+     * UI配置・クリック判定・StoryDataは変更不要。
+     * スマホでは負荷を増やさず、常に従来解像度を使う。
+     *
+     * 1280×720 × 1.5 = 1920×1080
+     */
+    const STORY_STILL_MAX_RENDER_SCALE = 1.5;
+
+    const STORY_STILL_NATIVE_WIDTH = 1920;
+    const STORY_STILL_NATIVE_HEIGHT = 1080;
+
+    /*
+     * NW.jsの全画面では、1920×1080モニターでも
+     * 実表示領域が1920×1079になる場合がある。
+     * 数ピクセル以内なら原寸表示を優先する。
+     */
+    const STORY_STILL_NATIVE_SIZE_TOLERANCE = 4;
 
     /*
      * ルート選択カード。
@@ -434,23 +456,80 @@
     }
 
     /*
-     * 1280×720で作成した完成UIに合わせた
-     * 話数ボタン中心座標。
+     * 話数路線図の表示範囲。
+     *
+     * 線路と駅ボタンは、704×298のページを2枚
+     * 横に並べ、この範囲内だけをマスク表示する。
      */
-    const EPISODE_NODE_POSITIONS = [
-        [596, 217],
-        [699, 217],
-        [802, 217],
-        [905, 217],
-        [1008, 217],
-        [1111, 217],
-        [596, 349],
-        [699, 349],
-        [802, 349],
-        [905, 349],
-        [1008, 349],
-        [1111, 349]
+    const EPISODE_MAP_VIEWPORT = {
+        x: 501,
+        y: 136,
+        width: 704,
+        height: 298
+    };
+
+    const EPISODE_MAP_MASK_PICTURE =
+        "ui_episode_track_mask";
+
+    const EPISODE_PAGE_ARROW_PICTURE =
+        "ui_episode_page_arrow";
+
+    /*
+     * 矢印はマスクの上に固定し、路線とは一緒に動かさない。
+     * 位置を調整する場合はここだけ変更すればよい。
+     */
+    const EPISODE_PAGE_ARROW_POSITION = [
+        853,
+        407
     ];
+
+    const EPISODE_PAGE_ARROW_SIZE = [
+        80,
+        44
+    ];
+
+    /*
+     * 18フレーム＝60fps環境で約0.3秒。
+     */
+    const EPISODE_PAGE_SLIDE_FRAMES = 18;
+
+    /*
+     * 704×298内での駅ボタン中心座標。
+     * 本編は旧位置から上へ29px移動済み。
+     * 矢印との間隔調整のため、初期案から下へ6px戻している。
+     */
+    const MAIN_EPISODE_NODE_POSITIONS = [
+        [95, 52],
+        [198, 52],
+        [301, 52],
+        [404, 52],
+        [507, 52],
+        [610, 52],
+        [95, 184],
+        [198, 184],
+        [301, 184],
+        [404, 184],
+        [507, 184],
+        [610, 184]
+    ];
+
+    /*
+     * EX側は参考画像の手作業配置を、1px単位で均等化。
+     */
+    const AFTER_EPISODE_NODE_POSITIONS = [
+        [168, 57],
+        [302, 57],
+        [436, 57],
+        [304, 179],
+        [442, 179],
+        [580, 179]
+    ];
+
+    const MAIN_EPISODE_COUNT =
+        MAIN_EPISODE_NODE_POSITIONS.length;
+
+    const AFTER_EPISODE_COUNT =
+        AFTER_EPISODE_NODE_POSITIONS.length;
 
     const EPISODE_BACK_POSITION = [118, 679];
     const EPISODE_START_POSITION = [1095, 658];
@@ -534,18 +613,36 @@
 
     function makeStoryEpisodeUiPreloadPictures() {
         const pictures = [
-            "btn_story_exit"
+            "btn_story_exit",
+            EPISODE_MAP_MASK_PICTURE,
+            EPISODE_PAGE_ARROW_PICTURE
         ];
 
         for (const routeId of MAIN_ROUTE_IDS) {
             pictures.push(
                 `ui_episode_start_${routeId}`,
-                `ui_episode_selected_${routeId}`
+                `ui_episode_selected_${routeId}`,
+                `ui_episode_track_main_${routeId}`,
+                `ui_episode_track_after_${routeId}`
             );
 
-            for (let number = 1; number <= 12; number++) {
+            for (
+                let number = 1;
+                number <= MAIN_EPISODE_COUNT;
+                number++
+            ) {
                 pictures.push(
                     `ui_episode_${routeId}_${String(number).padStart(2, "0")}`
+                );
+            }
+
+            for (
+                let number = 1;
+                number <= AFTER_EPISODE_COUNT;
+                number++
+            ) {
+                pictures.push(
+                    `ui_episode_${routeId}_ex${String(number).padStart(2, "0")}`
                 );
             }
         }
@@ -700,6 +797,385 @@
      */
     let storyEpisodeStillBitmaps =
         new Map();
+
+    /*
+     * ─────────────────────────────
+     * PC用・高解像度スチル描画
+     * ─────────────────────────────
+     *
+     * 通常画面は従来どおり1280×720で描画し、
+     * ストーリースチルまたはギャラリーのCGビューアを
+     * 開いている間だけ描画バッファを大きくする。
+     *
+     * スチル画像そのものは元から1920×1080で読み込んでいるため、
+     * ここで増えるのは主に表示中の描画負荷。
+     */
+    let storyStillRenderScale = 1;
+
+    function isStoryStillHighResolutionActive(
+        scene
+    ) {
+        if (!scene) {
+            return false;
+        }
+
+        const stillSprites = [
+            scene._denOStoryStill,
+            scene._denOStoryStillNext
+        ];
+
+        const storyStillVisible =
+            !!storyStillTransitionState ||
+            stillSprites.some(
+                sprite =>
+                    sprite &&
+                    sprite.visible &&
+                    sprite.bitmap
+            );
+
+        const storyScreen =
+            scene._denOStoryScreen;
+
+        const galleryViewerVisible =
+            !!(
+                storyScreen &&
+                storyScreen._galleryViewer
+            );
+
+        return (
+            storyStillVisible ||
+            galleryViewerVisible
+        );
+    }
+
+    function desiredStoryStillRenderScale(
+        scene
+    ) {
+        if (
+            !isStoryStillHighResolutionActive(
+                scene
+            )
+        ) {
+            return 1;
+        }
+
+        if (
+            window.Utils &&
+            typeof Utils.isMobileDevice ===
+                "function" &&
+            Utils.isMobileDevice()
+        ) {
+            return 1;
+        }
+
+        if (isStoryStillNativeViewport()) {
+            return STORY_STILL_MAX_RENDER_SCALE;
+        }
+
+        const pixelRatio =
+            Math.max(
+                1,
+                Number(
+                    window.devicePixelRatio
+                ) || 1
+            );
+
+        const viewportWidth =
+            Math.max(
+                1,
+                Number(window.innerWidth) ||
+                    SCREEN_WIDTH
+            );
+
+        const viewportHeight =
+            Math.max(
+                1,
+                Number(window.innerHeight) ||
+                    SCREEN_HEIGHT
+            );
+
+        /*
+         * 実際に画面へ出る物理ピクセル数に合わせる。
+         * 中途半端なウィンドウサイズにも追従するが、
+         * 1920×1080相当（1.5倍）を上限にする。
+         */
+        const displayScale =
+            Math.min(
+                viewportWidth * pixelRatio /
+                    SCREEN_WIDTH,
+                viewportHeight * pixelRatio /
+                    SCREEN_HEIGHT
+            );
+
+        return Math.min(
+            STORY_STILL_MAX_RENDER_SCALE,
+            Math.max(
+                1,
+                displayScale
+            )
+        );
+    }
+
+    function isStoryStillNativeViewport() {
+        const pixelRatio =
+            Math.max(
+                1,
+                Number(
+                    window.devicePixelRatio
+                ) || 1
+            );
+
+        const physicalWidth =
+            (Number(window.innerWidth) || 0) *
+                pixelRatio;
+
+        const physicalHeight =
+            (Number(window.innerHeight) || 0) *
+                pixelRatio;
+
+        return (
+            Math.abs(
+                physicalWidth -
+                    STORY_STILL_NATIVE_WIDTH
+            ) <= STORY_STILL_NATIVE_SIZE_TOLERANCE &&
+            Math.abs(
+                physicalHeight -
+                    STORY_STILL_NATIVE_HEIGHT
+            ) <= STORY_STILL_NATIVE_SIZE_TOLERANCE
+        );
+    }
+
+    let storyStillNativeCssActive = false;
+
+    function updateStoryStillCanvasDisplay(
+        scene
+    ) {
+        const canvas =
+            Graphics._canvas;
+
+        if (!canvas || !canvas.style) {
+            return;
+        }
+
+        const mobile =
+            !!(
+                window.Utils &&
+                typeof Utils.isMobileDevice ===
+                    "function" &&
+                Utils.isMobileDevice()
+            );
+
+        const useNativeCss =
+            !mobile &&
+            isStoryStillHighResolutionActive(
+                scene
+            ) &&
+            isStoryStillNativeViewport();
+
+        if (useNativeCss) {
+            const pixelRatio =
+                Math.max(
+                    1,
+                    Number(
+                        window.devicePixelRatio
+                    ) || 1
+                );
+
+            /*
+             * 1920×1080の描画バッファをCSSでも1:1にする。
+             * 1920×1079環境では下端1pxだけが画面外になり、
+             * 画面全体へ縮小補間されるのを防ぐ。
+             */
+            canvas.style.width =
+                STORY_STILL_NATIVE_WIDTH /
+                    pixelRatio +
+                "px";
+
+            canvas.style.height =
+                STORY_STILL_NATIVE_HEIGHT /
+                    pixelRatio +
+                "px";
+
+            storyStillNativeCssActive = true;
+            return;
+        }
+
+        if (storyStillNativeCssActive) {
+            /*
+             * スチルを閉じた時や全画面を解除した時は、
+             * MZ本来の表示寸法へ戻す。
+             */
+            canvas.style.width =
+                Graphics.width *
+                    Graphics._realScale +
+                "px";
+
+            canvas.style.height =
+                Graphics.height *
+                    Graphics._realScale +
+                "px";
+
+            storyStillNativeCssActive = false;
+        }
+    }
+
+    function applyStoryStillRenderScale(
+        scale
+    ) {
+        const app =
+            Graphics.app ||
+            Graphics._app;
+
+        const renderer =
+            app && app.renderer;
+
+        if (!renderer) {
+            return;
+        }
+
+        const nextScale =
+            Math.max(
+                1,
+                Number(scale) || 1
+            );
+
+        const view =
+            renderer.view ||
+            Graphics._canvas;
+
+        const expectedPixelWidth =
+            Math.round(
+                Graphics.width *
+                    nextScale
+            );
+
+        const expectedPixelHeight =
+            Math.round(
+                Graphics.height *
+                    nextScale
+            );
+
+        if (
+            Math.abs(
+                storyStillRenderScale -
+                    nextScale
+            ) < 0.001 &&
+            Math.abs(
+                (Number(renderer.resolution) || 1) -
+                    nextScale
+            ) < 0.001 &&
+            view &&
+            view.width === expectedPixelWidth &&
+            view.height === expectedPixelHeight
+        ) {
+            return;
+        }
+
+        /*
+         * MZが決めたCSS上の表示寸法は保持する。
+         * renderer.resize()では内部の描画ピクセル数だけを変える。
+         */
+        const cssWidth =
+            view && view.style
+                ? view.style.width
+                : "";
+
+        const cssHeight =
+            view && view.style
+                ? view.style.height
+                : "";
+
+        renderer.resolution = nextScale;
+        renderer.resize(
+            Graphics.width,
+            Graphics.height
+        );
+
+        if (view && view.style) {
+            view.style.width = cssWidth;
+            view.style.height = cssHeight;
+        }
+
+        storyStillRenderScale = nextScale;
+    }
+
+    function updateStoryStillRenderScale(
+        scene
+    ) {
+        applyStoryStillRenderScale(
+            desiredStoryStillRenderScale(
+                scene
+            )
+        );
+
+        updateStoryStillCanvasDisplay(
+            scene
+        );
+    }
+
+    /*
+     * 全画面化・ウィンドウサイズ変更時、MZ本体の
+     * Graphics._updateCanvas()はcanvas.width / heightを
+     * 論理サイズの1280×720へ戻す。
+     *
+     * 高解像度スチル表示中だけ、その本体処理の直後に
+     * 現在の描画倍率を再適用して原寸描画を維持する。
+     */
+    const _Graphics_updateCanvas_StoryStillHighResolution =
+        Graphics._updateCanvas;
+
+    Graphics._updateCanvas = function() {
+        _Graphics_updateCanvas_StoryStillHighResolution
+            .call(this);
+
+        if (storyStillRenderScale <= 1) {
+            return;
+        }
+
+        const app =
+            this.app ||
+            this._app;
+
+        const renderer =
+            app && app.renderer;
+
+        if (!renderer) {
+            return;
+        }
+
+        const view =
+            renderer.view ||
+            this._canvas;
+
+        const cssWidth =
+            view && view.style
+                ? view.style.width
+                : "";
+
+        const cssHeight =
+            view && view.style
+                ? view.style.height
+                : "";
+
+        renderer.resolution =
+            storyStillRenderScale;
+
+        renderer.resize(
+            this.width,
+            this.height
+        );
+
+        if (view && view.style) {
+            view.style.width = cssWidth;
+            view.style.height = cssHeight;
+        }
+
+        updateStoryStillCanvasDisplay(
+            window.SceneManager
+                ? SceneManager._scene
+                : null
+        );
+    };
 
     let storyConfirmOpen = false;
 
@@ -1917,6 +2393,8 @@ class Sprite_StoryExitButton
 
             this._clickHandler = onClick;
             this._hovered = false;
+            this._enabled = true;
+            this._mirrorX = false;
 
             this._displayWidth =
                 Number(displayWidth) > 0
@@ -1969,7 +2447,8 @@ class Sprite_StoryExitButton
                         : 1;
 
                 this.scale.set(
-                    this._baseScaleX,
+                    this._baseScaleX *
+                        (this._mirrorX ? -1 : 1),
                     this._baseScaleY
                 );
             };
@@ -1990,16 +2469,23 @@ class Sprite_StoryExitButton
         update() {
             super.update();
 
+            if (!this._enabled) {
+                this._hovered = false;
+            }
+
             const zoom =
+                this._enabled &&
                 this.isPressed()
                     ? EPISODE_BUTTON_PRESS_SCALE
-                    : this._hovered
+                    : this._enabled &&
+                        this._hovered
                         ? EPISODE_BUTTON_HOVER_SCALE
                         : 1;
 
             const targetScaleX =
                 this._baseScaleX *
-                zoom;
+                zoom *
+                (this._mirrorX ? -1 : 1);
 
             const targetScaleY =
                 this._baseScaleY *
@@ -2018,6 +2504,7 @@ class Sprite_StoryExitButton
                 ) * 0.24;
 
             const targetOpacity =
+                this._enabled &&
                 this._hovered
                     ? 255
                     : this._idleOpacity;
@@ -2030,7 +2517,9 @@ class Sprite_StoryExitButton
         }
 
         onMouseEnter() {
-            this._hovered = true;
+            if (this._enabled) {
+                this._hovered = true;
+            }
         }
 
         onMouseExit() {
@@ -2041,6 +2530,7 @@ class Sprite_StoryExitButton
             TouchInput.clear();
 
             if (
+                !this._enabled ||
                 typeof this._clickHandler !==
                 "function"
             ) {
@@ -2048,6 +2538,26 @@ class Sprite_StoryExitButton
             }
 
             this._clickHandler();
+        }
+
+        setEnabled(enabled) {
+            this._enabled = !!enabled;
+
+            if (!this._enabled) {
+                this._hovered = false;
+            }
+        }
+
+        isEnabled() {
+            return this._enabled;
+        }
+
+        setMirrorX(mirrorX) {
+            this._mirrorX = !!mirrorX;
+
+            this.scale.x =
+                Math.abs(this.scale.x || 1) *
+                (this._mirrorX ? -1 : 1);
         }
     }
 
@@ -3372,6 +3882,153 @@ class Sprite_StoryExitButton
         }
     }
 
+    class Sprite_StoryAfterEpisodeButton
+        extends Sprite_StoryImageButton {
+
+        constructor(
+            routeId,
+            afterNumber,
+            episodeIndex,
+            episode,
+            onClick
+        ) {
+            const episodeNumber =
+                String(afterNumber)
+                    .padStart(2, "0");
+
+            super(
+                `ui_episode_${routeId}_ex${episodeNumber}`,
+                () => {
+                    if (
+                        episode &&
+                        Number.isInteger(
+                            episodeIndex
+                        ) &&
+                        typeof onClick ===
+                            "function"
+                    ) {
+                        onClick(
+                            episodeIndex,
+                            episode,
+                            afterNumber - 1
+                        );
+                    }
+                }
+            );
+
+            this._episode = episode || null;
+            this._episodeIndex =
+                Number.isInteger(episodeIndex)
+                    ? episodeIndex
+                    : -1;
+            this._afterSlotIndex =
+                afterNumber - 1;
+
+            /*
+             * StoryDataに対応する話がない駅は、
+             * 表示だけしてホバー・押下・選択を無効化。
+             */
+            this.setEnabled(!!episode);
+        }
+    }
+
+    /*
+     * 後日談のStoryDataをEX01～EX06の各駅へ対応付ける。
+     *
+     * 推奨ID：
+     *   momo_ex_01 / ura_ex_01 / kin_ex_01 / ryu_ex_01
+     *
+     * 「momo_ex01」のように下線が一つ少ないIDにも対応。
+     * IDが別形式でも、13話目以降なら順番にEX扱いする。
+     */
+    function makeAfterEpisodeSlots(
+        routeId,
+        episodes
+    ) {
+        const slots =
+            Array.from(
+                {
+                    length:
+                        AFTER_EPISODE_COUNT
+                },
+                () => null
+            );
+
+        const fallbackEntries = [];
+
+        episodes.forEach(
+            (episode, episodeIndex) => {
+                if (!episode) {
+                    return;
+                }
+
+                const id =
+                    String(
+                        episode.id || ""
+                    );
+
+                const match =
+                    id.match(
+                        /_ex_?(\d{1,2})$/i
+                    );
+
+                if (match) {
+                    const slotIndex =
+                        Number(match[1]) - 1;
+
+                    if (
+                        slotIndex >= 0 &&
+                        slotIndex <
+                            AFTER_EPISODE_COUNT &&
+                        !slots[slotIndex]
+                    ) {
+                        slots[slotIndex] = {
+                            episode,
+                            episodeIndex
+                        };
+                    }
+
+                    return;
+                }
+
+                if (
+                    episodeIndex >=
+                    MAIN_EPISODE_COUNT
+                ) {
+                    fallbackEntries.push({
+                        episode,
+                        episodeIndex
+                    });
+                }
+            }
+        );
+
+        for (
+            const entry of fallbackEntries
+        ) {
+            const emptyIndex =
+                slots.indexOf(null);
+
+            if (emptyIndex < 0) {
+                break;
+            }
+
+            slots[emptyIndex] = entry;
+        }
+
+        return slots;
+    }
+
+    function isPlayableStoryEpisode(
+        episode
+    ) {
+        return !!(
+            episode &&
+            Array.isArray(episode.pages) &&
+            episode.pages.length > 0
+        );
+    }
+
     function stripEpisodeNumberFromTitle(
         title
     ) {
@@ -3379,7 +4036,7 @@ class Sprite_StoryExitButton
             String(title || "");
 
         const stripped = source.replace(
-            /^\s*第\s*[0-9０-９]+\s*話\s*[：:・\-–—]?\s*/u,
+            /^\s*(?:後日談\s*)?第\s*[0-9０-９]+\s*話\s*[：:・\-–—]?\s*/u,
             ""
         );
 
@@ -3628,9 +4285,27 @@ class Sprite_StoryExitButton
              */
             this._selectedEpisodeRouteId = "";
             this._selectedEpisodeIndex = 0;
+            this._selectedMainEpisodeIndex = 0;
+            this._selectedAfterEpisodeIndex = -1;
+            this._selectedAfterSlotIndex = -1;
             this._episodeSelectedOverlay = null;
             this._episodeNumberSprite = null;
             this._episodeTitleSprite = null;
+            this._episodeStartButton = null;
+
+            /*
+             * 話数路線図の2ページ表示。
+             * main＝01～12 / after＝EX01～EX06。
+             */
+            this._episodePage = "main";
+            this._episodeMapViewport = null;
+            this._episodeMapMask = null;
+            this._episodePageStrip = null;
+            this._episodeMainButtons = [];
+            this._episodeAfterButtons = [];
+            this._episodeAfterSlots = [];
+            this._episodePageArrow = null;
+            this._episodePageSlideState = null;
 
             /*
              * ギャラリー絞り込み。
@@ -3975,6 +4650,19 @@ class Sprite_StoryExitButton
         clearContent() {
             cancelPendingGalleryThumbnailLoads();
 
+            this._episodeMapViewport = null;
+            this._episodeMapMask = null;
+            this._episodePageStrip = null;
+            this._episodeMainButtons = [];
+            this._episodeAfterButtons = [];
+            this._episodeAfterSlots = [];
+            this._episodePageArrow = null;
+            this._episodePageSlideState = null;
+            this._episodeSelectedOverlay = null;
+            this._episodeNumberSprite = null;
+            this._episodeTitleSprite = null;
+            this._episodeStartButton = null;
+
             if (this._galleryViewer) {
                 this.disposeGalleryViewerBitmaps(
                     this._galleryViewer
@@ -3988,7 +4676,9 @@ class Sprite_StoryExitButton
                 this.removeChild(sprite);
 
                 if (sprite.destroy) {
-                    sprite.destroy();
+                    sprite.destroy({
+                        children: true
+                    });
                 }
             }
 
@@ -6102,69 +6792,91 @@ class Sprite_StoryExitButton
                     ? route.episodes
                     : [];
 
+            const routeChanged =
+                this._selectedEpisodeRouteId !==
+                routeId;
+
             /*
              * 別ルートへ移動した時だけ01へ戻す。
              * 本編終了やEXITで同じルートへ戻った時は、
-             * 直前に選んでいた話数を維持する。
+             * 本編 / EXのページと選択駅を維持する。
              */
-            if (
-                this._selectedEpisodeRouteId !==
-                routeId
-            ) {
+            if (routeChanged) {
                 this._selectedEpisodeRouteId =
                     routeId;
 
-                this._selectedEpisodeIndex = 0;
+                this._episodePage = "main";
+                this._selectedMainEpisodeIndex = 0;
+                this._selectedAfterEpisodeIndex = -1;
+                this._selectedAfterSlotIndex = -1;
             }
 
-            if (episodes.length > 0) {
-                this._selectedEpisodeIndex =
+            const mainEpisodeCount =
+                Math.min(
+                    episodes.length,
+                    MAIN_EPISODE_COUNT
+                );
+
+            if (mainEpisodeCount > 0) {
+                this._selectedMainEpisodeIndex =
                     Math.max(
                         0,
                         Math.min(
-                            this._selectedEpisodeIndex,
-                            episodes.length - 1,
-                            EPISODE_NODE_POSITIONS.length - 1
+                            this._selectedMainEpisodeIndex,
+                            mainEpisodeCount - 1
                         )
                     );
+            } else {
+                this._selectedMainEpisodeIndex = -1;
             }
-            else {
-                this._selectedEpisodeIndex = 0;
-            }
 
-            /*
-             * 01～12の駅ボタン。
-             */
-            episodes
-                .slice(
-                    0,
-                    EPISODE_NODE_POSITIONS.length
-                )
-                .forEach(
-                    (episode, index) => {
-                        const position =
-                            EPISODE_NODE_POSITIONS[
-                                index
-                            ];
-
-                        const button =
-                            new Sprite_StoryEpisodeButton(
-                                routeId,
-                                index,
-                                episode,
-                                selectedIndex => {
-                                    this.selectEpisodeIndex(
-                                        selectedIndex
-                                    );
-                                }
-                            );
-
-                        button.x = position[0];
-                        button.y = position[1];
-
-                        this.addContent(button);
-                    }
+            this._episodeAfterSlots =
+                makeAfterEpisodeSlots(
+                    routeId,
+                    episodes
                 );
+
+            const selectedAfterSlot =
+                this._episodeAfterSlots.findIndex(
+                    entry =>
+                        entry &&
+                        entry.episodeIndex ===
+                            this._selectedAfterEpisodeIndex
+                );
+
+            if (selectedAfterSlot >= 0) {
+                this._selectedAfterSlotIndex =
+                    selectedAfterSlot;
+            } else {
+                const firstPlayableSlot =
+                    this._episodeAfterSlots.findIndex(
+                        entry =>
+                            entry &&
+                            isPlayableStoryEpisode(
+                                entry.episode
+                            )
+                    );
+
+                this._selectedAfterSlotIndex =
+                    firstPlayableSlot;
+
+                this._selectedAfterEpisodeIndex =
+                    firstPlayableSlot >= 0
+                        ? this._episodeAfterSlots[
+                            firstPlayableSlot
+                        ].episodeIndex
+                        : -1;
+            }
+
+            this._selectedEpisodeIndex =
+                this._episodePage === "after"
+                    ? this._selectedAfterEpisodeIndex
+                    : this._selectedMainEpisodeIndex;
+
+            this.createEpisodeMap(
+                routeId,
+                episodes
+            );
 
             /*
              * 選択中の駅へ重ねる発光枠。
@@ -6179,8 +6891,40 @@ class Sprite_StoryExitButton
             this._episodeSelectedOverlay
                 .anchor.set(0.5, 0.5);
 
-            this.addContent(
+            this._episodePageStrip.addChild(
                 this._episodeSelectedOverlay
+            );
+
+            /*
+             * ページ送り。
+             * 本編では右向き、EXでは左右反転して左向き。
+             */
+            this._episodePageArrow =
+                new Sprite_StoryImageButton(
+                    EPISODE_PAGE_ARROW_PICTURE,
+                    () => {
+                        const nextPage =
+                            this._episodePage ===
+                                "main"
+                                ? "after"
+                                : "main";
+
+                        this.startEpisodePageSlide(
+                            nextPage
+                        );
+                    },
+                    EPISODE_PAGE_ARROW_SIZE[0],
+                    EPISODE_PAGE_ARROW_SIZE[1]
+                );
+
+            this._episodePageArrow.x =
+                EPISODE_PAGE_ARROW_POSITION[0];
+
+            this._episodePageArrow.y =
+                EPISODE_PAGE_ARROW_POSITION[1];
+
+            this.addContent(
+                this._episodePageArrow
             );
 
             /*
@@ -6252,7 +6996,7 @@ class Sprite_StoryExitButton
             /*
              * 開始。色はルート別画像。
              */
-            const startButton =
+            this._episodeStartButton =
                 new Sprite_StoryImageButton(
                     `ui_episode_start_${routeId}`,
                     () => {
@@ -6270,19 +7014,198 @@ class Sprite_StoryExitButton
                         );
                     }
                 );
-            startButton.x =
+
+            this._episodeStartButton.x =
                 EPISODE_START_POSITION[0];
 
-            startButton.y =
+            this._episodeStartButton.y =
                 EPISODE_START_POSITION[1];
 
-            this.addContent(startButton);
+            this.addContent(
+                this._episodeStartButton
+            );
 
             this.refreshEpisodeSelection();
+            this.refreshEpisodePageInteractivity();
+        }
+
+        createEpisodeMap(
+            routeId,
+            episodes
+        ) {
+            this._episodeMapViewport =
+                new Sprite();
+
+            this._episodeMapViewport.x =
+                EPISODE_MAP_VIEWPORT.x;
+
+            this._episodeMapViewport.y =
+                EPISODE_MAP_VIEWPORT.y;
+
+            this._episodePageStrip =
+                new Sprite();
+
+            this._episodePageStrip.x =
+                this._episodePage === "after"
+                    ? -EPISODE_MAP_VIEWPORT.width
+                    : 0;
+
+            this._episodeMapViewport.addChild(
+                this._episodePageStrip
+            );
+
+            const mainPage = new Sprite();
+            const afterPage = new Sprite();
+
+            mainPage.x = 0;
+            afterPage.x =
+                EPISODE_MAP_VIEWPORT.width;
+
+            this._episodePageStrip.addChild(
+                mainPage
+            );
+
+            this._episodePageStrip.addChild(
+                afterPage
+            );
+
+            const mainTrack =
+                new Sprite(
+                    ImageManager.loadPicture(
+                        `ui_episode_track_main_${routeId}`
+                    )
+                );
+
+            const afterTrack =
+                new Sprite(
+                    ImageManager.loadPicture(
+                        `ui_episode_track_after_${routeId}`
+                    )
+                );
+
+            mainPage.addChild(mainTrack);
+            afterPage.addChild(afterTrack);
+
+            this._episodeMainButtons = [];
+
+            episodes
+                .slice(
+                    0,
+                    MAIN_EPISODE_COUNT
+                )
+                .forEach(
+                    (episode, index) => {
+                        const position =
+                            MAIN_EPISODE_NODE_POSITIONS[
+                                index
+                            ];
+
+                        const button =
+                            new Sprite_StoryEpisodeButton(
+                                routeId,
+                                index,
+                                episode,
+                                selectedIndex => {
+                                    this.selectEpisodeIndex(
+                                        selectedIndex,
+                                        "main"
+                                    );
+                                }
+                            );
+
+                        button.x = position[0];
+                        button.y = position[1];
+
+                        mainPage.addChild(button);
+
+                        this._episodeMainButtons
+                            .push(button);
+                    }
+                );
+
+            this._episodeAfterButtons = [];
+
+            for (
+                let slotIndex = 0;
+                slotIndex <
+                    AFTER_EPISODE_COUNT;
+                slotIndex++
+            ) {
+                const position =
+                    AFTER_EPISODE_NODE_POSITIONS[
+                        slotIndex
+                    ];
+
+                const entry =
+                    this._episodeAfterSlots[
+                        slotIndex
+                    ];
+
+                const button =
+                    new Sprite_StoryAfterEpisodeButton(
+                        routeId,
+                        slotIndex + 1,
+                        entry
+                            ? entry.episodeIndex
+                            : -1,
+                        entry
+                            ? entry.episode
+                            : null,
+                        (
+                            selectedIndex,
+                            episode,
+                            selectedSlotIndex
+                        ) => {
+                            this.selectEpisodeIndex(
+                                selectedIndex,
+                                "after",
+                                selectedSlotIndex
+                            );
+                        }
+                    );
+
+                button.x = position[0];
+                button.y = position[1];
+
+                afterPage.addChild(button);
+
+                this._episodeAfterButtons
+                    .push(button);
+            }
+
+            this.addContent(
+                this._episodeMapViewport
+            );
+
+            /*
+             * 透過PNGのアルファをそのままマスクに使う。
+             * これにより、矩形ではなく角欠けも含めて切り抜ける。
+             */
+            this._episodeMapMask =
+                new Sprite(
+                    ImageManager.loadPicture(
+                        EPISODE_MAP_MASK_PICTURE
+                    )
+                );
+
+            this._episodeMapMask.x =
+                EPISODE_MAP_VIEWPORT.x;
+
+            this._episodeMapMask.y =
+                EPISODE_MAP_VIEWPORT.y;
+
+            this.addContent(
+                this._episodeMapMask
+            );
+
+            this._episodeMapViewport.mask =
+                this._episodeMapMask;
         }
 
         selectEpisodeIndex(
-            index
+            index,
+            page = "main",
+            afterSlotIndex = -1
         ) {
             const episodes =
                 this._currentRoute &&
@@ -6293,15 +7216,182 @@ class Sprite_StoryExitButton
                     : [];
 
             if (
+                this._episodePageSlideState ||
                 index < 0 ||
                 index >= episodes.length ||
-                index >= EPISODE_NODE_POSITIONS.length
+                !isPlayableStoryEpisode(
+                    episodes[index]
+                )
             ) {
                 return;
             }
 
+            if (page === "after") {
+                if (
+                    this._episodePage !== "after" ||
+                    afterSlotIndex < 0 ||
+                    afterSlotIndex >=
+                        AFTER_EPISODE_COUNT
+                ) {
+                    return;
+                }
+
+                this._selectedAfterEpisodeIndex =
+                    index;
+
+                this._selectedAfterSlotIndex =
+                    afterSlotIndex;
+            } else {
+                if (
+                    this._episodePage !== "main" ||
+                    index >= MAIN_EPISODE_COUNT
+                ) {
+                    return;
+                }
+
+                this._selectedMainEpisodeIndex =
+                    index;
+            }
+
             this._selectedEpisodeIndex = index;
             this.refreshEpisodeSelection();
+        }
+
+        startEpisodePageSlide(
+            targetPage
+        ) {
+            if (
+                this._episodePageSlideState ||
+                !this._episodePageStrip ||
+                (
+                    targetPage !== "main" &&
+                    targetPage !== "after"
+                ) ||
+                targetPage === this._episodePage
+            ) {
+                return;
+            }
+
+            TouchInput.clear();
+
+            const targetX =
+                targetPage === "after"
+                    ? -EPISODE_MAP_VIEWPORT.width
+                    : 0;
+
+            this._episodePageSlideState = {
+                targetPage,
+                frame: 0,
+                duration:
+                    EPISODE_PAGE_SLIDE_FRAMES,
+                startX:
+                    this._episodePageStrip.x,
+                targetX
+            };
+
+            this.refreshEpisodePageInteractivity();
+        }
+
+        updateEpisodePageSlide() {
+            const state =
+                this._episodePageSlideState;
+
+            if (
+                !state ||
+                !this._episodePageStrip
+            ) {
+                return;
+            }
+
+            state.frame++;
+
+            const progress =
+                Math.min(
+                    1,
+                    state.frame /
+                        Math.max(
+                            1,
+                            state.duration
+                        )
+                );
+
+            /*
+             * 最初は素早く、終点ですっと止まるease-out。
+             */
+            const eased =
+                1 - Math.pow(
+                    1 - progress,
+                    3
+                );
+
+            this._episodePageStrip.x =
+                state.startX +
+                (
+                    state.targetX -
+                    state.startX
+                ) * eased;
+
+            if (progress < 1) {
+                return;
+            }
+
+            this._episodePageStrip.x =
+                state.targetX;
+
+            this._episodePage =
+                state.targetPage;
+
+            this._episodePageSlideState = null;
+
+            this._selectedEpisodeIndex =
+                this._episodePage === "after"
+                    ? this._selectedAfterEpisodeIndex
+                    : this._selectedMainEpisodeIndex;
+
+            this.refreshEpisodeSelection();
+            this.refreshEpisodePageInteractivity();
+        }
+
+        refreshEpisodePageInteractivity() {
+            const sliding =
+                !!this._episodePageSlideState;
+
+            this._episodeMainButtons.forEach(
+                button => {
+                    button.setEnabled(
+                        !sliding &&
+                        this._episodePage ===
+                            "main" &&
+                        isPlayableStoryEpisode(
+                            button._episode
+                        )
+                    );
+                }
+            );
+
+            this._episodeAfterButtons.forEach(
+                button => {
+                    button.setEnabled(
+                        !sliding &&
+                        this._episodePage ===
+                            "after" &&
+                        isPlayableStoryEpisode(
+                            button._episode
+                        )
+                    );
+                }
+            );
+
+            if (this._episodePageArrow) {
+                this._episodePageArrow
+                    .setMirrorX(
+                        this._episodePage ===
+                            "after"
+                    );
+
+                this._episodePageArrow
+                    .setEnabled(!sliding);
+            }
         }
 
         refreshEpisodeSelection() {
@@ -6317,17 +7407,67 @@ class Sprite_StoryExitButton
             const index =
                 this._selectedEpisodeIndex;
 
-            const episode =
-                episodes[index];
+            let episode =
+                index >= 0
+                    ? episodes[index]
+                    : null;
 
-            const position =
-                EPISODE_NODE_POSITIONS[index];
+            let position = null;
+            let selectedPage = null;
+            let displayNumber = "";
+
+            if (
+                index >= 0 &&
+                index < MAIN_EPISODE_COUNT
+            ) {
+                position =
+                    MAIN_EPISODE_NODE_POSITIONS[
+                        index
+                    ];
+
+                selectedPage = "main";
+                displayNumber =
+                    `EPISODE ${String(index + 1).padStart(2, "0")}`;
+            } else {
+                const afterSlotIndex =
+                    this._episodeAfterSlots.findIndex(
+                        entry =>
+                            entry &&
+                            entry.episodeIndex ===
+                                index
+                    );
+
+                if (afterSlotIndex >= 0) {
+                    position =
+                        AFTER_EPISODE_NODE_POSITIONS[
+                            afterSlotIndex
+                        ];
+
+                    selectedPage = "after";
+                    displayNumber =
+                        `EX EPISODE ${String(afterSlotIndex + 1).padStart(2, "0")}`;
+                }
+            }
+
+            const selectionBelongsToPage =
+                selectedPage ===
+                    this._episodePage &&
+                isPlayableStoryEpisode(episode);
+
+            if (!selectionBelongsToPage) {
+                episode = null;
+            }
 
             if (
                 this._episodeSelectedOverlay &&
                 position
             ) {
                 this._episodeSelectedOverlay.x =
+                    (
+                        selectedPage === "after"
+                            ? EPISODE_MAP_VIEWPORT.width
+                            : 0
+                    ) +
                     position[0] +
                     EPISODE_SELECTED_OFFSET_X;
 
@@ -6336,7 +7476,13 @@ class Sprite_StoryExitButton
                     EPISODE_SELECTED_OFFSET_Y;
 
                 this._episodeSelectedOverlay.visible =
-                    !!episode;
+                    selectionBelongsToPage &&
+                    !this._episodePageSlideState;
+            } else if (
+                this._episodeSelectedOverlay
+            ) {
+                this._episodeSelectedOverlay.visible =
+                    false;
             }
 
             if (this._episodeNumberSprite) {
@@ -6353,12 +7499,13 @@ class Sprite_StoryExitButton
                 bitmap.outlineWidth = 2;
                 bitmap.fontSize = 30;
 
-                const episodeNumber =
-                    String(index + 1)
-                        .padStart(2, "0");
-
                 bitmap.drawText(
-                    `EPISODE ${episodeNumber}`,
+                    episode
+                        ? displayNumber
+                        : this._episodePage ===
+                            "after"
+                            ? "AFTER STORY"
+                            : "",
                     0,
                     0,
                     EPISODE_NUMBER_RECT.width,
@@ -6389,7 +7536,10 @@ class Sprite_StoryExitButton
                         ? stripEpisodeNumberFromTitle(
                             episode.title
                         )
-                        : "";
+                        : this._episodePage ===
+                            "after"
+                            ? "準備中"
+                            : "";
 
                 drawFittedText(
                     bitmap,
@@ -6400,6 +7550,16 @@ class Sprite_StoryExitButton
                     24,
                     "left"
                 );
+            }
+
+            if (this._episodeStartButton) {
+                this._episodeStartButton
+                    .setEnabled(
+                        !this._episodePageSlideState &&
+                        isPlayableStoryEpisode(
+                            episode
+                        )
+                    );
             }
         }
 
@@ -6639,6 +7799,12 @@ update() {
      * その後で通常の子Spriteを更新する。
      */
     super.update();
+
+    /*
+     * 話数選択の本編 / EXページを横スライド。
+     * 矢印押下と同じフレームから動き始める。
+     */
+    this.updateEpisodePageSlide();
 
     /*
      * ギャラリー表示中だけ、
@@ -9047,6 +10213,14 @@ Scene_Map.prototype.update =
         updateStoryTransition();
 
         updateStoryEpisodePlayback();
+
+        /*
+         * スチル／CGビューアの状態とウィンドウサイズに応じて、
+         * PCだけ描画解像度を切り替える。
+         */
+        updateStoryStillRenderScale(
+            this
+        );
     };
     /*
      * マップを離れた場合に
@@ -9084,6 +10258,13 @@ Scene_Map.prototype.update =
             storyStillTransitionState = null;
             resetStoryStillBlackOverlay();
             releaseStoryEpisodeStills();
+
+            /*
+             * マップを離れる前に必ず通常解像度へ戻す。
+             */
+            applyStoryStillRenderScale(
+                1
+            );
 
             _Scene_Map_terminate.call(
                 this

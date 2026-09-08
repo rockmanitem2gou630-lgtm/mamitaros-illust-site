@@ -10,8 +10,10 @@
  * @requiredAssets img/pictures/background
  * @requiredAssets img/pictures/background_alley
  * @requiredAssets img/pictures/background_alley_night
+ * @requiredAssets img/pictures/background_cafe
  * @requiredAssets img/pictures/background_corridor
  * @requiredAssets img/pictures/background_mio_room_night
+ * @requiredAssets img/pictures/background_night
  * @requiredAssets img/pictures/background_riverside_night
  * @requiredAssets img/pictures/background_town
  * @requiredAssets img/pictures/background_town_night
@@ -57,6 +59,8 @@
  * @requiredAssets img/pictures/CG_momotaros_ep12_2_02
  * @requiredAssets img/pictures/CG_momotaros_ep12_2_03
  * @requiredAssets img/pictures/CG_momotaros_ep12_2_04
+ * @requiredAssets img/pictures/CG_momotaros_ep15_01
+ * @requiredAssets img/pictures/CG_momotaros_ep18_01
  * @requiredAssets img/pictures/CG_ryutaros_ep05_01
  * @requiredAssets img/pictures/CG_ryutaros_ep05_02
  * @requiredAssets img/pictures/CG_ryutaros_ep05_03
@@ -74,6 +78,8 @@
  * @requiredAssets img/pictures/CG_urataros_ep08_02
  * @requiredAssets img/pictures/CG_urataros_ep08_03
  * @requiredAssets img/pictures/CG_urataros_ep11_01
+ * @requiredAssets img/pictures/CG_urataros_ep17_01
+ * @requiredAssets img/pictures/CG_urataros_ep18_01
  * @requiredAssets img/pictures/CGtest
  * @requiredAssets img/pictures/gallery_cg_frame
  * @requiredAssets img/pictures/gallery_cg_frame_locked
@@ -108,8 +114,10 @@
  * @requiredAssets img/pictures/name_ryutaros
  * @requiredAssets img/pictures/name_urataros
  * @requiredAssets img/pictures/portrait_hana_base_default_angry
+ * @requiredAssets img/pictures/portrait_hana_base_default_exasperated
  * @requiredAssets img/pictures/portrait_hana_base_default_normal
  * @requiredAssets img/pictures/portrait_hana_base_default_smile
+ * @requiredAssets img/pictures/portrait_hana_base_default_surprised
  * @requiredAssets img/pictures/portrait_kintaros_base_default_angry
  * @requiredAssets img/pictures/portrait_kintaros_base_default_cry
  * @requiredAssets img/pictures/portrait_kintaros_base_default_normal
@@ -127,6 +135,7 @@
  * @requiredAssets img/pictures/portrait_momotaros_base_default_surprised
  * @requiredAssets img/pictures/portrait_naomi_base_default_normal
  * @requiredAssets img/pictures/portrait_naomi_base_default_smile
+ * @requiredAssets img/pictures/portrait_naomi_base_default_surprised
  * @requiredAssets img/pictures/portrait_ryotaro_base_ryotaro_normal
  * @requiredAssets img/pictures/portrait_ryotaro_base_ryotaro_shy
  * @requiredAssets img/pictures/portrait_ryotaro_base_ryotaro_smile
@@ -258,6 +267,11 @@
  * @requiredAssets img/pictures/portrait_ryotaro_urataros_ryutaros_smile
  * @requiredAssets img/pictures/portrait_ryotaro_urataros_ryutaros_surprised
  * @requiredAssets img/pictures/portrait_ryotaro_urataros_ryutaros_wrysmile
+ * @requiredAssets img/pictures/portrait_ryotaro_urataros_urataros_noglasses_flustered
+ * @requiredAssets img/pictures/portrait_ryotaro_urataros_urataros_noglasses_intense
+ * @requiredAssets img/pictures/portrait_ryotaro_urataros_urataros_noglasses_normal
+ * @requiredAssets img/pictures/portrait_ryotaro_urataros_urataros_noglasses_shy
+ * @requiredAssets img/pictures/portrait_ryotaro_urataros_urataros_noglasses_wrysmile
  * @requiredAssets img/pictures/portrait_ryotaro_urataros_urataros_normal
  * @requiredAssets img/pictures/portrait_ryotaro_urataros_urataros_serious
  * @requiredAssets img/pictures/portrait_ryotaro_urataros_urataros_shy
@@ -291,6 +305,12 @@
  * @requiredAssets img/pictures/ui_episode_kin_10
  * @requiredAssets img/pictures/ui_episode_kin_11
  * @requiredAssets img/pictures/ui_episode_kin_12
+ * @requiredAssets img/pictures/ui_episode_kin_ex01
+ * @requiredAssets img/pictures/ui_episode_kin_ex02
+ * @requiredAssets img/pictures/ui_episode_kin_ex03
+ * @requiredAssets img/pictures/ui_episode_kin_ex04
+ * @requiredAssets img/pictures/ui_episode_kin_ex05
+ * @requiredAssets img/pictures/ui_episode_kin_ex06
  * @requiredAssets img/pictures/ui_episode_momo_01
  * @requiredAssets img/pictures/ui_episode_momo_02
  * @requiredAssets img/pictures/ui_episode_momo_03
@@ -303,6 +323,13 @@
  * @requiredAssets img/pictures/ui_episode_momo_10
  * @requiredAssets img/pictures/ui_episode_momo_11
  * @requiredAssets img/pictures/ui_episode_momo_12
+ * @requiredAssets img/pictures/ui_episode_momo_ex01
+ * @requiredAssets img/pictures/ui_episode_momo_ex02
+ * @requiredAssets img/pictures/ui_episode_momo_ex03
+ * @requiredAssets img/pictures/ui_episode_momo_ex04
+ * @requiredAssets img/pictures/ui_episode_momo_ex05
+ * @requiredAssets img/pictures/ui_episode_momo_ex06
+ * @requiredAssets img/pictures/ui_episode_page_arrow
  * @requiredAssets img/pictures/ui_episode_ryu_01
  * @requiredAssets img/pictures/ui_episode_ryu_02
  * @requiredAssets img/pictures/ui_episode_ryu_03
@@ -315,6 +342,12 @@
  * @requiredAssets img/pictures/ui_episode_ryu_10
  * @requiredAssets img/pictures/ui_episode_ryu_11
  * @requiredAssets img/pictures/ui_episode_ryu_12
+ * @requiredAssets img/pictures/ui_episode_ryu_ex01
+ * @requiredAssets img/pictures/ui_episode_ryu_ex02
+ * @requiredAssets img/pictures/ui_episode_ryu_ex03
+ * @requiredAssets img/pictures/ui_episode_ryu_ex04
+ * @requiredAssets img/pictures/ui_episode_ryu_ex05
+ * @requiredAssets img/pictures/ui_episode_ryu_ex06
  * @requiredAssets img/pictures/ui_episode_selected_kin
  * @requiredAssets img/pictures/ui_episode_selected_momo
  * @requiredAssets img/pictures/ui_episode_selected_ryu
@@ -323,6 +356,15 @@
  * @requiredAssets img/pictures/ui_episode_start_momo
  * @requiredAssets img/pictures/ui_episode_start_ryu
  * @requiredAssets img/pictures/ui_episode_start_ura
+ * @requiredAssets img/pictures/ui_episode_track_after_kin
+ * @requiredAssets img/pictures/ui_episode_track_after_momo
+ * @requiredAssets img/pictures/ui_episode_track_after_ryu
+ * @requiredAssets img/pictures/ui_episode_track_after_ura
+ * @requiredAssets img/pictures/ui_episode_track_main_kin
+ * @requiredAssets img/pictures/ui_episode_track_main_momo
+ * @requiredAssets img/pictures/ui_episode_track_main_ryu
+ * @requiredAssets img/pictures/ui_episode_track_main_ura
+ * @requiredAssets img/pictures/ui_episode_track_mask
  * @requiredAssets img/pictures/ui_episode_ura_01
  * @requiredAssets img/pictures/ui_episode_ura_02
  * @requiredAssets img/pictures/ui_episode_ura_03
@@ -335,6 +377,12 @@
  * @requiredAssets img/pictures/ui_episode_ura_10
  * @requiredAssets img/pictures/ui_episode_ura_11
  * @requiredAssets img/pictures/ui_episode_ura_12
+ * @requiredAssets img/pictures/ui_episode_ura_ex01
+ * @requiredAssets img/pictures/ui_episode_ura_ex02
+ * @requiredAssets img/pictures/ui_episode_ura_ex03
+ * @requiredAssets img/pictures/ui_episode_ura_ex04
+ * @requiredAssets img/pictures/ui_episode_ura_ex05
+ * @requiredAssets img/pictures/ui_episode_ura_ex06
  * @requiredAssets img/pictures/ui_story_pass_kin
  * @requiredAssets img/pictures/ui_story_pass_momo
  * @requiredAssets img/pictures/ui_story_pass_ryuta

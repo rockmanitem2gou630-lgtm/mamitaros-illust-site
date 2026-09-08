@@ -1892,6 +1892,12 @@ let changeClothesReturnState = null;
 let pendingTalkPreload = null;
 
 /*
+ * 憑依横取りの暗転中に、すでに初期立ち絵を配置した会話。
+ * 明転後に同じparticipantsを再配置しないために使う。
+ */
+let preparedPostStealTalk = null;
+
+/*
  * デバッグ指定された会話を
  * 条件成立時に必ず再生する。
  */
@@ -1978,6 +1984,13 @@ const DEBUG_FORCE_TALK_ENABLED = true;
  *
  * portraitLighting: "normal",
  *   → 環境光を通常へ戻す
+ *
+ * storyUiBlackFadeOut: 0.5,
+ * storyStillClearOnBlack: true,
+ *   → UI黒幕を保持したスチル場面から、
+ *     スチルを黒幕の裏で即時撤去して立ち絵へ戻す
+ *   → スチル終了用フェードは重ねず、
+ *     UI黒幕一枚だけを指定秒数でフェードアウトする
  *
  * 本当に身体の内側から話す場合は、
  * 両方を一緒に指定する。
@@ -55895,33 +55908,6 @@ tags: [
             speaker: "mio"
         }
     ],
-
-    pages: [
-           {
-            speaker: "momotaros",
-            expression:
-                "portrait_momotaros_base_default_normal"
-        },
-        {
-            speaker: "urataros",
-            expression:
-                "portrait_urataros_base_default_smile"
-        },
-        {
-            speaker: "kintaros",
-            expression:
-                "portrait_kintaros_base_default_normal"
-        },
-        {
-            speaker: "ryutaros",
-            expression:
-                "portrait_ryutaros_base_default_normal"
-        },
-        {
-            speaker: "mio"
-        }
-    ],
-
     pages: [
         {
             speaker: "kintaros",
@@ -137252,6 +137238,293 @@ tags: [
                 "portrait_ryutaros_base_default_smile"
         },
         {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "モモタロス！\n見て！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "あ？"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_grin",
+            text:
+                "犬！！！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "うぉあ゛っ！？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "モモ？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "先輩、犬嫌いだもんね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "ち、違ぇ！\n犬があれで、こっちが、その！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "だから来んなっていうか\nそっち行けっつーか！！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "ここではリントの言葉で話せ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "日本語だわ！！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "途中ちょっと怪しかったよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "澪まで乗るな！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "犬かわいいよ？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "分かったから\nこっち連れてくんな……！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros",
+        "urataros",
+        "ryutaros",
+        "mio",
+        "dog",
+        "momotaros_dog_fear",
+        "kuuga_parody",
+        "lint_language"
+    ]
+},
+{
+    possessedBy: "momotaros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "momotaros",
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "モモ、さっきから\n鏡見て何してるの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "別に何もしてねぇ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ポーズ取ってなかった？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "取ってねぇ！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "そう？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "……。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "変身！"
+        },
+        {
+            pagePossession: "ryutaros",
+
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "そしてアドベントせよ！"
+        },
+        {
+            speaker: "momotaros",
+            darkenPortraits: true,
+            innerWindow: true,
+            text:
+                "なんでお前が出てくんだよ！！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "かっこよかったから\n僕もやる！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "リュウタに変身したね。"
+        },
+        {
+            speaker: "momotaros",
+            darkenPortraits: true,
+            innerWindow: true,
+            text:
+                "変身じゃねぇ！\n横取りだ！！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "変身！"
+        },
+        {
+            speaker: "momotaros",
+            darkenPortraits: true,
+            innerWindow: true,
+            text:
+                "二回やんな！！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "じゃあ返す！"
+        },
+        {
+            pagePossession: "momotaros",
+
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "……。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "続きどうぞ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "もうやらねぇ！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros",
+        "ryutaros",
+        "mio",
+        "m_ryotaro",
+        "imagin_preference",
+        "mirror",
+        "transformation_pose",
+        "temporary_possession_steal",
+        "ryuki_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile"
+        },
+        {
             speaker: "mio"
         },
         {
@@ -151741,6 +152014,27 @@ if (speakerId) {
         0
     );
 
+    /*
+     * showPicture()は新しいピクチャの色調を
+     * 通常値へ初期化する。
+     *
+     * startPortraitLighting: "night" の会話開始時に
+     * このままフェードインすると、最初の話者判定が
+     * 行われるまで通常色の立ち絵が一瞬見えてしまう。
+     *
+     * 新規立ち絵がまだ透明なうちに、現在の環境光を
+     * 0フレームで適用してから表示を開始する。
+     * 通常環境では[0, 0, 0, 0]になるため、
+     * 既存の昼・通常会話の見た目には影響しない。
+     */
+    $gameScreen.tintPicture(
+        targetPictureId,
+        applyPortraitLightingToTone(
+            ACTIVE_PORTRAIT_TONE
+        ),
+        0
+    );
+
     $gameScreen.movePicture(
         targetPictureId,
         1,
@@ -154888,14 +155182,40 @@ if (action.type === "steal") {
      */
     if (action.afterTalk) {
     /*
-     * 画面が完全に暗い今のうちに、
-     * 横取り後会話の立ち絵だけ配置する。
-     *
-     * この時点では文章を登録しない。
+     * 横取り後の憑依者・衣装状態が確定してから、
+     * 実際に表示する画像名を収集して先読みする。
+     * 未読込なら黒画面を維持して待つ。
      */
+    const preloadNames =
+        collectTalkPreloadNames(
+            action.afterTalk
+        );
+
+    startPicturePreloads(
+        preloadNames.background
+    );
+
+    action.postStealPreloadBitmaps =
+        startPicturePreloads(
+            preloadNames.blocking
+        );
+
+    if (
+        !arePreloadBitmapsReady(
+            action.postStealPreloadBitmaps
+        )
+    ) {
+        pendingPostStealTalk =
+            action.afterTalk;
+
+        return false;
+    }
+
     prepareTalkPortraits(
         action.afterTalk
     );
+
+    action.postStealPreloadBitmaps = null;
 
     /*
      * 会話本体は、
@@ -154913,7 +155233,7 @@ if (action.type === "steal") {
     );
 }
 
-    return;
+    return true;
 }
     if (action.type === "end") {
     possessionState.active =
@@ -156421,17 +156741,48 @@ function makeStorySceneOnBlack(
     return () => {
         /*
          * 黒画面になった瞬間にStoryスチルを片付ける。
-         * フェードアウト自体は黒の裏で進むため、
-         * 次の場面が開く頃にはCGが残らない。
+         *
+         * UI黒幕を保持している場合は、すでに画面全体が
+         * 完全な黒で隠れている。この状態で通常の
+         * hideStillTransition()を使うと、
+         *
+         *   スチル終了用フェード
+         *   → UI黒幕解除フェード
+         *
+         * が連続し、二重フェードに見える。
+         *
+         * そのためUI黒幕の解除時だけは、黒幕の裏で
+         * スチルを即時消去する。見えている黒幕は一枚のまま、
+         * その一枚だけをフェードアウトして立ち絵へ戻す。
+         *
+         * 通常の背景転換・storyBlackFadeでは、従来どおり
+         * スチル専用の終了トランジションを使用する。
          */
         if (
             stillClearOnBlack &&
-            window.MamiDenOStory &&
-            typeof window.MamiDenOStory
-                .hideStillTransition === "function"
-        ) {
             window.MamiDenOStory
-                .hideStillTransition();
+        ) {
+            const isUiBlackHeld =
+                typeof window.MamiDenOStory
+                    .isUiBlackHeld === "function" &&
+                window.MamiDenOStory
+                    .isUiBlackHeld();
+
+            if (
+                isUiBlackHeld &&
+                typeof window.MamiDenOStory
+                    .clearStill === "function"
+            ) {
+                window.MamiDenOStory
+                    .clearStill();
+            }
+            else if (
+                typeof window.MamiDenOStory
+                    .hideStillTransition === "function"
+            ) {
+                window.MamiDenOStory
+                    .hideStillTransition();
+            }
         }
 
         /*
@@ -156810,6 +157161,14 @@ if (code === "MSTILL") {
  * \MSTILLOUT
  */
 if (code === "MSTILLOUT") {
+    /*
+     * バックログへ制御文字を残さないための
+     * ダミー引数を読み捨てる。
+     */
+    this.obtainMamiSpeakerId(
+        textState
+    );
+
     let started = false;
 
     if (
@@ -157272,6 +157631,146 @@ function resetPortraitDistancesForNewTalk() {
 }
 
 /*
+ * 現在開始しようとしている会話がStoryか判定する。
+ *
+ * Storyは話数選択画面の黒幕の裏で立ち絵を準備するため、
+ * startDistancesの座標で直接生成する。
+ *
+ * 通常のランダム会話では従来どおり、
+ * 通常位置へ表示してから接近アニメーションを行う。
+ */
+function shouldApplyStartDistancesBeforeShow() {
+    return !!(
+        window.MamiDenOStory &&
+        typeof window.MamiDenOStory
+            .isActive === "function" &&
+        window.MamiDenOStory.isActive()
+    );
+}
+
+/*
+ * Story開始時の距離を、立ち絵生成前に確定する。
+ *
+ * 従来は通常位置で立ち絵を生成したあと、
+ * fadePortraitDistance()でcloseへ切り替えていた。
+ * そのため画像が未キャッシュの初回再生では、
+ * 読み込み完了のタイミングによって通常位置が
+ * 一瞬だけ見えることがあった。
+ *
+ * StoryのstartDistancesは途中の接近演出ではなく、
+ * 「話数開始時からその距離にいる」という指定なので、
+ * currentPortraitDistanceへ先に記録する。
+ * showPortraitInSlot()はこの状態を参照し、最初から
+ * 正しい座標・倍率で立ち絵を生成する。
+ */
+function applyStartPortraitDistancesBeforeShow(
+    startDistances
+) {
+    if (
+        !startDistances ||
+        typeof startDistances !== "object"
+    ) {
+        return;
+    }
+
+    Object.keys(
+        startDistances
+    ).forEach(speakerId => {
+        const ownerId =
+            getPortraitDistanceStateSpeakerId(
+                speakerId
+            );
+
+        if (!ownerId) {
+            return;
+        }
+
+        const requestedDistance =
+            String(
+                startDistances[
+                    speakerId
+                ] || "normal"
+            );
+
+        currentPortraitDistance[
+            ownerId
+        ] =
+            PORTRAIT_DISTANCE_DATA[
+                requestedDistance
+            ]
+                ? requestedDistance
+                : "normal";
+
+        /*
+         * 同じ話者・同じ画像がすでに表示されている場合、
+         * showPortraitInSlot()は画像の再生成を省略する。
+         * その場合も通常位置を一瞬残さないよう、
+         * 現在のピクチャを開始距離へ即時移動しておく。
+         *
+         * 新規立ち絵はまだ存在しないためここでは何もせず、
+         * この直後のshowPortraitInSlot()が記録済みの距離を
+         * 読み取って正しい位置へ直接生成する。
+         */
+        const slotNumber =
+            getPortraitSlotForDistanceSpeaker(
+                ownerId
+            );
+
+        if (!slotNumber) {
+            return;
+        }
+
+        const targetPictureId =
+            getPortraitPictureId(
+                slotNumber
+            );
+
+        const picture =
+            $gameScreen.picture(
+                targetPictureId
+            );
+
+        if (!picture) {
+            return;
+        }
+
+        const distanceData =
+            PORTRAIT_DISTANCE_DATA[
+                currentPortraitDistance[
+                    ownerId
+                ]
+            ] ||
+            PORTRAIT_DISTANCE_DATA.normal;
+
+        $gameScreen.movePicture(
+            targetPictureId,
+            picture.origin(),
+            getPortraitSlotX(
+                slotNumber
+            ),
+            distanceData.y,
+            distanceData.scale,
+            distanceData.scale,
+            picture.opacity(),
+            picture.blendMode(),
+            0
+        );
+
+        if (
+            currentPortraitDistance[
+                ownerId
+            ] === "close"
+        ) {
+            bringPortraitToFront(
+                getPortraitDisplaySpeakerForDistance(
+                    ownerId
+                )
+            );
+        }
+    });
+}
+
+/*
  * 会話本文を開始せず、
  * 参加者の立ち絵配置だけを準備する。
  *
@@ -157309,8 +157808,18 @@ function prepareTalkPortraits(
             startDistances
         );
 
+    const applyDistanceBeforeShow =
+        shouldApplyStartDistancesBeforeShow();
+
+    if (applyDistanceBeforeShow) {
+        applyStartPortraitDistancesBeforeShow(
+            startDistances
+        );
+    }
+
     if (talk.keepPortraitHidden) {
         eraseAllPortraits();
+        preparedPostStealTalk = talk;
         return;
     }
 
@@ -157326,16 +157835,37 @@ function prepareTalkPortraits(
         participants
     );
 
-    activeTalkDistanceSpeakers.forEach(
-        speakerId => {
-            fadePortraitDistance(
-                speakerId,
-                startDistances[
-                    speakerId
-                ]
-            );
-        }
-    );
+    /*
+     * 横取り後に戻す一人表示はすでに保存済み。
+     * 感想会話中の外部一人表示割り込みも通常会話と同様に防ぐ。
+     */
+    isTemporaryGroupTalk = true;
+
+    initialTalkParticipantsSignature =
+        makeParticipantsSignature(
+            participants
+        );
+
+    isPageParticipantsSwitched = false;
+    preparedPostStealTalk = talk;
+
+    /*
+     * ランダム会話は従来どおり、表示後に
+     * 通常位置から指定距離へ滑らかに移動する。
+     */
+    if (!applyDistanceBeforeShow) {
+        activeTalkDistanceSpeakers.forEach(
+            speakerId => {
+                fadePortraitDistance(
+                    speakerId,
+                    startDistances[
+                        speakerId
+                    ]
+                );
+            }
+        );
+    }
+
 }
 /*
  * 画像名をプリロード対象へ追加する。
@@ -157829,6 +158359,12 @@ function updateTalkPreload() {
       * 前のメッセージ設定が残っていても解除する。
       */
     function enqueueTalkMessageNow(talk) {
+        const portraitsAlreadyPrepared =
+            preparedPostStealTalk === talk;
+
+        if (portraitsAlreadyPrepared) {
+            preparedPostStealTalk = null;
+        }
         
         $gameMessage.setFaceImage(
             "",
@@ -157842,7 +158378,9 @@ function updateTalkPreload() {
          * このあとstartDistancesがある場合だけ、
          * 指定距離へ改めて変更する。
          */
-        resetPortraitDistancesForNewTalk();
+        if (!portraitsAlreadyPrepared) {
+            resetPortraitDistancesForNewTalk();
+        }
 
         /*
          * 万一、前の会話が場面転換中に終了しても
@@ -157918,13 +158456,36 @@ activeTalkDistanceSpeakers =
         startDistances
     );
 
+const applyDistanceBeforeShow =
+    shouldApplyStartDistancesBeforeShow();
+
+/*
+ * Storyだけは立ち絵を配置する前に開始距離を確定する。
+ * 初回ロード時でも通常位置を経由せず、
+ * startDistancesの座標・倍率で直接生成される。
+ */
+if (
+    !portraitsAlreadyPrepared &&
+    applyDistanceBeforeShow
+) {
+    applyStartPortraitDistancesBeforeShow(
+        startDistances
+    );
+}
+
 /*
  * 会話前の一対一状態を保存する。
  *
  * 一人だけの通常会話でも、
  * 会話終了後には元のメインキャラへ戻れる。
  */
-if (talk.keepPortraitHidden) {
+if (portraitsAlreadyPrepared) {
+    /*
+     * 暗転中に同じparticipantsを配置済み。
+     * 再実行すると、特に3人表示では全消去→再生成となり
+     * 会話直前の点滅になるため、そのまま使う。
+     */
+} else if (talk.keepPortraitHidden) {
     returnSoloPortrait = null;
     isTemporaryGroupTalk = false;
 
@@ -157945,20 +158506,24 @@ isPageParticipantsSwitched = false;
 showParticipants(
     participants
 );
-    /*
- * すでに表示中のキャラも、
- * 会話開始時に滑らかに距離を変える。
+
+/*
+ * ランダム会話では、会話開始後に通常位置から
+ * startDistancesの位置へ接近させる。
+ * Storyは最初から指定位置で生成済みなので行わない。
  */
-activeTalkDistanceSpeakers.forEach(
-    speakerId => {
-        fadePortraitDistance(
-            speakerId,
-            startDistances[
-                speakerId
-            ]
-        );
-    }
-);
+if (!applyDistanceBeforeShow) {
+    activeTalkDistanceSpeakers.forEach(
+        speakerId => {
+            fadePortraitDistance(
+                speakerId,
+                startDistances[
+                    speakerId
+                ]
+            );
+        }
+    );
+}
 }  
 
         /*
@@ -158494,7 +159059,7 @@ const hideNamePlate =
                     !hasStoryUiBlackFade
                         ? `\\MSTORYUIOUT[${
                             storyUiBlackFadeOutValue
-                        }${storyResetSuffix}${storyParticipantsSuffix}${storyLightingSuffix}${storyDistanceResetSuffix}]`
+                        }${storyResetSuffix}${storyParticipantsSuffix}${storyLightingSuffix}${storyDistanceResetSuffix}${storyStillClearOnBlackSuffix}]`
                         : "";
 
                 /*
@@ -158515,7 +159080,7 @@ const hideNamePlate =
                     !storyStillColorFade
                 ) {
                     controlText +=
-                        "\\MSTILLOUT";
+                        "\\MSTILLOUT[1]";
                 }                        
                 if (storyPossessionSteal) {
                     /*
@@ -159565,9 +160130,18 @@ if (possessionEffectState) {
         if (
             effect.phase === "fadeOut"
         ) {
-            applyPossessionEffectAction(
-                effect.action
-            );
+            const actionReady =
+                applyPossessionEffectAction(
+                    effect.action
+                );
+
+            if (actionReady === false) {
+                effect.phase =
+                    "postStealLoading";
+
+                effect.wait = 1;
+                return;
+            }
 
             /*
              * 真っ黒のまま少し待つ。
@@ -159577,6 +160151,40 @@ if (possessionEffectState) {
 
             effect.wait = 30;
 
+            return;
+        }
+
+        /*
+         * 感想会話の初期立ち絵が未読込なら、黒画面の中で待つ。
+         */
+        if (
+            effect.phase ===
+                "postStealLoading"
+        ) {
+            const bitmaps =
+                effect.action
+                    .postStealPreloadBitmaps ||
+                [];
+
+            if (
+                !arePreloadBitmapsReady(
+                    bitmaps
+                )
+            ) {
+                effect.wait = 1;
+                return;
+            }
+
+            prepareTalkPortraits(
+                effect.action.afterTalk
+            );
+
+            effect.action
+                .postStealPreloadBitmaps =
+                    null;
+
+            effect.phase = "blackWait";
+            effect.wait = 30;
             return;
         }
 
@@ -160314,6 +160922,7 @@ window.MamiDenOTalk
         pendingPossessionTalk = null;
         pendingPostReleaseTalk = null;
         pendingPostStealTalk = null;
+        preparedPostStealTalk = null;
         changeClothesReturnState = null;
 
         temporaryTalkPossession = null;
@@ -160509,6 +161118,7 @@ window.MamiDenOTalk
         pendingPossessionTalk = null;
         pendingPostReleaseTalk = null;
         pendingPostStealTalk = null;
+        preparedPostStealTalk = null;
         changeClothesReturnState = null;
 
         temporaryTalkPossession = null;

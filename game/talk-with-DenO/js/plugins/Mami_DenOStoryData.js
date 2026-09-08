@@ -18773,14 +18773,2226 @@
                     "expression": "portrait_momotaros_base_default_angry"
                 }
             ]
+        },
+        {
+    id: "momo_ex_01",
+    number: 13,
+    title: "後日談 第1話　全部空けておいた",
+    description:
+        "澪が来ると聞き、珍しく食堂車を片づけ始めたモモタロス。リュウタロスたちは、その様子を不思議そうに眺める。",
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile"
+        }
+    ],
+    pages: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal",
+            text: "モモタロス、さっきから\n何を片づけてるの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text: "テーブルが汚ぇからだよ。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text: "いつもは気にしないのに。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "今日は気になるんだよ！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text: "僕、まだ描いてる！"
+        },
+        {
+            speaker: "momotaros",
+            text: "だったらそっちで描け！"
+        },
+        {
+            speaker: "ryutaros",
+            text: "ここがいい！"
+        },
+        {
+            speaker: "momotaros",
+            text: "澪が来たら邪魔だろうが！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_surprised",
+            text: "お姉ちゃん、今日は\nこっちに来るの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text: "来るっつってたぞ。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal",
+            text: "うん。仕事が終わってから\n来るって。"
+        },
+        {
+            speaker: "momotaros",
+            text: "それ、何時だ？"
+        },
+        {
+            speaker: "ryotaro",
+            text: "もう少し後じゃないかな。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "もう少しって\nどれくらいだよ。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text: "そこまでは聞いてないよ。"
+        },
+        {
+            speaker: "momotaros",
+            text: "使えねぇな。"
+        },
+        {
+            speaker: "ryotaro",
+            text: "ご、ごめん……。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "先輩が直接聞けば\nよかったんじゃない？",
+            pageParticipants: [
+                {
+                    speaker: "momotaros",
+                    expression:
+                        "portrait_momotaros_base_default_normal"
+                },
+                {
+                    speaker: "ryutaros",
+                    expression:
+                        "portrait_ryutaros_base_default_normal"
+                },
+                {
+                    speaker: "urataros",
+                    expression:
+                        "portrait_urataros_base_default_wrysmile"
+                }
+            ]
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "そこまで聞くような\nことじゃねぇだろ！"
+        },
+        {
+            speaker: "urataros",
+            text: "でも気になるんだ？"
+        },
+        {
+            speaker: "momotaros",
+            text: "気になってねぇ！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text: "片づけたよ！\nここ座っていい？"
+        },
+        {
+            speaker: "momotaros",
+            text: "駄目だ！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_surprised",
+            text: "なんで？"
+        },
+        {
+            speaker: "momotaros",
+            text: "そこは澪が座んだよ！"
+        },
+        {
+            speaker: "ryutaros",
+            text: "お姉ちゃん、まだいないよ？"
+        },
+        {
+            speaker: "momotaros",
+            text: "あとで来んだろ！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text: "じゃあ、こっち！"
+        },
+        {
+            speaker: "momotaros",
+            text: "そこも駄目だ！"
+        },
+        {
+            speaker: "ryutaros",
+            text: "じゃあここ！"
+        },
+        {
+            speaker: "momotaros",
+            text: "そこも澪が座る！"
+        },
+        {
+            speaker: "ryutaros",
+            text: "じゃあ、こっちは？"
+        },
+        {
+            speaker: "momotaros",
+            text: "そこもだ！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_surprised",
+            text: "お姉ちゃん、\nそんなにいっぱいいないよ？"
+        },
+        {
+            speaker: "momotaros",
+            text: "知ってるよ！！"
+        },
+        {
+            speaker: "ryutaros",
+            text: "じゃあ、どこに座るの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text: "来てから澪が決めんだよ！"
+        },
+        {
+            speaker: "urataros",
+            text: "そのために\n全部空けてるんだ？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "悪ぃかよ！"
+        },
+        {
+            speaker: "urataros",
+            text: "別に。ただ、ずいぶん\n広く使うなと思って。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text: "四人分は空いとるな。",
+            pageParticipants: [
+                {
+                    speaker: "momotaros",
+                    expression:
+                        "portrait_momotaros_base_default_angry"
+                },
+                {
+                    speaker: "ryutaros",
+                    expression:
+                        "portrait_ryutaros_base_default_normal"
+                },
+                {
+                    speaker: "urataros",
+                    expression:
+                        "portrait_urataros_base_default_wrysmile"
+                },
+                {
+                    speaker: "kintaros",
+                    expression:
+                        "portrait_kintaros_base_default_normal"
+                }
+            ]
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text: "お姉ちゃんが四人！"
+        },
+        {
+            speaker: "momotaros",
+            text: "増やすんじゃねぇ！"
+        },
+        {
+            speaker: "urataros",
+            text: "澪ちゃんが四人もいるなら、\n一人くらい僕が貰ってもいいよね。"
+        },
+        {
+            speaker: "momotaros",
+            text: "駄目に決まってんだろ！！"
+        },
+        {
+            speaker: "urataros",
+            text: "三人は残るよ？"
+        },
+        {
+            speaker: "momotaros",
+            text: "澪は一人しかいねぇんだよ！"
+        },
+        {
+            speaker: "urataros",
+            text: "だから、その一人が\n欲しいんだけど。"
+        },
+        {
+            speaker: "momotaros",
+            text: "誰がやるか！"
+        },
+        {
+            speaker: "urataros",
+            text: "一人も？"
+        },
+        {
+            speaker: "momotaros",
+            text: "一人もだ！"
+        },
+        {
+            speaker: "urataros",
+            text: "先輩、独占欲が強いね。"
+        },
+        {
+            speaker: "momotaros",
+            text: "違ぇ！"
+        },
+        {
+            speaker: "urataros",
+            text: "じゃあ、一人くらい\nいいでしょ？"
+        },
+        {
+            speaker: "momotaros",
+            text: "よくねぇ！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text: "僕もお姉ちゃん一人欲しい！"
+        },
+        {
+            speaker: "momotaros",
+            text: "お前まで\n乗っかるんじゃねぇ！"
+        },
+        {
+            speaker: "kintaros",
+            text: "お嬢を分ける話やないやろ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_surprised",
+            text: "じゃあ、モモタロスが\n一人占め？"
+        },
+        {
+            speaker: "momotaros",
+            text: "だから\nそういう話じゃねぇ！"
+        },
+        {
+            speaker: "naomi",
+            text: "皆さーん、\nプリンをどうぞ～！",
+            darkenPortraits: true
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text: "澪の分は？"
+        },
+        {
+            speaker: "naomi",
+            text: "ちゃんとありますよ～。",
+            darkenPortraits: true
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text: "そっちは残しとけよ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text: "僕、おかわり！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "お前は食っただろ！"
+        },
+        {
+            speaker: "ryutaros",
+            text: "お姉ちゃんの分を食べる！"
+        },
+        {
+            speaker: "momotaros",
+            text: "駄目だっつってんだろ！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text: "まだ来てないのに。"
+        },
+        {
+            speaker: "momotaros",
+            text: "来るっつってんだろうが！"
+        },
+        {
+            speaker: "urataros",
+            text: "先輩、さっきから\n二言目には澪ちゃんだね。"
+        },
+        {
+            speaker: "momotaros",
+            text: "言ってねぇ！"
+        },
+        {
+            speaker: "kintaros",
+            text: "いや、口を開けばお嬢やな。"
+        },
+        {
+            speaker: "momotaros",
+            text: "必要なことを\n確認してるだけだ！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text: "プリンを残して、席を空けて、\n来る時間を気にして……。",
+            pageParticipants: [
+                {
+                    speaker: "momotaros",
+                    expression:
+                        "portrait_momotaros_base_default_angry"
+                },
+                {
+                    speaker: "urataros",
+                    expression:
+                        "portrait_urataros_base_default_wrysmile"
+                },
+                {
+                    speaker: "ryotaro",
+                    expression:
+                        "portrait_ryotaro_base_ryotaro_smile"
+                }
+            ]
+        },
+        {
+            speaker: "momotaros",
+            text: "なんだよ！"
+        },
+        {
+            speaker: "ryotaro",
+            text: "楽しみにしてるんだね。"
+        },
+        {
+            speaker: "momotaros",
+            text: "そんなんじゃねぇ！"
+        },
+        {
+            speaker: "urataros",
+            text: "彼女が来るんだから、\n楽しみなのは普通じゃない？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text: "か、彼女じゃ――"
+        },
+        {
+            speaker: "urataros",
+            text: "彼女じゃ？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_restrainedshy",
+            text: "…………。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_surprised",
+            text: "違うの？",
+            pageParticipants: [
+                {
+                    speaker: "momotaros",
+                    expression:
+                        "portrait_momotaros_base_default_restrainedshy"
+                },
+                {
+                    speaker: "urataros",
+                    expression:
+                        "portrait_urataros_base_default_wrysmile"
+                },
+                {
+                    speaker: "ryotaro",
+                    expression:
+                        "portrait_ryotaro_base_ryotaro_worried"
+                },
+                {
+                    speaker: "ryutaros",
+                    expression:
+                        "portrait_ryutaros_base_default_surprised"
+                }
+            ]
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text: "違わねぇけど……！"
+        },
+        {
+            speaker: "urataros",
+            text: "じゃあ彼女だね。"
+        },
+        {
+            speaker: "momotaros",
+            text: "そういう言い方\nすんじゃねぇ！"
+        },
+        {
+            speaker: "urataros",
+            text: "どういう言い方ならいいの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text: "……俺についてきてる女だ！！"
+        },
+        {
+            speaker: "mio",
+            text: "誰がモモに\nついていってるの？",
+            pageParticipants: [
+                {
+                    speaker: "momotaros",
+                    expression:
+                        "portrait_momotaros_base_default_surprised"
+                },
+                {
+                    speaker: "urataros",
+                    expression:
+                        "portrait_urataros_base_default_wrysmile"
+                },
+                {
+                    speaker: "ryutaros",
+                    expression:
+                        "portrait_ryutaros_base_default_smile"
+                }
+            ]
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text: "澪！？"
+        },
+        {
+            speaker: "mio",
+            text: "今、私の話してた？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text: "してねぇ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "やあ、澪ちゃん。\n今日の服もよく似合ってるね。"
+        },
+        {
+            speaker: "mio",
+            text: "ありがとう、ウラタロス。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text: "……それ、\n俺が言おうと思ってたのによ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text: "お姉ちゃん！"
+        },
+        {
+            speaker: "mio",
+            text: "わっ……リュウタ。"
+        },
+        {
+            speaker: "ryutaros",
+            text: "会いたかった！"
+        },
+        {
+            speaker: "mio",
+            text: "私も会いたかったよ。"
+        },
+        {
+            speaker: "momotaros",
+            text: "……それも俺が"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text: "お嬢、よう来たな。\n疲れたやろ。",
+            pageParticipants: [
+                {
+                    speaker: "momotaros",
+                    expression:
+                        "portrait_momotaros_base_default_awkward"
+                },
+                {
+                    speaker: "urataros",
+                    expression:
+                        "portrait_urataros_base_default_smile"
+                },
+                {
+                    speaker: "ryutaros",
+                    expression:
+                        "portrait_ryutaros_base_default_smile"
+                },
+                {
+                    speaker: "kintaros",
+                    expression:
+                        "portrait_kintaros_base_default_smile"
+                }
+            ]
+        },
+        {
+            speaker: "mio",
+            text: "うん。少しだけ。"
+        },
+        {
+            speaker: "kintaros",
+            text: "桃の字の隣、空いとるで。\nこっち座り。"
+        },
+        {
+            speaker: "momotaros",
+            text: "……それも\n俺が言おうとしてたんだよ……！"
+        },
+        {
+            speaker: "mio",
+            text: "じゃあ、ここに座るね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_restrainedshy",
+            text: "……好きにしろ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "全部空けておいたのに、\n結局そこなんだ？"
+        },
+        {
+            speaker: "mio",
+            text: "全部？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text: "なんでもねぇ！"
+        },
+        {
+            speaker: "ryutaros",
+            text: "モモタロスが、お姉ちゃんの\n座るところ全部取ったんだよ！"
+        },
+        {
+            speaker: "momotaros",
+            text: "余計なこと言うんじゃねぇ！"
+        },
+        {
+            speaker: "mio",
+            text: "私、そんなにたくさん\n座れないよ。"
+        },
+        {
+            speaker: "momotaros",
+            text: "分かってるよ！"
+        },
+        {
+            speaker: "mio",
+            text: "でも、ありがとう。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_restrainedshy",
+            text: "礼を言われるような\nことじゃねぇだろ。"
+        },
+        {
+            speaker: "naomi",
+            text: "澪ちゃん、\nプリンもありますよ～！",
+            darkenPortraits: true
+        },
+        {
+            speaker: "mio",
+            text: "私の分まで残ってたんだ。"
+        },
+        {
+            speaker: "ryutaros",
+            text: "モモタロスが\n食べちゃ駄目って！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "お前が食おうとしたからだろうが！"
+        },
+        {
+            speaker: "mio",
+            text: "モモが取っておいてくれたの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text: "来るって言ってたから\n残しただけだ！"
+        },
+        {
+            speaker: "mio",
+            text: "それでも嬉しいよ。ありがとう。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_soft",
+            text: "……おう。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "席もプリンも用意して、\nずっと時間まで気にしてたんだよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "亀！"
+        },
+        {
+            speaker: "urataros",
+            text: "先輩が何も言えないから、\n代わりに教えてあげてるんだけど。"
+        },
+        {
+            speaker: "momotaros",
+            text: "頼んでねぇ！"
+        },
+        {
+            speaker: "mio",
+            text: "それで、私はモモに\nついていってる女なの？",
+            pageParticipants: [
+                {
+                    speaker: "momotaros",
+                    expression:
+                        "portrait_momotaros_base_default_awkward"
+                },
+                {
+                    speaker: "urataros",
+                    expression:
+                        "portrait_urataros_base_default_wrysmile"
+                }
+            ]
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text: "やっぱ聞いてたのかよ！"
+        },
+        {
+            speaker: "mio",
+            text: "聞こえたから。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text: "言葉のまんまだ！"
+        },
+        {
+            speaker: "mio",
+            text: "どこについていけばいいの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text: "どこって……。"
+        },
+        {
+            speaker: "mio",
+            text: "モモが連れていって\nくれるんでしょう？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_restrainedshy",
+            text: "…………。"
+        },
+        {
+            speaker: "urataros",
+            text: "先輩？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text: "当たり前だろ！"
+        },
+        {
+            speaker: "mio",
+            text: "じゃあ、今度\nどこかへ連れていって。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text: "おう。任せとけ！"
+        },
+        {
+            speaker: "mio",
+            text: "楽しみにしてる。"
+        },
+        {
+            speaker: "momotaros",
+            text: "お前が驚くようなところに\n連れってやるよ！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text: "モモタロス、\n行くところは決まってるの？",
+            pageParticipants: [
+                {
+                    speaker: "momotaros",
+                    expression:
+                        "portrait_momotaros_base_default_normal"
+                },
+                {
+                    speaker: "urataros",
+                    expression:
+                        "portrait_urataros_base_default_wrysmile"
+                },
+                {
+                    speaker: "ryotaro",
+                    expression:
+                        "portrait_ryotaro_base_ryotaro_worried"
+                }
+            ]
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text: "…………。"
+        },
+        {
+            speaker: "urataros",
+            text: "まさか、今から考えるの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "うるせぇ！\n俺の作戦はこれからなんだよ！！"
         }
     ]
 },
+{
+    id: "momo_ex_02",
+    number: 14,
+    title: "後日談 第2話　最初が肝心",
+    description:
+        "澪との外出を翌日に控え、行き先を考え始めたモモタロス。皆の意見を聞きながら、“俺の作戦”を練ることになる。",
+    participants: [
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_normal" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_normal" }
+    ],
+    pages: [
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_normal", text: "お姉ちゃん、帰っちゃった。" },
+        { speaker: "momotaros", text: "明日も仕事なんだから\n仕方ねぇだろ。" },
+        { speaker: "ryutaros", text: "もっと遊びたかったのに。" },
+        { speaker: "momotaros", text: "また来んだろ。" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "先輩は明日の約束も\nできたしね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "urataros", text: "それで、どこへ連れていくの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "今考えてんだよ！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_wrysmile", text: "やっぱり決まってなかったんだ。" },
+        { speaker: "momotaros", text: "急に言われたんだから\n仕方ねぇだろうが！" },
+        {
+            speaker: "kintaros", expression: "portrait_kintaros_base_default_normal",
+            text: "任せとけ言うとったけどな。",
+            pageParticipants: [
+                { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry" },
+                { speaker: "urataros", expression: "portrait_urataros_base_default_wrysmile" },
+                { speaker: "kintaros", expression: "portrait_kintaros_base_default_normal" }
+            ]
+        },
+        { speaker: "momotaros", text: "任せとけるように\n今から考えんだよ！" },
+        {
+            speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_normal",
+            text: "今度って言ってたけど、\n明日にするの？",
+            pageParticipants: [
+                { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal" },
+                { speaker: "urataros", expression: "portrait_urataros_base_default_normal" },
+                { speaker: "kintaros", expression: "portrait_kintaros_base_default_normal" },
+                { speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_normal" }
+            ]
+        },
+        { speaker: "momotaros", text: "早い方がいいだろ。" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "待てないんだ？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "澪が楽しみにしてるからだ！" },
+        { speaker: "urataros", text: "澪ちゃんが？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "……俺もだけどよ。" },
+        { speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_surprised", text: "モモタロス？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "何でもねぇ！" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "良太郎。明日、身体貸せ。" },
+        { speaker: "ryotaro", text: "僕の身体？" },
+        { speaker: "momotaros", text: "この格好で外出たら\n砂になるだろうが！" },
+        { speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_worried", text: "それはそうだけど……。" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "それだと澪ちゃんに\n触れられないしね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "スケベは黙ってろ！" },
+        { speaker: "urataros", text: "はいはい。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "……昼からだ。" },
+        { speaker: "ryotaro", text: "澪さんと出かけるんだよね？" },
+        { speaker: "momotaros", text: "そうだよ。" },
+        { speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_smile", text: "分かった。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "いいのか？" },
+        { speaker: "ryotaro", text: "モモタロスが澪さんと\n出かけたいんでしょ？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "……おう。" },
+        { speaker: "ryotaro", text: "だったら、僕はいいよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "絶対途中で出てくんなよ。" },
+        { speaker: "ryotaro", text: "出ないよ。" },
+        { speaker: "urataros", text: "僕が代わってあげようか？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "引っ込んでろ！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "先輩より、僕の方が\n女の子の扱いには慣れてるよ？" },
+        { speaker: "momotaros", text: "だから嫌なんだよ！" },
+        { speaker: "urataros", text: "心配しなくても、澪ちゃんには\n何もしないって。" },
+        { speaker: "momotaros", text: "お前の心配しかしてねぇ！" },
+        {
+            speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile", text: "僕も行く！",
+            pageParticipants: [
+                { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry" },
+                { speaker: "urataros", expression: "portrait_urataros_base_default_smile" },
+                { speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_normal" },
+                { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile" }
+            ]
+        },
+        { speaker: "momotaros", text: "来んな！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_surprised", text: "なんで？" },
+        { speaker: "momotaros", text: "澪と二人で行くんだよ！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_angry", text: "僕もお姉ちゃんと\n二人で遊びたい！" },
+        { speaker: "momotaros", text: "それは別の日にしろ！" },
+        { speaker: "ryutaros", text: "モモタロスだけずるい！" },
+        { speaker: "momotaros", text: "俺についてきてる女なんだから、\n俺が連れてくのは当たり前だろ！" },
+        { speaker: "urataros", text: "彼女だから？" },
+        { speaker: "momotaros", text: "いちいち言い直すんじゃねぇ！" },
+        {
+            speaker: "kintaros", expression: "portrait_kintaros_base_default_normal", text: "ほんで、どこへ連れてくんや？",
+            pageParticipants: [
+                { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry" },
+                { speaker: "urataros", expression: "portrait_urataros_base_default_normal" },
+                { speaker: "kintaros", expression: "portrait_kintaros_base_default_normal" },
+                { speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_normal" }
+            ]
+        },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "まず待ち合わせだ。" },
+        { speaker: "urataros", text: "どこへ行くか聞いてるんだけど。" },
+        { speaker: "momotaros", text: "だから待ち合わせから\n始まんだろうが！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_wrysmile", text: "俺の作戦パート１が\n待ち合わせ？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "最初が肝心なんだよ！" },
+        { speaker: "ryotaro", text: "どこで待ち合わせるの？" },
+        { speaker: "momotaros", text: "駅前だ。" },
+        { speaker: "ryotaro", text: "それから？" },
+        { speaker: "momotaros", text: "街を歩く。" },
+        { speaker: "urataros", text: "ずいぶん大まかだね。" },
+        { speaker: "momotaros", text: "歩けば何かあんだろ！" },
+        { speaker: "kintaros", text: "作戦になっとらんな。" },
+        { speaker: "momotaros", text: "だったらお前らも考えろ！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "僕の意見を聞く気になった？" },
+        { speaker: "momotaros", text: "お前以外だ！" },
+        { speaker: "urataros", text: "ひどいなあ。" },
+        {
+            speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile", text: "遊園地！",
+            pageParticipants: [
+                { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal" },
+                { speaker: "urataros", expression: "portrait_urataros_base_default_normal" },
+                { speaker: "kintaros", expression: "portrait_kintaros_base_default_normal" },
+                { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile" }
+            ]
+        },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "人が多すぎる！" },
+        { speaker: "ryutaros", text: "動物園！" },
+        { speaker: "momotaros", text: "却下！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_surprised", text: "なんで？" },
+        { speaker: "momotaros", text: "なんでもだ！" },
+        {
+            speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_worried", text: "澪さん、今日は少し\n疲れてるって言ってたよね。",
+            pageParticipants: [
+                { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal" },
+                { speaker: "urataros", expression: "portrait_urataros_base_default_normal" },
+                { speaker: "kintaros", expression: "portrait_kintaros_base_default_normal" },
+                { speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_worried" }
+            ]
+        },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "……明日も疲れてるかも\nしれねぇな。" },
+        { speaker: "kintaros", text: "あちこち連れ回さん方が\nええかもしれんな。" },
+        { speaker: "momotaros", text: "じゃあ、近いところだけにする。" },
+        { speaker: "urataros", text: "買い物をして、どこかで食事して、\n少し休める場所へ行くくらいかな。" },
+        { speaker: "momotaros", text: "亀のくせに普通だな。" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_wrysmile", text: "先輩は僕を何だと思ってるの？" },
+        { speaker: "momotaros", text: "亀だろ。" },
+        { speaker: "urataros", text: "聞いた僕が悪かったよ。" },
+        { speaker: "ryotaro", text: "澪さんが見たいものを見ながら\n歩けばいいんじゃないかな。" },
+        { speaker: "momotaros", text: "それじゃ俺の作戦に\nならねぇだろ。" },
+        { speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_smile", text: "一緒に考えればいいと思うよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "俺が連れてくっつったんだ。\n俺が決める！" },
+        { speaker: "kintaros", expression: "portrait_kintaros_base_default_smile", text: "気合い入っとるな。" },
+        { speaker: "momotaros", text: "当たり前だ！" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "駅前で待ち合わせて、街を回る。" },
+        { speaker: "momotaros", text: "澪が見てぇもんがあったら、\nそこに入る。" },
+        { speaker: "momotaros", text: "腹減ったら何か食う。" },
+        { speaker: "momotaros", text: "疲れたら休む。" },
+        { speaker: "urataros", text: "結局、澪ちゃんに合わせるんだ？" },
+        { speaker: "momotaros", text: "澪を楽しませる作戦なんだから\n当たり前だろ！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "それならいいんじゃない？" },
+        { speaker: "momotaros", text: "最初からそう言ってんだよ！" },
+        { speaker: "ryotaro", text: "それで、最後は？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "最後？" },
+        { speaker: "urataros", text: "デートの締めくくり。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "俺の作戦だ！！" },
+        { speaker: "urataros", text: "澪ちゃんと二人で\n出かけるんだよね？" },
+        { speaker: "momotaros", text: "だから俺の作戦なんだよ！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "最後にキスくらい\nするんじゃない？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "するわけねぇだろ！" },
+        { speaker: "urataros", text: "どうして？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "良太郎の身体だぞ！" },
+        { speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_surprised", text: "モモタロス……。" },
+        { speaker: "momotaros", text: "なんだよ。" },
+        { speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_smile", text: "ありがとう。" },
+        { speaker: "momotaros", text: "当たり前のことだろうが！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "先輩、そういうところは\n真面目だよね。" },
+        { speaker: "momotaros", text: "そういうところも何も、\n全部真面目だ！" },
+        { speaker: "kintaros", expression: "portrait_kintaros_base_default_smile", text: "よう言うた。" },
+        { speaker: "momotaros", text: "なんだその言い方！" },
+        {
+            speaker: "ryutaros", expression: "portrait_ryutaros_base_default_surprised", text: "じゃあ、ぎゅーは？",
+            pageParticipants: [
+                { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry" },
+                { speaker: "urataros", expression: "portrait_urataros_base_default_smile" },
+                { speaker: "kintaros", expression: "portrait_kintaros_base_default_smile" },
+                { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_surprised" }
+            ]
+        },
+        { speaker: "momotaros", text: "なんでお前に\n言わなきゃならねぇんだよ！" },
+        { speaker: "ryutaros", text: "するの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "知らねぇ！" },
+        { speaker: "urataros", text: "肩くらい抱いてあげたら？" },
+        { speaker: "momotaros", text: "お前に言われなくても、\nそれくらいできる！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "へえ。できるんだ？" },
+        { speaker: "momotaros", text: "できるに決まってんだろ！" },
+        { speaker: "urataros", text: "楽しみにしてるよ。" },
+        { speaker: "momotaros", text: "お前は来ねぇだろうが！" },
+        { speaker: "kintaros", expression: "portrait_kintaros_base_default_normal", text: "ほな、作戦も決まったところで\n戻るか。" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_angry", text: "僕も行きたい！" },
+        { speaker: "momotaros", text: "駄目だ！" },
+        { speaker: "ryutaros", text: "行きたい！" },
+        { speaker: "kintaros", text: "リュウタ。明日は俺と遊ぼか。" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile", text: "何して遊ぶの？" },
+        { speaker: "kintaros", text: "それは明日考える。" },
+        { speaker: "ryutaros", text: "熊ちゃんも決まってない！" },
+        { speaker: "kintaros", text: "細かいことは気にしたらあかん。" },
+        { speaker: "urataros", text: "それじゃあ先輩、頑張ってね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "言われなくても\n完璧に決めてやるよ！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "澪ちゃんの服、\nちゃんと褒めてあげなよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "分かってる！" },
+        { speaker: "urataros", text: "可愛いって言える？" },
+        { speaker: "momotaros", text: "早く行け！！" },
+        {
+            speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_normal", text: "僕も戻った方がいい？",
+            pageParticipants: [
+                { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal" },
+                { speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_normal" }
+            ]
+        },
+        { speaker: "momotaros", text: "お前は残れ。" },
+        { speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_surprised", text: "どうして？" },
+        {
+            speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "借りるぞ。",
+            storyBlackFade: 1,
+            storyPossessionOnBlack: "momotaros",
+            pageParticipants: [
+                { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal" }
+            ]
+        },
+        { speaker: "ryotaro", text: "モモタロス？", innerWindow: true, darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "澪。早かったな。" },
+        { speaker: "ryotaro", text: "え？", innerWindow: true, darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "お前に言ってんじゃねぇ！" },
+        { speaker: "ryotaro", text: "今の、明日の練習？", innerWindow: true, darkenPortraits: true },
+        { speaker: "momotaros", text: "違ぇ！　発声練習だ！" },
+        { speaker: "ryotaro", text: "発声練習……。", innerWindow: true, darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "澪。早かったな。その服……。" },
+        { speaker: "ryotaro", text: "その服？", innerWindow: true, darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "黙ってろ！" },
+        { speaker: "ryotaro", text: "ご、ごめん。", innerWindow: true, darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "その服……悪くねぇ。" },
+        { speaker: "ryotaro", text: "うん。モモタロスらしいと思う。", innerWindow: true, darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "だろ？" },
+        { speaker: "ryotaro", text: "可愛いとは言わないんだね。", innerWindow: true, darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "言えるか！！" },
+        { speaker: "ryotaro", text: "でも、澪さんなら\n分かってくれるよ。", innerWindow: true, darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "分かってもらうだけじゃ\n駄目なんだよ。" },
+        { speaker: "ryotaro", text: "どうして？", innerWindow: true, darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "亀や小僧に先越されんだろうが！" },
+        { speaker: "ryotaro", text: "競争じゃないと思うけど……。", innerWindow: true, darkenPortraits: true },
+        { speaker: "momotaros", text: "競争だ！　最初が肝心だからな！" },
+        { speaker: "ryotaro", text: "そうなの？", innerWindow: true, darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "一個ずつ言ってたら間に合わねぇ。\n全部つなげるぞ。" },
+        { speaker: "ryotaro", text: "全部？", innerWindow: true, darkenPortraits: true },
+        { speaker: "momotaros", text: "そうだ！" },
+        { speaker: "ryotaro", text: "伝わるかな……。", innerWindow: true, darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "伝わるまで練習すんだよ！" },
+        { speaker: "ryotaro", text: "でも明日は、\n外で待ち合わせだよね？", innerWindow: true, darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "細けぇこと気にすんな！\n俺の作戦に抜かりはねぇ！！" }
+    ]
+},
+{
+    id: "momo_ex_03",
+    number: 15,
+    title: "後日談 第3話　俺の作戦だ！",
+    description:
+        "待ち合わせを終え、街へ繰り出したモモと澪。大まかな“作戦”のもと、二人きりの時間が始まる。",
+    startBackground: "background_town.png",
+    startPossessedBy: "momotaros",
+    startPossessionOutfit: "imagin_preference",
+    participants: [
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal" }
+    ],
+    pages: [
+        { speaker: "mio", text: "モモ？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "澪！　早かったな。" },
+        { speaker: "mio", text: "約束の十分前だけど。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "そうか。" },
+        { speaker: "mio", text: "待った？" },
+        { speaker: "momotaros", text: "俺も今来たところだ。" },
+        { speaker: "ryotaro", text: "一時間くらい前からいたよ。", innerWindow: true, darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "良太郎！！" },
+        { speaker: "ryotaro", text: "だって、澪さんが聞いたから……。", innerWindow: true, darkenPortraits: true },
+        { speaker: "mio", text: "もしかして結構早く来てた？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "たまたま早く着いただけだ！" },
+        { speaker: "mio", text: "うん。待っててくれてありがとう。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "……約束したんだから\n当たり前だろ。" },
+        { speaker: "mio", text: "そうだね。" },
+        { speaker: "momotaros", text: "…………。" },
+        { speaker: "mio", text: "どうしたの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "その服……。" },
+        { speaker: "mio", text: "変？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "違ぇよ！" },
+        { speaker: "mio", text: "じゃあ、何？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "……悪くねぇ。" },
+        { speaker: "mio", text: "ありがとう。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "おう。" },
+        { speaker: "mio", text: "……。" },
+        { speaker: "momotaros", text: "なんだよ。" },
+        { speaker: "mio", text: "何でもない。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "笑うな！" },
+        { speaker: "mio", text: "まだ笑ってないよ。" },
+        { speaker: "momotaros", text: "これから笑いそうな顔してんだよ！" },
+        { speaker: "mio", text: "難しいこと言うね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "とにかく行くぞ！" },
+        { speaker: "mio", text: "どこへ？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_grin", text: "俺の作戦パート２だ！" },
+        { speaker: "mio", text: "パート１は？" },
+        { speaker: "momotaros", text: "待ち合わせだ！" },
+        { speaker: "mio", text: "なるほど。" },
+        { speaker: "momotaros", text: "分かればいいんだよ。" },
+        { speaker: "mio", text: "それで、どんな作戦なの？" },
+        { speaker: "momotaros", text: "街を回る！" },
+        { speaker: "mio", text: "ずいぶん大まかな作戦だね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "細けぇところは\n歩きながら決めんだよ！" },
+        { speaker: "mio", text: "じゃあ、モモについていけばいい？" },
+        { speaker: "momotaros", text: "当たり前だ！" },
+        { speaker: "mio", text: "分かった。" },
+        { speaker: "momotaros", text: "離れんなよ！" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "mio", text: "モモ？" },
+        { speaker: "momotaros", text: "なんだよ。" },
+        { speaker: "mio", text: "少し速い。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "お前が遅ぇんだよ。" },
+        { speaker: "mio", text: "そうかも。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "mio", text: "急にゆっくりになったね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "この辺は歩きにくいんだよ！" },
+        { speaker: "mio", text: "そう？" },
+        { speaker: "momotaros", text: "そうだ！" },
+        { speaker: "mio", text: "ありがとう。" },
+        { speaker: "momotaros", text: "礼を言うことじゃねぇだろ！" },
+        { speaker: "mio", text: "じゃあ、言わない。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "mio", text: "どうしたの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "別に！" },
+        { speaker: "mio", text: "ねえ、あのお店を見てもいい？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "おう。" },
+        { speaker: "mio", text: "作戦から外れない？" },
+        { speaker: "momotaros", text: "そこも俺の作戦パート２に\n入ってる！" },
+        { speaker: "mio", text: "今、入れた？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "最初から入ってた！" },
+        { speaker: "mio", text: "私が入りたいお店も\n分かってたの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "……街を回るところまで\n入ってたんだよ！" },
+        { speaker: "mio", text: "そういうことにしておくね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "そういうことなんだよ！" },
+        { speaker: "mio", text: "はいはい。" },
+        { speaker: "momotaros", text: "はいは一回！" },
+        { speaker: "mio", text: "はい。" },
+        { speaker: "mio", text: "モモ、待たせた？", storyBlackFade: 1 },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "別に。" },
+        { speaker: "mio", text: "退屈じゃなかった？" },
+        { speaker: "momotaros", text: "なんでだよ。" },
+        { speaker: "mio", text: "モモが見るようなもの、\nなかったでしょ？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_soft", text: "お前が見たかったんだろ。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", text: "だったらいいじゃねぇか。" },
+        { speaker: "mio", text: "……そうだね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "また笑ってんのか？" },
+        { speaker: "mio", text: "笑ってないよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "絶対笑ってるだろ！" },
+        { speaker: "mio", text: "嬉しいだけ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "…………。" },
+        { speaker: "mio", text: "モモ？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "その袋、よこせ。" },
+        { speaker: "mio", text: "軽いよ？" },
+        { speaker: "momotaros", text: "俺が持つ。" },
+        { speaker: "mio", text: "自分で持てるけど。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "いいから貸せ！" },
+        { speaker: "mio", text: "じゃあ、お願い。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "おう。" },
+        { speaker: "mio", text: "頼もしいね。" },
+        { speaker: "momotaros", text: "当たり前だろ！" },
+        { speaker: "mio", text: "なんだか嬉しそう。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "嬉しそうじゃねぇ！" },
+        { speaker: "mio", text: "そう？" },
+        { speaker: "momotaros", text: "いいからこっち見んな！" },
+        { speaker: "mio", text: "分かった。" },
+        { speaker: "momotaros", text: "素直に前向くんじゃねぇ！" },
+        { speaker: "mio", text: "どうすればいいの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "普通にしてろ！" },
+        { speaker: "mio", text: "普通にモモを見てる。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "…………。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "次行くぞ！" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "mio", text: "人が多くなってきたね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "離れんなよ。" },
+        { speaker: "mio", text: "離れてないよ。" },
+        { speaker: "momotaros", text: "もっとこっち来い。" },
+        { speaker: "mio", text: "これ以上？" },
+        { speaker: "momotaros", text: "はぐれたら面倒だろ！" },
+        { speaker: "mio", text: "分かった。" },
+        { speaker: "mio", text: "わっ……！" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "危ねぇ！", distance: "close" },
+        { speaker: "mio", text: "ごめん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "謝るな。前見て歩け。" },
+        { speaker: "mio", text: "うん。ありがとう。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "俺が見てるから、\nお前はこっちだけ見てろ。" },
+        { speaker: "mio", text: "前を？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "俺じゃねぇ！　前だ！" },
+        { speaker: "mio", text: "分かってる。" },
+        { speaker: "momotaros", text: "なんだその顔！" },
+        { speaker: "mio", text: "何でもない。" },
+        { speaker: "momotaros", text: "またそれかよ！" },
+        { speaker: "mio", text: "モモ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "なんだよ。" },
+        { speaker: "mio", text: "もう人混み、抜けたよ。" },
+        { speaker: "momotaros", text: "だからなんだ。" },
+        { speaker: "mio", text: "腕。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "この方がはぐれねぇだろ。" },
+        { speaker: "mio", text: "もう誰もいないけど。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "これから来るかもしれねぇだろ！" },
+        { speaker: "mio", text: "そうだね。" },
+        { speaker: "momotaros", text: "だったらこのままでいいだろ。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "passerby", text: "ねえ、あのお姉さん……\n大丈夫かな。", hideNamePlate: true, darkenPortraits: true },
+        { speaker: "passerby", text: "連れてかれてるみたい……。", hideNamePlate: true, darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "聞こえてんぞ！！" },
+        { speaker: "mio", text: "モモ、いいから。" },
+        { speaker: "momotaros", text: "誰が連れてってるって！？" },
+        { speaker: "mio", text: "声が大きい。" },
+        { speaker: "momotaros", text: "こいつは俺の女だ！\n亀じゃねーんだよ！！" },
+        { speaker: "passerby", text: "行こう……。", hideNamePlate: true, darkenPortraits: true },
+        { speaker: "passerby", text: "うん……。", hideNamePlate: true, darkenPortraits: true },
+        { speaker: "momotaros", text: "待て！　まだ話は――" },
+        { speaker: "mio", text: "追いかけなくていい。" },
+        { speaker: "momotaros", text: "なんでだよ！" },
+        { speaker: "mio", text: "その格好で大声を出すから。" },
+        { speaker: "momotaros", text: "格好は関係ねぇだろ！" },
+        { speaker: "mio", text: "あと、亀は誰にも通じないよ。" },
+        { speaker: "momotaros", text: "あいつらが変なこと\n言うからだろうが！" },
+        { speaker: "mio", text: "ウラタロスは何もしてないけど。" },
+        { speaker: "momotaros", text: "あいつなら疑われても\n仕方ねぇ！" },
+        { speaker: "mio", text: "何を？" },
+        { speaker: "momotaros", text: "女を連れてくことだよ！" },
+        { speaker: "mio", text: "モモも今、同じことを\nしてるように見えたんでしょ？" },
+        { speaker: "momotaros", text: "俺は違ぇ！" },
+        { speaker: "mio", text: "どこが？" },
+        { speaker: "momotaros", text: "お前が自分から\nついてきてんだろ！" },
+        { speaker: "mio", text: "そうだったね。" },
+        { speaker: "momotaros", text: "分かったら堂々としてろ！" },
+        { speaker: "mio", text: "してるよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "じゃあ、なんで顔赤ぇんだよ。" },
+        { speaker: "mio", text: "…………。" },
+        { speaker: "momotaros", text: "おい。" },
+        { speaker: "mio", text: "急に『俺の女』って言うから。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "…………。" },
+        { speaker: "mio", text: "大声だったし。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "嫌だったか？" },
+        { speaker: "mio", text: "嫌じゃない。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "……そうかよ。" },
+        { speaker: "mio", text: "少し照れただけ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "お前、今さら\nそういうので照れんのか？" },
+        { speaker: "mio", text: "少しは。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_grin", text: "へぇ。" },
+        { speaker: "mio", text: "その顔やめて。" },
+        { speaker: "momotaros", text: "どの顔だよ。" },
+        { speaker: "mio", text: "調子に乗ってる顔。" },
+        { speaker: "momotaros", text: "乗ってねぇよ。" },
+        { speaker: "mio", text: "そう？" },
+        { speaker: "momotaros", text: "お前が勝手に\n照れてるだけだろ。" },
+        { speaker: "mio", text: "そうかもね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "…………。" },
+        { speaker: "mio", text: "モモ？" },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_normal",
+            text: "ほら、はぐれんなよ。俺の女。",
+            storyStill: "CG_momotaros_ep15_01.png"
+        },
+        { speaker: "mio", text: "もう人はいないよ。" },
+        { speaker: "momotaros", text: "いいから俺の隣歩け。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", text: "お前は俺の女なんだからな。" },
+        { speaker: "mio", text: "……それ、気に入ったの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "事実だろ！" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "…………。" },
+        { speaker: "mio", text: "どうしたの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "何でもねぇ！" },
+        { speaker: "mio", text: "モモも照れた？" },
+        { speaker: "momotaros", text: "照れてねぇ！" },
+        { speaker: "mio", text: "そう。" },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_normal",
+            text: "ほら、次あっち行くぞ。俺の女。",
+            storyStillClear: true
+        },
+        { speaker: "mio", text: "モモ。" },
+        { speaker: "momotaros", text: "なんだよ。" },
+        { speaker: "mio", text: "名前、忘れた？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "忘れてねぇよ！　澪だろ！" },
+        { speaker: "mio", text: "なら、名前も呼んで。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "……分かったよ。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "行くぞ、澪。" },
+        { speaker: "mio", text: "うん。" }
+    ]
+},
+{
+    id: "momo_ex_04",
+    number: 16,
+    title: "後日談 第4話　全部俺に任せとけ",
+    description:
+        "休憩も“俺の作戦”に組み込み、澪を連れて次の目的地へ向かうモモ。けれど、思い描いていた時間どおりには進まず――。",
+    startBackground: "background_town.png",
+    startPossessedBy: "momotaros",
+    startPossessionOutfit: "imagin_preference",
+    participants: [
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal" }
+    ],
+    pages: [
+        { speaker: "mio", text: "モモ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "なんだよ。", distance: "close" },
+        { speaker: "mio", text: "腕、まだ外さないの？" },
+        { speaker: "momotaros", text: "外す必要ねぇだろ。" },
+        { speaker: "mio", text: "もう人も少ないよ。" },
+        { speaker: "momotaros", text: "また増えるかもしれねぇ。" },
+        { speaker: "mio", text: "さっきも聞いた気がする。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "だったら何度も聞くな！" },
+        { speaker: "mio", text: "片手に荷物を持って、\nもう片方は私でふさがってるけど。" },
+        { speaker: "momotaros", text: "だから？" },
+        { speaker: "mio", text: "大変じゃない？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "全然。" },
+        { speaker: "mio", text: "腕、少し下がってきてるよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "下がってねぇ！" },
+        { speaker: "mio", text: "無理しなくてもいいのに。" },
+        { speaker: "momotaros", text: "疲れてねぇ！" },
+        { speaker: "mio", text: "疲れたとは言ってないけど。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "mio", text: "モモ？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "次、あそこ行くぞ！" },
+        { speaker: "mio", text: "あのお店？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "俺の作戦パート３だ！" },
+        { speaker: "mio", text: "休憩も作戦なんだ。" },
+        { speaker: "momotaros", text: "お前、疲れてるんだろ。" },
+        { speaker: "mio", text: "もう平気だよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "さっき少し疲れてるって\n言っただろうが！" },
+        { speaker: "mio", text: "覚えてたの？" },
+        { speaker: "momotaros", text: "聞いたんだから\n覚えてるに決まってんだろ！" },
+        { speaker: "mio", text: "そう。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "なんだよ。" },
+        { speaker: "mio", text: "嬉しいなと思って。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "それくらい普通だ！" },
+        { speaker: "mio", text: "普通なんだ。" },
+        { speaker: "momotaros", text: "俺についてきてる女のことくらい、\n覚えてて当たり前だろ！" },
+        { speaker: "mio", text: "またそれ？" },
+        { speaker: "momotaros", text: "何がだよ。" },
+        { speaker: "mio", text: "『俺についてきてる女』。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "事実だろ！" },
+        { speaker: "mio", text: "私はモモの隣を\n歩いてるつもりだけど。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "…………。" },
+        { speaker: "mio", text: "違った？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "違わねぇ！" },
+        { speaker: "mio", text: "ならよかった。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "お前、たまに変なこと言うよな。" },
+        { speaker: "mio", text: "そう？" },
+        { speaker: "momotaros", text: "急にそういう……。" },
+        { speaker: "mio", text: "そういう？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "何でもねぇ！　早く入るぞ！", distance: "normal" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "mio", text: "やっと腕を外したね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "座るんだから当たり前だろ。" },
+        { speaker: "mio", text: "少し寂しい。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "はぁ！？" },
+        { speaker: "mio", text: "ずっと近くにいたから。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "だったら隣に座れ！" },
+        { speaker: "mio", text: "向かいじゃなくていいの？" },
+        { speaker: "momotaros", text: "どっちでも同じだろ！" },
+        { speaker: "mio", text: "じゃあ、隣にする。" },
+        { speaker: "momotaros", text: "最初からそうしろ！" },
+        { speaker: "mio", text: "モモが隣に座れって\n言ったんでしょ？" },
+        { speaker: "momotaros", text: "言わせる前に分かれ！" },
+        { speaker: "mio", text: "難しいね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "難しくねぇ！" },
+        {
+            speaker: "mio",
+            text: "何にしようかな。",
+            storyBackground: "background_cafe.png",
+            storyBlackFade: 1
+        },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "好きなの選べ。" },
+        { speaker: "mio", text: "モモは？" },
+        { speaker: "momotaros", text: "なんでもいい。" },
+        { speaker: "mio", text: "プリンがあるよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "……ふーん。" },
+        { speaker: "mio", text: "食べる？" },
+        { speaker: "momotaros", text: "別に。" },
+        { speaker: "mio", text: "じゃあ、私は\nケーキにしようかな。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "プリンにしろよ！" },
+        { speaker: "mio", text: "どうして？" },
+        { speaker: "momotaros", text: "気になってんだろ。" },
+        { speaker: "mio", text: "モモが？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "お前がだよ！" },
+        { speaker: "mio", text: "私はケーキも気になるよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "だったらケーキにすりゃ\nいいだろ！" },
+        { speaker: "mio", text: "そうするね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "mio", text: "モモは何にするの？" },
+        { speaker: "momotaros", text: "なんでもいい。" },
+        { speaker: "mio", text: "プリン？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "食いてぇとは言ってねぇ！" },
+        { speaker: "mio", text: "食べたくないとも言ってないね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "mio", text: "ケーキとプリンにして、\n半分ずつにする？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "お前がそうしてぇならな！" },
+        { speaker: "mio", text: "私はモモと半分ずつにしたい。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "……じゃあ、それでいい。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "勝手に俺の分まで食うなよ。" },
+        { speaker: "mio", text: "食べたいんだね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "半分っつったのは\nお前だろうが！" },
+        { speaker: "mio", text: "そうだったね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "忘れんな！" },
+        { speaker: "mio", text: "プリン、おいしい？", storyBlackFade: 1 },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_grin", text: "まあ、悪くねぇな。" },
+        { speaker: "mio", text: "その顔で？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "どの顔だよ。" },
+        { speaker: "mio", text: "嬉しそうな顔。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "普通だ！" },
+        { speaker: "mio", text: "口元、緩んでるよ。" },
+        { speaker: "momotaros", text: "見るな！" },
+        { speaker: "mio", text: "隣にいるから見える。" },
+        { speaker: "momotaros", text: "だったら向こう向いてろ！" },
+        { speaker: "mio", text: "せっかく隣に座ったのに？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "mio", text: "向こうを向いた方がいい？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "そのままでいい！" },
+        { speaker: "mio", text: "分かった。" },
+        { speaker: "momotaros", text: "なんで笑ってんだよ！" },
+        { speaker: "mio", text: "モモといると楽しいから。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "……そうかよ。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "だったらもっと食え。" },
+        { speaker: "mio", text: "モモのプリンだよ？" },
+        { speaker: "momotaros", text: "半分はお前のだろ！" },
+        { speaker: "mio", text: "くれるの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "最初から半分ずつっつってんだろ！" },
+        { speaker: "mio", text: "ありがとう。" },
+        { speaker: "momotaros", text: "礼はいいから早く食え！" },
+        { speaker: "mio", text: "急ぐの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "mio", text: "モモ？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "今、何時だ。" },
+        { speaker: "mio", text: "もうこんな時間だね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "やべぇ。" },
+        { speaker: "mio", text: "次の作戦？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "まだ食い終わってねぇのか？" },
+        { speaker: "mio", text: "ごめん。すぐ食べるね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "……いや。" },
+        { speaker: "mio", text: "急ぐんでしょ？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_soft", text: "急がなくていい。" },
+        { speaker: "mio", text: "でも、間に合わなくなるんじゃない？" },
+        { speaker: "momotaros", text: "お前を急がせてまで\n行くようなところじゃねぇ。" },
+        { speaker: "mio", text: "本当に？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "食ってから行くぞ。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", text: "ゆっくりでいいからな。" },
+        { speaker: "mio", text: "モモ。" },
+        { speaker: "momotaros", text: "なんだよ。" },
+        { speaker: "mio", text: "ありがとう。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "だから、いちいち礼を言うな！" },
+        { speaker: "mio", text: "じゃあ、言わない。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "mio", text: "どうしたの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_soft", text: "いや……それでいい。" },
+        { speaker: "mio", text: "うん。" },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_normal",
+            text: "着いたぞ。",
+            storyBackground: "background_riverside_night.png",
+            storyBlackFade: 2,
+            portraitLighting: "night"
+        },
+        { speaker: "mio", text: "ここが俺の作戦パート５？" },
+        { speaker: "momotaros", text: "そうだ。" },
+        { speaker: "mio", text: "４、どこ行ったの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_grin", text: "一個飛ばすくらい\nスゲーんだよ！" },
+        { speaker: "mio", text: "なるほど。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "……。" },
+        { speaker: "mio", text: "静かだね。" },
+        { speaker: "momotaros", text: "…………。" },
+        { speaker: "mio", text: "モモ？" },
+        { speaker: "momotaros", text: "間に合わなかった。" },
+        { speaker: "mio", text: "何に？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "もう暗くなってんだろ。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", text: "明るいうちなら、\nもっとよく見えたんだよ。" },
+        { speaker: "mio", text: "ここの景色？" },
+        { speaker: "momotaros", text: "最後にここへ\n連れてくるつもりだった。" },
+        { speaker: "mio", text: "そうだったんだ。" },
+        { speaker: "momotaros", text: "途中で時間使いすぎた。" },
+        { speaker: "mio", text: "私がお店を見てたから？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "違ぇよ！" },
+        { speaker: "mio", text: "でも。" },
+        { speaker: "momotaros", text: "俺が時間を\n見てなかっただけだ！" },
+        { speaker: "mio", text: "モモは何度も見てたよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "mio", text: "私が急がなかったから。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "お前が見てぇもんを見るのも\n作戦に入ってんだよ。" },
+        { speaker: "mio", text: "じゃあ、作戦通りだね。" },
+        { speaker: "momotaros", text: "最後が間に合ってねぇだろ！" },
+        { speaker: "mio", text: "暗くても綺麗だよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "無理に言うな。" },
+        { speaker: "mio", text: "本当に綺麗。" },
+        { speaker: "momotaros", text: "…………。" },
+        { speaker: "mio", text: "それに、今日はずっと\n楽しかったよ。" },
+        { speaker: "momotaros", text: "最後まで決まらなきゃ\n意味ねぇだろ。" },
+        { speaker: "mio", text: "決まってたよ。" },
+        { speaker: "momotaros", text: "どこがだよ。" },
+        { speaker: "mio", text: "早くから待っててくれたところ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "偶然早く着いただけだ。" },
+        { speaker: "mio", text: "歩く速さを\n合わせてくれたところ。" },
+        { speaker: "momotaros", text: "お前が遅かったからだろ。" },
+        { speaker: "mio", text: "私が見たいものを、\n何も言わずに待っててくれたところ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "…………。" },
+        { speaker: "mio", text: "荷物も持ってくれた。" },
+        { speaker: "momotaros", text: "それくらい普通だ！" },
+        { speaker: "mio", text: "疲れてることも\n覚えててくれた。" },
+        { speaker: "momotaros", text: "当たり前だろ。" },
+        { speaker: "mio", text: "急がせないでくれた。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "…………。" },
+        { speaker: "mio", text: "今日のモモ、\nずっと格好よかったよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_grin", text: "……だろ？" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", text: "どれが一番だった？" },
+        { speaker: "mio", text: "全部。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "そうじゃなくて、一番を決めろ！" },
+        { speaker: "mio", text: "難しいな。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_grin", text: "肩抱いて歩いたところだろ！" },
+        { speaker: "mio", text: "自分で言うんだ。" },
+        { speaker: "momotaros", text: "あれが一番\n決まってただろうが！" },
+        { speaker: "mio", text: "通行人に怒鳴るまではね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "あれは向こうが悪ぃんだよ！" },
+        { speaker: "mio", text: "『亀じゃねえ』、も？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "そこは忘れろ！" },
+        { speaker: "mio", text: "忘れられるかな。" },
+        { speaker: "momotaros", text: "忘れろ！" },
+        { speaker: "mio", text: "分かった。努力する。" },
+        { speaker: "momotaros", text: "絶対忘れる気ねぇだろ！" },
+        { speaker: "mio", text: "それも含めて、楽しかった。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "…………。" },
+        { speaker: "mio", text: "連れてきてくれてありがとう。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "おう。" },
+        { speaker: "mio", text: "また連れていって。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_grin", text: "次は今日よりもっとすげぇぞ！" },
+        { speaker: "mio", text: "今日くらいでも充分だよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "充分で終わらせるかよ！" },
+        { speaker: "mio", text: "じゃあ、楽しみにしてる。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "全部俺に任せとけ！" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "……寒くねぇか？" },
+        { speaker: "mio", text: "少しだけ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "もっとこっち来い。" },
+        { speaker: "mio", text: "また肩を抱くの？" },
+        { speaker: "momotaros", text: "寒いんだろ。" },
+        { speaker: "mio", text: "モモは？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "俺は寒くねぇ！" },
+        { speaker: "mio", text: "じゃあ、私のため？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "そうだよ！" },
+        { speaker: "mio", text: "そう。" },
+        { speaker: "momotaros", text: "なんだよ。" },
+        { speaker: "mio", text: "嬉しい。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "……だったら黙ってこっち来い。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_soft", text: "今度こそ、はぐれんなよ。", distance: "close" },
+        { speaker: "mio", text: "誰もいないよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "うるせぇ！" },
+        { speaker: "mio", text: "帰るまで、このまま？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "嫌か？" },
+        { speaker: "mio", text: "嫌じゃない。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "だったら決まりだ。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_soft", text: "帰るぞ、澪。" },
+        { speaker: "mio", text: "うん。モモ。" }
+    ]
+},
+{
+    id: "momo_ex_05",
+    number: 17,
+    title: "後日談 第5話　今日は俺が先",
+    description:
+        "澪が来る前から、なぜか皆へ細かな注文をつけるモモタロス。今度こそ自分が真っ先に迎えようと、準備を重ねていた。",
+    participants: [
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_normal" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_normal" },
+        { speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_normal" }
+    ],
+    pages: [
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "おい、お前ら。" },
+        { speaker: "urataros", text: "何、先輩。" },
+        { speaker: "momotaros", text: "今日、澪が来ても先に喋るなよ。" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_surprised", text: "なんで？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "いいから黙ってろ！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_angry", text: "やだ！" },
+        { speaker: "momotaros", text: "今日だけでいい！" },
+        { speaker: "ryutaros", text: "もっとやだ！" },
+        { speaker: "momotaros", text: "なんで増えんだよ！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "先輩が澪ちゃんを\n迎えたいんだって。" },
+        { speaker: "momotaros", text: "お前が説明すんな！" },
+        { speaker: "kintaros", text: "この間、全部先に言われたんが\n悔しかったんやな。", darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "違ぇ！" },
+        { speaker: "ryotaro", text: "でも、ずっと練習してたよね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "良太郎！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "やっぱり練習してたんだ？" },
+        { speaker: "momotaros", text: "してねぇ！　発声練習だ！" },
+        { speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_worried", text: "同じ言葉を\n何度も言ってたけど……。" },
+        { speaker: "momotaros", text: "発声練習だからだ！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile", text: "何て言うの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "教えねぇ！" },
+        { speaker: "ryutaros", text: "じゃあ僕も考える！" },
+        { speaker: "momotaros", text: "考えなくていい！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile", text: "お姉ちゃん、今日も可愛いね！" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "それは亀のだろ！" },
+        { speaker: "urataros", text: "僕のって決まってるの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "お前がいつも\n言ってんだろうが！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "先輩も言えばいいのに。" },
+        { speaker: "momotaros", text: "同じこと言っても\n仕方ねぇだろ！" },
+        { speaker: "urataros", text: "言えないんじゃなくて？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "言わねぇだけだ！" },
+        { speaker: "kintaros", text: "その代わりに、\n『悪くねぇ』言うんやったか。", darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "なんで知ってんだよ！" },
+        { speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_worried", text: "声が大きかったから……。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "聞くんじゃねぇ！" },
+        { speaker: "ryotaro", text: "僕の身体で練習してたんだから、\n聞こえるよ。" },
+        { speaker: "momotaros", text: "だったら忘れろ！" },
+        { speaker: "ryotaro", text: "う、うん。努力するよ。" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "僕も努力した方がいい？" },
+        { speaker: "momotaros", text: "お前は今すぐ忘れろ！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile", text: "僕は覚えた！" },
+        { speaker: "momotaros", text: "お前も忘れろ！！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_angry", text: "やだ！" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "くそっ……。" },
+        { speaker: "ryotaro", text: "モモタロス、\nその席だけ空けてるの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "おう。" },
+        { speaker: "ryutaros", text: "今日はここに座っちゃ駄目？" },
+        { speaker: "momotaros", text: "そこは澪が座る。" },
+        { speaker: "ryutaros", text: "ほかは？" },
+        { speaker: "momotaros", text: "好きなところ座れ。" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_surprised", text: "今日はお姉ちゃん一人？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "最初から一人だ！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_wrysmile", text: "この間は四人分あったのにね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "あいつが座るところは、\nもう分かってんだよ。" },
+        { speaker: "urataros", text: "先輩の隣？" },
+        { speaker: "momotaros", text: "この間ここに座っただろ。" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "今日も座ってくれるといいね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "座るに決まってんだろ！" },
+        { speaker: "urataros", text: "どうして？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "澪は俺の――" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "俺の？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "urataros", text: "何？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "うるせぇ！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile", text: "僕、ここがいい！" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "そこだけは駄目だ！" },
+        { speaker: "ryutaros", text: "じゃあ、お姉ちゃんが来るまで！" },
+        { speaker: "momotaros", text: "来たらすぐ退けよ！" },
+        { speaker: "ryutaros", text: "分かった！" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "あと、来たら走ってくなよ。" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_surprised", text: "なんで？" },
+        { speaker: "momotaros", text: "今日は俺が先だ！" },
+        { speaker: "ryutaros", text: "何が？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "全部だよ！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_wrysmile", text: "先輩、澪ちゃんを\n迎えるだけだよ？" },
+        { speaker: "momotaros", text: "だからなんだ！" },
+        { speaker: "kintaros", text: "戦いにでも行く顔しとるで。", darkenPortraits: true },
+        { speaker: "momotaros", text: "最初が肝心なんだよ！" },
+        { speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_smile", text: "前にも同じこと言ってたね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "今度こそ完璧に決めんだよ！" },
+        { speaker: "urataros", text: "僕たちは黙ってればいいの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "俺が終わるまで絶対喋るな！" },
+        { speaker: "ryutaros", text: "いつ終わるの？" },
+        { speaker: "momotaros", text: "すぐだ！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "そんなに長いんだ？" },
+        { speaker: "momotaros", text: "一息で言うっつってんだろ！" },
+        { speaker: "urataros", text: "一息で言うんだ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "urataros", text: "先輩？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "お前、わざと聞いてんだろ！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "何のこと？" },
+        { speaker: "kintaros", text: "もう諦めた方が\nええんやないか？", darkenPortraits: true },
+        { speaker: "momotaros", text: "まだ始まってもねぇよ！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_normal", text: "お姉ちゃん、遅いね。" },
+        { speaker: "momotaros", text: "もうすぐ来る！" },
+        { speaker: "ryotaro", text: "さっき連絡が来たから、\n本当にもうすぐだよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "おい、小僧！　そこ退け！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_surprised", text: "まだ来てないよ？" },
+        { speaker: "momotaros", text: "すぐ退けるように準備しろ！" },
+        { speaker: "ryutaros", text: "こう？" },
+        { speaker: "momotaros", text: "なんで立ったり\n座ったりしてんだよ！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile", text: "すぐ退けるように！" },
+        { speaker: "momotaros", text: "もう立ってろ！" },
+        { speaker: "ryutaros", text: "分かった！" },
+        { speaker: "urataros", text: "僕たちも立った方がいい？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "お前らは普通にしてろ！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_wrysmile", text: "注文が多いなあ。" },
+        { speaker: "kintaros", text: "桃の字。落ち着け。", darkenPortraits: true },
+        { speaker: "momotaros", text: "落ち着いてる！" },
+        { speaker: "ryotaro", expression: "portrait_ryotaro_base_ryotaro_worried", text: "さっきから入口ばかり\n見てるけど……。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "見てねぇ！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile", text: "見てるよ！" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "うるせぇ！" },
+        {
+            speaker: "mio",
+            text: "ただいま。",
+            pageParticipants: [
+                { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry" },
+                { speaker: "urataros", expression: "portrait_urataros_base_default_wrysmile" },
+                { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile" },
+                { speaker: "mio" }
+            ]
+        },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "澪！　早かったなその服悪くねぇ疲れてねぇかこっち座れ！！" },
+        { speaker: "mio", text: "…………。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "mio", text: "……うん？" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_surprised", text: "モモタロス、早口！" },
+        { speaker: "kintaros", text: "息しとらんかったな。", darkenPortraits: true },
+        { speaker: "ryotaro", text: "練習通り言えたね。", darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "練習してねぇ！！" },
+        { speaker: "urataros", text: "先輩、今ので全部\n伝わったと思ってる？" },
+        { speaker: "momotaros", text: "伝わっただろ！" },
+        { speaker: "mio", text: "少し待って。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "なんだよ。" },
+        { speaker: "mio", text: "早かった？" },
+        { speaker: "momotaros", text: "思ったより早かった！" },
+        { speaker: "mio", text: "この服、悪くない？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "悪くねぇ！" },
+        { speaker: "mio", text: "疲れてない？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "俺がお前に聞いたんだよ！" },
+        { speaker: "mio", text: "私は少し疲れた。" },
+        { speaker: "momotaros", text: "だったらこっち座れ！" },
+        { speaker: "mio", text: "うん。分かった。" },
+        { speaker: "momotaros", text: "最初から分かれ！" },
+        { speaker: "mio", text: "一息だったから。" },
+        { speaker: "momotaros", text: "一個ずつ言ってたら、\nこいつらに先越されんだよ！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "やっと認めたね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "kintaros", text: "やっぱり悔しかったんやないか。", darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "うるせぇ！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile", text: "お姉ちゃん、ここ！" },
+        { speaker: "momotaros", text: "お前は退け！" },
+        { speaker: "ryutaros", text: "今退こうと思ってた！" },
+        { speaker: "momotaros", text: "早くしろ！" },
+        { speaker: "ryutaros", text: "はーい！" },
+        { speaker: "mio", text: "ここに座ればいい？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "おう。" },
+        { speaker: "mio", text: "今日も空けてくれてたの？" },
+        { speaker: "momotaros", text: "今日はそこしか空けてねぇ。" },
+        { speaker: "mio", text: "どうして？" },
+        { speaker: "momotaros", text: "お前、ここに座るだろ。" },
+        { speaker: "mio", text: "うん。座る。" },
+        { speaker: "momotaros", text: "だったら最初から\nここだけでいいんだよ。" },
+        { speaker: "ryutaros", text: "この間は全部取ったのに。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "もう決まったんだからいいんだ！" },
+        { speaker: "urataros", text: "澪ちゃんの席は、\n先輩の隣で決まり？" },
+        { speaker: "mio", text: "モモがいいなら。" },
+        { speaker: "momotaros", text: "俺が空けてんだから、\nいいに決まってんだろ！" },
+        { speaker: "mio", text: "そう。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "なんだよ。" },
+        { speaker: "mio", text: "嬉しいよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "……おう。" },
+        { speaker: "ryutaros", text: "僕もお姉ちゃんの隣がいい！" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "今日は駄目だ！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_angry", text: "なんで？" },
+        { speaker: "momotaros", text: "俺が先に決めたからだ！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "今日はずいぶん張り切ってるね。" },
+        { speaker: "momotaros", text: "今日はじゃねぇ！　いつもだ！" },
+        { speaker: "urataros", text: "昨日のデートも？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "デ……じゃねぇ！" },
+        { speaker: "mio", text: "デートじゃなかったの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "…………。" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_wrysmile", text: "澪ちゃんが悲しそうだよ、先輩。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "そういう意味じゃねぇ！" },
+        { speaker: "mio", text: "じゃあ、デート？" },
+        { speaker: "momotaros", text: "いちいち言わせんな！" },
+        { speaker: "mio", text: "……俺の作戦なんだもんね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "……おう。" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_normal", text: "それで、どうだった？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_grin", text: "完璧だった！" },
+        { speaker: "mio", text: "楽しかったよ。" },
+        { speaker: "kintaros", text: "ほうか。よかったな。", darkenPortraits: true },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile", text: "何したの？" },
+        { speaker: "mio", text: "街を歩いて、お店を見て、\nプリンを食べたよ。" },
+        { speaker: "ryutaros", text: "僕もプリン食べたい！" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "今度食え！" },
+        { speaker: "urataros", text: "ほかには？" },
+        { speaker: "mio", text: "モモが荷物を持ってくれた。" },
+        { speaker: "kintaros", text: "よう気が利くやないか。", darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "それくらい普通だ！" },
+        { speaker: "mio", text: "歩く速さも合わせてくれた。" },
+        { speaker: "ryotaro", text: "頑張ったんだね、モモタロス。", darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "頑張らなくてもできる！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "肩は抱いた？" },
+        { speaker: "mio", text: "肩抱いてくれた。" },
+        { speaker: "urataros", text: "へえ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "なんで全部言うんだよ！" },
+        { speaker: "mio", text: "聞かれたから。" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_wrysmile", text: "先輩にしては、ずいぶん\n彼氏らしいことができたんだね。" },
+        { speaker: "momotaros", text: "だから最初から\nできるっつってんだろ！" },
+        { speaker: "mio", text: "通行人には心配されたけど。" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_surprised", text: "心配？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "澪！" },
+        { speaker: "mio", text: "連れていかれてるように\n見えたみたい。" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile", text: "モモタロス、怖いもん！" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "怖くねぇ！" },
+        { speaker: "ryutaros", text: "怖い顔で大きい声出す！" },
+        { speaker: "momotaros", text: "俺の女を連れてただけだ！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "へぇ。" },
+        { speaker: "momotaros", text: "なんだよ！" },
+        { speaker: "urataros", text: "『俺の女』。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "事実だろ。" },
+        { speaker: "urataros", text: "彼女とは言えないのに？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "そっちの方が言いにくいんだよ！" },
+        { speaker: "mio", text: "昨日から気に入ってるみたい。" },
+        { speaker: "momotaros", text: "気に入ったんじゃねぇ！\n最初からそうなんだよ！" },
+        { speaker: "urataros", text: "澪ちゃんも否定しないんだ？" },
+        { speaker: "mio", text: "間違ってないから。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_grin", text: "ほら見ろ！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_wrysmile", text: "よかったね、先輩。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "何がだよ！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile", text: "お姉ちゃん、僕もぎゅーする！" },
+        { speaker: "momotaros", text: "今日は駄目だ！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_angry", text: "なんで！" },
+        { speaker: "momotaros", text: "今日は俺が先だっつっただろ！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_surprised", text: "でも、モモタロス\nまだぎゅーしてないよ？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "そういえば、言葉だけだったね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "これからやるんだよ！" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile", text: "じゃあ早くして！" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "今ここでやるわけねぇだろ！" },
+        { speaker: "ryutaros", text: "どうして？" },
+        { speaker: "momotaros", text: "お前らが見てるからだ！" },
+        { speaker: "urataros", text: "僕たちがいなければ\nできるんだ？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_grin", text: "できるに決まってんだろ！" },
+        { speaker: "kintaros", text: "ほな、席外そか？", darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "今すぐ出てこうとすんな！" },
+        { speaker: "ryotaro", text: "えっと、モモタロス……。", darkenPortraits: true },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "いいから普通にしてろ！" },
+        { speaker: "ryutaros", text: "ぎゅーしないの？" },
+        { speaker: "momotaros", text: "あとでする！" },
+        { speaker: "ryutaros", text: "絶対？" },
+        { speaker: "momotaros", text: "絶対だ！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_smile", text: "言い切ったね。" },
+        { speaker: "momotaros", text: "言い切って何が悪ぃ！" },
+        { speaker: "mio", text: "じゃあ、今日はモモが先ね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "お、おう。" },
+        { speaker: "ryutaros", expression: "portrait_ryutaros_base_default_smile", text: "そのあと僕？" },
+        { speaker: "mio", text: "うん。そのあとリュウタ。" },
+        { speaker: "ryutaros", text: "分かった！" },
+        { speaker: "urataros", expression: "portrait_urataros_base_default_wrysmile", text: "これでもう逃げられないね、先輩。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "逃げるわけねぇだろ！" },
+        { speaker: "mio", text: "楽しみにしてる。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "……任せとけ！" }
+    ]
+},
+{
+    id: "momo_ex_06",
+    number: 18,
+    title: "後日談 第6話　今度こそ俺が先",
+    description:
+        "皆が席を外し、食堂車に二人きりで残ったモモと澪。先ほど交わした約束を、澪は静かに待っていた。",
+    participants: [
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal" }
+    ],
+    pages: [
+        { speaker: "mio", text: "静かになったね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "やっといなくなったか。" },
+        { speaker: "mio", text: "皆、気を遣ってくれたのかな。" },
+        { speaker: "momotaros", text: "勝手にどっか行っただけだろ。" },
+        { speaker: "mio", text: "ウラタロス、笑ってたよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "あの亀……！" },
+        { speaker: "mio", text: "追いかける？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "今はいい。" },
+        { speaker: "mio", text: "そう。" },
+        { speaker: "momotaros", text: "なんだよ。" },
+        { speaker: "mio", text: "私といる方を\n選んでくれたんだなと思って。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "今さら追いかけたら、\nまた戻ってくるだろうが！" },
+        { speaker: "mio", text: "それだけ？" },
+        { speaker: "momotaros", text: "それだけだ！" },
+        { speaker: "mio", text: "分かった。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "mio", text: "…………。" },
+        { speaker: "momotaros", text: "なんだよ。" },
+        { speaker: "mio", text: "待ってるの。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "何を？" },
+        { speaker: "mio", text: "モモ、さっき約束したでしょ？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "覚えてるよ！" },
+        { speaker: "mio", text: "あとでするって。" },
+        { speaker: "momotaros", text: "分かってる！" },
+        { speaker: "mio", text: "じゃあ、どうぞ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "急かすな！" },
+        { speaker: "mio", text: "いつまで待てばいい？" },
+        { speaker: "momotaros", text: "今やろうとしてんだよ！" },
+        { speaker: "mio", text: "そうは見えないけど。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "心の準備があんだろ！" },
+        { speaker: "mio", text: "抱きしめるだけだよ？" },
+        { speaker: "momotaros", text: "だけって言うな！" },
+        { speaker: "mio", text: "難しい？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "難しくねぇ！" },
+        { speaker: "mio", text: "恥ずかしい？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "恥ずかしくねぇ！" },
+        { speaker: "mio", text: "じゃあ、どうして動かないの？" },
+        { speaker: "momotaros", text: "順番を考えてんだよ！" },
+        { speaker: "mio", text: "抱きしめるのに？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "最初が肝心なんだ！" },
+        { speaker: "mio", text: "俺の作戦の時も言ってたね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "何だって最初が肝心なんだよ！" },
+        { speaker: "mio", text: "まず何をするの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "お前を立たせる。" },
+        { speaker: "mio", text: "立ったよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "早ぇよ！" },
+        { speaker: "mio", text: "次は？" },
+        { speaker: "momotaros", text: "こっち来い。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "あ、待て！" },
+        { speaker: "mio", text: "今度は何？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "お前から来たら、\n俺が先にならねぇだろ！" },
+        { speaker: "mio", text: "じゃあ、モモから来る？" },
+        { speaker: "momotaros", text: "そうする！" },
+        { speaker: "mio", text: "分かった。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "そこ動くなよ。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "…………。" },
+        { speaker: "mio", text: "…………。" },
+        { speaker: "momotaros", text: "…………。" },
+        { speaker: "mio", text: "まだ？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "今行く！" },
+        { speaker: "mio", text: "さっきも聞いたよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "うるせぇな！" },
+        { speaker: "mio", text: "はいはい。" },
+        { speaker: "momotaros", text: "はいは一回！" },
+        { speaker: "mio", text: "はい。" },
+        { speaker: "mio", text: "……モモ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "なんだよ！" },
+        { speaker: "mio", text: "私、もう待てない。" },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_surprised",
+            text: "お、おい！",
+            distance: "close",
+            storyStill: "CG_momotaros_ep18_01.png"
+        },
+        { speaker: "mio", text: "なに？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "急に来るな！" },
+        { speaker: "mio", text: "ちゃんと待ったよ。" },
+        { speaker: "momotaros", text: "俺からやるっつっただろ！" },
+        { speaker: "mio", text: "モモが来ないから。" },
+        { speaker: "momotaros", text: "今行こうとしてたんだよ！" },
+        { speaker: "mio", text: "そう。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "離れろ！　やり直す！" },
+        { speaker: "mio", text: "嫌。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "はぁ！？" },
+        { speaker: "mio", text: "今は離れたくない。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "…………。" },
+        { speaker: "mio", text: "モモ？" },
+        { speaker: "momotaros", text: "……それ、ずるくねぇか。" },
+        { speaker: "mio", text: "どうして？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_soft", text: "そんなこと言われたら、\n離せねぇだろ。" },
+        { speaker: "mio", text: "まだモモは抱きしめてないよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "mio", text: "腕、どうしたの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "どうもしてねぇ！" },
+        { speaker: "mio", text: "浮いてる。" },
+        { speaker: "momotaros", text: "浮いてねぇ！" },
+        { speaker: "mio", text: "私に触ってないけど。" },
+        { speaker: "momotaros", text: "今からだ！" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "……苦しかったら言えよ。" },
+        { speaker: "mio", text: "うん。" },
+        {
+            speaker: "momotaros",
+            expression: "portrait_momotaros_base_default_shy",
+            text: "…………。",
+            storyStillClear: true
+        },
+        { speaker: "mio", text: "モモ。" },
+        { speaker: "momotaros", text: "今度はなんだよ。" },
+        { speaker: "mio", text: "少し苦しい。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "早く言え！" },
+        { speaker: "mio", text: "言ったよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "これくらいか？" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", text: "まだ苦しいか？" },
+        { speaker: "mio", text: "もう大丈夫。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "そうか。" },
+        { speaker: "mio", text: "離さないでね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_soft", text: "分かってる。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "…………。" },
+        { speaker: "mio", text: "…………。" },
+        { speaker: "momotaros", text: "お前からやったな。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "それも俺が先に\nやるつもりだったんだよ。" },
+        { speaker: "mio", text: "ごめんね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "謝るくらいなら待て！" },
+        { speaker: "mio", text: "でも、モモに触りたかったから。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "…………。" },
+        { speaker: "mio", text: "嫌だった？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "嫌じゃねぇ！" },
+        { speaker: "mio", text: "ならよかった。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "ただ、俺が先じゃなかったのが\n気に入らねぇだけだ！" },
+        { speaker: "mio", text: "じゃあ、次はモモから。" },
+        { speaker: "momotaros", text: "今すぐやり直す！" },
+        { speaker: "mio", text: "一度離れるの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "mio", text: "私は離れたくないな。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "……だったら、次だ。" },
+        { speaker: "mio", text: "うん。次は待ってる。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "絶対動くなよ。" },
+        { speaker: "mio", text: "分かった。" },
+        { speaker: "momotaros", text: "今度こそ俺が先だからな！" },
+        { speaker: "mio", text: "そんなに大事？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "大事だ！" },
+        { speaker: "mio", text: "どうして？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "俺はお前の……。" },
+        { speaker: "mio", text: "私の？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "…………。" },
+        { speaker: "mio", text: "モモ？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "お前が俺についてきてるからだ！" },
+        { speaker: "mio", text: "また戻ったね。" },
+        { speaker: "momotaros", text: "戻ってねぇ！" },
+        { speaker: "mio", text: "私、『俺の女』じゃなかった？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "それも同じだ！" },
+        { speaker: "mio", text: "そう。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "お前は俺の女だろ。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "否定しねぇんだな。" },
+        { speaker: "mio", text: "間違ってないから。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "……そうかよ。" },
+        { speaker: "mio", text: "モモは私の彼氏でしょう？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "…………。" },
+        { speaker: "mio", text: "違った？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "違わねぇ！" },
+        { speaker: "mio", text: "よかった。" },
+        { speaker: "momotaros", text: "急に言うな！" },
+        { speaker: "mio", text: "モモも急に『俺の女』って言ったよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "俺のは事実を言っただけだ！" },
+        { speaker: "mio", text: "私も事実を言っただけ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "…………。" },
+        { speaker: "mio", text: "嫌だった？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "嫌じゃねぇよ！" },
+        { speaker: "mio", text: "じゃあ、もう一回言ってもいい？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "……好きにしろ。" },
+        { speaker: "mio", text: "モモは私の彼氏。" },
+        { speaker: "momotaros", text: "…………。" },
+        { speaker: "mio", text: "モモ？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_soft", text: "当たり前だろ。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", text: "俺以外に誰がいんだよ。" },
+        { speaker: "mio", text: "モモだけ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "……分かってんならいい。" },
+        { speaker: "mio", text: "嬉しそう。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "普通だ！" },
+        { speaker: "mio", text: "抱きしめる腕、\nまた強くなってるよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "悪ぃ！" },
+        { speaker: "mio", text: "少しだけだから大丈夫。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "苦しかったらすぐ言え。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", text: "我慢すんなよ。" },
+        { speaker: "mio", text: "分かってる。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_soft", text: "…………。" },
+        { speaker: "mio", text: "モモの身体、硬いね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "今さらだろ。" },
+        { speaker: "mio", text: "少し冷たい。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "だったら離れるか？" },
+        { speaker: "mio", text: "離れない。" },
+        { speaker: "momotaros", text: "なんでだよ。" },
+        { speaker: "mio", text: "モモだから。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "…………。" },
+        { speaker: "mio", text: "どうしたの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "お前、今日ずるいことばっかり\n言ってねぇか？" },
+        { speaker: "mio", text: "思ったことを言ってるだけだよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "そういうのを\nずるいっつってんだよ！" },
+        { speaker: "mio", text: "やめた方がいい？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "やめんな！" },
+        { speaker: "mio", text: "分かった。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "…………。" },
+        { speaker: "mio", text: "昨日も今日も、嬉しかったよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "昨日は俺の作戦だからな。" },
+        { speaker: "mio", text: "今日は？" },
+        { speaker: "momotaros", text: "今日も俺の作戦だ！" },
+        { speaker: "mio", text: "私から抱きついたのに？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "そこ以外は全部俺だろ！" },
+        { speaker: "mio", text: "そうだね。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "次はそこも俺がやる！" },
+        { speaker: "mio", text: "楽しみにしてる。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_grin", text: "任せとけ！" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "澪。" },
+        { speaker: "mio", text: "なに？" },
+        { speaker: "momotaros", text: "目ぇ閉じろ。" },
+        { speaker: "mio", text: "どうして？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "いいから閉じろ！" },
+        { speaker: "mio", text: "分かった。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "絶対開けんなよ。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "…………。", storyUiBlackFade: 0.5 },
+        { speaker: "mio", text: "…………。" },
+        { speaker: "momotaros", text: "…………。" },
+        { speaker: "mio", text: "……モモ？", storyUiBlackFadeOut: 0.5 },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "喋るな。今考えてんだよ。" },
+        { speaker: "mio", text: "何を？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_awkward", text: "この顔でどうすりゃいいかだよ！" },
+        { speaker: "mio", text: "普通に触れればいいよ。" },
+        { speaker: "momotaros", text: "硬ぇんだぞ。\n痛かったらどうすんだ。" },
+        { speaker: "mio", text: "じゃあ、モモも目を閉じて。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "なんで俺が――" },
+        { speaker: "mio", text: "いいから。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "…………。" },
+        { speaker: "mio", text: "ここなら痛くないでしょう？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_surprised", text: "それ、俺が先に\nやるつもりだったんだよ！" },
+        { speaker: "mio", text: "しようとしたのはモモが先だよ。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angryshy", text: "しようとしただけじゃ\n意味ねぇだろ！" },
+        { speaker: "mio", text: "競争なの？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_angry", text: "そうだ！" },
+        { speaker: "mio", text: "じゃあ、次も負けないよ。" },
+        { speaker: "momotaros", text: "お前が張り合うな！" },
+        { speaker: "mio", text: "駄目？" },
+        { speaker: "momotaros", text: "駄目だ！　これからは全部俺が先だ！" },
+        { speaker: "mio", text: "全部？" },
+        { speaker: "momotaros", text: "全部だ！" },
+        { speaker: "mio", text: "じゃあ、次に私が来た時も？" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_normal", text: "俺が最初に迎える！" },
+        { speaker: "mio", text: "席は？" },
+        { speaker: "momotaros", text: "俺の隣だ！" },
+        { speaker: "mio", text: "プリンは？" },
+        { speaker: "momotaros", text: "残しとく！" },
+        { speaker: "mio", text: "抱きしめるのは？" },
+        { speaker: "momotaros", text: "俺からだ！" },
+        { speaker: "mio", text: "約束？" },
+        { speaker: "momotaros", text: "約束だ！" },
+        { speaker: "mio", text: "分かった。楽しみにしてる。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_grin", text: "おう！" },
+        { speaker: "mio", text: "でも、今はもう少し\nこのままでいて。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_shy", text: "……好きにしろ。" },
+        { speaker: "mio", text: "うん。" },
+        { speaker: "momotaros", expression: "portrait_momotaros_base_default_soft", text: "絶対離れんなよ。" },
+        { speaker: "mio", text: "離れないよ。" },
+        { speaker: "momotaros", text: "……ならいい。" }
+    ]
+}
+,
 
-
-
-
-
+    ]
+},
         {
             id: "ura",
             title: "ウラタロス",
@@ -32686,6 +34898,5402 @@
             "speaker": "urataros",
             "text": "そうだね。",
             "expression": "portrait_urataros_base_default_shy"
+        }
+    ]
+},
+{
+    id: "ura_ex_01",
+    number: 13,
+    title: "後日談 第1話　女子会です！",
+    description:
+        "コーヒーを囲み、ハナとナオミと話す澪。何気ない女子会は、いつしか恋の話へ。",
+    startPossessedBy: "urataros",
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile"
+        }
+    ],
+    pages: [
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "ウラちゃん、コーヒーどうぞ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "ありがとう、ナオミちゃん。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "今日は新しい豆なんですよ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "へえ。僕のために淹れてくれたの？"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "はい！　皆さんの分です！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "僕だけじゃないんだ。残念だな。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_exasperated",
+            text: "全員に同じこと言ってるでしょ。",
+            pageParticipants: [
+                {
+                    speaker: "urataros",
+                    expression:
+                        "portrait_urataros_base_default_wrysmile"
+                },
+                {
+                    speaker: "hana",
+                    expression:
+                        "portrait_hana_base_default_exasperated"
+                },
+                {
+                    speaker: "naomi",
+                    expression:
+                        "portrait_naomi_base_default_smile"
+                }
+            ]
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "ハナさんには、\nちゃんと違うことを言ってるよ。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_angry",
+            text: "聞いてない。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "冷たいなぁ。"
+        },
+        {
+            speaker: "mio",
+            text: "コーヒー、冷めるよ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "澪も一緒に飲む？"
+        },
+        {
+            speaker: "mio",
+            text: "今飲んでる。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "そうじゃなくて、向こうで二人で。"
+        },
+        {
+            speaker: "mio",
+            text: "行かない。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "今日はずいぶん振られるね。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_exasperated",
+            text: "いつものことでしょ。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "ウラちゃん、頑張ってください！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "ナオミちゃんだけだよ。\n僕に優しいのは。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "おかわりもありますよ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "それは嬉しいけどね。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_angry",
+            text: "用が済んだなら、向こう行って。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "三人で何の話をするの？"
+        },
+        {
+            speaker: "mio",
+            text: "ウラがいなくなってから決める。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "僕がいた方が、\n楽しい話になると思うけど。",
+            distance: "close"
+        },
+        {
+            speaker: "mio",
+            text: "そういうところ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_surprised",
+            text: "……何の話？"
+        },
+        {
+            speaker: "mio",
+            text: "まだ決めてない。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "怖いなぁ。じゃあ、ごゆっくり。",
+            distance: "normal"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "ウラちゃん、あとで\nおかわり持っていきますね！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "待ってるよ、ナオミちゃん。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_exasperated",
+            text: "本当に懲りないね。",
+            pageParticipants: [
+                {
+                    speaker: "hana",
+                    expression:
+                        "portrait_hana_base_default_exasperated"
+                },
+                {
+                    speaker: "naomi",
+                    expression:
+                        "portrait_naomi_base_default_smile"
+                }
+            ]
+        },
+        {
+            speaker: "mio",
+            text: "ウラタロスだからね。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "これで女子だけになりましたね！"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_normal",
+            text: "三人でコーヒー飲んでるだけでしょ。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "女子会です！"
+        },
+        {
+            speaker: "mio",
+            text: "女子会でいいんじゃない？"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "わあ、何をお話ししましょう！"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_exasperated",
+            text: "何でもいいけど、\nあいつの話はもういいから。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "ウラちゃん、今日も楽しそうですね。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_angry",
+            text: "もう話してる。"
+        },
+        {
+            speaker: "mio",
+            text: "いつも楽しそうだよ。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_normal",
+            text: "澪ちゃんは、\nウラちゃんに厳しいですよね。"
+        },
+        {
+            speaker: "mio",
+            text: "普通だよ。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_normal",
+            text: "澪くらいでちょうどいいの。\nあれは放っておくと調子に乗るから。"
+        },
+        {
+            speaker: "mio",
+            text: "もう乗ってるけど。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_exasperated",
+            text: "そうだった。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "でも、ウラちゃんみたいな人が\n好きな女の子もいますよね！"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_exasperated",
+            text: "苦労しそう。"
+        },
+        {
+            speaker: "mio",
+            text: "すると思う。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "澪ちゃんは、\nどんな人が好きなんですか？"
+        },
+        {
+            speaker: "mio",
+            text: "どんな人……。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "優しい人ですか？\n真面目な人ですか？"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_normal",
+            text: "澪なら、落ち着いた人が\n合いそうだけど。"
+        },
+        {
+            speaker: "mio",
+            text: "そうかな。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_normal",
+            text: "好きな人はいないんですか？"
+        },
+        {
+            speaker: "mio",
+            text: "付き合ってる人ならいるよ。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "そうですよね、\n付き合ってる人なら――"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_surprised",
+            text: "ええっ！？"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_surprised",
+            text: "……いるの？"
+        },
+        {
+            speaker: "mio",
+            text: "うん。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_surprised",
+            text: "初めて聞きました！"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_surprised",
+            text: "私も。"
+        },
+        {
+            speaker: "mio",
+            text: "言ってなかったから。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_normal",
+            text: "いつから？"
+        },
+        {
+            speaker: "mio",
+            text: "少し前。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "どんな人ですか？"
+        },
+        {
+            speaker: "mio",
+            text: "口がうまい。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_normal",
+            text: "ほかには？"
+        },
+        {
+            speaker: "mio",
+            text: "すぐからかう。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "楽しい人なんですね！"
+        },
+        {
+            speaker: "mio",
+            text: "本人は楽しそう。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_normal",
+            text: "澪は？"
+        },
+        {
+            speaker: "mio",
+            text: "たまに面倒。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_exasperated",
+            text: "大丈夫なの、それ。"
+        },
+        {
+            speaker: "mio",
+            text: "大丈夫。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_normal",
+            text: "どういうところが\n面倒なんですか？"
+        },
+        {
+            speaker: "mio",
+            text: "何でもないみたいな顔をするのに、\nあとから遠回しに言ってくるところ。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_exasperated",
+            text: "面倒だね。"
+        },
+        {
+            speaker: "mio",
+            text: "うん。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "でも、その人のことが\n好きなんですよね？"
+        },
+        {
+            speaker: "mio",
+            text: "うん。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "わあ……！"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_smile",
+            text: "急に嬉しそうになったね。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "だって、澪ちゃんの\n恋のお話ですよ！"
+        },
+        {
+            speaker: "mio",
+            text: "そんなに珍しい？"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_normal",
+            text: "珍しいでしょ。\n今まで何も言わなかったんだから。"
+        },
+        {
+            speaker: "mio",
+            text: "聞かれなかったから。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_exasperated",
+            text: "聞かれなかったら言わないの？"
+        },
+        {
+            speaker: "mio",
+            text: "隠してるわけじゃないけど、\n言う必要もなかったし。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_normal",
+            text: "相手の方も、\n内緒にしたいんですか？"
+        },
+        {
+            speaker: "mio",
+            text: "どうだろう。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_normal",
+            text: "そこは知らないんだ。"
+        },
+        {
+            speaker: "mio",
+            text: "言いたいなら、\n自分で言うと思う。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_normal",
+            text: "言わないの？"
+        },
+        {
+            speaker: "mio",
+            text: "言わないね。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_normal",
+            text: "恥ずかしがり屋さんなんでしょうか？"
+        },
+        {
+            speaker: "mio",
+            text: "それは違う。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_exasperated",
+            text: "即答だね。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_surprised",
+            text: "私たちも知ってる人ですか？"
+        },
+        {
+            speaker: "mio",
+            text: "知ってるよ。"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_surprised",
+            text: "本当ですか！？"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_surprised",
+            text: "ちょっと待って。誰――"
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "皆さんにも教えてきます！"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_surprised",
+            text: "ちょっと、ナオミ！"
+        },
+        {
+            speaker: "naomi",
+            darkenPortraits: true,
+            text: "皆さーん！\n澪ちゃんに恋人がいますよー！",
+            pageParticipants: [
+                {
+                    speaker: "hana",
+                    expression:
+                        "portrait_hana_base_default_surprised"
+                }
+            ]
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_exasperated",
+            text: "行っちゃった……。"
+        },
+        {
+            speaker: "mio",
+            text: "行ったね。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_normal",
+            text: "止めなくてよかったの？"
+        },
+        {
+            speaker: "mio",
+            text: "内緒じゃないから。"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_normal",
+            text: "相手は困るんじゃない？"
+        },
+        {
+            speaker: "mio",
+            text: "少しくらい、困ればいいと思う。"
+        }
+    ]
+},
+{
+    id: "ura_ex_02",
+    number: 14,
+    title: "後日談 第2話　女の男？",
+    description:
+        "ナオミの知らせに、食堂車はたちまち大騒ぎ。澪の恋人をめぐり、モモタロスの問い詰めが始まる。",
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        }
+    ],
+    pages: [
+        {
+            speaker: "naomi",
+            text: "皆さーん！\n澪ちゃんに恋人がいますよー！",
+            darkenPortraits: true
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text: "はあ！？"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text: "恋人ってなに？"
+        },
+        {
+            speaker: "naomi",
+            text: "お互いに好きで、\nお付き合いしている人のことです！",
+            darkenPortraits: true
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text: "好きな人？"
+        },
+        {
+            speaker: "naomi",
+            text: "そうです！",
+            darkenPortraits: true
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "だったら最初から\n好きな奴って言え！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "先輩には、少し難しかったかな。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "難しくねえ！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text: "そう怒鳴ることでもないやろ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "亀公が馬鹿にしてきやがったんだよ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "馬鹿になんてしてないよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "じゃあなんで笑ってんだ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "楽しい話が聞こえたからね。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_surprised",
+            text: "お姉ちゃん、好きな人いるの？"
+        },
+        {
+            speaker: "naomi",
+            text: "いるんですよ！",
+            darkenPortraits: true
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_surprised",
+            text: "へえ。そうなんだ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text: "なんでお前まで\n初めて聞いたみてえな顔してんだ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "僕も今聞いたからね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "お前はさっき\nあの女といただろうが！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "途中で追い出されたんだよ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text: "亀ちゃん、邪魔だったの？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "そうみたい。"
+        },
+        {
+            speaker: "naomi",
+            text: "女子会でしたから！",
+            darkenPortraits: true
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "なんでナオミまで得意げなんだよ！"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_angry",
+            text: "ナオミ、勝手に言いふらさないの！",
+            pageParticipants: [
+                {
+                    speaker: "momotaros",
+                    expression:
+                        "portrait_momotaros_base_default_angry"
+                },
+                {
+                    speaker: "urataros",
+                    expression:
+                        "portrait_urataros_base_default_smile"
+                },
+                {
+                    speaker: "hana",
+                    expression:
+                        "portrait_hana_base_default_angry"
+                },
+                {
+                    speaker: "naomi",
+                    expression:
+                        "portrait_naomi_base_default_smile"
+                }
+            ]
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_normal",
+            text: "でも、内緒じゃないそうですよ？"
+        },
+        {
+            speaker: "mio",
+            text: "うん。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "女！"
+        },
+        {
+            speaker: "mio",
+            text: "なに？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "お前、男がいんのか！"
+        },
+        {
+            speaker: "mio",
+            text: "いるよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "なんで黙ってた！"
+        },
+        {
+            speaker: "mio",
+            text: "聞かれなかったから。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "聞かれなきゃ言わねえのかよ！"
+        },
+        {
+            speaker: "mio",
+            text: "モモタロスに？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "俺だけじゃねえ！　全員にだ！"
+        },
+        {
+            speaker: "mio",
+            text: "言う必要ある？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "ある！"
+        },
+        {
+            speaker: "mio",
+            text: "なんで？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text: "なんでって……。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "先輩にも心の準備が\n必要だったんじゃない？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "なんの準備だ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "それを僕に聞かれても。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text: "桃の字は、お嬢が心配なんや。",
+            pageParticipants: [
+                {
+                    speaker: "momotaros",
+                    expression:
+                        "portrait_momotaros_base_default_angry"
+                },
+                {
+                    speaker: "urataros",
+                    expression:
+                        "portrait_urataros_base_default_smile"
+                },
+                {
+                    speaker: "kintaros",
+                    expression:
+                        "portrait_kintaros_base_default_normal"
+                },
+                {
+                    speaker: "hana",
+                    expression:
+                        "portrait_hana_base_default_normal"
+                }
+            ]
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "俺はただ、変な男だったら\n許さねえって言ってんだよ！"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_normal",
+            text: "まだ相手がどんな人か\n聞いてないでしょ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "だから今から聞くんだろうが！"
+        },
+        {
+            speaker: "mio",
+            text: "変な人だよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text: "ほら見ろ！"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_exasperated",
+            text: "何を見たの。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "女が変な男に引っかかってんだよ！"
+        },
+        {
+            speaker: "mio",
+            text: "引っかかってはないけど。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "変な人だとは思ってるんだ？"
+        },
+        {
+            speaker: "mio",
+            text: "思ってる。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "本人が聞いたら\n傷つくんじゃないかな。"
+        },
+        {
+            speaker: "mio",
+            text: "そうかな。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "少しくらいはね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "おい亀公！　さっきから\nなんで男の肩持ってんだ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "まだ何もしてないのに、\n怒られて可哀想だと思って。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "何かしてからじゃ遅えんだよ！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text: "何をすると思っとるんや。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text: "それは……あれだ！"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_exasperated",
+            text: "あれじゃ分からない。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "女を泣かせたりだよ！"
+        },
+        {
+            speaker: "naomi",
+            text: "嬉しくても泣きますよ？",
+            darkenPortraits: true
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "そういう話じゃねえ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "じゃあ、どういう話？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "女の男が女を泣かせる男だったら、\n俺は男を許さねえ！"
+        },
+        {
+            speaker: "hana",
+            expression:
+                "portrait_hana_base_default_exasperated",
+            text: "誰が誰を泣かせるの。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "女の男が、女をだよ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "先輩。最初の女と、\n次の女は同じ女？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "同じに決まってんだろ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "最後の男は、どっちの男？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "女の男だよ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "女を泣かせる男じゃなくて？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "同じ男だ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "でも、嬉しくて泣いた場合は？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "泣かせたことに変わりねえだろ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "それでも許さないの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "当たり前だ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "じゃあ、澪がその男を泣かせたら？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text: "女が？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "うん。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text: "女が、女の男を泣かせたら……。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "女の男は、\n女に泣かされた男になるね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text: "そうしたら男が……\nいや、女が……。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text: "モモタロス、分かんなくなった？",
+            pageParticipants: [
+                {
+                    speaker: "momotaros",
+                    expression:
+                        "portrait_momotaros_base_default_awkward"
+                },
+                {
+                    speaker: "urataros",
+                    expression:
+                        "portrait_urataros_base_default_smile"
+                },
+                {
+                    speaker: "ryutaros",
+                    expression:
+                        "portrait_ryutaros_base_default_smile"
+                },
+                {
+                    speaker: "kintaros",
+                    expression:
+                        "portrait_kintaros_base_default_normal"
+                }
+            ]
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "なってねえ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "続けて、先輩。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "うるせえ！　分かってんなら\nいちいち聞くんじゃねえ！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text: "要するに、お嬢を泣かせた男は\n許さんっちゅうことやな。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "最初からそう言ってんだろ！"
+        },
+        {
+            speaker: "hana",
+            text: "言えてなかったけど。",
+            darkenPortraits: true
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "言ってた！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "怖いなぁ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "楽しそうに言うんじゃねえ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "そんなことないよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "笑ってんじゃねえか！"
+        },
+        {
+            speaker: "ryotaro",
+            text: "どうしたの？\n外まで聞こえてたけど。",
+            darkenPortraits: true
+        },
+        {
+            speaker: "naomi",
+            expression:
+                "portrait_naomi_base_default_smile",
+            text: "良太郎ちゃん！\n澪ちゃんに恋人がいるんですよ！",
+            pageParticipants: [
+                {
+                    speaker: "ryotaro",
+                    expression:
+                        "portrait_ryotaro_base_ryotaro_worried"
+                },
+                {
+                    speaker: "naomi",
+                    expression:
+                        "portrait_naomi_base_default_smile"
+                },
+                {
+                    speaker: "momotaros",
+                    expression:
+                        "portrait_momotaros_base_default_angry"
+                },
+                {
+                    speaker: "ryutaros",
+                    expression:
+                        "portrait_ryutaros_base_default_normal"
+                }
+            ]
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_surprised",
+            text: "え？"
+        },
+        {
+            speaker: "mio",
+            text: "いるよ。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text: "そ、そうなんだ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "良太郎！　お前も何か言え！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text: "澪さん、おめでとう。"
+        },
+        {
+            speaker: "mio",
+            text: "ありがとう、良太郎くん。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "祝ってる場合か！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text: "駄目なの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "駄目とは言ってねえ！"
+        },
+        {
+            speaker: "hana",
+            text: "じゃあいいでしょ。",
+            darkenPortraits: true
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "よくねえ！　まだ女の男が\nどんな男か分かってねえんだぞ！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_surprised",
+            text: "女の男？"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text: "お姉ちゃんの男！"
+        },
+        {
+            speaker: "mio",
+            text: "その呼び方はやめて。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text: "駄目？"
+        },
+        {
+            speaker: "mio",
+            text: "駄目。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text: "じゃあ、お姉ちゃんの好きな人？"
+        },
+        {
+            speaker: "mio",
+            text: "それならいいよ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text: "その人、お姉ちゃんをいじめない？"
+        },
+        {
+            speaker: "mio",
+            text: "いじめないよ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text: "泣かせない？"
+        },
+        {
+            speaker: "mio",
+            text: "たぶん。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "たぶんじゃねえ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "未来のことは\n誰にも分からないからね。",
+            pageParticipants: [
+                {
+                    speaker: "momotaros",
+                    expression:
+                        "portrait_momotaros_base_default_angry"
+                },
+                {
+                    speaker: "urataros",
+                    expression:
+                        "portrait_urataros_base_default_smile"
+                },
+                {
+                    speaker: "ryutaros",
+                    expression:
+                        "portrait_ryutaros_base_default_normal"
+                }
+            ]
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "亀は黙ってろ！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text: "僕、お姉ちゃんの好きな人に\n会ってみたい！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "そのうち会えるんじゃない？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "なんでお前が答えんだよ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "そうかなと思って。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "女！　今度そいつ連れてこい！"
+        },
+        {
+            speaker: "mio",
+            text: "どうしようかな。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "なんでだよ！"
+        },
+        {
+            speaker: "mio",
+            text: "会ったら、\nたぶんモモタロスが怒るから。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "それは怖いね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text: "だから楽しそうに言うんじゃねえ！"
+        }
+    ]
+},
+{
+    "id": "ura_ex_03",
+    "number": 15,
+    "title": "後日談 第3話　男ならさっさと出てこい！",
+    "description": "姿を見せない澪の恋人を呼び出そうと、食堂車では次々と作戦が持ち上がる。",
+    "participants": [
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_normal"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile"
+        },
+        {
+            "speaker": "kintaros",
+            "expression": "portrait_kintaros_base_default_normal"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_normal"
+        }
+    ],
+    "pages": [
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_normal",
+            "text": "で、いつ来るんだ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "誰が？"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "女の男だよ！"
+        },
+        {
+            "speaker": "mio",
+            "text": "まだそう呼ぶの？"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "ほかに呼び方がねえんだから\n仕方ねえだろ！"
+        },
+        {
+            "speaker": "mio",
+            "text": "普通に恋人でいいでしょ。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_awkward",
+            "text": "それは言いづれえ！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "どうして？"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "うるせえ！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "聞いただけなのに。"
+        },
+        {
+            "speaker": "kintaros",
+            "expression": "portrait_kintaros_base_default_smile",
+            "text": "桃の字には照れくさいんやろ。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "照れてねえ！"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_smile",
+            "text": "モモタロス、顔赤いよ。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "元からこの色だ！"
+        },
+        {
+            "speaker": "mio",
+            "text": "それで、来るって？"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "そいつだ！　いつ連れてくるんだ！"
+        },
+        {
+            "speaker": "mio",
+            "text": "連れてくるとは言ってないよ。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "さっき、今度連れてこいって\n言っただろうが！"
+        },
+        {
+            "speaker": "mio",
+            "text": "モモタロスが言っただけでしょ。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "言ったんだから連れてこい！"
+        },
+        {
+            "speaker": "hana",
+            "expression": "portrait_hana_base_default_exasperated",
+            "text": "なんでモモが決めるの。",
+            "pageParticipants": [
+                {
+                    "speaker": "momotaros",
+                    "expression": "portrait_momotaros_base_default_angry"
+                },
+                {
+                    "speaker": "hana",
+                    "expression": "portrait_hana_base_default_exasperated"
+                },
+                {
+                    "speaker": "naomi",
+                    "expression": "portrait_naomi_base_default_smile"
+                },
+                {
+                    "speaker": "ryutaros",
+                    "expression": "portrait_ryutaros_base_default_normal"
+                }
+            ]
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "お前らだって気になるだろ！"
+        },
+        {
+            "speaker": "naomi",
+            "expression": "portrait_naomi_base_default_smile",
+            "text": "気になります！"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_smile",
+            "text": "僕も会いたい！"
+        },
+        {
+            "speaker": "kintaros",
+            "text": "まあ、一度挨拶はしてみたいな。",
+            "darkenPortraits": true
+        },
+        {
+            "speaker": "ryotaro",
+            "expression": "portrait_ryotaro_base_ryotaro_worried",
+            "text": "無理に連れてこなくても\nいいんじゃないかな。",
+            "pageParticipants": [
+                {
+                    "speaker": "momotaros",
+                    "expression": "portrait_momotaros_base_default_angry"
+                },
+                {
+                    "speaker": "urataros",
+                    "expression": "portrait_urataros_base_default_smile"
+                },
+                {
+                    "speaker": "kintaros",
+                    "expression": "portrait_kintaros_base_default_normal"
+                },
+                {
+                    "speaker": "ryotaro",
+                    "expression": "portrait_ryotaro_base_ryotaro_worried"
+                }
+            ]
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "良太郎！\nお前は気にならねえのか！"
+        },
+        {
+            "speaker": "ryotaro",
+            "expression": "portrait_ryotaro_base_ryotaro_worried",
+            "text": "気にはなるけど……\n澪さんが困るなら。"
+        },
+        {
+            "speaker": "mio",
+            "text": "私は困ってないよ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "困ってるのは、来ることになった\n相手の方かもね。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "なんでだよ！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "先輩に待ち構えられてるんだよ？"
+        },
+        {
+            "speaker": "kintaros",
+            "expression": "portrait_kintaros_base_default_normal",
+            "text": "心配せんでも、いきなり\n殴ったりはせんやろ。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "当たり前だ！"
+        },
+        {
+            "speaker": "hana",
+            "text": "本当に？",
+            "darkenPortraits": true
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_normal",
+            "text": "相手の態度による！"
+        },
+        {
+            "speaker": "hana",
+            "text": "駄目でしょ。",
+            "darkenPortraits": true
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "何もしてねえうちから怒るな！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "まだ何もしてないのに怒られる気持ち、\n分かった？"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "誰の話だ！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "澪の相手。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "そいつは怪しいからいいんだよ！"
+        },
+        {
+            "speaker": "mio",
+            "text": "まだ会ってもないのに？"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "変な奴なんだろ！"
+        },
+        {
+            "speaker": "mio",
+            "text": "変な人ではあるね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "そこは変わらないんだ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "変わる？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "少しくらい庇ってくれても\nいいんじゃない？"
+        },
+        {
+            "speaker": "mio",
+            "text": "どうしてウラが気にするの？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "可哀想だからね。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "またそいつの肩持ちやがって！"
+        },
+        {
+            "speaker": "naomi",
+            "expression": "portrait_naomi_base_default_smile",
+            "text": "皆さんで歓迎会をするのは\nどうですか？",
+            "pageParticipants": [
+                {
+                    "speaker": "naomi",
+                    "expression": "portrait_naomi_base_default_smile"
+                },
+                {
+                    "speaker": "hana",
+                    "expression": "portrait_hana_base_default_normal"
+                },
+                {
+                    "speaker": "ryotaro",
+                    "expression": "portrait_ryotaro_base_ryotaro_normal"
+                },
+                {
+                    "speaker": "ryutaros",
+                    "expression": "portrait_ryutaros_base_default_normal"
+                }
+            ]
+        },
+        {
+            "speaker": "hana",
+            "expression": "portrait_hana_base_default_exasperated",
+            "text": "余計に来づらくなるでしょ。"
+        },
+        {
+            "speaker": "naomi",
+            "expression": "portrait_naomi_base_default_normal",
+            "text": "そうでしょうか？"
+        },
+        {
+            "speaker": "ryotaro",
+            "expression": "portrait_ryotaro_base_ryotaro_worried",
+            "text": "いきなりこれだけの人数に囲まれたら、\n緊張すると思う。"
+        },
+        {
+            "speaker": "naomi",
+            "expression": "portrait_naomi_base_default_smile",
+            "text": "では、二人ずつにしますか？"
+        },
+        {
+            "speaker": "hana",
+            "expression": "portrait_hana_base_default_exasperated",
+            "text": "分けても同じだから。"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_smile",
+            "text": "僕が呼んでくる！"
+        },
+        {
+            "speaker": "mio",
+            "text": "誰か分からないでしょ。"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_normal",
+            "text": "どこにいるの？"
+        },
+        {
+            "speaker": "mio",
+            "text": "会おうと思えば、いつでも会えるよ。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_surprised",
+            "text": "近くにいんのか？",
+            "pageParticipants": [
+                {
+                    "speaker": "momotaros",
+                    "expression": "portrait_momotaros_base_default_surprised"
+                },
+                {
+                    "speaker": "urataros",
+                    "expression": "portrait_urataros_base_default_normal"
+                },
+                {
+                    "speaker": "ryutaros",
+                    "expression": "portrait_ryutaros_base_default_normal"
+                },
+                {
+                    "speaker": "kintaros",
+                    "expression": "portrait_kintaros_base_default_normal"
+                }
+            ]
+        },
+        {
+            "speaker": "mio",
+            "text": "近いね。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "だったら今すぐ呼べ！"
+        },
+        {
+            "speaker": "mio",
+            "text": "呼ばなくても、\n自分で来ればいいでしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "澪から紹介してくれても\nいいと思うけど。"
+        },
+        {
+            "speaker": "mio",
+            "text": "本人が言えばいいよ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_surprised",
+            "text": "自分から？"
+        },
+        {
+            "speaker": "mio",
+            "text": "うん。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "それって、少し格好悪くない？"
+        },
+        {
+            "speaker": "mio",
+            "text": "そう？"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "何が格好悪いんだ！\n男ならさっさと出てこい！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "先輩は簡単でいいね。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "どういう意味だ！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "褒めてるんだよ。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "絶対違うだろ！"
+        },
+        {
+            "speaker": "kintaros",
+            "expression": "portrait_kintaros_base_default_normal",
+            "text": "お嬢から伝えても、本人が\n来るとは限らんしな。",
+            "pageParticipants": [
+                {
+                    "speaker": "kintaros",
+                    "expression": "portrait_kintaros_base_default_normal"
+                },
+                {
+                    "speaker": "naomi",
+                    "expression": "portrait_naomi_base_default_normal"
+                },
+                {
+                    "speaker": "urataros",
+                    "expression": "portrait_urataros_base_default_smile"
+                },
+                {
+                    "speaker": "momotaros",
+                    "expression": "portrait_momotaros_base_default_angry"
+                }
+            ]
+        },
+        {
+            "speaker": "naomi",
+            "expression": "portrait_naomi_base_default_normal",
+            "text": "どうしたら来てくれるでしょう？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "澪が別の男に口説かれてると聞けば、\n来るんじゃない？"
+        },
+        {
+            "speaker": "hana",
+            "text": "何その呼び出し方。",
+            "darkenPortraits": true
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "少しくらい焦らせた方が、\n本気になるかもしれないよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "誰が口説くの？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "僕がやろうか？"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "引っ込めスケベ亀！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "どうして先輩が怒るの？"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "お前にやらせたら\n話がややこしくなるんだよ！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "澪の相手を呼びたいんでしょ？"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "だからってお前が女を\n口説く必要はねえ！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "振りだけだよ。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "お前の振りは信用できねえ！"
+        },
+        {
+            "speaker": "mio",
+            "text": "それはそう。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_surprised",
+            "text": "澪まで？"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラタロスだからね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "ほんと便利だね、それ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "でしょ？"
+        },
+        {
+            "speaker": "hana",
+            "text": "本人たちを使って遊ばないの。",
+            "darkenPortraits": true
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "真面目に考えたんだけどなぁ。"
+        },
+        {
+            "speaker": "kintaros",
+            "expression": "portrait_kintaros_base_default_normal",
+            "text": "ほな、お嬢が困っとると\n伝えたらどうや？"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_grin",
+            "text": "それだ！"
+        },
+        {
+            "speaker": "mio",
+            "text": "困ってないけど。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "ちょっとくらい困れ！"
+        },
+        {
+            "speaker": "mio",
+            "text": "無理に？"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "そいつを呼ぶためだ！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "澪が困ってると知ったら、\nすぐ来るかもしれないね。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_normal",
+            "text": "さっきから知ったようなこと\n言いやがって。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "そういう人だったら\nいいなと思って。"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_normal",
+            "text": "お姉ちゃんが泣いたら来る？",
+            "pageParticipants": [
+                {
+                    "speaker": "ryutaros",
+                    "expression": "portrait_ryutaros_base_default_normal"
+                },
+                {
+                    "speaker": "momotaros",
+                    "expression": "portrait_momotaros_base_default_normal"
+                },
+                {
+                    "speaker": "kintaros",
+                    "expression": "portrait_kintaros_base_default_normal"
+                },
+                {
+                    "speaker": "naomi",
+                    "expression": "portrait_naomi_base_default_normal"
+                }
+            ]
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "泣かなくていい！"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_smile",
+            "text": "じゃあ、僕が泣く！"
+        },
+        {
+            "speaker": "hana",
+            "text": "リュウタも泣かなくていいから。",
+            "darkenPortraits": true
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_smile",
+            "text": "すぐ泣けるよ！"
+        },
+        {
+            "speaker": "kintaros",
+            "expression": "portrait_kintaros_base_default_cry",
+            "text": "泣けるでぇ！！"
+        },
+        {
+            "speaker": "naomi",
+            "expression": "portrait_naomi_base_default_smile",
+            "text": "目にコーヒーを入れたら――"
+        },
+        {
+            "speaker": "ryotaro",
+            "text": "ナオミさん、それは駄目だよ。",
+            "darkenPortraits": true
+        },
+        {
+            "speaker": "naomi",
+            "expression": "portrait_naomi_base_default_normal",
+            "text": "そうですか？"
+        },
+        {
+            "speaker": "hana",
+            "text": "当たり前でしょ。",
+            "darkenPortraits": true
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "ああ、もういい！\n来るまで俺が女を見張る！",
+            "pageParticipants": [
+                {
+                    "speaker": "momotaros",
+                    "expression": "portrait_momotaros_base_default_angry"
+                },
+                {
+                    "speaker": "urataros",
+                    "expression": "portrait_urataros_base_default_smile"
+                },
+                {
+                    "speaker": "ryutaros",
+                    "expression": "portrait_ryutaros_base_default_normal"
+                },
+                {
+                    "speaker": "kintaros",
+                    "expression": "portrait_kintaros_base_default_normal"
+                }
+            ]
+        },
+        {
+            "speaker": "mio",
+            "text": "なんで？"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "また変な男に\n引っかからねえようにだ！"
+        },
+        {
+            "speaker": "mio",
+            "text": "もう引っかかってることに\nなってるんだ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "先輩がずっと澪の隣にいたら、\n相手が誤解するんじゃない？"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_normal",
+            "text": "何をだよ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "先輩と澪の関係を。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "そういうんじゃねえ！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "僕は何も言ってないよ。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "言ってんのと同じだ！"
+        },
+        {
+            "speaker": "naomi",
+            "text": "では、モモちゃんが澪ちゃんを\nお守りする会ですね！",
+            "darkenPortraits": true
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "変な名前つけんな！"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_smile",
+            "text": "僕も守る！"
+        },
+        {
+            "speaker": "kintaros",
+            "expression": "portrait_kintaros_base_default_normal",
+            "text": "ほな、俺も付き合うか。"
+        },
+        {
+            "speaker": "hana",
+            "text": "澪が迷惑でしょ。",
+            "darkenPortraits": true
+        },
+        {
+            "speaker": "mio",
+            "text": "少し面白いからいいよ。"
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "面白がるな！"
+        },
+        {
+            "speaker": "naomi",
+            "text": "作戦会議の続きをしましょう！",
+            "darkenPortraits": true
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "まだやんのかよ！"
+        },
+        {
+            "speaker": "kintaros",
+            "expression": "portrait_kintaros_base_default_normal",
+            "text": "向こうでゆっくり考えたらええ。"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_smile",
+            "text": "僕、いい作戦考える！"
+        },
+        {
+            "speaker": "hana",
+            "text": "変なこと教えないでよ、モモ。",
+            "darkenPortraits": true
+        },
+        {
+            "speaker": "momotaros",
+            "expression": "portrait_momotaros_base_default_angry",
+            "text": "なんで俺なんだ！"
+        },
+        {
+            "speaker": "naomi",
+            "expression": "portrait_naomi_base_default_smile",
+            "text": "良太郎ちゃんも行きましょう！",
+            "pageParticipants": [
+                {
+                    "speaker": "naomi",
+                    "expression": "portrait_naomi_base_default_smile"
+                },
+                {
+                    "speaker": "ryotaro",
+                    "expression": "portrait_ryotaro_base_ryotaro_worried"
+                },
+                {
+                    "speaker": "momotaros",
+                    "expression": "portrait_momotaros_base_default_angry"
+                },
+                {
+                    "speaker": "ryutaros",
+                    "expression": "portrait_ryutaros_base_default_smile"
+                }
+            ]
+        },
+        {
+            "speaker": "ryotaro",
+            "expression": "portrait_ryotaro_base_ryotaro_worried",
+            "text": "う、うん。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "良太郎。",
+            "pageParticipants": [
+                {
+                    "speaker": "urataros",
+                    "expression": "portrait_urataros_base_default_normal"
+                },
+                {
+                    "speaker": "ryotaro",
+                    "expression": "portrait_ryotaro_base_ryotaro_normal"
+                }
+            ]
+        },
+        {
+            "speaker": "ryotaro",
+            "expression": "portrait_ryotaro_base_ryotaro_normal",
+            "text": "なに？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "僕はこれからデートだから、借りるね。"
+        },
+        {
+            "speaker": "ryotaro",
+            "expression": "portrait_ryotaro_base_ryotaro_surprised",
+            "text": "えっ……。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "大丈夫、今日は朝まで借りることは\nないと思うから。"
+        },
+        {
+            "speaker": "ryotaro",
+            "expression": "portrait_ryotaro_base_ryotaro_worried",
+            "text": "『思う』んだ……。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "善処はするよ。"
+        },
+        {
+            "speaker": "ryotaro",
+            "expression": "portrait_ryotaro_base_ryotaro_worried",
+            "text": "……ウラタロス。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "今度はなに？"
+        },
+        {
+            "speaker": "ryotaro",
+            "expression": "portrait_ryotaro_base_ryotaro_normal",
+            "text": "もしかして、澪さんの相手、\n知ってる？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "どうしてそう思うの？"
+        },
+        {
+            "speaker": "ryotaro",
+            "expression": "portrait_ryotaro_base_ryotaro_normal",
+            "text": "なんとなく。さっきから、\n知ってるみたいだったから。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "良太郎は、変なところで鋭いね。"
+        },
+        {
+            "speaker": "ryotaro",
+            "expression": "portrait_ryotaro_base_ryotaro_normal",
+            "text": "やっぱり知ってるの？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "さあ、どうだろう。"
+        },
+        {
+            "speaker": "ryotaro",
+            "expression": "portrait_ryotaro_base_ryotaro_normal",
+            "text": "そっか。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_surprised",
+            "text": "それで終わり？"
+        },
+        {
+            "speaker": "ryotaro",
+            "expression": "portrait_ryotaro_base_ryotaro_normal",
+            "text": "言いたくないなら、無理に\n聞くことじゃないと思うから。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "そう。"
+        },
+        {
+            "speaker": "ryotaro",
+            "expression": "portrait_ryotaro_base_ryotaro_smile",
+            "text": "でも、澪さんが好きになった人なら、\nきっといい人だと思う。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "会ったこともないのに？"
+        },
+        {
+            "speaker": "ryotaro",
+            "expression": "portrait_ryotaro_base_ryotaro_worried",
+            "text": "分からないけど……たぶん。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "良太郎は、人を疑わなさすぎだよ。"
+        },
+        {
+            "speaker": "ryotaro",
+            "expression": "portrait_ryotaro_base_ryotaro_smile",
+            "text": "そうかもしれないね。"
+        },
+        {
+            "speaker": "ryotaro",
+            "expression": "portrait_ryotaro_base_ryotaro_worried",
+            "text": "じゃあ、ウラタロス、\n変なことしないでね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "了解。"
+        },
+        {
+            "speaker": "mio",
+            "text": "デートなんて聞いてないけど。",
+            "storyBlackFade": 1,
+            "storyPossessionOnBlack": "urataros",
+            "storyPossessionOutfitOnBlack": "normal",
+            "pageParticipants": [
+                {
+                    "speaker": "urataros",
+                    "expression": "portrait_urataros_base_default_smile"
+                }
+            ]
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "聞いてたんだ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "ずっといたよ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "知ってる。"
+        },
+        {
+            "speaker": "mio",
+            "text": "もしかして、嘘？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "嘘。"
+        },
+        {
+            "speaker": "mio",
+            "text": "良太郎くん可哀想でしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "澪も大概だよ。"
+        }
+    ]
+},
+{
+    "id": "ura_ex_04",
+    "number": 16,
+    "title": "後日談 第4話　君にだけだよ",
+    "description": "夜の食堂車で二人きりになった澪とウラタロス。昼間の騒ぎを振り返りながら、互いの考えを確かめる。",
+    "startBackground": "background_night.png",
+    "startPortraitLighting": "night",
+    "startPossessedBy": "urataros",
+    "startPossessionOutfit": "imagin_preference",
+    "participants": [
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile"
+        }
+    ],
+    "pages": [
+        {
+            "speaker": "mio",
+            "text": "着替えたんだ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "デートだからね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "誰と？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "澪と。"
+        },
+        {
+            "speaker": "mio",
+            "text": "それ嘘でしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "今からすればいいでしょ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "もう夜だよ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "ちょうどいい時間じゃない？"
+        },
+        {
+            "speaker": "mio",
+            "text": "どこに行くの？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "どこにも行かないよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "デートじゃなかった？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "二人きりなら、\nここでもデートでしょ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "良太郎くんには、最初から\nそのつもりで言ったの？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "これからデートだって\n言っただけだよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "相手は言ってないね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "結果、嘘じゃなかったでしょ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "今決めたのに？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "細かいことは気にしないで。"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラが言うと怪しい。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "でも、皆は向こうに行ったよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "本当に二人きりだね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "そうなるように着替えたからね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "服は関係ないと思うけど。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "澪とデートするのに、良太郎の普段着じゃ\n格好がつかないでしょ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "良太郎くんが聞いたら\n困ると思う。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "今は聞こえないよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "そう。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "それで、似合う？"
+        },
+        {
+            "speaker": "mio",
+            "text": "うん。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "それだけ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "かっこいいよ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "ありがとう。"
+        },
+        {
+            "speaker": "mio",
+            "text": "聞かないと言ってもらえないんだね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "言ってほしいことは、\n自分から聞かないとね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "それなら、皆にも\n言えばよかったのに。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "結局、誰も気づかなかったなぁ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "何に？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_surprised",
+            "text": "……澪までそういうこと言うんだ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "私たちが付き合ってること？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_surprised",
+            "text": "分かってたんだ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラが分かりやすかったから。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "誰も気づいてなかったけどね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "いつもと変わらないからじゃない？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_surprised",
+            "text": "そんなに？"
+        },
+        {
+            "speaker": "mio",
+            "text": "うん。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "少しくらい、違って見えても\nよさそうなのになぁ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "見せたいの？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "まさか。"
+        },
+        {
+            "speaker": "mio",
+            "text": "そう。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "……それだけ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "違うの？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "澪は、僕たちのことを\n誰にも知られなくて平気？"
+        },
+        {
+            "speaker": "mio",
+            "text": "平気だよ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "即答なんだ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "二人が分かってればいいでしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "そうだけど。"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラは違う？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "僕も同じだよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "じゃあ、いいね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "……よくないとは\n言ってないけどね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "面倒だね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "今さら？"
+        },
+        {
+            "speaker": "mio",
+            "text": "今日は特に。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "澪が紹介してくれなかったからかな。"
+        },
+        {
+            "speaker": "mio",
+            "text": "やっぱり言ってほしかったんだ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "自分の恋人に、知らない人みたいに\n扱われるのは少し寂しいでしょ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "私はウラに聞いたよ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "何を？"
+        },
+        {
+            "speaker": "mio",
+            "text": "どうして気にするのって。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "あれは、僕のことだとは\n限らないからね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラがそう言ったんでしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "澪なら、分かってくれると\n思ったんだよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "分かったから聞いたのに。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "そこで、僕だって言ってくれても\nよかったんじゃない？"
+        },
+        {
+            "speaker": "mio",
+            "text": "本人が言えばいいと思う。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_surprised",
+            "text": "僕から？"
+        },
+        {
+            "speaker": "mio",
+            "text": "うん。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "それはちょっとね。\n先輩じゃあるまいし。"
+        },
+        {
+            "speaker": "mio",
+            "text": "モモタロスなら言う？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "聞かれてなくても言うよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "そうかな。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "先輩は墓穴を掘る名人だからね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラも、あまり変わらないと\n思うけど。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_surprised",
+            "text": "僕が？"
+        },
+        {
+            "speaker": "mio",
+            "text": "今日、ずっと自分の話してたよ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "誰も気づいてないなら、\n墓穴にはなってないでしょ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "少し残念そうだね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "気のせいだよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "そう。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "澪は、本当に気にならないんだね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "何が？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "僕、今日もナオミちゃんを\n口説いてたけど。"
+        },
+        {
+            "speaker": "mio",
+            "text": "知ってる。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "ハナさんにも声をかけたよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "断られてたね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_surprised",
+            "text": "見てたんだ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "近くにいたから。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "少しくらい、妬いてくれても\nいいんじゃない？"
+        },
+        {
+            "speaker": "mio",
+            "text": "妬いてないとは言ってないよ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_unguardedshy",
+            "text": "……そうなの？"
+        },
+        {
+            "speaker": "mio",
+            "text": "うん。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "それなら、やめてって言わないの？"
+        },
+        {
+            "speaker": "mio",
+            "text": "言ったらやめる？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "どうかな。"
+        },
+        {
+            "speaker": "mio",
+            "text": "なら言わない。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "澪は、僕を独り占めしたいと\n思わない？"
+        },
+        {
+            "speaker": "mio",
+            "text": "もうしてるでしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "僕は今日も、ほかの女の子を\n口説いてたよ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "誰にでも同じようなことは言うけど。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "けど？"
+        },
+        {
+            "speaker": "mio",
+            "text": "面倒なのは、私にだけでしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_unguardedshy",
+            "text": "……そう見える？"
+        },
+        {
+            "speaker": "mio",
+            "text": "違う？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_shy",
+            "text": "違わないよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "じゃあ、もうしてる。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "ずいぶん自信があるんだね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "ない方がいい？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_shy",
+            "text": "まさか。嬉しいよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "そう。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "そんなに僕のことが分かってるなら、\nもう少し近くに来て。"
+        },
+        {
+            "speaker": "mio",
+            "text": "どこまで？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "僕に触れるくらい。"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラが来ればいいでしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "今日は、澪から来てほしいな。"
+        },
+        {
+            "speaker": "mio",
+            "text": "分かった。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_unguardedshy",
+            "text": "……本当に来るんだ。",
+            "distance": "close"
+        },
+        {
+            "speaker": "mio",
+            "text": "呼んだのはウラでしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "そうだけど。"
+        },
+        {
+            "speaker": "mio",
+            "text": "来てほしくなかった？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_shy",
+            "text": "そんなわけないよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "なら、いいね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "……先輩たちが\n戻ってくるかもしれないよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "じゃあ、離れる？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_shy",
+            "text": "それは困るな。"
+        },
+        {
+            "speaker": "mio",
+            "text": "面倒だね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_unguardedshy",
+            "text": "澪にだけだよ。"
+        }
+    ]
+},
+{
+    "id": "ura_ex_05",
+    "number": 17,
+    "title": "後日談 第5話　今は二人がいい",
+    "description": "夜の食堂車で、なおも離れようとしない澪とウラタロス。二人きりの“デート”は続いていく。",
+    "startBackground": "background_night.png",
+    "startPortraitLighting": "night",
+    "startPossessedBy": "urataros",
+    "startPossessionOutfit": "imagin_preference",
+    "startDistances": {
+    "urataros": "close"
+},
+    "participants": [
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_shy"
+        }
+    ],
+    "pages": [
+        {
+            "speaker": "mio",
+            "text": "ウラ。",
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "なに？"
+        },
+        {
+            "speaker": "mio",
+            "text": "ここ、デンライナーだけど。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "知ってるよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "誰か来るかも。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "今頃、先輩たちは澪の相手を呼び出す\n作戦会議中じゃないかな。"
+        },
+        {
+            "speaker": "mio",
+            "text": "まだやってるの？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "先輩が簡単に諦めると思う？"
+        },
+        {
+            "speaker": "mio",
+            "text": "思わない。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "じゃあ、しばらくは戻ってこないね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "本人はここにいるけど。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "教えてあげる？"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラが？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "今なら、言ってもいいかな。"
+        },
+        {
+            "speaker": "mio",
+            "text": "どうして？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_shy",
+            "text": "澪が離れないから。"
+        },
+        {
+            "speaker": "mio",
+            "text": "見つかったら、説明しなくて済むね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "それは困るなぁ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "言ってもいいんじゃなかった？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_shy",
+            "text": "今は二人がいい。"
+        },
+        {
+            "speaker": "mio",
+            "text": "面倒だね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_unguardedshy",
+            "text": "澪にだけだよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "それ、さっきも聞いた。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_shy",
+            "text": "何度でも言うよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "気に入ったの？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "澪が嬉しそうだからね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "そう見える？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "見えるよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "近いから？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "それもあるかな。"
+        },
+        {
+            "speaker": "mio",
+            "text": "離さないの？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "離してほしい？"
+        },
+        {
+            "speaker": "mio",
+            "text": "聞いてるのは私だけど。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_shy",
+            "text": "僕は離したくないな。"
+        },
+        {
+            "speaker": "mio",
+            "text": "じゃあ、離さないで。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_unguardedshy",
+            "text": "……今日は素直だね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラが言ったんでしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "僕に触れるくらい、近くに来てって？"
+        },
+        {
+            "speaker": "mio",
+            "text": "うん。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_shy",
+            "text": "本当に独り占めしてくれるんだ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "嫌なの？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_shy",
+            "text": "嬉しいよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "そう。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "でも、そんなに近いと当たるね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "何が？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "眼鏡。"
+        },
+        {
+            "speaker": "mio",
+            "text": "少し邪魔。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "取ってくれる？"
+        },
+        {
+            "speaker": "mio",
+            "text": "自分で取れるでしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "澪に取ってほしいな。"
+        },
+        {
+            "speaker": "mio",
+            "text": "どうして？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "その方が、雰囲気が出るから。"
+        },
+        {
+            "speaker": "mio",
+            "text": "誰も見てないけど。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "僕が見てるよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "目、閉じれば？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "まだ早いでしょ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "そういうこと。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "分かってるよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "取ればいいんでしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "お願い。"
+        },
+        {
+            "speaker": "mio",
+            "text": "はい。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_normal",
+                    "expressionTransition": "fadeOutIn",
+            "text": "ありがとう。"
+        },
+        {
+            "speaker": "mio",
+            "text": "これ、必要？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_wrysmile",
+            "text": "雰囲気かな。"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラらしいね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_normal",
+            "text": "好きでしょ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラが？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_wrysmile",
+            "text": "眼鏡。"
+        },
+        {
+            "speaker": "mio",
+            "text": "どっちも。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_shy",
+            "text": "……そういうこと、急に言うんだね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "聞いたのはウラでしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_shy",
+            "text": "聞いた以上の答えが返ってきたからね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "嫌だった？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_shy",
+            "text": "まさか。"
+        },
+        {
+            "speaker": "mio",
+            "text": "なら、いいね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_normal",
+            "text": "澪。"
+        },
+        {
+            "speaker": "mio",
+            "text": "なに？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_normal",
+            "text": "澪からしてくれる？"
+        },
+        {
+            "speaker": "mio",
+            "text": "何を？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_normal",
+            "text": "分かってるでしょ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラがしたいんじゃないの？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_shy",
+            "text": "澪にも、してほしいんだよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "さっきから注文が多いね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_normal",
+            "text": "全部聞いてくれる？"
+        },
+        {
+            "speaker": "mio",
+            "text": "どうしようかな。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_wrysmile",
+            "text": "ここまで来て？"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラが近くに呼んだんでしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_normal",
+            "text": "来てくれたのは澪だよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "……目、閉じて。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_shy",
+            "text": "澪が言うんだ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "しないならいいけど。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_shy",
+            "text": "するよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "じゃあ、閉じて。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_shy",
+            "text": "うん。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_shy",
+            "text": "……澪。",
+            "storyBlackFade": 1
+        },
+        {
+            "speaker": "mio",
+            "text": "なに？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_wrysmile",
+            "text": "それだけ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "足りない？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_normal",
+            "text": "聞かなくても分かってるでしょ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "欲張り。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_wrysmile",
+            "text": "知ってるでしょ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "知ってる。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_shy",
+            "text": "可愛いキスだったよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "感想はいらない。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_wrysmile",
+            "text": "褒めたのに。"
+        },
+        {
+            "speaker": "mio",
+            "text": "足りないって顔してる。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_wrysmile",
+            "text": "顔に出てた？"
+        },
+        {
+            "speaker": "mio",
+            "text": "近いから。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_normal",
+            "text": "じゃあ、僕が何をしたいかも分かるよね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "言わせたいだけでしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_normal",
+            "text": "駄目？"
+        },
+        {
+            "speaker": "mio",
+            "text": "言わない。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_wrysmile",
+            "text": "残念。"
+        },
+        {
+            "speaker": "mio",
+            "text": "自分で分かってるならいいでしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_normal",
+            "text": "それなら、続けてもいい？"
+        },
+        {
+            "speaker": "mio",
+            "text": "……うん。",
+            "storyUiBlackFade": 0.5
+        },
+        {
+            "speaker": "urataros",
+            "text": "澪、力抜いて。"
+        },
+        {
+            "speaker": "mio",
+            "text": "…………。"
+        },
+        {
+            "speaker": "urataros",
+            "text": "…………。"
+        },
+        {
+            "speaker": "mio",
+            "text": "……っ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_shy",
+            "text": "澪、息。",
+            "storyUiBlackFadeOut": 0.5
+        },
+        {
+            "speaker": "mio",
+            "text": "……分かってる。"
+        },
+        {
+            "speaker": "mio",
+            "text": "長い。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_wrysmile",
+            "text": "離れなかったのは澪だよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラもでしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_shy",
+            "text": "僕は離すつもりなかったからね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "知ってる。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_normal",
+            "text": "最初から？"
+        },
+        {
+            "speaker": "mio",
+            "text": "うん。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_shy",
+            "text": "それでも帰らなかったんだ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "帰ってほしかった？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_shy",
+            "text": "そんなわけないよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "なら、聞かなくていいでしょ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_normal",
+            "text": "澪の口から聞きたいんだよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "帰りたくなかった。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_shy",
+            "text": "……嬉しいな。"
+        },
+        {
+            "speaker": "mio",
+            "text": "満足した？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_normal",
+            "text": "もっと聞きたいけどね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "欲張り。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_wrysmile",
+            "text": "二回目だね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "二回言うくらい。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_wrysmile",
+            "text": "否定はしないよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "知ってる。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_normal",
+            "text": "もう一度、確かめる？"
+        },
+        {
+            "speaker": "mio",
+            "text": "何を？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_normal",
+            "text": "どっちが離れないか。"
+        },
+        {
+            "speaker": "mio",
+            "text": "しなくていい。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_wrysmile",
+            "text": "残念。"
+        },
+        {
+            "speaker": "mio",
+            "text": "そう言いながら、離してないけど。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_shy",
+            "text": "澪もね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_normal",
+            "text": "なに？"
+        },
+        {
+            "speaker": "mio",
+            "text": "手。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_shy",
+            "text": "手？"
+        },
+        {
+            "speaker": "mio",
+            "text": "そこじゃない。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_intense",
+            "text": "……もっといいところあるんだ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "そういう意味じゃ───"
+        },
+        {
+            "speaker": "urataros",
+            "text": "じゃあ――ここ？",
+            "storyStill": "CG_urataros_ep17_01.png"
+        },
+        {
+            "speaker": "mio",
+            "text": "ん……。"
+        },
+        {
+            "speaker": "urataros",
+            "text": "……澪。"
+        },
+        {
+            "speaker": "mio",
+            "text": "なに？"
+        },
+        {
+            "speaker": "urataros",
+            "text": "……いや。"
+        },
+        {
+            "speaker": "mio",
+            "text": "言わないの？"
+        },
+        {
+            "speaker": "urataros",
+            "text": "今は、無理かな。"
+        },
+        {
+            "speaker": "mio",
+            "text": "余裕ない？"
+        },
+        {
+            "speaker": "urataros",
+            "text": "澪のせいでね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "私だけ？"
+        },
+        {
+            "speaker": "urataros",
+            "text": "澪だけだよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "また言った。"
+        },
+        {
+            "speaker": "urataros",
+            "text": "何度でも言うって言ったでしょ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "そうだったね。",
+            "storyUiBlackFade": 0.5
+        },
+        {
+            "speaker": "mio",
+            "text": "…………。",
+        },
+        {
+            "speaker": "urataros",
+            "text": "……澪、その手。"
+        },
+        {
+            "speaker": "mio",
+            "text": "嫌？"
+        },
+        {
+            "speaker": "urataros",
+            "text": "……まさか。"
+        },
+        {
+            "speaker": "mio",
+            "text": "離した方がいい？"
+        },
+        {
+            "speaker": "urataros",
+            "text": "……そのままでいて。"
+        },
+        {
+            "speaker": "mio",
+            "text": "うん。"
+        },
+        {
+            "speaker": "urataros",
+            "text": "澪は？"
+        },
+        {
+            "speaker": "mio",
+            "text": "何が？"
+        },
+        {
+            "speaker": "urataros",
+            "text": "余裕。"
+        },
+        {
+            "speaker": "mio",
+            "text": "……ないと思う。"
+        },
+        {
+            "speaker": "urataros",
+            "text": "それでも、やめない？"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラは？"
+        },
+        {
+            "speaker": "urataros",
+            "text": "やめたくない。"
+        },
+        {
+            "speaker": "mio",
+            "text": "私も。"
+        },
+        {
+            "speaker": "urataros",
+            "text": "……澪。"
+        },
+        {
+            "speaker": "mio",
+            "text": "なに？"
+        },
+        {
+            "speaker": "urataros",
+            "text": "こっち。"
+        },
+        {
+            "speaker": "mio",
+            "text": "もう近いよ。"
+        },
+        {
+            "speaker": "urataros",
+            "text": "もっと。"
+        },
+        {
+            "speaker": "mio",
+            "text": "これ以上？"
+        },
+        {
+            "speaker": "urataros",
+            "text": "できるでしょ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "……うん。"
+        },
+        {
+            "speaker": "urataros",
+            "text": "澪。"
+        },
+        {
+            "speaker": "mio",
+            "text": "さっきから、名前しか言ってないね。"
+        },
+        {
+            "speaker": "urataros",
+            "text": "ほかのことを考える余裕がないからね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラでも？"
+        },
+        {
+            "speaker": "urataros",
+            "text": "僕だからだよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "どういう意味？"
+        },
+        {
+            "speaker": "urataros",
+            "text": "澪が思ってるより、我慢してるってこと。"
+        },
+        {
+            "speaker": "mio",
+            "text": "我慢しなくていいけど。"
+        },
+        {
+            "speaker": "urataros",
+            "text": "……本当に言ってる？"
+        },
+        {
+            "speaker": "mio",
+            "text": "嘘をつく必要ある？"
+        },
+        {
+            "speaker": "urataros",
+            "text": "ないね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "じゃあ――"
+        },
+        {
+            "speaker": "mio",
+            "text": "……待って、ウラ。"
+        },
+        {
+            "speaker": "urataros",
+            "text": "……どうしたの？"
+        },
+        {
+            "speaker": "ryutaros",
+            "text": "お姉ちゃんいじめないで！！",
+            "darkenPortraits": true
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_ryotaro_urataros_urataros_noglasses_flustered",
+            "expressionTransition": "fadeOutIn",
+            "text": "……リュウタ？",
+            "storyUiBlackFadeOut": 0.5,
+            "storyStillClearOnBlack": true,
+            "pageParticipants": [
+                {
+                    "speaker": "urataros",
+                    "expression": "portrait_ryotaro_urataros_urataros_noglasses_flustered",
+                },
+                {
+                    "speaker": "ryutaros",
+                    "expression": "portrait_ryutaros_base_default_angry"
+                }
+            ]
+        },
+        {
+            "speaker": "mio",
+            "text": "いじめられてないよ。"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_angry",
+            "text": "でも、お姉ちゃん変な声してた！"
+        },
+        {
+            "speaker": "mio",
+            "text": "それは聞かなくていいよ。"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_normal",
+            "text": "苦しかったの？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "expressionTransition": "fadeOutIn",
+            "text": "……。"
+        },        
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "少し長くちゅーしてただけだよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "説明しなくていい。"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_surprised",
+            "text": "ちゅーって苦しいの？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "相手によるかな。"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "ごめん。"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_angry",
+            "text": "やっぱり亀ちゃんがいじめたんだ！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "違うよ。澪も嫌じゃなかったでしょ？"
+        },
+        {
+            "speaker": "mio",
+            "text": "私に聞かないで。"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_angry",
+            "text": "亀ちゃん、お姉ちゃんから離れて！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "はいはい。",
+            "distance": "normal"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_angry",
+            "text": "良太郎にも言う！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "それは困るなぁ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "困るのは良太郎くんだと思う。"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_normal",
+            "text": "良太郎、かわいそうなの？"
+        },
+        {
+            "speaker": "mio",
+            "text": "たぶん。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "僕が借りてる間は分からないから、\n大丈夫だよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "そういう問題？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "違う？"
+        },
+        {
+            "speaker": "mio",
+            "text": "違うと思う。"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_angry",
+            "text": "もう亀ちゃんに貸しちゃ駄目って\n言ってくる！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "良太郎が返してほしいって言ったら、\n返すよ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "言えると思う？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "難しいかもしれないね。"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_smile",
+            "text": "僕が言ってあげる！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "それは困ったなぁ。"
+        },
+        {
+            "speaker": "mio",
+            "text": "今日は困ってばかりだね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_normal",
+            "text": "誰のせいだと思ってるの？"
+        },
+        {
+            "speaker": "mio",
+            "text": "リュウタ？"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_surprised",
+            "text": "僕？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "……そういうことにしておこうかな。"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_normal",
+            "text": "亀ちゃん、もういじめない？"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "ここではね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "ウラ。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "やっぱり、こういうのは澪の家だね。"
+        },
+        {
+            "speaker": "mio",
+            "text": "反省してないね。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "してるよ。今度は場所を間違えない。"
+        },
+        {
+            "speaker": "mio",
+            "text": "今度があるとは言ってないけど。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_surprised",
+            "text": "ないの？"
+        },
+        {
+            "speaker": "mio",
+            "text": "……ここではしない。"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_smile",
+            "text": "じゃあ、決まりだね。"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_smile",
+            "text": "僕も行く！"
+        },
+        {
+            "speaker": "urataros",
+            "expression": "portrait_urataros_base_default_wrysmile",
+            "text": "リュウタはお留守番かな。"
+        },
+        {
+            "speaker": "ryutaros",
+            "expression": "portrait_ryutaros_base_default_angry",
+            "text": "なんで！？"
+        }
+    ]
+},
+{
+    id: "ura_ex_06",
+    number: 18,
+    title: "後日談 第6話　君は本当に",
+    description:
+        "良太郎を待ちながら、昨日の出来事を振り返るウラタロスと澪。話題はやがて、ウラタロス自身の姿へ移っていく。",
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        }
+    ],
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "昨日は、リュウタに見つかるとは\n思わなかったな。"
+        },
+        {
+            speaker: "mio",
+            text: "見つかるようなところに\nいたからでしょ。"
+        },
+        {
+            speaker: "urataros",
+            text: "だから今日は大人しくしてるよ。"
+        },
+        {
+            speaker: "mio",
+            text: "今のところは？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "信用ないね。"
+        },
+        {
+            speaker: "mio",
+            text: "ウラタロスだからね。"
+        },
+        {
+            speaker: "urataros",
+            text: "便利に使うなぁ。"
+        },
+        {
+            speaker: "mio",
+            text: "まぁね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "……良太郎、遅いね。"
+        },
+        {
+            speaker: "mio",
+            text: "ナオミちゃんの手伝いしてるよ。"
+        },
+        {
+            speaker: "urataros",
+            text: "リュウタに見張られてるのかも\nしれないね。"
+        },
+        {
+            speaker: "mio",
+            text: "まだ、いじめたと思ってるから。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "澪がちゃんと説明してくれないからだよ。"
+        },
+        {
+            speaker: "mio",
+            text: "何て説明するの？"
+        },
+        {
+            speaker: "urataros",
+            text: "……それは困るなぁ。"
+        },
+        {
+            speaker: "mio",
+            text: "私も。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "じゃあ、誤解されたままかな。"
+        },
+        {
+            speaker: "mio",
+            text: "自業自得でしょ。"
+        },
+        {
+            speaker: "urataros",
+            text: "澪も一緒だったのに？"
+        },
+        {
+            speaker: "mio",
+            text: "ウラが始めたから。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "嫌じゃなかったでしょ？"
+        },
+        {
+            speaker: "mio",
+            text: "ここではしないって言った。"
+        },
+        {
+            speaker: "urataros",
+            text: "家ならいいってことだね。"
+        },
+        {
+            speaker: "mio",
+            text: "そうは言ってない。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "言ってなかった？"
+        },
+        {
+            speaker: "mio",
+            text: "ウラが決めただけ。"
+        },
+        {
+            speaker: "urataros",
+            text: "違った？"
+        },
+        {
+            speaker: "mio",
+            text: "どうだろうね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "昨日から、そればかりだなぁ。"
+        },
+        {
+            speaker: "mio",
+            text: "何が？"
+        },
+        {
+            speaker: "urataros",
+            text: "大事なところで、\nはっきり言ってくれない。"
+        },
+        {
+            speaker: "mio",
+            text: "ウラに言われたくないけど。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "僕は聞かれたら答えるよ。"
+        },
+        {
+            speaker: "mio",
+            text: "本当に？"
+        },
+        {
+            speaker: "urataros",
+            text: "答えられることならね。"
+        },
+        {
+            speaker: "mio",
+            text: "それは答えるって\n言わないと思う。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "厳しいなぁ。"
+        },
+        {
+            speaker: "mio",
+            text: "ウラタロスだからね。"
+        },
+        {
+            speaker: "urataros",
+            text: "それも何度目かな。"
+        },
+        {
+            speaker: "mio",
+            text: "便利だから。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "知ってるよ。"
+        },
+        {
+            speaker: "mio",
+            text: "良太郎くん、まだ戻らないと思うけど。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "そうだね。"
+        },
+        {
+            speaker: "mio",
+            text: "待ってるの？"
+        },
+        {
+            speaker: "urataros",
+            text: "来たら、少し借りようかな。"
+        },
+        {
+            speaker: "mio",
+            text: "私はこのままでいいけど。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_surprised",
+            text: "……このまま？"
+        },
+        {
+            speaker: "mio",
+            text: "うん。"
+        },
+        {
+            speaker: "urataros",
+            text: "僕の姿で？"
+        },
+        {
+            speaker: "mio",
+            text: "ほかに誰がいるの？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "昨日の良太郎の姿より？"
+        },
+        {
+            speaker: "mio",
+            text: "比べるの？"
+        },
+        {
+            speaker: "urataros",
+            text: "少し気になるでしょ？"
+        },
+        {
+            speaker: "mio",
+            text: "どっちもウラだったけど。"
+        },
+        {
+            speaker: "urataros",
+            text: "身体は違うよ。"
+        },
+        {
+            speaker: "mio",
+            text: "中は同じでしょ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "澪は、そういうところを\n気にしないんだね。"
+        },
+        {
+            speaker: "mio",
+            text: "気にしてほしかった？"
+        },
+        {
+            speaker: "urataros",
+            text: "そうじゃないよ。"
+        },
+        {
+            speaker: "mio",
+            text: "なら、いいね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "……また終わらせるんだ？"
+        },
+        {
+            speaker: "mio",
+            text: "まだ何かあるの？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "僕が格好いいのは当然だけど、この姿で\n口説かれて喜ぶ女の子ばかりじゃないからね。"
+        },
+        {
+            speaker: "mio",
+            text: "私の話じゃなかった？"
+        },
+        {
+            speaker: "urataros",
+            text: "澪も女の子でしょ？"
+        },
+        {
+            speaker: "mio",
+            text: "そうだね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "良太郎の姿の方が、\n都合がいいと思わない？"
+        },
+        {
+            speaker: "mio",
+            text: "ウラには？"
+        },
+        {
+            speaker: "urataros",
+            text: "女の子を口説くならね。"
+        },
+        {
+            speaker: "mio",
+            text: "私を口説くのにも？"
+        },
+        {
+            speaker: "urataros",
+            text: "最初に口説いたときは、\n良太郎の姿だったでしょ？"
+        },
+        {
+            speaker: "mio",
+            text: "今も口説いてるの？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "そのつもりだけど。"
+        },
+        {
+            speaker: "mio",
+            text: "付き合ってるのに？"
+        },
+        {
+            speaker: "urataros",
+            text: "付き合ったら、口説かなくていいの？"
+        },
+        {
+            speaker: "mio",
+            text: "ウラがそう思うなら。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "思わないよ。"
+        },
+        {
+            speaker: "mio",
+            text: "じゃあ、好きにすればいいでしょ。"
+        },
+        {
+            speaker: "urataros",
+            text: "この姿でも？"
+        },
+        {
+            speaker: "mio",
+            text: "私はこのままでいいって言ったけど。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_serious",
+            text: "我慢してくれてるのかもしれないでしょ？"
+        },
+        {
+            speaker: "mio",
+            text: "そう見える？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "見えないけどね。"
+        },
+        {
+            speaker: "mio",
+            text: "信じてないんだ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "何を？"
+        },
+        {
+            speaker: "mio",
+            text: "私が、このままでいいって言ったこと。"
+        },
+        {
+            speaker: "urataros",
+            text: "信じてるよ。"
+        },
+        {
+            speaker: "mio",
+            text: "そう。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "……その顔は、信じてないね。"
+        },
+        {
+            speaker: "mio",
+            text: "じゃあ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "……なに？"
+        },
+        {
+            speaker: "mio",
+            text: "こうすれば、信じてくれる？",
+            storyStill: "CG_urataros_ep18_01.png"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_surprised",
+            text: "……澪？",
+            distance: "close"
+        },
+        {
+            speaker: "mio",
+            text: "なに？"
+        },
+        {
+            speaker: "urataros",
+            text: "本当に抱きつくとは思わなかったな。"
+        },
+        {
+            speaker: "mio",
+            text: "分かりやすいと思って。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "そうだね。"
+        },
+        {
+            speaker: "mio",
+            text: "信じた？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_shy",
+            text: "もう少し、このままでいてくれたら。"
+        },
+        {
+            speaker: "mio",
+            text: "長さの問題？"
+        },
+        {
+            speaker: "urataros",
+            text: "僕の気持ちの問題かな。"
+        },
+        {
+            speaker: "mio",
+            text: "じゃあ、ウラが信じるまで。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "ずっと信じなかったら？"
+        },
+        {
+            speaker: "mio",
+            text: "ずっとは無理。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "残念。"
+        },
+        {
+            speaker: "mio",
+            text: "でも、今はいいよ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_shy",
+            text: "……うん。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "キスは？"
+        },
+        {
+            speaker: "mio",
+            text: "その口じゃ、\nどうすればいいか分からなかった。"
+        },
+        {
+            speaker: "urataros",
+            text: "考えたうえで、こうなったんだ？"
+        },
+        {
+            speaker: "mio",
+            text: "うん。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "想像したんだ？"
+        },
+        {
+            speaker: "mio",
+            text: "考えないと、分からないでしょ。"
+        },
+        {
+            speaker: "urataros",
+            text: "どんなふうに？"
+        },
+        {
+            speaker: "mio",
+            text: "……もう離れる？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "ごめん。黙るよ。"
+        },
+        {
+            speaker: "mio",
+            text: "素直だね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "離されたくないからね。"
+        },
+        {
+            speaker: "mio",
+            text: "そんなに？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_shy",
+            text: "澪が思ってるよりは。"
+        },
+        {
+            speaker: "mio",
+            text: "そう。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "この姿、硬いでしょ？"
+        },
+        {
+            speaker: "mio",
+            text: "うん。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "即答するんだ。"
+        },
+        {
+            speaker: "mio",
+            text: "柔らかくはないから。"
+        },
+        {
+            speaker: "urataros",
+            text: "冷たいしね。"
+        },
+        {
+            speaker: "mio",
+            text: "少しね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "抱き心地は、\n良太郎の方がいいんじゃない？"
+        },
+        {
+            speaker: "mio",
+            text: "比べたことない。"
+        },
+        {
+            speaker: "urataros",
+            text: "昨日は、ずいぶん近かったけど。"
+        },
+        {
+            speaker: "mio",
+            text: "あれはウラでしょ。"
+        },
+        {
+            speaker: "urataros",
+            text: "身体は良太郎だよ。"
+        },
+        {
+            speaker: "mio",
+            text: "中はウラだった。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "……それも、さっき聞いたね。"
+        },
+        {
+            speaker: "mio",
+            text: "何度でも言うよ。"
+        },
+        {
+            speaker: "urataros",
+            text: "僕の真似？"
+        },
+        {
+            speaker: "mio",
+            text: "嫌？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_shy",
+            text: "嬉しいよ。"
+        },
+        {
+            speaker: "mio",
+            text: "なら、いいね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_serious",
+            text: "僕からも触っていい？"
+        },
+        {
+            speaker: "mio",
+            text: "聞くんだ。"
+        },
+        {
+            speaker: "urataros",
+            text: "この手だからね。"
+        },
+        {
+            speaker: "mio",
+            text: "大丈夫だよ。"
+        },
+        {
+            speaker: "urataros",
+            text: "痛かったら言って。"
+        },
+        {
+            speaker: "mio",
+            text: "うん。",
+            storyStillClear: true
+        },
+        {
+            speaker: "mio",
+            text: "……少し強い。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_serious",
+            text: "ごめん。"
+        },
+        {
+            speaker: "mio",
+            text: "嫌じゃないけど。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "それなら、このままでいてもいい？"
+        },
+        {
+            speaker: "mio",
+            text: "うん。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_shy",
+            text: "澪。"
+        },
+        {
+            speaker: "mio",
+            text: "なに？"
+        },
+        {
+            speaker: "urataros",
+            text: "本当に、この姿でいいんだね。"
+        },
+        {
+            speaker: "mio",
+            text: "まだ聞くの？"
+        },
+        {
+            speaker: "urataros",
+            text: "もう少しだけ。"
+        },
+        {
+            speaker: "mio",
+            text: "今、離れてないでしょ。"
+        },
+        {
+            speaker: "urataros",
+            text: "そうだね。"
+        },
+        {
+            speaker: "mio",
+            text: "ウラは離れたい？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "まさか。"
+        },
+        {
+            speaker: "mio",
+            text: "じゃあ、同じだよ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_unguardedshy",
+            text: "……敵わないなぁ。"
+        },
+        {
+            speaker: "mio",
+            text: "何が？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "こっちの話。"
+        },
+        {
+            speaker: "mio",
+            text: "そう。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "でも、キスの仕方は考えておいてね。"
+        },
+        {
+            speaker: "mio",
+            text: "まだ言ってる。"
+        },
+        {
+            speaker: "urataros",
+            text: "僕にとっては大事なことだからね。"
+        },
+        {
+            speaker: "mio",
+            text: "どこに合わせればいいか分からない。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "口はここだよ。"
+        },
+        {
+            speaker: "mio",
+            text: "それは見れば分かる。"
+        },
+        {
+            speaker: "urataros",
+            text: "じゃあ、何が分からないの？"
+        },
+        {
+            speaker: "mio",
+            text: "どう合わせるの？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "好きなところにしてくれたらいいよ。"
+        },
+        {
+            speaker: "mio",
+            text: "ウラも分かってない？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "……この姿でしたことはないからね。"
+        },
+        {
+            speaker: "mio",
+            text: "初めてなんだ。"
+        },
+        {
+            speaker: "urataros",
+            text: "僕にだって、初めてくらいあるよ。"
+        },
+        {
+            speaker: "mio",
+            text: "そう。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "嬉しそうだね。"
+        },
+        {
+            speaker: "mio",
+            text: "少し。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "どうして？"
+        },
+        {
+            speaker: "mio",
+            text: "私が最初だから。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_unguardedshy",
+            text: "……そういうこと、また急に言うんだね。"
+        },
+        {
+            speaker: "mio",
+            text: "違う？"
+        },
+        {
+            speaker: "urataros",
+            text: "違わないよ。"
+        },
+        {
+            speaker: "mio",
+            text: "じゃあ、一緒に考える？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "試した方が早いんじゃない？"
+        },
+        {
+            speaker: "mio",
+            text: "考えてから。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text: "慎重だね。"
+        },
+        {
+            speaker: "mio",
+            text: "人の口と違うから。"
+        },
+        {
+            speaker: "urataros",
+            text: "正解なんてないと思うけどなぁ。"
+        },
+        {
+            speaker: "mio",
+            text: "そうなの？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "澪が僕にしてくれるなら、\nどこでもキスになるでしょ？"
+        },
+        {
+            speaker: "mio",
+            text: "適当。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "本気だよ。"
+        },
+        {
+            speaker: "mio",
+            text: "じゃあ、今度考える。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text: "期待しておくよ。"
+        },
+        {
+            speaker: "mio",
+            text: "そう。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text: "良太郎が戻ってきたら、どうする？"
+        },
+        {
+            speaker: "mio",
+            text: "離れるよ。"
+        },
+        {
+            speaker: "urataros",
+            text: "今は？"
+        },
+        {
+            speaker: "mio",
+            text: "このままでいい。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_shy",
+            text: "……うん。"
+        },
+        {
+            speaker: "mio",
+            text: "ウラ。"
+        },
+        {
+            speaker: "urataros",
+            text: "なに？"
+        },
+        {
+            speaker: "mio",
+            text: "信じた？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_unguardedshy",
+            text: "信じたよ。"
+        },
+        {
+            speaker: "mio",
+            text: "よかった。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_unguardedshy",
+            text: "君は本当に、\n僕を困らせるのが上手い。"
         }
     ]
 },

@@ -138133,6 +138133,231 @@ tags: [
         "gaim_parody"
     ]
 },
+{
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "澪ちゃん。\n小さな星の話をしよう。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "いいよ。\nじゃあ水星の話から。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_surprised",
+            text:
+                "水星？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "太陽に一番近いでしょ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "そういう星の話を\nするつもりじゃなかったんだけどな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "じゃあ何の話？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "運命とか、巡り合わせとか。\nそういう話。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "水星じゃだめなの？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "だめじゃないけど……。\nずいぶん現実的だね。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "星の話って言ったから。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "次からはもう少し\n分かりやすく誘うことにするよ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "星の話も聞くよ？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "……じゃあ、水星から聞こうかな。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "urataros",
+        "mio",
+        "stars",
+        "mercury",
+        "romance_misunderstanding",
+        "faiz_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "モモ、さっきから\nずっと見てるね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "どれにするか\n決まらねぇんだよ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "欲しいものが\nわからなくても。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "欲しいもんはある！\nどれが欲しいか決まらねぇだけだ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "なんでも手に入るから。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "全部はだめだよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "全部とは言ってねぇ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "欲望だけ刺激されて、\n思考停止。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "おやつ一個\n選んでるだけだけどね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "亀！\nいちいち壮大にすんな！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "でも止まってるでしょ、思考。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "……。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "止まったね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "今考えてんだよ！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros",
+        "urataros",
+        "mio",
+        "snack",
+        "choice",
+        "desire",
+        "ryuki_parody"
+    ]
+},
 
     /*
      *↑通常会話追加ここまで↑

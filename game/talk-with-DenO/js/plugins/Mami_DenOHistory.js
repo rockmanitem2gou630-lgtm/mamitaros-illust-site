@@ -515,12 +515,23 @@ function addHistory(page) {
 
     function stripControls(text) {
         return String(text || "")
+            /*
+             * Mami_DenOTalk独自の制御文字を履歴へ残さない。
+             *
+             * 引数付き（例: \MSPK[mio]）だけでなく、
+             * 引数なし（例: \MSTORYMSGSHOWIFHIDDEN）にも対応する。
+             */
             .replace(
-                /\\M[A-Z]+\[[^\]]*\]/g,
+                /\\M[A-Z]+(?:\[[^\]]*\])?/g,
                 ""
             )
+            /*
+             * 本文の色変更は履歴画面では使わないため、
+             * ツクール標準の \c[番号] も取り除く。
+             * 大文字・小文字のどちらで書かれていても対応する。
+             */
             .replace(
-                /\\MDARK/g,
+                /\\C\[[0-9]+\]/gi,
                 ""
             );
     }

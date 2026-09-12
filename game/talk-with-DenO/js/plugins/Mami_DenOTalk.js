@@ -138358,6 +138358,533 @@ tags: [
         "ryuki_parody"
     ]
 },
+{
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "ウラタロス、\n何してるの？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "ちょっとした手品。\n見てる？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "見てるだけの君で\nいいかい？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "見てるだけでいいなら。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_surprised",
+            text:
+                "……それだけ？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "何か手伝う？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "そういう意味じゃ\nなかったんだけどな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "じゃあどういう意味？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "もう少し僕を\n見ててほしいってこと。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "最初から見てるよ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "……澪ちゃんには\n敵わないなぁ。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "urataros",
+        "mio",
+        "magic_trick",
+        "watching",
+        "agito_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "これ、もう少し\nうまくできないかな。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "……。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "俺の１０７番目の技を\n応用すれば、もしかして……。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_surprised",
+            text:
+                "１０７番目！？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "先輩、それって\n俺の必殺技パート１０７？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "違ぇよ！！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "違うんだ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "技と必殺技は\n別だろうが！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "先輩の中では\n分類されてるんだね。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "じゃあ必殺技は\n何個あるの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "……。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "パート４は？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "そこは今関係ねぇだろ！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros",
+        "urataros",
+        "ryutaros",
+        "mio",
+        "107th_skill",
+        "special_move",
+        "part_four",
+        "kuuga_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "ロッドフォームって、\nウラタロスらしいよね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "そう？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "青いし、身軽だし、\n長い武器使うし。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text:
+                "水の心の戦士、"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "長きものを手にして\n敵をなぎ払え……ってね。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "急に壮大になったね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "長きものって、\nあの竿のことか？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "先輩。\nもう少し格好よく言えない？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "長ぇ竿。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "悪化したね。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ロッドでいいんじゃない？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "澪ちゃんまで\n現実に戻さなくていいよ。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "urataros",
+        "momotaros",
+        "mio",
+        "rod_form",
+        "weapon",
+        "water",
+        "kuuga_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "ヒーローごっこしよ！\n亀ちゃん、悪いやつね！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text:
+                "僕が悪役？\nまあ、いいけど。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "お前、ずいぶん素直に\n引き受けたな……。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "モモタロスがヒーロー！\nお姉ちゃんを助けるの！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "私、捕まる役なんだ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "うん！\n亀ちゃん、始めて！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "じゃあ……澪ちゃん。\n先輩なんてやめて、僕にしない？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "はぁ！？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "悪いやつって、そっち？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "先輩から澪ちゃんを奪うんだから、\n十分悪いやつでしょ？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "お前それ、ただ澪を\n口説いてるだけだろうが！！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "僕なら先輩みたいに、\nすぐ怒鳴ったりしないよ？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "設定にかこつけて\n悪口混ぜんな！！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "悪役らしくしてるだけだよ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "亀ちゃん上手！\nすっごく悪いやつ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "ありがとう。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "褒めてねぇ！！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "でも、いつもの\nウラタロスだよね。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "うん！\nいつもと同じ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_surprised",
+            text:
+                "……それはちょっと\n心外だなぁ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "それで、ヒーローは\nいつ助けてくれるの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "お、おう！\n今助ける！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "モモタロス遅い！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "やっぱり僕にした方が――"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "黙れ亀ぇ！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros",
+        "urataros",
+        "ryutaros",
+        "mio",
+        "hero_play",
+        "teasing"
+    ]
+},
 
     /*
      *↑通常会話追加ここまで↑
@@ -151210,7 +151737,15 @@ function getTalkPossessionDisplayExpression(
     const displayPrefix =
         `portrait_ryotaro_${target}_${outfitOwner}`;
 
-    return String(expression || "").replace(
+    const validExpression =
+        getValidImaginSourceExpression(
+            target,
+            expression
+        );
+
+    return String(
+        validExpression || ""
+    ).replace(
         sourcePrefix,
         displayPrefix
     );
@@ -151830,6 +152365,188 @@ function getTalkPossessionTone(
 }
 
 /*
+ * イマジン体の感情指定と、
+ * 実際に表示するポーズ番号の対応表。
+ *
+ * 会話データ側は今までどおり、
+ * portrait_momotaros_base_default_angry
+ * のような表情名で指定する。
+ *
+ * イマジン体のポーズを追加した時は、
+ * この表の "01" を "02" / "03" へ
+ * 変更するだけで振り分けられる。
+ *
+ * ここには「表情一覧(1).txt」に記載された
+ * 正式な表情だけを登録する。
+ */
+const IMAGIN_BODY_POSE_BY_EXPRESSION = {
+    momotaros: {
+        angry: "01",
+        angryshy: "01",
+        apology: "01",
+        awkward: "01",
+        grin: "01",
+        normal: "01",
+        restrainedshy: "01",
+        selfconscious: "01",
+        shy: "01",
+        soft: "01",
+        surprised: "01"
+    },
+
+    urataros: {
+        normal: "01",
+        serious: "01",
+        shy: "01",
+        smile: "01",
+        surprised: "01",
+        unguardedshy: "01",
+        wrysmile: "01"
+    },
+
+    kintaros: {
+        angry: "01",
+        cry: "01",
+        normal: "01",
+        shy: "01",
+        sleep: "01",
+        smile: "01",
+        smileshy: "01"
+    },
+
+    ryutaros: {
+        angry: "01",
+        cry: "01",
+        jealous: "01",
+        normal: "01",
+        shy: "01",
+        smile: "01",
+        surprised: "01"
+    }
+};
+
+/*
+ * イマジン本人用の表情指定が、
+ * 正式な表情一覧に存在するか確認する。
+ *
+ * portrait_○○_base_default_～
+ * という本人用指定だけを確認し、
+ * 一覧にない表情名はnormalへ戻す。
+ *
+ * portrait_ryotaro_～の直接指定や、
+ * 良太郎・ハナ・ナオミの画像名には
+ * 一切干渉しない。
+ */
+function getValidImaginSourceExpression(
+    speakerId,
+    expression
+) {
+    const imaginId =
+        String(speakerId || "");
+
+    const poseMap =
+        IMAGIN_BODY_POSE_BY_EXPRESSION[
+            imaginId
+        ];
+
+    if (!poseMap) {
+        return expression;
+    }
+
+    const sourcePrefix =
+        `portrait_${imaginId}_base_default_`;
+
+    const sourceExpression =
+        String(expression || "");
+
+    if (
+        !sourceExpression.startsWith(
+            sourcePrefix
+        )
+    ) {
+        return expression;
+    }
+
+    const expressionName =
+        sourceExpression.slice(
+            sourcePrefix.length
+        );
+
+    if (
+        Object.prototype.hasOwnProperty.call(
+            poseMap,
+            expressionName
+        )
+    ) {
+        return sourceExpression;
+    }
+
+    return `${sourcePrefix}normal`;
+}
+
+/*
+ * イマジン本人の表情指定を、
+ * イマジン体のポーズ画像名へ変換する。
+ *
+ * 対象は上の4人かつ、
+ * portrait_○○_base_default_～
+ * という本人用の画像名だけ。
+ *
+ * 良太郎・ハナ・ナオミや、
+ * portrait_ryotaro_～で始まる憑依良太郎の
+ * 専用画像には一切干渉しない。
+ */
+function getImaginBodyDisplayExpression(
+    speakerId,
+    expression
+) {
+    const imaginId =
+        String(speakerId || "");
+
+    const poseMap =
+        IMAGIN_BODY_POSE_BY_EXPRESSION[
+            imaginId
+        ];
+
+    if (!poseMap) {
+        return expression;
+    }
+
+    const sourcePrefix =
+        `portrait_${imaginId}_base_default_`;
+
+    const sourceExpression =
+        String(
+            getValidImaginSourceExpression(
+                imaginId,
+                expression
+            ) || ""
+        );
+
+    if (
+        !sourceExpression.startsWith(
+            sourcePrefix
+        )
+    ) {
+        return expression;
+    }
+
+    const expressionName =
+        sourceExpression.slice(
+            sourcePrefix.length
+        );
+
+    const poseNumber =
+        poseMap[expressionName] ||
+        poseMap.normal ||
+        "01";
+
+    return (
+        `${sourcePrefix}${poseNumber}`
+    );
+}
+
+/*
  * 会話内憑依で使う画像を
  * プリロード対象へ追加する。
  */
@@ -151935,6 +152652,12 @@ function getDisplayExpression(
     speakerId,
     expression
 ) {
+    const bodyExpression =
+        getImaginBodyDisplayExpression(
+            speakerId,
+            expression
+        );
+
     /*
      * 会話内だけの演出用憑依を
      * 実際の憑依状態より優先する。
@@ -151944,7 +152667,7 @@ function getDisplayExpression(
         speakerId !==
         temporaryTalkPossession
     ) {
-        return expression;
+        return bodyExpression;
     }
 
     /*
@@ -151955,7 +152678,7 @@ function getDisplayExpression(
         temporaryTalkPossession ===
             "ryotaro"
     ) {
-        return expression;
+        return bodyExpression;
     }
 
     return getTalkPossessionDisplayExpression(
@@ -151965,14 +152688,14 @@ function getDisplayExpression(
 }
 
     if (!possessionState.active) {
-        return expression;
+        return bodyExpression;
     }
 
     if (
         speakerId !==
         possessionState.imagin
     ) {
-        return expression;
+        return bodyExpression;
     }
 
     const imaginId =
@@ -152012,7 +152735,13 @@ function getDisplayExpression(
     const displayPrefix =
         `portrait_ryotaro_${imaginId}_${outfitOwner}`;
 
-    return String(expression).replace(
+    const validExpression =
+        getValidImaginSourceExpression(
+            imaginId,
+            expression
+        );
+
+    return String(validExpression).replace(
         sourcePrefix,
         displayPrefix
     );

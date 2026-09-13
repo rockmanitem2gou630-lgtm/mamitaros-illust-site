@@ -138684,6 +138684,252 @@ tags: [
     ]
 },
 {
+    possessedBy: "momotaros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "momotaros",
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "なぁ亀。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text:
+                "何、先輩。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "ソードフォームになる時によ、"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "こう……勢いつけるために\nなんか言いてぇんだよな。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text:
+                "へぇ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "……超変身！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "……で、いいと思うか？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "……いいんじゃない？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "今笑っただろ！！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "笑ってないよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "絶対笑った！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "私はいいと思うよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "だろ！？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "勢いはあるし。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "先輩には大事だもんね、勢い。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "テメェやっぱり\nバカにしてんだろ！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros",
+        "urataros",
+        "mio",
+        "m_ryotaro",
+        "imagin_preference",
+        "sword_form",
+        "transformation",
+        "kuuga_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "よし！\n俺特製の俺カレー作ってやる！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "なんかいらん、それ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "なんでだよ！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "澪だって\n気に入るぞ！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_awkward",
+            text:
+                "食べれるもんに\nしといてや。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "食べれるもんに決まってんだろ！！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "何入れるの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "……。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_awkward",
+            text:
+                "お嬢。\n聞かん方がええかもしれん。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "まだ何も入れてねぇよ！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros",
+        "kintaros",
+        "mio",
+        "cooking",
+        "curry",
+        "kuuga_parody"
+    ]
+},
+{
     participants: [
         {
             speaker: "ryutaros",
@@ -151304,6 +151550,30 @@ function makeTalkCandidates(
     );
 
     /*
+     * デバッグ強制会話は、
+     * カテゴリ・憑依状態・メインキャラ条件で
+     * 候補から落とす前に確保する。
+     *
+     * 複雑な演出会話も、現在の画面状態に
+     * 左右されず確認できるようにする。
+     */
+    const debugForcedCandidates =
+        DEBUG_FORCE_TALK_ENABLED
+            ? candidates.filter(
+                candidate =>
+                    candidate.talk &&
+                    candidate.talk
+                        .debugForce === true
+            )
+            : [];
+
+    if (
+        debugForcedCandidates.length > 0
+    ) {
+        return debugForcedCandidates;
+    }
+
+    /*
      * 憑依状態に合わない会話を、
      * すべての候補から一括で除外する。
      */
@@ -152381,11 +152651,11 @@ function getTalkPossessionTone(
  */
 const IMAGIN_BODY_POSE_BY_EXPRESSION = {
     momotaros: {
-        angry: "01",
-        angryshy: "01",
+        angry: "02",
+        angryshy: "02",
         apology: "01",
         awkward: "01",
-        grin: "01",
+        grin: "02",
         normal: "01",
         restrainedshy: "01",
         selfconscious: "01",
@@ -152401,7 +152671,7 @@ const IMAGIN_BODY_POSE_BY_EXPRESSION = {
         smile: "01",
         surprised: "01",
         unguardedshy: "01",
-        wrysmile: "01"
+        wrysmile: "02"
     },
 
     kintaros: {
@@ -160673,6 +160943,42 @@ requestExpressionReset();
         if (isInteractionLocked()) {
             return;
         }
+
+        let candidates =
+            makeTalkCandidates(
+                category
+            );
+
+        /*
+         * makeTalkCandidates()は、
+         * debugForce指定がある場合だけ
+         * 条件判定前の強制候補を返す。
+         */
+        const debugForcedCandidates =
+            DEBUG_FORCE_TALK_ENABLED
+                ? candidates.filter(
+                    candidate =>
+                        candidate.talk &&
+                        candidate.talk
+                            .debugForce === true
+                )
+                : [];
+
+        if (
+            debugForcedCandidates.length > 0
+        ) {
+            candidates =
+                debugForcedCandidates;
+
+            if (
+                debugForcedCandidates.length > 1
+            ) {
+                console.warn(
+                    `[${pluginName}] debugForce指定の会話が複数あります。`,
+                    debugForcedCandidates
+                );
+            }
+        } else {
         /*
          * 訪問回数会話は
          * 「話す」系だけで判定
@@ -160705,56 +161011,15 @@ requestExpressionReset();
             return;
         }
 
-let candidates =
-    makeTalkCandidates(
-        category
-    );
-
-/*
- * ─────────────────────────────
- * デバッグ強制会話
- * ─────────────────────────────
- *
- * 条件を満たして候補に入っている会話のうち、
- * debugForce: true があれば
- * その会話だけを抽選対象にする。
- *
- * 履歴による除外も行わない。
- */
-const debugForcedCandidates =
-    DEBUG_FORCE_TALK_ENABLED
-        ? candidates.filter(
-            candidate =>
-                candidate.talk &&
-                candidate.talk
-                    .debugForce === true
-        )
-        : [];
-
-if (
-    debugForcedCandidates.length > 0
-) {
-    candidates =
-        debugForcedCandidates;
-
-    if (
-        debugForcedCandidates.length > 1
-    ) {
-        console.warn(
-            `[${pluginName}] debugForce指定の会話が複数あります。`,
-            debugForcedCandidates
-        );
-    }
-} else {
-    /*
-     * デバッグ強制会話がない時だけ、
-     * 通常の履歴除外を行う。
-     */
-    candidates =
-        filterRecentHistory(
-            candidates
-        );
-}
+            /*
+             * デバッグ強制会話がない時だけ、
+             * 通常の履歴除外を行う。
+             */
+            candidates =
+                filterRecentHistory(
+                    candidates
+                );
+        }
 
 if (
     candidates.length === 0

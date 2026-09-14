@@ -8054,7 +8054,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "お前の大丈夫は、あんまり信用ならんからな。"
         },
@@ -8115,7 +8115,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "ええから任しとき。"
         },
@@ -8280,7 +8280,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "あとであとで言うとったら、\nいつまで経っても食わへんやろ。"
         },
@@ -8327,7 +8327,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "借りもんは大事にせなあかんやろ。"
         },
@@ -11647,7 +11647,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "服が何でも、お嬢くらい守ったるで。"
         },
@@ -11723,7 +11723,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "それを喧嘩いうんちゃうか？"
         },
@@ -20296,7 +20296,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "リュウタ、そない汚い言葉\n使うたらあかんで。"
         },
@@ -20367,7 +20367,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "それもあかん。"
         },
@@ -20386,7 +20386,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "知らん人についてったらあかんで、リュウタ。"
         },
@@ -20909,7 +20909,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "リュウタ。\n知らん人についてったらあかんで。"
         },
@@ -20935,7 +20935,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "知らん男に声かけられても、\nついてったらあかんからな。"
         },
@@ -21045,7 +21045,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "遊んだもんは自分で片付けなあかんで。"
         },
@@ -21840,7 +21840,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "人の身体借りとるんや。\n節度は守らなあかんで、桃の字。"
         },
@@ -22408,7 +22408,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "知らん人に片っ端から\n声かけたらあかんで。"
         },
@@ -22698,7 +22698,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "今は知らんでええ。"
         },
@@ -23309,7 +23309,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "一個。"
         },
@@ -23490,7 +23490,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "あんまりお嬢を困らせたらあかんで。"
         },
@@ -24014,7 +24014,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "桃の字。\nお嬢に怒鳴ったらあかん。"
         },
@@ -24226,7 +24226,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "二人とも、その辺にしとき。"
         },
@@ -24254,7 +24254,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "敵を倒すためや。"
         },
@@ -24310,7 +24310,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "全員、反省せなあかんな。"
         },
@@ -24338,7 +24338,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "まず静かにして、\n良太郎を寝かせたったらどうや。"
         },
@@ -25777,7 +25777,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "やりすぎたら目ぇ悪なるやろ。"
         },
@@ -25890,7 +25890,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "一日一時間や。"
         },
@@ -26343,7 +26343,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_normal",
+                "portrait_kintaros_base_default_angry",
             text:
                 "増やしてどうする。"
         },
@@ -32495,7 +32495,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy",
+                "portrait_kintaros_base_default_sleep",
             text:
                 "ちょっとだけな。"
         },
@@ -58233,7 +58233,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy",
+                "portrait_kintaros_base_default_sleep",
             text:
                 "今起きたんや。"
         },
@@ -61656,7 +61656,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy",
+                "portrait_kintaros_base_default_sleep",
             text:
                 "ほな、誰も泣いてへんなら\nもう寝るで。"
         },
@@ -68423,7 +68423,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy",
+                "portrait_kintaros_base_default_sleep",
             text:
                 "……それもええな。"
         },
@@ -92394,7 +92394,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy",
+                "portrait_kintaros_base_default_sleep",
             text:
                 "……俺も眠なってきたわ。"
         },
@@ -99599,7 +99599,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy",
+                "portrait_kintaros_base_default_sleep",
             text:
                 "目ぇ閉じとったら、\nそのうち眠れる。"
         },
@@ -99859,7 +99859,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy",
+                "portrait_kintaros_base_default_sleep",
             text:
                 "ほな今度こそ、\nゆっくり休み。"
         },
@@ -107237,7 +107237,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy",
+                "portrait_kintaros_base_default_sleep",
             text:
                 "……食うた。"
         },
@@ -121013,7 +121013,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy",
+                "portrait_kintaros_base_default_sleep",
             text:
                 "……なんや、股引き。"
         },
@@ -121124,7 +121124,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy",
+                "portrait_kintaros_base_default_sleep",
             text:
                 "……なんや、モモンガ。"
         },
@@ -121138,7 +121138,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy",
+                "portrait_kintaros_base_default_sleep",
             text:
                 "朝から騒がしいなぁ……。"
         },
@@ -124202,7 +124202,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy"
+                "portrait_kintaros_base_default_sleep"
         },
         {
             speaker: "mio"
@@ -124218,7 +124218,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy",
+                "portrait_kintaros_base_default_sleep",
             text:
                 "まだええ。"
         },
@@ -125344,7 +125344,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy"
+                "portrait_kintaros_base_default_sleep"
         },
         {
             speaker: "mio"
@@ -125360,7 +125360,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy",
+                "portrait_kintaros_base_default_sleep",
             text:
                 "んー。"
         },
@@ -128118,7 +128118,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy",
+                "portrait_kintaros_base_default_sleep",
             text:
                 "……起きとる。"
         },
@@ -131052,7 +131052,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy",
+                "portrait_kintaros_base_default_sleep",
             text:
                 "……起きとる。"
         },
@@ -132242,7 +132242,7 @@ tags: [
         {
             speaker: "kintaros",
             expression:
-                "portrait_kintaros_base_default_sleepy",
+                "portrait_kintaros_base_default_sleep",
             text:
                 "……暑苦しい起こし方すな。"
         },
@@ -139057,6 +139057,413 @@ tags: [
         "urataros",
         "tea",
         "pun",
+        "agito_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward"
+        },
+        {
+            speaker: "mio"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "それでモモ、\n結局殴ったの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "……一発だけな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "グーで殴ったの？\nパーで殴ったの？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "チョキで殴ったの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "チョキでどうやって\n殴るんだよ！？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "目を狙うとか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "それは殴るより\nだめじゃない？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "やってねぇよ！！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_awkward",
+            text:
+                "話が物騒な方に\n行っとるで。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "じゃあグー？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "グーだよ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "それで？\n何メートルくらい吹っ飛んだの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "そこ聞くのかよ！？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "重要なんじゃない？\n事情聴取だから。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "……二メートルくらい？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "結構飛んだね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "感想それだけかよ！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros",
+        "urataros",
+        "kintaros",
+        "mio",
+        "fight",
+        "questioning",
+        "agito_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "どれがええ魚やろな。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "鮮度を見るなら、\nいい方法があるよ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "どんな方法？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text:
+                "まず、魚の口に\n小指を入れて……。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "なんでだよ！？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text:
+                "……。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "何してるの？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "魚の気持ちを\n感じ取ってるところ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_surprised",
+            text:
+                "そんなん分かるんか？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "分かるわけないでしょ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "じゃあ何してんだよ！！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ただ魚の口に\n小指入れただけだね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "でもそれっぽかったでしょ？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_awkward",
+            text:
+                "魚で遊んだらあかん。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "熊が一番まともだぞ今日！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "urataros",
+        "kintaros",
+        "momotaros",
+        "mio",
+        "fish",
+        "cooking",
+        "agito_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "熊野郎！\nちったぁ加減しろ！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "なんや桃の字。\n俺は普通にしとっただけや。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "どこが普通だ！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "図体がでかいだけの\n無骨が！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_angry",
+            text:
+                "無骨！？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "そこなんだ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_angry",
+            text:
+                "俺はそんなに\n無骨やないやろ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "図体がでかい方は\nいいんだ？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "それは事実やからな。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "そこだけ妙に\n冷静だな！？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "じゃあ先輩、\n無骨だけ訂正してあげたら？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "……図体がでかいだけの、"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "バカの置き物！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_angry",
+            text:
+                "悪なっとるやないか！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros",
+        "kintaros",
+        "urataros",
+        "mio",
+        "argument",
         "agito_parody"
     ]
 },
@@ -148276,7 +148683,7 @@ momotaros: [
                     {
                         speaker: "kintaros",
                         expression:
-                            "portrait_kintaros_base_default_normal",
+                            "portrait_kintaros_base_default_angry",
                         text:
                             "こういう大人についてったら\nあかんで。"
                     },
@@ -152886,11 +153293,11 @@ const IMAGIN_BODY_POSE_BY_EXPRESSION = {
     },
 
     kintaros: {
-        angry: "01",
+        angry: "02",
         cry: "01",
         normal: "01",
         shy: "01",
-        sleep: "01",
+        sleep: "02",
         smile: "01",
         smileshy: "01"
     },

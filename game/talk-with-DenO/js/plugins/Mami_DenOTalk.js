@@ -685,6 +685,14 @@ let portraitMotionStates = [];
 let portraitExpressionFadeState = null;
 
 /*
+ * 通常の表情変更で使う、
+ * ごく短いクロスフェードの進行状態。
+ *
+ * スロットごとに同時進行できるよう配列で管理する。
+ */
+let portraitExpressionCrossfadeStates = [];
+
+/*
  * 距離フェード終了後に、
  * 会話前の一人表示へ戻すか。
  */
@@ -981,6 +989,15 @@ function resolvePortraitAppearFadeDuration(
  * 「動作した間」を少し長めに見せる。
  */
 const PORTRAIT_EXPRESSION_FADE_DURATION = 10;
+
+/*
+ * 通常の表情変更用クロスフェード時間。
+ *
+ * 旧絵を透明度255のまま下に残し、
+ * 新絵だけを0→255へ4フレームで重ねる。
+ * 60フレームで約1秒なので、約0.07秒。
+ */
+const PORTRAIT_EXPRESSION_CROSSFADE_DURATION = 4;
 
 /*
  * 転倒後の復帰専用フェード時間。
@@ -138932,6 +138949,120 @@ tags: [
 {
     participants: [
         {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile"
+        },
+        {
+            speaker: "mio"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "お茶淹れたよ。\n澪さんもどうぞ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ありがとう。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "粗茶ですけど、どうぞ。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "冷めないうちに、\nちゃちゃっと飲んでください！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "……今の何だ？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "お茶だけに、\nちゃちゃっと……かな。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_shy",
+            text:
+                "説明しなくていいよ……。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "良太郎くん、\nそういうの言うんだね。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "そんなに意外だった？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "もう一回言ってみろよ！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_shy",
+            text:
+                "もう言わないよ！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro",
+        "mio",
+        "momotaros",
+        "urataros",
+        "tea",
+        "pun",
+        "agito_parody"
+    ]
+},
+{
+    participants: [
+        {
             speaker: "ryutaros",
             expression:
                 "portrait_ryutaros_base_default_smile"
@@ -152144,7 +152275,8 @@ function fadeTalkPossessionPortrait(
  */
 function replaceTalkPossessionPortrait(
     pictureId,
-    filename
+    filename,
+    useExpressionCrossfade = false
 ) {
     const picture =
         $gameScreen.picture(
@@ -152157,6 +152289,85 @@ function replaceTalkPossessionPortrait(
     ) {
         return false;
     }
+
+    /*
+     * 会話中の一時憑依では、身体の座標・大きさを
+     * 維持したまま通常表情と同じ短いクロスフェードを使う。
+     * 実憑依エフェクトや黒画面裏の復元は従来どおり即時交換。
+     */
+    if (useExpressionCrossfade) {
+        const currentTone =
+            typeof picture.tone ===
+                "function"
+                ? picture.tone()
+                : null;
+
+        const previousTone =
+            Array.isArray(currentTone)
+                ? currentTone.slice()
+                : applyPortraitLightingToTone(
+                    ACTIVE_PORTRAIT_TONE
+                );
+
+        const crossfadeState =
+            createPortraitExpressionSnapshot(
+                pictureId,
+                picture,
+                filename
+            );
+
+        const targetOpacity =
+            crossfadeState
+                ? crossfadeState
+                    .targetOpacity
+                : picture.opacity();
+
+        $gameScreen.showPicture(
+            pictureId,
+            filename,
+            picture.origin(),
+            picture.x(),
+            picture.y(),
+            picture.scaleX(),
+            picture.scaleY(),
+            crossfadeState
+                ? 0
+                : targetOpacity,
+            picture.blendMode()
+        );
+
+        $gameScreen.tintPicture(
+            pictureId,
+            previousTone,
+            0
+        );
+
+        if (
+            crossfadeState &&
+            crossfadeState.bitmap &&
+            (
+                typeof crossfadeState.bitmap
+                    .isReady !==
+                    "function" ||
+                crossfadeState.bitmap
+                    .isReady()
+            )
+        ) {
+            startPortraitExpressionCrossfade(
+                crossfadeState
+            );
+        }
+
+        return true;
+    }
+
+    /*
+     * 憑依演出自身の色膜・透明度変化を優先する。
+     */
+    cancelPortraitExpressionCrossfade(
+        pictureId,
+        true
+    );
 
     $gameScreen.showPicture(
         pictureId,
@@ -153090,13 +153301,457 @@ function getPortraitPictureId(
 }
 
 /*
+ * 現在のピクチャ表示コンテナを取得する。
+ */
+function getPortraitPictureContainer() {
+    const scene =
+        SceneManager._scene;
+
+    if (
+        !scene ||
+        !scene._spriteset ||
+        !scene._spriteset._pictureContainer
+    ) {
+        return null;
+    }
+
+    return scene._spriteset
+        ._pictureContainer;
+}
+
+/*
+ * 指定ピクチャ番号のSprite_Pictureを取得する。
+ */
+function getPortraitPictureSprite(
+    targetPictureId
+) {
+    const container =
+        getPortraitPictureContainer();
+
+    if (!container) {
+        return null;
+    }
+
+    return (
+        container.children.find(
+            child =>
+                child &&
+                child._pictureId ===
+                    targetPictureId
+        ) ||
+        null
+    );
+}
+
+/*
+ * クロスフェード用に残した旧立ち絵を撤去する。
+ */
+function removePortraitExpressionSnapshot(
+    state
+) {
+    if (
+        !state ||
+        !state.sprite
+    ) {
+        return;
+    }
+
+    const sprite =
+        state.sprite;
+
+    if (sprite.parent) {
+        sprite.parent.removeChild(
+            sprite
+        );
+    }
+
+    /*
+     * ImageManagerの共有Bitmap自体は破棄しない。
+     */
+    sprite.bitmap = null;
+    state.sprite = null;
+}
+
+/*
+ * 指定ピクチャの通常クロスフェードを終了する。
+ *
+ * completeがtrueなら、現在の新立ち絵を
+ * 最終透明度まで即時表示してから旧絵を外す。
+ */
+function cancelPortraitExpressionCrossfade(
+    targetPictureId,
+    complete = false
+) {
+    portraitExpressionCrossfadeStates =
+        portraitExpressionCrossfadeStates
+            .filter(
+                state => {
+                    if (
+                        state.pictureId !==
+                        targetPictureId
+                    ) {
+                        return true;
+                    }
+
+                    if (complete) {
+                        const picture =
+                            $gameScreen.picture(
+                                targetPictureId
+                            );
+
+                        if (picture) {
+                            $gameScreen.movePicture(
+                                targetPictureId,
+                                picture.origin(),
+                                picture.x(),
+                                picture.y(),
+                                picture.scaleX(),
+                                picture.scaleY(),
+                                state.targetOpacity,
+                                picture.blendMode(),
+                                0
+                            );
+                        }
+                    }
+
+                    removePortraitExpressionSnapshot(
+                        state
+                    );
+
+                    return false;
+                }
+            );
+}
+
+/*
+ * すべての通常クロスフェードを破棄する。
+ */
+function clearPortraitExpressionCrossfades() {
+    portraitExpressionCrossfadeStates
+        .forEach(
+            state => {
+                removePortraitExpressionSnapshot(
+                    state
+                );
+            }
+        );
+
+    portraitExpressionCrossfadeStates = [];
+}
+
+/*
+ * Game_Pictureの現在位置・倍率・色調を、
+ * 下に残している旧立ち絵へ同期する。
+ *
+ * クロスフェード中に距離・明暗が変わっても、
+ * 旧絵と新絵がずれないようにする。
+ */
+function syncPortraitExpressionSnapshot(
+    state,
+    picture
+) {
+    if (
+        !state ||
+        !state.sprite ||
+        !picture
+    ) {
+        return;
+    }
+
+    const sprite =
+        state.sprite;
+
+    const centered =
+        picture.origin() === 1;
+
+    sprite.anchor.set(
+        centered ? 0.5 : 0,
+        centered ? 0.5 : 0
+    );
+
+    sprite.x = picture.x();
+    sprite.y = picture.y();
+
+    sprite.scale.set(
+        picture.scaleX() / 100,
+        picture.scaleY() / 100
+    );
+
+    sprite.rotation =
+        picture.angle() *
+        Math.PI /
+        180;
+
+    sprite.opacity =
+        state.targetOpacity;
+
+    sprite.blendMode =
+        picture.blendMode();
+
+    const tone =
+        typeof picture.tone ===
+            "function"
+            ? picture.tone()
+            : null;
+
+    if (
+        Array.isArray(tone) &&
+        typeof sprite.setColorTone ===
+            "function"
+    ) {
+        sprite.setColorTone(
+            tone.slice()
+        );
+    }
+}
+
+/*
+ * 現在の立ち絵を、同じピクチャのすぐ下へ
+ * 一時スプライトとして複製する。
+ *
+ * 追加のピクチャ番号は使わないため、
+ * 他のUI・背景・スチル用番号とは衝突しない。
+ */
+function createPortraitExpressionSnapshot(
+    targetPictureId,
+    picture,
+    nextFilename
+) {
+    if (
+        !picture ||
+        !nextFilename ||
+        typeof picture.name !==
+            "function"
+    ) {
+        return null;
+    }
+
+    const oldFilename =
+        String(
+            picture.name() || ""
+        );
+
+    if (!oldFilename) {
+        return null;
+    }
+
+    /*
+     * 同じスロットで前のクロスフェードが
+     * 残っていれば、新絵を完成させてから作り直す。
+     */
+    cancelPortraitExpressionCrossfade(
+        targetPictureId,
+        true
+    );
+
+    const container =
+        getPortraitPictureContainer();
+
+    const targetSprite =
+        getPortraitPictureSprite(
+            targetPictureId
+        );
+
+    if (
+        !container ||
+        !targetSprite
+    ) {
+        return null;
+    }
+
+    const oldBitmap =
+        ImageManager.loadPicture(
+            oldFilename
+        );
+
+    const nextBitmap =
+        ImageManager.loadPicture(
+            nextFilename
+        );
+
+    const snapshot =
+        new Sprite(oldBitmap);
+
+    const targetOpacity =
+        Math.max(
+            0,
+            Math.min(
+                255,
+                Number(
+                    picture.opacity()
+                )
+            )
+        );
+
+    const state = {
+        pictureId:
+            targetPictureId,
+        filename:
+            String(nextFilename),
+        sprite:
+            snapshot,
+        bitmap:
+            nextBitmap,
+        targetOpacity:
+            targetOpacity,
+        phase:
+            "waiting",
+        wait:
+            0
+    };
+
+    syncPortraitExpressionSnapshot(
+        state,
+        picture
+    );
+
+    const targetIndex =
+        container.getChildIndex(
+            targetSprite
+        );
+
+    container.addChildAt(
+        snapshot,
+        Math.max(
+            0,
+            targetIndex
+        )
+    );
+
+    portraitExpressionCrossfadeStates
+        .push(state);
+
+    return state;
+}
+
+/*
+ * 新立ち絵の0→255フェードを開始する。
+ */
+function startPortraitExpressionCrossfade(
+    state
+) {
+    if (!state) {
+        return false;
+    }
+
+    const picture =
+        $gameScreen.picture(
+            state.pictureId
+        );
+
+    if (!picture) {
+        return false;
+    }
+
+    $gameScreen.movePicture(
+        state.pictureId,
+        picture.origin(),
+        picture.x(),
+        picture.y(),
+        picture.scaleX(),
+        picture.scaleY(),
+        state.targetOpacity,
+        picture.blendMode(),
+        PORTRAIT_EXPRESSION_CROSSFADE_DURATION
+    );
+
+    state.phase = "fadeIn";
+
+    /*
+     * 開始した当フレーム分を含め、
+     * Game_Picture側が255へ到達してから旧絵を外す。
+     */
+    state.wait =
+        PORTRAIT_EXPRESSION_CROSSFADE_DURATION +
+        1;
+
+    return true;
+}
+
+/*
+ * 通常表情クロスフェードを毎フレーム進行する。
+ */
+function updatePortraitExpressionCrossfades() {
+    portraitExpressionCrossfadeStates =
+        portraitExpressionCrossfadeStates
+            .filter(
+                state => {
+                    const picture =
+                        $gameScreen.picture(
+                            state.pictureId
+                        );
+
+                    if (
+                        !picture ||
+                        typeof picture.name !==
+                            "function" ||
+                        picture.name() !==
+                            state.filename
+                    ) {
+                        removePortraitExpressionSnapshot(
+                            state
+                        );
+
+                        return false;
+                    }
+
+                    syncPortraitExpressionSnapshot(
+                        state,
+                        picture
+                    );
+
+                    if (
+                        state.phase ===
+                            "waiting"
+                    ) {
+                        if (
+                            state.bitmap &&
+                            typeof state.bitmap
+                                .isReady ===
+                                "function" &&
+                            !state.bitmap.isReady()
+                        ) {
+                            return true;
+                        }
+
+                        if (
+                            !startPortraitExpressionCrossfade(
+                                state
+                            )
+                        ) {
+                            removePortraitExpressionSnapshot(
+                                state
+                            );
+
+                            return false;
+                        }
+
+                        return true;
+                    }
+
+                    state.wait--;
+
+                    if (state.wait > 0) {
+                        return true;
+                    }
+
+                    removePortraitExpressionSnapshot(
+                        state
+                    );
+
+                    return false;
+                }
+            );
+}
+
+/*
  * 指定スロットへ立ち絵を表示する。
  *
  * 新しく登場する場合だけ、
  * 透明な状態から軽くフェードインする。
  *
  * すでに同じスロットに立ち絵がある場合は、
- * 表情変更として即座に差し替える。
+ * 旧絵を残したまま新絵を短く重ねて切り替える。
  */
 function showPortraitInSlot(
     slotNumber,
@@ -153173,11 +153828,13 @@ if (speakerId) {
 
     /*
      * すでにその場所にキャラがいる場合。
-     * 表情だけ差し替える。
+     *
+     * 旧絵を透明度255のまま下へ残し、
+     * 新絵だけをごく短く0→255へ重ねる。
+     * これにより輪郭を透かさず、表情変更だけを馴染ませる。
      *
      * showPicture() はピクチャの色調を初期化するため、
-     * 夜の環境光中に表情を変えると一瞬だけ通常色へ戻る。
-     * 差し替え前の色調を保存し、新画像へ即時で引き継ぐ。
+     * 差し替え前の色調を保存し、新旧両方へ引き継ぐ。
      */
     if (currentPicture) {
         const currentTone =
@@ -153193,6 +153850,19 @@ if (speakerId) {
                     ACTIVE_PORTRAIT_TONE
                 );
 
+        const crossfadeState =
+            createPortraitExpressionSnapshot(
+                targetPictureId,
+                currentPicture,
+                filename
+            );
+
+        const targetOpacity =
+            crossfadeState
+                ? crossfadeState
+                    .targetOpacity
+                : 255;
+
         $gameScreen.showPicture(
             targetPictureId,
             filename,
@@ -153203,7 +153873,9 @@ if (speakerId) {
             distanceData.y,
             distanceData.scale,
             distanceData.scale,
-            255,
+            crossfadeState
+                ? 0
+                : targetOpacity,
             0
         );
 
@@ -153216,6 +153888,22 @@ if (speakerId) {
             previousTone,
             0
         );
+
+        if (
+            crossfadeState &&
+            crossfadeState.bitmap &&
+            (
+                typeof crossfadeState.bitmap
+                    .isReady !==
+                    "function" ||
+                crossfadeState.bitmap
+                    .isReady()
+            )
+        ) {
+            startPortraitExpressionCrossfade(
+                crossfadeState
+            );
+        }
 
         return;
     }
@@ -153519,6 +154207,8 @@ bringClosePortraitsToFront();
 function eraseAllPortraits() {
 
     portraitDistanceFadeStates = [];
+
+    clearPortraitExpressionCrossfades();
 
     portraitExpressionFadeState =
         null;
@@ -156577,6 +157267,14 @@ function startSpeakerExpressionFadeOutIn(
         return false;
     }
 
+    /*
+     * 小物・衣装差分用の完全フェードを優先する。
+     */
+    cancelPortraitExpressionCrossfade(
+        targetPictureId,
+        true
+    );
+
     const displayFilename =
         getDisplayExpression(
             id,
@@ -156820,7 +157518,8 @@ if (slotNumber) {
 
         replaceTalkPossessionPortrait(
             pictureId,
-            displayFilename
+            displayFilename,
+            true
         );
 
         highlightSpeaker(
@@ -161279,6 +161978,7 @@ PluginManager.registerCommand(
                 this
             );
 
+            updatePortraitExpressionCrossfades();
             updatePortraitDistanceFade();
             updatePortraitMotions();
             updatePortraitExpressionFade();

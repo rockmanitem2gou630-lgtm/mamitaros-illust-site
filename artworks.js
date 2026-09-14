@@ -1133,6 +1133,10 @@ const artworks = [
     {
       src: "images/originals/2026/09/20260903_deno_game_ryuta.webp",
       alt: "リュウタロス キャラクター紹介"
+    },
+    {
+      src: "images/originals/2026/09/20260915_deno_game_sample.webp",
+      alt: "サンプル"
     }
   ],
 

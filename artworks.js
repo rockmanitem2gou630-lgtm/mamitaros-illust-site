@@ -1117,8 +1117,6 @@ const artworks = [
   type: "game",
   url: "game/talk-with-DenO.html",
 
-  // ゲーム詳細モーダル：ゲーム開始ボタンの下に並べるキャラ紹介画像
-  // 実際の保存名が違う場合は、ここだけ書き換えてください。
   gameCharacterImages: [
     {
       src: "images/originals/2026/09/20260903_deno_game_momo.webp",
@@ -1135,6 +1133,10 @@ const artworks = [
     {
       src: "images/originals/2026/09/20260903_deno_game_ryuta.webp",
       alt: "リュウタロス キャラクター紹介"
+    }
+    {
+      src: "images/originals/2026/09/20260915_deno_game_sample.webp",
+      alt: "サンプル"
     }
   ],
 

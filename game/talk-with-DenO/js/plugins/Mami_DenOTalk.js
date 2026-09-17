@@ -102525,9 +102525,9 @@ tags: [
 
     participants: [
         {
-            speaker: "ryotaro",
+            speaker: "urataros",
             expression:
-                "portrait_ryotaro_base_ryotaro_normal"
+                "portrait_urataros_base_default_smile"
         },
         {
             speaker: "momotaros",
@@ -102535,19 +102535,19 @@ tags: [
                 "portrait_momotaros_base_default_normal"
         },
         {
-            speaker: "urataros",
+            speaker: "ryutaros",
             expression:
-                "portrait_urataros_base_default_smile"
+                "portrait_ryutaros_base_default_smile"
         },
-        {
+                {
             speaker: "kintaros",
             expression:
                 "portrait_kintaros_base_default_normal"
         },
         {
-            speaker: "ryutaros",
+            speaker: "ryotaro",
             expression:
-                "portrait_ryutaros_base_default_smile"
+                "portrait_ryotaro_base_ryotaro_normal"
         },
         {
             speaker: "mio"
@@ -139939,6 +139939,107 @@ tags: [
 {
     participants: [
         {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "ウラタロス、\nなんでちょっと斜めなの？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "右斜め４５度。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "これ、僕の角度ね。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "角度決まってるんだ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "一番よく見える角度くらい、\n知っておかないと。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "いちいち面倒くせぇな、亀。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "先輩も探してみたら？\n自分の角度。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "俺はどっから見ても\nカッコいいんだよ！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "じゃあモモは３６０度だね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "……だろ！？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "そこは喜ぶんだ。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "urataros",
+        "momotaros",
+        "mio",
+        "angle",
+        "posing",
+        "ryuki_parody"
+    ]
+},
+{
+    participants: [
+        {
             speaker: "ryutaros",
             expression:
                 "portrait_ryutaros_base_default_smile"
@@ -155799,6 +155900,48 @@ if (speakerId) {
             targetPictureId
         );
 
+    /*
+     * 距離変更のフェード中は、同じピクチャの透明度を
+     * 距離演出側が管理している。
+     *
+     * この最中に通常の表情クロスフェードも開始すると、
+     * 両方が同じ透明度を上書きし合い、端末の処理順によっては
+     * 立ち絵が透明なまま残ることがある。
+     *
+     * フェードアウト中なら、透明になった瞬間に使う画像を
+     * 最新表情へ差し替える。
+     * フェードイン中なら、距離演出完了後に表情変更を行う。
+     */
+    const activeDistanceFadeState =
+        portraitDistanceFadeStates.find(
+            state =>
+                state.pictureId ===
+                    targetPictureId
+        );
+
+    if (
+        currentPicture &&
+        activeDistanceFadeState &&
+        typeof currentPicture.name ===
+            "function" &&
+        currentPicture.name() !== filename
+    ) {
+        ImageManager.loadPicture(filename);
+
+        if (
+            activeDistanceFadeState.phase ===
+                "fadeOut"
+        ) {
+            activeDistanceFadeState.filename =
+                filename;
+        } else {
+            activeDistanceFadeState.pendingFilename =
+                filename;
+        }
+
+        return;
+    }
+
     const effectiveAppearFadeDuration =
         resolvePortraitAppearFadeDuration(
             appearFadeDuration
@@ -156710,7 +156853,27 @@ function fadePortraitDistance(
             slotNumber
         );
 
-    const picture =
+    let picture =
+        $gameScreen.picture(
+            targetPictureId
+        );
+
+    if (!picture) {
+        return false;
+    }
+
+    /*
+     * 表情クロスフェードと距離フェードに、同じピクチャの
+     * 透明度を同時操作させない。
+     * 距離演出を始める時点で表情側を完成させてから、
+     * 改めて現在の画像・透明度を取得する。
+     */
+    cancelPortraitExpressionCrossfade(
+        targetPictureId,
+        true
+    );
+
+    picture =
         $gameScreen.picture(
             targetPictureId
         );
@@ -156937,10 +157100,36 @@ if (Array.isArray(state.tone)) {
         /*
          * フェードイン完了。
          */
+        const pendingFilename =
+            String(
+                state.pendingFilename || ""
+            );
+
         portraitDistanceFadeStates.splice(
             index,
             1
         );
+
+        /*
+         * 距離フェードイン中に届いた表情変更は、
+         * 距離演出が完全に終わってから通常の
+         * クロスフェードとして安全に反映する。
+         */
+        if (
+            pendingFilename &&
+            typeof picture.name ===
+                "function" &&
+            picture.name() !==
+                pendingFilename
+        ) {
+            showPortraitInSlot(
+                state.slotNumber,
+                pendingFilename,
+                getPortraitDisplaySpeakerForDistance(
+                    state.speakerId
+                )
+            );
+        }
     }
 
     /*
@@ -161539,12 +161728,66 @@ function requestExpressionReset(
  * この初期化後に改めて指定距離へ変更される。
  */
 function resetPortraitDistancesForNewTalk() {
+    /*
+     * 配列だけを空にすると、直前の距離フェードが命令した
+     * opacity 0（または途中値）がGame_Pictureへ残る。
+     * 次の会話が同じ画像・同じ配置だった場合、
+     * showPortraitInSlot()は再表示を省略するため、
+     * その立ち絵だけ透明なままになる。
+     *
+     * 新しい会話の開始時は、古い演出を破棄するだけでなく、
+     * 現在存在する立ち絵を通常距離・完全表示へ確定する。
+     */
+    portraitDistanceFadeStates = [];
+
+    clearPortraitExpressionCrossfades();
+
+    portraitExpressionFadeState = null;
+
+    pageParticipantsTransitionState = null;
+
     currentPortraitDistance = {};
     activeTalkDistanceSpeakers = [];
-    portraitDistanceFadeStates = [];
 
     pendingRestoreAfterDistanceFade =
         false;
+
+    const normalDistance =
+        PORTRAIT_DISTANCE_DATA.normal;
+
+    for (
+        let slotNumber = 1;
+        slotNumber <= MAX_PORTRAIT_COUNT;
+        slotNumber++
+    ) {
+        const targetPictureId =
+            getPortraitPictureId(
+                slotNumber
+            );
+
+        const picture =
+            $gameScreen.picture(
+                targetPictureId
+            );
+
+        if (!picture) {
+            continue;
+        }
+
+        $gameScreen.movePicture(
+            targetPictureId,
+            picture.origin(),
+            getPortraitSlotX(
+                slotNumber
+            ),
+            normalDistance.y,
+            normalDistance.scale,
+            normalDistance.scale,
+            255,
+            picture.blendMode(),
+            0
+        );
+    }
 }
 
 /*

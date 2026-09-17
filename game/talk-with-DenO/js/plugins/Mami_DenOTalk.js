@@ -139470,6 +139470,475 @@ tags: [
 {
     participants: [
         {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "先輩、もう少し\n優しくできないの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "何がだよ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "女性はね、\nガラス細工みたいに扱わないと。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "ガラス細工ぅ？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "ガラス細工かぁ……。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "せやけど、それ\nいくらくらいのガラス細工や？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_surprised",
+            text:
+                "……え？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "ガラス細工にも\n色々あるやろ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "値段で扱い方も\n変わってくるんちゃうか？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "そういう意味じゃ\nないんだけどなぁ……。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "ほな……五万くらいか？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "五万！？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "テメェ、澪が五万程度だと\n思ってんのか！！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_angry",
+            text:
+                "なんで俺が\n怒られんねん！？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "そもそも私に\n値段つけないでね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "……それもそうだな。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "ガラス細工の話だった\nはずなんだけどね。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "urataros",
+        "kintaros",
+        "momotaros",
+        "mio",
+        "glass",
+        "women",
+        "agito_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "だから亀！\nテメェが余計なこと言うからだろ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "僕は事実を\n言っただけだけど？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "その言い方が\n余計なんだよ！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "また喧嘩してる！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "まぁ落ち着け、桃の字。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……あ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "あ？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "豆苗、伸びてる。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_surprised",
+            text:
+                "ほんとだ！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "世の中色々あるけど、\n野菜は育つね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "今それ言う！？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "僕たちの話より\n豆苗なんだね。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "豆苗は順調だから。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "俺らは順調じゃねぇ\nみたいに言うな！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros",
+        "urataros",
+        "kintaros",
+        "ryutaros",
+        "mio",
+        "vegetable",
+        "pea_shoots",
+        "agito_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "……なんだよ亀。\n人のラーメン見て。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text:
+                "いや、そのナルト……。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text:
+                "ちょっと気になる\n渦してるなと思って。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "渦？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "ナルト占い。\n知らない？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "そんなもんあんのか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "初めて聞いた。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text:
+                "……あー。\nこれはちょっとまずいね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "何がだよ！？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "近いうちに、身近な相手に\n振り回されるよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "身近な相手……？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text:
+                "それから、つい強がって\n格好つけたくなるけど……。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "だいたい最後に\n恥ずかしい思いをする。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_worried",
+            text:
+                "マジかよ……。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "モモ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "あ？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "それ、占いじゃなくても\n分かることじゃない？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "……。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "よく当たるでしょ？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "テメェ亀！！\n適当に言ってただろ！！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "でも全部当たってるよ？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "当たってるね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "澪まで納得すんな！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros",
+        "urataros",
+        "mio",
+        "ramen",
+        "naruto",
+        "fortune_telling",
+        "agito_parody"
+    ]
+},
+{
+    participants: [
+        {
             speaker: "ryutaros",
             expression:
                 "portrait_ryutaros_base_default_smile"
@@ -139738,6 +140207,158 @@ tags: [
             "kintaros"
         ]
     },
+    {
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    season: "spring",
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "……なんか眠ぃな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "春だからじゃない？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "春って眠くなんのか？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "暖かいと眠くならない？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "……ちょっと分かる。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "寝てもいいよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "寝ねぇよ！\n熊公と一緒にすんな！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "season",
+        "spring",
+        "momotaros",
+        "mio"
+    ]
+},
+
+{
+    participants: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    season: "spring",
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "お姉ちゃん、もう春？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん、春だね。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_surprised",
+            text:
+                "いつから春になったの？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "いつから……。"
+        },
+        {
+            speaker: "ryutaros",
+            text:
+                "昨日は？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "昨日も春。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "じゃあその前は？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "リュウタ、春の始まりを\n探そうとしてる？"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "うん！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "たぶん見つからないよ。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "season",
+        "spring",
+        "ryutaros",
+        "mio"
+    ]
+},
     // 夏
     {
     participants: [
@@ -139798,7 +140419,575 @@ tags: [
         "kintaros"
     ]
 },
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        }
+    ],
 
+    season: "summer",
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "あっちぃ！！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text:
+                "先輩、それ何回目？"
+        },
+        {
+            speaker: "momotaros",
+            text:
+                "知るか！\n暑ぃもんは暑ぃんだよ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "言うたびに涼しくなるなら\n僕も言うんだけどね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "ならねぇから困ってんだろ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "怒ると余計暑くない？"
+        },
+        {
+            speaker: "momotaros",
+            text:
+                "うるせぇ亀！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "season",
+        "summer",
+        "momotaros",
+        "urataros"
+    ]
+},
+
+{
+    participants: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    season: "summer",
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "お姉ちゃん、アイス食べよ！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "さっき食べてなかった？"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "食べたよ？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "じゃあ今日はもう終わり。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "なんで！？\n暑いんだからもう一個！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "暑さと個数は関係ないよ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_surprised",
+            text:
+                "ないの？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ない。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "夏なのに！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "season",
+        "summer",
+        "ryutaros",
+        "mio"
+    ]
+},
+{
+    season: "summer",
+
+    possessedBy:
+        "momotaros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "momotaros",
+
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "あっちぃ……！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ライダース脱いだら？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "はぁ！？\n脱がねぇよ！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "暑いんでしょ？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "これは込みで完成なんだよ！\n上だけ脱いだら締まらねぇだろ！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "暑さよりそっちなんだ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "当たり前だろ！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "……あっちぃ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "脱げばいいのに。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "season",
+        "summer",
+        "momotaros",
+        "mio",
+        "possessed",
+        "momotaros_outfit"
+    ]
+},
+{
+    season: "summer",
+
+    possessedBy:
+        "urataros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "momotaros",
+
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "これ、夏に着るには\nちょっと暑いね。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "脱げば？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_shy",
+            text:
+                "澪ちゃん、そんなこと\nさらっと言うんだ。大胆だね。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ライダースを。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "分かってるよ。\nちょっと言ってみただけ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "スケベ亀！\n澪に余計なこと言うんじゃねぇ！！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text:
+                "じゃあ先輩、これ脱いでいい？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "ダメだ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "即答なんだ……。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "season",
+        "summer",
+        "urataros",
+        "momotaros",
+        "mio",
+        "possessed",
+        "momotaros_outfit"
+    ]
+},
+{
+    season: "summer",
+
+    possessedBy:
+        "kintaros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "momotaros",
+
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "……暑いな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "上着、脱いだら？"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "せやな。\nほな脱ぐか。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "待て熊公！\n勝手に脱ぐな！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "暑いんやからしゃあないやろ。"
+        },
+        {
+            speaker: "momotaros",
+            text:
+                "それ込みで俺のコーデなんだよ！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "今着とるん俺やけどな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "それはそうだね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "お前まで納得すんな！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "season",
+        "summer",
+        "kintaros",
+        "momotaros",
+        "mio",
+        "possessed",
+        "momotaros_outfit"
+    ]
+},
+{
+    season: "summer",
+
+    possessedBy:
+        "ryutaros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "momotaros",
+
+    participants: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "暑い！\nこれ脱ぐ！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "待て小僧！"
+        },
+        {
+            speaker: "ryutaros",
+            text:
+                "なに？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "勝手に脱ぐな！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "なんで！？\n暑いもん！"
+        },
+        {
+            speaker: "momotaros",
+            text:
+                "それ込みで俺の服なんだよ！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_surprised",
+            text:
+                "でもモモタロス、\n今着てないじゃん！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "確かに。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "そういう問題じゃねぇ！！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "じゃあモモタロスが着てよ！\n僕暑い！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "今それはできねぇだろ……！"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "じゃあ脱いでいい？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "ダメだ！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "season",
+        "summer",
+        "ryutaros",
+        "momotaros",
+        "mio",
+        "possessed",
+        "momotaros_outfit"
+    ]
+},
     // 秋
     {
     participants: [
@@ -139861,7 +141050,150 @@ tags: [
         "kintaros"
     ]
 },
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        }
+    ],
 
+    season: "autumn",
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "なんか腹減ったな。"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "さっき食うたやろ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "秋だからじゃねぇか？"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "何がや。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "食欲の秋って言うだろ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "桃の字は年中やろ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "秋のせいにさせろよ！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "season",
+        "autumn",
+        "momotaros",
+        "kintaros"
+    ]
+},
+
+{
+    participants: [
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    season: "autumn",
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "だいぶ涼しくなったね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text:
+                "やっと過ごしやすくなったね。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "夏は暑かったもんね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "先輩がずっとうるさかったし。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "暑いって？"
+        },
+        {
+            speaker: "urataros",
+            text:
+                "暑い、暑い、暑いって。\n聞いてるこっちまで暑くなるよ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ウラタロスも覚えてるくらい\n言ってたんだ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "嫌でも覚えるよ。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "season",
+        "autumn",
+        "urataros",
+        "mio"
+    ]
+},
     // 冬
     {
     participants: [
@@ -139938,7 +141270,262 @@ tags: [
         "kintaros"
     ]
 },
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
 
+    season: "winter",
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "さっむ！！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "寒いね。"
+        },
+        {
+            speaker: "momotaros",
+            text:
+                "なんで澪はそんな普通なんだよ！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "寒いものは仕方ないし。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "いや、もっとなんかあるだろ！\nさっむ！とか！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "さっむ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "……言わせた俺が悪かった。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "season",
+        "winter",
+        "momotaros",
+        "mio"
+    ]
+},
+
+{
+    participants: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    season: "winter",
+
+    pages: [
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "お姉ちゃん、雪まだ？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "まだ降ってないね。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "遅い！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "雪に言っても仕方ないよ。"
+        },
+        {
+            speaker: "ryutaros",
+            text:
+                "降ったら雪合戦する！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "いいよ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "雪だるまも作る！\nあといっぱい踏む！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "最後だけ目的が分からない。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_smile",
+            text:
+                "楽しいよ！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "season",
+        "winter",
+        "ryutaros",
+        "mio"
+    ]
+},
+{
+    season: "winter",
+
+    possessedBy:
+        "kintaros",
+
+    possessionOutfit:
+        "imagin_preference",
+
+    possessionOutfitOwner:
+        "ryutaros",
+
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "冬はこの腹巻きが\nありがたいなぁ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "シャツだってば！"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "せやけど腹が温いで。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "冬になると余計に\n腹巻き扱いが強くなったね。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "寒い時こそ腹を\n冷やしたらあかんからな。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "冬でもシャツなの！"
+        },
+        {
+            speaker: "kintaros",
+            text:
+                "ハイカラな上に温い。\nようできとるなぁ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "たぶんリュウタは\nそういうつもりで選んでないよ。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_normal",
+            text:
+                "かっこいいから選んだの！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "かっこようて温い。\nええ腹巻きや。"
+        },
+        {
+            speaker: "ryutaros",
+            expression:
+                "portrait_ryutaros_base_default_angry",
+            text:
+                "シャツ！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "season",
+        "winter",
+        "kintaros",
+        "ryutaros",
+        "mio",
+        "possessed",
+        "ryutaros_outfit"
+    ]
+},
 ],
     honmaru: [],
     time: []
@@ -153303,7 +154890,7 @@ const IMAGIN_BODY_POSE_BY_EXPRESSION = {
     },
 
     ryutaros: {
-        angry: "01",
+        angry: "02",
         cry: "01",
         jealous: "01",
         normal: "01",

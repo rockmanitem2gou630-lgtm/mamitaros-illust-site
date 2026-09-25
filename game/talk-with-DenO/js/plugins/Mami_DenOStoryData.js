@@ -46099,7 +46099,8 @@
         {
             "speaker": "kintaros",
             "text": "貸せ。",
-            "expression": "portrait_kintaros_base_default_angry"
+            "expression": "portrait_kintaros_base_default_angry",
+            "storyStill": "CG_kintaros_ep06_01.png"
         },
         {
             "speaker": "mio",
@@ -46135,7 +46136,8 @@
         {
             "speaker": "kintaros",
             "text": "最初から\n素直にしとけ。",
-            "expression": "portrait_kintaros_base_default_angry"
+            "expression": "portrait_kintaros_base_default_angry",
+            "storyStillClear": true
         },
         {
             "speaker": "mio",

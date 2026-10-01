@@ -143181,6 +143181,108 @@ tags: [
     ]
 },
 {
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "いただくでぇ！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "あ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "……ん？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "どうしちゃったのかな、澪ちゃん！\nそんなに僕の顔見ちゃってさぁ！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……それ、モモに渡すつもりだったんだけど。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "はっはっはっはっは！\nそうだったのぉ？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "キンタロス。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "なんだい？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "もう一回喋って。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "僕には何がおかしいのか、分からへんけどねぇ？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……いた。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "何がだい？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "キンタロス。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros_mio",
+        "imagin_form"
+    ]
+},
+{
     participants: [
         {
             speaker: "ryutaros",

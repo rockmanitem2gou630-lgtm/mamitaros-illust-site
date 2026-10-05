@@ -143285,6 +143285,701 @@ tags: [
 {
     participants: [
         {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "ウラタロス、今度\nちょっと付き合ってくれる？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "もちろん。\n澪ちゃんから誘ってくれるなんてね。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "買い物なんだけど。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "困るなぁ。\n人をその気にさせといて。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "何の気になったの？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "人生は短い。\nけど、夜は長い。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "夜も寝たら\nすぐ朝になるよ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "……そういう話じゃ\nないんだけどなぁ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "買い物の話でしょ？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "澪ちゃんって本当に\n雰囲気に流されないよね。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "何買うかまだ\n言ってなかったね。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "もう完全に\n買い物に戻るんだ。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "urataros",
+        "mio",
+        "shopping",
+        "flirting",
+        "kiva_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward"
+        },
+        {
+            speaker: "mio"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "澪。\nこれ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "何？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "この前出た時に\n見つけたんだよ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "私に？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_shy",
+            text:
+                "まぁ……そうだ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "これ……\n酷いもんだけど。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "酷いものなの？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "あ？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "先輩。\nつまらないものでしょ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "……それだ！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "だいぶ意味変わってるね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angryshy",
+            text:
+                "似たようなもんだろ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "贈り物を自分で\n酷いって言う人は珍しいね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "言い間違えただけだ！！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "じゃあ開けていい？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "……おう。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ありがとう、モモ。\n嬉しいよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_shy",
+            text:
+                "……ならいい。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "酷いものじゃなくて\nよかったね、先輩。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "まだ言うか亀！！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "momotaros",
+        "urataros",
+        "mio",
+        "gift",
+        "misremembering",
+        "kiva_parody"
+    ]
+},
+{
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_angry",
+            text:
+                "……へっくし！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "キンタロス、\nくしゃみ？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "ん？\nまぁ、そうみたいやな。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "イマジンって\n風邪引くの？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "そら、イマジンかて──"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_normal",
+            text:
+                "病名は……"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "恋の病。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_normal",
+            text:
+                "なんやて？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "特効薬は……\n君だ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "ウラタロスには\n聞いてないよ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "冷たいなぁ。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "俺のくしゃみの話やった\nはずなんやけどな。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_awkward",
+            text:
+                "病気なのは\n亀の方じゃねぇのか？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "それなら澪ちゃんに\n治してもらわないとね。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "治療できる気がしない。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "ほっとけほっとけ！"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros",
+        "urataros",
+        "momotaros",
+        "mio",
+        "sneeze",
+        "cold",
+        "flirting",
+        "kiva_parody"
+    ]
+},
+{
+    possessedBy: "kintaros",
+
+    possessionOutfit: "imagin_preference",
+
+    possessionOutfitOwner: "momotaros",
+
+    participants: [
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile"
+        },
+        {
+            speaker: "mio"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "キンタロス、\nその服気に入った？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "悪ないな！"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_smile",
+            text:
+                "まさにロックや！\nジンジン来たで！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "なんだそのノリ！？"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "先輩の服着ると\nそうなるの？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "いつものキンタロスと\nちょっと違うね。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_grin",
+            text:
+                "たまにはこういうんも\nええやろ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "先輩、自分の服を\nキンちゃんに着られて泣ける？"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_cry",
+            text:
+                "泣けるで！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "戻ってきたね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "何が戻ったんだよ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "いつものキンちゃん。"
+        },
+        {
+            speaker: "kintaros",
+            expression:
+                "portrait_kintaros_base_default_cry",
+            text:
+                "泣けるでぇ！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "完全に戻ったね。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "kintaros",
+        "momotaros",
+        "urataros",
+        "mio",
+        "k_ryotaro",
+        "imagin_preference",
+        "momotaros_outfit",
+        "rock",
+        "kiva_parody"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "はぁ……。\nちょっと疲れたかも……。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "良太郎くん、\nどうしたの？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "ウラタロスが、\n少し話しかけるだけでいいって……"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_smile",
+            text:
+                "遊び心だよ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "不健全な遊び心だね。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "テメェ、また良太郎を\n変なことに巻き込んだな！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "変なことじゃないよ。\nちょっとした交流さ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "良太郎くんが\n疲れてる時点でだめだよ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "澪。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "うん。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_surprised",
+            text:
+                "え、何その連携。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "くらえ……"
+        },
+        {
+            speaker: "mio",
+            text:
+                "正義の鉄拳！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_surprised",
+            text:
+                "二人がかり！？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_surprised",
+            text:
+                "あっ……。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "少しは反省しろ！"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_awkward",
+            text:
+                "軽い制裁にしてよ……。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "軽いやつだよ。"
+        },
+        {
+            speaker: "urataros",
+            expression:
+                "portrait_urataros_base_default_wrysmile",
+            text:
+                "澪ちゃんが言うと\n逆に怖いなぁ。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "でも、ちょっと\nすっきりしたかも……。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro",
+        "urataros",
+        "momotaros",
+        "mio",
+        "unpossessed",
+        "punishment",
+        "kiva_parody"
+    ]
+},
+{
+    participants: [
+        {
             speaker: "ryutaros",
             expression:
                 "portrait_ryutaros_base_default_smile"
@@ -143482,6 +144177,215 @@ tags: [
         "mio",
         "hero_play",
         "teasing"
+    ]
+},
+{
+    onlyWhenUnpossessed: true,
+
+    participants: [
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_normal"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal"
+        },
+        {
+            speaker: "mio"
+        }
+    ],
+
+    pages: [
+        {
+            speaker: "mio",
+            text:
+                "良太郎くん、それ重い？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "ちょっとだけ。\n澪さんは平気なの？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "これくらいなら。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "おい良太郎！\nお前、まさか澪より弱ぇんじゃねぇだろうな！？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "え……？\nどうだろう。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "さすがにそれはないんじゃない？"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "だったら腕相撲で決めろ！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "なんで腕相撲なの……？"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……ちょっと気になる。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_grin",
+            text:
+                "ほら見ろ！\n決まりだ！"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_normal",
+            text:
+                "よーい……始め！"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "ん……っ。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……良太郎くん、思ったより強い。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_smile",
+            text:
+                "澪さんも、結構強いね……。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "これ、本当にどっちが勝つんだろう。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_surprised",
+            motion: "tripFall",
+            text:
+                "あっ、椅子が……！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "えっ。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_surprised",
+            text:
+                "良太郎ォ！？"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            motion: "recover",
+            text:
+                "……負けた。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "……勝った。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "今のノーカンだろ！！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "でも勝ちは勝ち。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "うん……。"
+        },
+        {
+            speaker: "mio",
+            text:
+                "私、電王に勝っちゃった。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "変身してないけどね……。"
+        },
+        {
+            speaker: "momotaros",
+            expression:
+                "portrait_momotaros_base_default_angry",
+            text:
+                "勝ってねぇだろ！！\n今のは事故だ！！"
+        },
+        {
+            speaker: "mio",
+            text:
+                "それも良太郎くんの一部でしょ。"
+        },
+        {
+            speaker: "ryotaro",
+            expression:
+                "portrait_ryotaro_base_ryotaro_worried",
+            text:
+                "否定できない……。"
+        }
+    ],
+
+    tags: [
+        "normal",
+        "ryotaro",
+        "momotaros",
+        "mio",
+        "unpossessed",
+        "arm_wrestling",
+        "strength",
+        "bad_luck"
     ]
 },
 

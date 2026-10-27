@@ -1192,4 +1192,4 @@ const artworks = [
   dream: true,
   draft: false
 },
-];
+*];

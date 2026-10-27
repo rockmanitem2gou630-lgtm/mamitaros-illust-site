@@ -1244,3 +1244,14 @@ body:has(.norimune-game-section) main {
     padding-right: 8px;
   }
 }
+
+
+/* 一時的にサイト全体を非表示 */
+html {
+    background: white !important;
+    background-image: none !important;
+}
+
+body {
+    display: none !important;
+}
